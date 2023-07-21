@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/project/img/fluid.png">
-  <link rel="icon" href="/project/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="Linux 文件权限学习 用户与用户组  文件拥有者(root) 一般用户组 其他人  文件权限 在终端输入 ls -al 后，就会出现一堆东西，其中在每一行的前面的是文件的权限，共有10个字符，  第一个字符代表这个文件是目录、文件或链接文件。  d 则是目录 - 则是文件 l 则是链接文件  接下来三个为一组，共三组；其中 r 表示可读，w 表示可写，x 表">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 学习 1">
-<meta property="og:url" content="https://skys0.github.io/project/2022/08/08/Linux-%E5%AD%A6%E4%B9%A0-1/index.html">
+<meta property="og:url" content="https://skys0.github.io/2022/08/08/Linux-%E5%AD%A6%E4%B9%A0-1/index.html">
 <meta property="og:site_name" content="Sky 的博客">
 <meta property="og:description" content="Linux 文件权限学习 用户与用户组  文件拥有者(root) 一般用户组 其他人  文件权限 在终端输入 ls -al 后，就会出现一堆东西，其中在每一行的前面的是文件的权限，共有10个字符，  第一个字符代表这个文件是目录、文件或链接文件。  d 则是目录 - 则是文件 l 则是链接文件  接下来三个为一组，共三组；其中 r 表示可读，w 表示可写，x 表">
 <meta property="og:locale" content="zh_CN">
@@ -55,12 +55,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/project/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/project/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/project/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -69,15 +69,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"skys0.github.io","root":"/project/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"   ","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/project/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"skys0.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"   ","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/project/js/utils.js" ></script>
-  <script  src="/project/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
@@ -94,7 +94,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/project/">
+    <a class="navbar-brand" href="/">
       <strong>Fluid</strong>
     </a>
 
@@ -113,7 +113,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/project/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -125,7 +125,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/project/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -137,7 +137,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/project/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -149,7 +149,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/project/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -161,7 +161,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/project/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -359,7 +359,7 @@ Windows 区分开</p>
     
       <span class="category-chain">
         
-  <a href="/project/categories/%E5%AD%A6%E4%B9%A0%E9%9A%8F%E7%AC%94/" class="category-chain-item">学习随笔</a>
+  <a href="/categories/%E5%AD%A6%E4%B9%A0%E9%9A%8F%E7%AC%94/" class="category-chain-item">学习随笔</a>
   
   
 
@@ -374,7 +374,7 @@ Windows 区分开</p>
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/project/tags/Linux/" class="print-no-link">#Linux</a>
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
       
     </div>
   
@@ -387,7 +387,7 @@ Windows 区分开</p>
   <div class="license-box my-3">
     <div class="license-title">
       <div>Linux 学习 1</div>
-      <div>https://skys0.github.io/project/2022/08/08/Linux-学习-1/</div>
+      <div>https://skys0.github.io/2022/08/08/Linux-学习-1/</div>
     </div>
     <div class="license-meta">
       
@@ -431,7 +431,7 @@ Windows 区分开</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/project/2023/07/21/Java%E6%9A%91%E5%81%87%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" title="Java 暑假基础学习">
+                      <a href="/2023/07/21/Java%E6%9A%91%E5%81%87%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" title="Java 暑假基础学习">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Java 暑假基础学习</span>
                         <span class="visible-mobile">上一篇</span>
@@ -441,7 +441,7 @@ Windows 区分开</p>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/project/2022/04/29/%E4%BD%BF%E7%94%A8-Python-opencv-%E7%BC%A9%E6%94%BE%E5%9B%BE%E5%83%8F/" title="使用 Python opencv 缩放图像">
+                      <a href="/2022/04/29/%E4%BD%BF%E7%94%A8-Python-opencv-%E7%BC%A9%E6%94%BE%E5%9B%BE%E5%83%8F/" title="使用 Python opencv 缩放图像">
                         <span class="hidden-mobile">使用 Python opencv 缩放图像</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -577,8 +577,8 @@ Windows 区分开</p>
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/project/js/events.js" ></script>
-<script  src="/project/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -600,7 +600,7 @@ Windows 区分开</p>
 
 
   
-    <script  src="/project/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -742,7 +742,7 @@ Windows 区分开</p>
 
   <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
-  <script  src="/project/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -750,7 +750,7 @@ Windows 区分开</p>
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/project/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   

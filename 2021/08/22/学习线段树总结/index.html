@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/project/img/fluid.png">
-  <link rel="icon" href="/project/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="这几天在复习 qbxt 的知识，学到了线段树，就来总结一下。 线段树  上面这张图显然是线段树，线段树就是一个处理区间的一个数据结构，将整个线段划分成一个树的结构，将长度不是 1 的段划分成两个子区间来求解，通过合并两个区间的信息来求解，这也是一个高效的数据结构。 总体时间复杂度为 \(O(\log n)\)  适用范围：区间的最小值或最大值，区间的修改，区间求和  操作 在">
 <meta property="og:type" content="article">
 <meta property="og:title" content="学习线段树总结">
-<meta property="og:url" content="https://skys0.github.io/project/2021/08/22/%E5%AD%A6%E4%B9%A0%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:url" content="https://skys0.github.io/2021/08/22/%E5%AD%A6%E4%B9%A0%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Sky 的博客">
 <meta property="og:description" content="这几天在复习 qbxt 的知识，学到了线段树，就来总结一下。 线段树  上面这张图显然是线段树，线段树就是一个处理区间的一个数据结构，将整个线段划分成一个树的结构，将长度不是 1 的段划分成两个子区间来求解，通过合并两个区间的信息来求解，这也是一个高效的数据结构。 总体时间复杂度为 \(O(\log n)\)  适用范围：区间的最小值或最大值，区间的修改，区间求和  操作 在">
 <meta property="og:locale" content="zh_CN">
@@ -63,12 +63,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/project/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/project/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/project/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -77,15 +77,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"skys0.github.io","root":"/project/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"   ","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/project/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"skys0.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"   ","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/project/js/utils.js" ></script>
-  <script  src="/project/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
@@ -102,7 +102,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/project/">
+    <a class="navbar-brand" href="/">
       <strong>Fluid</strong>
     </a>
 
@@ -121,7 +121,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/project/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -133,7 +133,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/project/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -145,7 +145,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/project/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -157,7 +157,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/project/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -169,7 +169,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/project/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -283,7 +283,7 @@
                 
                 <p>这几天在复习 qbxt 的知识，学到了线段树，就来总结一下。</p>
 <h1 id="线段树">线段树</h1>
-<p><img src="https://z3.ax1x.com/2021/08/17/f4sLWR.png" srcset="/project/img/loading.gif" lazyload /></p>
+<p><img src="https://z3.ax1x.com/2021/08/17/f4sLWR.png" srcset="/img/loading.gif" lazyload /></p>
 <p>上面这张图显然是线段树，线段树就是一个处理区间的一个数据结构，将整个线段划分成一个树的结构，将长度不是
 1
 的段划分成两个子区间来求解，通过合并两个区间的信息来求解，这也是一个高效的数据结构。</p>
@@ -307,14 +307,14 @@ class="math inline">\(p^2+1\)</span></p>
 <p>设所在区间为 <span class="math inline">\([l,r]\)</span> , 查询区间为
 <span class="math inline">\([s,t]\)</span> 。</p>
 <figure>
-<img src="https://z3.ax1x.com/2021/08/20/fj97CQ.jpg" srcset="/project/img/loading.gif" lazyload alt="tree" />
+<img src="https://z3.ax1x.com/2021/08/20/fj97CQ.jpg" srcset="/img/loading.gif" lazyload alt="tree" />
 <figcaption aria-hidden="true">tree</figcaption>
 </figure>
 <p>那么根据这张图可以很显然的推出所在区间在查询区间的判断方式：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">if</span>(s &lt;= l &amp;&amp; r &lt;= t)<br></code></pre></td></tr></table></figure>
 <p>设中间位置为 <span class="math inline">\(mid =
 \dfrac{(l+r)}{2}\)</span> 。</p>
-<p><img src="https://z3.ax1x.com/2021/08/20/fjiS1J.jpg" srcset="/project/img/loading.gif" lazyload /></p>
+<p><img src="https://z3.ax1x.com/2021/08/20/fjiS1J.jpg" srcset="/img/loading.gif" lazyload /></p>
 <p>可以很<del>简单</del>的看出，进入左儿子的条件是：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">if</span>(mid &gt;= s)<br></code></pre></td></tr></table></figure>
 <p>进入右儿子的条件是：</p>
@@ -338,13 +338,13 @@ class="math inline">\(\mathcal{O}(\log n)\)</span> 的。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r,<span class="hljs-type">int</span> s,<span class="hljs-type">int</span> tt,<span class="hljs-type">int</span> c,<span class="hljs-type">int</span> p)</span></span>&#123;<br>	<span class="hljs-comment">// [l,r] 为当前的, [s,t] 为询问的</span><br>	<span class="hljs-keyword">if</span>(l &gt;= s &amp;&amp; r &lt;= tt)&#123;<br>		t[p] += (r-l+<span class="hljs-number">1</span>)*c;lazy[p] += c  <span class="hljs-comment">//懒标记;</span><br>		<span class="hljs-keyword">return</span>;<br>	&#125;<br>	<span class="hljs-type">int</span> mid = l+(r-l)/<span class="hljs-number">2</span>;<br>	<span class="hljs-keyword">if</span>(lazy[p] &amp;&amp; l!=r)&#123; 	<span class="hljs-comment">// 懒标记的更新</span><br>		t[<span class="hljs-built_in">ls</span>(p)] += (mid-l+<span class="hljs-number">1</span>)*lazy[p];t[<span class="hljs-built_in">rs</span>(p)] += (r-mid) * lazy[p];<br>		lazy[<span class="hljs-built_in">ls</span>(p)] += lazy[p];lazy[<span class="hljs-built_in">rs</span>(p)] += lazy[p];<br>		lazy[p] = <span class="hljs-number">0</span>;<br>	&#125;<br>	<span class="hljs-keyword">if</span>(mid &gt;= s)<br>		<span class="hljs-built_in">update</span>(l,mid,s,tt,c,<span class="hljs-built_in">ls</span>(p));<br>	<span class="hljs-keyword">if</span>(tt &gt; mid)<br>		<span class="hljs-built_in">update</span>(mid+<span class="hljs-number">1</span>,r,s,tt,c,<span class="hljs-built_in">rs</span>(p));<br>	t[p] = t[<span class="hljs-built_in">ls</span>(p)] + t[<span class="hljs-built_in">rs</span>(p)];<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>举个例子吧：</p>
 <figure>
-<img src="https://z3.ax1x.com/2021/08/22/hpaTg0.png" srcset="/project/img/loading.gif" lazyload alt="step1" />
+<img src="https://z3.ax1x.com/2021/08/22/hpaTg0.png" srcset="/img/loading.gif" lazyload alt="step1" />
 <figcaption aria-hidden="true">step1</figcaption>
 </figure>
 <p>如果我想要更改 <span class="math inline">\([9,10]\)</span>
 的每个数加上 5，我们可以先直接在这个区间上改，并给它们打上标记。</p>
 <figure>
-<img src="https://z3.ax1x.com/2021/08/22/hpdV5d.png" srcset="/project/img/loading.gif" lazyload alt="step2" />
+<img src="https://z3.ax1x.com/2021/08/22/hpdV5d.png" srcset="/img/loading.gif" lazyload alt="step2" />
 <figcaption aria-hidden="true">step2</figcaption>
 </figure>
 <p>虽然，子节点没有更新值，但当我们要查询这两个子节点的信息时，我们会利用标记修改这两个子节点的信息，使查询的结果依旧准确。</p>
@@ -352,7 +352,7 @@ class="math inline">\(\mathcal{O}(\log n)\)</span> 的。</p>
 的值，当递归到 <span class="math inline">\([9,10]\)</span>
 时，因为懒标记不为 0 ，所以将该区间的子区间更新并清零。</p>
 <figure>
-<img src="https://z3.ax1x.com/2021/08/22/hpduxP.png" srcset="/project/img/loading.gif" lazyload alt="step3" />
+<img src="https://z3.ax1x.com/2021/08/22/hpduxP.png" srcset="/img/loading.gif" lazyload alt="step3" />
 <figcaption aria-hidden="true">step3</figcaption>
 </figure>
 <p>当然为了编写的简单性，修改懒标记可以写一个单独的函数
@@ -403,7 +403,7 @@ Problem with Integers</a></p>
     
       <span class="category-chain">
         
-  <a href="/project/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
   
   
 
@@ -418,9 +418,9 @@ Problem with Integers</a></p>
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/project/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="print-no-link">#数据结构</a>
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="print-no-link">#数据结构</a>
       
-        <a href="/project/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" class="print-no-link">#线段树</a>
+        <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" class="print-no-link">#线段树</a>
       
     </div>
   
@@ -433,7 +433,7 @@ Problem with Integers</a></p>
   <div class="license-box my-3">
     <div class="license-title">
       <div>学习线段树总结</div>
-      <div>https://skys0.github.io/project/2021/08/22/学习线段树总结/</div>
+      <div>https://skys0.github.io/2021/08/22/学习线段树总结/</div>
     </div>
     <div class="license-meta">
       
@@ -477,7 +477,7 @@ Problem with Integers</a></p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/project/2021/09/18/%E7%9F%A9%E9%98%B5/" title="矩阵">
+                      <a href="/2021/09/18/%E7%9F%A9%E9%98%B5/" title="矩阵">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">矩阵</span>
                         <span class="visible-mobile">上一篇</span>
@@ -487,7 +487,7 @@ Problem with Integers</a></p>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/project/2021/08/22/UVA1160%E9%A2%98%E8%A7%A3/" title="UVA1160题解">
+                      <a href="/2021/08/22/UVA1160%E9%A2%98%E8%A7%A3/" title="UVA1160题解">
                         <span class="hidden-mobile">UVA1160题解</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -623,8 +623,8 @@ Problem with Integers</a></p>
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/project/js/events.js" ></script>
-<script  src="/project/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -646,7 +646,7 @@ Problem with Integers</a></p>
 
 
   
-    <script  src="/project/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -788,7 +788,7 @@ Problem with Integers</a></p>
 
   <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
-  <script  src="/project/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -796,7 +796,7 @@ Problem with Integers</a></p>
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/project/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   
