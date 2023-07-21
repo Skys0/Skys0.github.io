@@ -1,0 +1,764 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/project/img/fluid.png">
+  <link rel="icon" href="/project/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Skys">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="题目 题目描述 输入两个正整数\(x_0, y_0\)，求出满足下列条件的\(P, Q\)的个数: 1. \(P,Q\) 是正整数。 2. 要求 \(P, Q\) 以 \(x_0\)为最大公约数，以\(y_0\)为最小公倍数。 试求：满足条件的所有可能的\(P, Q\)的个数。 ## 输入格式 一行两个正整数\(x_0, y_0\)。 ## 输出格式 一行一个数，表示求出满足条件的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="P1029 [NOIP2001 普及组] 最大公约数和最小公倍数">
+<meta property="og:url" content="https://skys0.github.io/project/2021/04/02/P1029-NOIP2001-%E6%99%AE%E5%8F%8A%E7%BB%84-%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E5%92%8C%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0/index.html">
+<meta property="og:site_name" content="Sky 的博客">
+<meta property="og:description" content="题目 题目描述 输入两个正整数\(x_0, y_0\)，求出满足下列条件的\(P, Q\)的个数: 1. \(P,Q\) 是正整数。 2. 要求 \(P, Q\) 以 \(x_0\)为最大公约数，以\(y_0\)为最小公倍数。 试求：满足条件的所有可能的\(P, Q\)的个数。 ## 输入格式 一行两个正整数\(x_0, y_0\)。 ## 输出格式 一行一个数，表示求出满足条件的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-02T13:08:23.000Z">
+<meta property="article:modified_time" content="2021-10-27T09:36:39.760Z">
+<meta property="article:author" content="Skys">
+<meta property="article:tag" content="LCM">
+<meta property="article:tag" content="GCD">
+<meta property="article:tag" content="数论">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>P1029 [NOIP2001 普及组] 最大公约数和最小公倍数 - Sky 的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/project/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/project/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/project/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"skys0.github.io","root":"/project/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"   ","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/project/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/project/js/utils.js" ></script>
+  <script  src="/project/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/project/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/project/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/project/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/project/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/project/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/project/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://i.loli.net/2021/10/27/FIb7hp5QH6ARWO2.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="P1029 [NOIP2001 普及组] 最大公约数和最小公倍数"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-04-02 21:08" pubdate>
+          2021年4月2日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          16 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">P1029 [NOIP2001 普及组] 最大公约数和最小公倍数</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="题目">题目</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>输入两个正整数<span class="math inline">\(x_0,
+y_0\)</span>，求出满足下列条件的<span class="math inline">\(P,
+Q\)</span>的个数:<br />
+1. <span class="math inline">\(P,Q\)</span> 是正整数。 2. 要求 <span
+class="math inline">\(P, Q\)</span> 以 <span
+class="math inline">\(x_0\)</span>为最大公约数，以<span
+class="math inline">\(y_0\)</span>为最小公倍数。</p>
+<p>试求：满足条件的所有可能的<span class="math inline">\(P,
+Q\)</span>的个数。 ## 输入格式 一行两个正整数<span
+class="math inline">\(x_0, y_0\)</span>。 ## 输出格式
+一行一个数，表示求出满足条件的<span class="math inline">\(P,
+Q\)</span>个数。</p>
+<h1 id="知识讲解">知识讲解</h1>
+<p>这一题是关于最大公约数（gcd）和最小公倍数（lcm）的，首先要算最大公约数，最好的算法是<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/1647675?fromtitle=%E8%BE%97%E8%BD%AC%E7%9B%B8%E9%99%A4%E6%B3%95&amp;fromid=4625352">欧几里得算法</a>（辗转相除法）然而本人是个蒟蒻，所以还是要来证明一下的：
+### 最大公约数 设 <span class="math inline">\(a=bk+c\)</span> 则有 <span
+class="math inline">\(c= a\bmod b\)</span> ,设有一个数 <span
+class="math inline">\(d \mid a~,d \mid
+b\)</span>（这个符号表示前者是后者的因数，能整除）, 则存在 <span
+class="math inline">\(c=a-bk\)</span> ， <span
+class="math inline">\(\dfrac{c}{d} = \dfrac{a-b}{d}k\)</span>。<br />
+显而易见，<span class="math inline">\(\dfrac{c}{d}\)</span>
+为整数，所以对于 <span class="math inline">\(a\)</span> 与 <span
+class="math inline">\(b\)</span> 的最大公约数为 <span
+class="math inline">\(a\bmod b\)</span> 的最大公约数（因为c为<span
+class="math inline">\(c= a\bmod b\)</span>），<br />
+所以 $ (a,b) = (a,ab)$
+,而这，就是欧几里得算法的核心内容。(终于结束了)下面给出欧几里得算法的代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-type">int</span> a,<span class="hljs-type">int</span> b)</span></span>&#123;<br>	<span class="hljs-keyword">return</span> b==<span class="hljs-number">0</span> ? a : <span class="hljs-built_in">gcd</span>(b,a%b);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><br>
+下面我们来讲最小公倍数的算法，最小公倍数可以通过最大公约数来求.</p>
+<h3 id="最小公倍数">最小公倍数</h3>
+<p>首先我们介绍这样一个定理——算术基本定理：</p>
+<blockquote>
+<p>每一个正整数都可以表示成若干整数的乘积，这种分解方式在忽略排列次序的条件下是唯一的。</p>
+</blockquote>
+<p>这个有一个通式 <span class="math inline">\(\large
+x=p_1^{k_1}p_2^{k_2}p_3^{k_3}\dots b p_s^{k_s}\)</span></p>
+<p>设 <span class="math display">\[\large
+a=p_1^{k_{a_1}}p_2^{k_{a_2}}p_3^{k_{a_3}} \dots p_s^{k_{a_s}} ,\large
+b=p_1^{k_{b_1}}p_2^{k_{b_2}}p_3^{k_{b_3}}\dotsb
+p_s^{k_{b_s}}\]</span></p>
+<p>可以得到，最大公约数为：<br />
+<span class="math display">\[\large
+p_1^{\min(k_{a_1},k_{b_1})}p_2^{\min(k_{a_2},k_{b_2})}\dotsb
+p_s^{\min(k_{a_s},k_{b_s})}\]</span></p>
+<p>最小公倍数为：<br />
+<span class="math display">\[\large
+p_1^{\max(k_{a_1},k_{b_1})}p_2^{\max(k_{a_2},k_{b_2})}\dotsb
+p_s^{\max(k_{a_s},k_{b_s})}\]</span></p>
+<p>将以上两个式子相乘，可以得到: &gt; $ (a,b)(a,b)=ab$</p>
+<p>将上面的式子进行移项，就终于得到了这个重要的计算方法（呼，累死我了）：</p>
+<blockquote>
+<p><span class="math inline">\(\large \operatorname{lcm}(a,b) = a\times
+b \div \gcd(a,b)\)</span></p>
+</blockquote>
+<h2 id="题解思路">题解思路</h2>
+<p>那么，这道题基本的知识都讲完了，总结一下思路： 首先我们可以枚举<span
+class="math inline">\(P\)</span>，那么<span
+class="math inline">\(Q\)</span>可通过已经给的最小公倍数和最大公约数来求，然后再算出本身这两个数的最小公倍数和最大公约数，判断它们是否相等。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;cmath&gt;</span></span><br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> LL;<br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function">LL <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-type">int</span> a,<span class="hljs-type">int</span> b)</span></span>&#123; <span class="hljs-comment">//最大公约数的算法</span><br>	<span class="hljs-keyword">return</span>  b==<span class="hljs-number">0</span> ? a : <span class="hljs-built_in">gcd</span>(b,a%b);<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	LL n,m,ans = <span class="hljs-number">0</span>;<br>	cin&gt;&gt;n&gt;&gt;m;<br>	<br>	<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-built_in">sqrt</span>(m*n);i++)&#123;  <span class="hljs-comment">//枚举到sqrt个即可</span><br>		<span class="hljs-keyword">if</span>(n==m)&#123;<br>			ans = <span class="hljs-number">1</span>;<br>			<span class="hljs-keyword">break</span>;<br>		&#125;<br>		<span class="hljs-type">int</span> j = m*n/i;  <br>		LL x = <span class="hljs-number">0</span>,y = <span class="hljs-number">0</span>;<br>		LL cnt = <span class="hljs-built_in">gcd</span>(i,j);<br>		<span class="hljs-keyword">if</span>(cnt == n &amp;&amp; i*j/cnt == m)   <span class="hljs-comment">//i*j/cnt 是算最大公约数的算法</span><br>			ans += <span class="hljs-number">2</span>;<br>	&#125;<br>		<br>	cout&lt;&lt;ans&lt;&lt;endl;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/project/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/project/tags/LCM/" class="print-no-link">#LCM</a>
+      
+        <a href="/project/tags/GCD/" class="print-no-link">#GCD</a>
+      
+        <a href="/project/tags/%E6%95%B0%E8%AE%BA/" class="print-no-link">#数论</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>P1029 [NOIP2001 普及组] 最大公约数和最小公倍数</div>
+      <div>https://skys0.github.io/project/2021/04/02/P1029-NOIP2001-普及组-最大公约数和最小公倍数/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Skys</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年4月2日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/project/2021/04/07/P3383-%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%BA%BF%E6%80%A7%E7%AD%9B%E7%B4%A0%E6%95%B0/" title="P3383 【模板】线性筛素数">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">P3383 【模板】线性筛素数</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/project/2021/02/20/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91-%E6%A8%A1%E6%9D%BF/" title="最小生成树(模板)">
+                        <span class="hidden-mobile">最小生成树(模板)</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/project/js/events.js" ></script>
+<script  src="/project/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/project/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/project/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/project/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

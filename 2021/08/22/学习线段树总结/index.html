@@ -1,0 +1,808 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/project/img/fluid.png">
+  <link rel="icon" href="/project/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Skys">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="这几天在复习 qbxt 的知识，学到了线段树，就来总结一下。 线段树  上面这张图显然是线段树，线段树就是一个处理区间的一个数据结构，将整个线段划分成一个树的结构，将长度不是 1 的段划分成两个子区间来求解，通过合并两个区间的信息来求解，这也是一个高效的数据结构。 总体时间复杂度为 \(O(\log n)\)  适用范围：区间的最小值或最大值，区间的修改，区间求和  操作 在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习线段树总结">
+<meta property="og:url" content="https://skys0.github.io/project/2021/08/22/%E5%AD%A6%E4%B9%A0%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Sky 的博客">
+<meta property="og:description" content="这几天在复习 qbxt 的知识，学到了线段树，就来总结一下。 线段树  上面这张图显然是线段树，线段树就是一个处理区间的一个数据结构，将整个线段划分成一个树的结构，将长度不是 1 的段划分成两个子区间来求解，通过合并两个区间的信息来求解，这也是一个高效的数据结构。 总体时间复杂度为 \(O(\log n)\)  适用范围：区间的最小值或最大值，区间的修改，区间求和  操作 在">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://z3.ax1x.com/2021/08/17/f4sLWR.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/08/20/fj97CQ.jpg">
+<meta property="og:image" content="https://z3.ax1x.com/2021/08/20/fjiS1J.jpg">
+<meta property="og:image" content="https://z3.ax1x.com/2021/08/22/hpaTg0.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/08/22/hpdV5d.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/08/22/hpduxP.png">
+<meta property="article:published_time" content="2021-08-22T14:21:59.000Z">
+<meta property="article:modified_time" content="2021-10-27T12:25:02.497Z">
+<meta property="article:author" content="Skys">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="线段树">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://z3.ax1x.com/2021/08/17/f4sLWR.png">
+  
+  
+  
+  <title>学习线段树总结 - Sky 的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/project/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/project/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/project/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"skys0.github.io","root":"/project/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"   ","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/project/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/project/js/utils.js" ></script>
+  <script  src="/project/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/project/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/project/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/project/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/project/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/project/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/project/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://i.loli.net/2021/10/27/qGVCytxzB73XbKu.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="学习线段树总结"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-08-22 22:21" pubdate>
+          2021年8月22日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          29 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">学习线段树总结</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>这几天在复习 qbxt 的知识，学到了线段树，就来总结一下。</p>
+<h1 id="线段树">线段树</h1>
+<p><img src="https://z3.ax1x.com/2021/08/17/f4sLWR.png" srcset="/project/img/loading.gif" lazyload /></p>
+<p>上面这张图显然是线段树，线段树就是一个处理区间的一个数据结构，将整个线段划分成一个树的结构，将长度不是
+1
+的段划分成两个子区间来求解，通过合并两个区间的信息来求解，这也是一个高效的数据结构。</p>
+<p>总体时间复杂度为 <span class="math inline">\(O(\log n)\)</span></p>
+<ul>
+<li>适用范围：区间的最小值或最大值，区间的修改，区间求和</li>
+</ul>
+<h2 id="操作">操作</h2>
+<p>在所有操作开始之前，可以观察到一个根节点为 <span
+class="math inline">\(p\)</span> 的左儿子为 <span
+class="math inline">\(p^2\)</span> ，右儿子为 <span
+class="math inline">\(p^2+1\)</span></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">int</span> <span class="hljs-title">ls</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<span class="hljs-keyword">return</span> x&lt;&lt;<span class="hljs-number">1</span>;&#125;   <span class="hljs-comment">// 左儿子 left sons</span><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">int</span> <span class="hljs-title">rs</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<span class="hljs-keyword">return</span> (x&lt;&lt;<span class="hljs-number">1</span>)+<span class="hljs-number">1</span>;&#125;   <span class="hljs-comment">// 右儿子 right sons</span><br></code></pre></td></tr></table></figure>
+<h3 id="建树">建树</h3>
+<p>我们可以想到像树上 DFS 一样，可以一直访问儿子节点，直到儿子节点长度为
+1
+，我们可以通过数据上的值去更改子节点的值，再有子节点来合并（更新）父节点的值。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">built</span><span class="hljs-params">(<span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r,<span class="hljs-type">int</span> p)</span></span>&#123;<br>    <span class="hljs-comment">// 建树 [l,r] 为当前的区间，p 为当前的节点编号</span><br>	lazy[p] = <span class="hljs-number">1</span>;		<span class="hljs-comment">// lazy_tag 后面会讲到</span><br>	<span class="hljs-keyword">if</span>(l == r)&#123;			<span class="hljs-comment">// 如果 长度为 1 </span><br>		d[p] = a[l];<br>		<span class="hljs-keyword">return</span>;<br>	&#125;<br>	<span class="hljs-type">int</span> mid = l+(r-l)/<span class="hljs-number">2</span>;	<span class="hljs-comment">// 递归求解</span><br>	<span class="hljs-built_in">built</span>(l,mid,<span class="hljs-built_in">ls</span>(p));<span class="hljs-built_in">built</span>(mid+<span class="hljs-number">1</span>,r,<span class="hljs-built_in">rs</span>(p));<br>	d[p] = d[<span class="hljs-built_in">ls</span>(p)] + d[<span class="hljs-built_in">rs</span>(p)] ;  <span class="hljs-comment">// 由儿子更新父亲，合并</span><br>    <span class="hljs-comment">// 如果是求最大值，改成 d[p] = max(d[ls(p)],d[rs(p)]);最小值同样 </span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="区间查询">区间查询</h3>
+<p>首先，我们可以想到还是像建树一样递归求解，如果这个区间在所要求的区间上了，直接返回，如果左儿子的子区间和原答案有交集，那么就递归到相应的节点上求解。那么思路就讲好了，代码怎么写呢？下面放上几张图就了解了</p>
+<p>设所在区间为 <span class="math inline">\([l,r]\)</span> , 查询区间为
+<span class="math inline">\([s,t]\)</span> 。</p>
+<figure>
+<img src="https://z3.ax1x.com/2021/08/20/fj97CQ.jpg" srcset="/project/img/loading.gif" lazyload alt="tree" />
+<figcaption aria-hidden="true">tree</figcaption>
+</figure>
+<p>那么根据这张图可以很显然的推出所在区间在查询区间的判断方式：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">if</span>(s &lt;= l &amp;&amp; r &lt;= t)<br></code></pre></td></tr></table></figure>
+<p>设中间位置为 <span class="math inline">\(mid =
+\dfrac{(l+r)}{2}\)</span> 。</p>
+<p><img src="https://z3.ax1x.com/2021/08/20/fjiS1J.jpg" srcset="/project/img/loading.gif" lazyload /></p>
+<p>可以很<del>简单</del>的看出，进入左儿子的条件是：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">if</span>(mid &gt;= s)<br></code></pre></td></tr></table></figure>
+<p>进入右儿子的条件是：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">if</span>(mid &lt; t)<br></code></pre></td></tr></table></figure>
+<p>综上，我们可以得出查询代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">LL <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r,<span class="hljs-type">int</span> s,<span class="hljs-type">int</span> t,<span class="hljs-type">int</span> p)</span></span>&#123;<br><span class="hljs-comment">// l,r 为当前的, s,t 为询问的	</span><br>	<span class="hljs-keyword">if</span>(l&gt;=s &amp;&amp; r &lt;= tt)<br>		<span class="hljs-keyword">return</span> d[p];<br>	<span class="hljs-type">int</span> mid = l+(r-l)/<span class="hljs-number">2</span>;<br>	<span class="hljs-built_in">pushdown</span>(p,l,r); <br>	LL sum = <span class="hljs-number">0</span>; <br>	<span class="hljs-keyword">if</span>(mid &gt;= s)<br>		sum += <span class="hljs-built_in">query</span>(l,mid,s,t,<span class="hljs-built_in">ls</span>(p));    <span class="hljs-comment">// 如果是求最大值，就改成</span><br>		<span class="hljs-comment">// sum = max(quert(l,mid,s,t,ls(p)),sum);     最小值同样</span><br>	<span class="hljs-keyword">if</span>(tt &gt; mid)<br>		sum += <span class="hljs-built_in">query</span>(mid+<span class="hljs-number">1</span>,r,s,tt,<span class="hljs-built_in">rs</span>(p));<br>	<span class="hljs-keyword">return</span> sum;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="单点修改">单点修改</h3>
+<p>在讲区间修改之前，我先来讲一下最基础的单点修改。单点修改也是递归找需要更改的点，然后再返回合并父节点的值</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r,<span class="hljs-type">int</span> f,<span class="hljs-type">int</span> c,<span class="hljs-type">int</span> p)</span></span>&#123;<br>	<span class="hljs-comment">// [l,r] 当前 p 节点的范围，f 是修改的点的编号， c 是修改的值</span><br>	<span class="hljs-keyword">if</span>(l == r)&#123;			<span class="hljs-comment">// 如果递归到所达到的点了</span><br>		d[p] = c;<br>		<span class="hljs-comment">// 如果是加上 c ，改成</span><br>		<span class="hljs-comment">// d[p] += c;</span><br>        <span class="hljs-comment">// 减去同理</span><br>		<span class="hljs-keyword">return</span>;<br>	&#125;<br>	<span class="hljs-type">int</span> mid = l + (r-l)/<span class="hljs-number">2</span>;<br>	<span class="hljs-keyword">if</span>(mid &gt;= f)	<span class="hljs-comment">// 如果所要修改的点在左儿子上，进入左儿子</span><br>		<span class="hljs-built_in">update</span>(l,mid,f,c,<span class="hljs-built_in">ls</span>(p));<br>	<span class="hljs-keyword">else</span><br>		<span class="hljs-built_in">update</span>(mid+<span class="hljs-number">1</span>,r,f,c,<span class="hljs-built_in">rs</span>(p));<br>	d[p] = d[<span class="hljs-built_in">ls</span>(p)] + d[<span class="hljs-built_in">rs</span>(p)];<br>    <span class="hljs-comment">// 如果是求最大值，就改成</span><br>    <span class="hljs-comment">// d[p] = max(d[ls(p)] + d[rs(p)]);</span><br>    <span class="hljs-comment">// 最小值同理</span><br>	<span class="hljs-keyword">return</span>;<br>&#125;	<br></code></pre></td></tr></table></figure>
+<h3 id="区间修改">区间修改</h3>
+<ul>
+<li><p>懒标记</p>
+<p>简单来说，就是通过<strong>延迟</strong>对节点信息的更改，从而减少可能不必要的操作次数。每次执行修改时，我们通过打标记的方法表明该节点对应的区间在某一次操作中被更改，但不更新该节点的子节点的信息。实质性的修改则在下一次访问带有标记的节点时才进行。</p>
+<pre><code class="hljs">                                                                                                                                                              ----- OI-Wiki</code></pre></li>
+</ul>
+<p>这段话<del>深刻的阐释了</del>懒标记的作用，如果不用懒标记时间复杂度将会达到
+<span class="math inline">\(\mathcal{O}(n \log n)\)</span>
+有点慢，这样一来时间复杂度为 <span
+class="math inline">\(\mathcal{O}(\log n)\)</span> 的。</p>
+<p>听我这样一讲有点蒙先来看代码吧：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r,<span class="hljs-type">int</span> s,<span class="hljs-type">int</span> tt,<span class="hljs-type">int</span> c,<span class="hljs-type">int</span> p)</span></span>&#123;<br>	<span class="hljs-comment">// [l,r] 为当前的, [s,t] 为询问的</span><br>	<span class="hljs-keyword">if</span>(l &gt;= s &amp;&amp; r &lt;= tt)&#123;<br>		t[p] += (r-l+<span class="hljs-number">1</span>)*c;lazy[p] += c  <span class="hljs-comment">//懒标记;</span><br>		<span class="hljs-keyword">return</span>;<br>	&#125;<br>	<span class="hljs-type">int</span> mid = l+(r-l)/<span class="hljs-number">2</span>;<br>	<span class="hljs-keyword">if</span>(lazy[p] &amp;&amp; l!=r)&#123; 	<span class="hljs-comment">// 懒标记的更新</span><br>		t[<span class="hljs-built_in">ls</span>(p)] += (mid-l+<span class="hljs-number">1</span>)*lazy[p];t[<span class="hljs-built_in">rs</span>(p)] += (r-mid) * lazy[p];<br>		lazy[<span class="hljs-built_in">ls</span>(p)] += lazy[p];lazy[<span class="hljs-built_in">rs</span>(p)] += lazy[p];<br>		lazy[p] = <span class="hljs-number">0</span>;<br>	&#125;<br>	<span class="hljs-keyword">if</span>(mid &gt;= s)<br>		<span class="hljs-built_in">update</span>(l,mid,s,tt,c,<span class="hljs-built_in">ls</span>(p));<br>	<span class="hljs-keyword">if</span>(tt &gt; mid)<br>		<span class="hljs-built_in">update</span>(mid+<span class="hljs-number">1</span>,r,s,tt,c,<span class="hljs-built_in">rs</span>(p));<br>	t[p] = t[<span class="hljs-built_in">ls</span>(p)] + t[<span class="hljs-built_in">rs</span>(p)];<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>举个例子吧：</p>
+<figure>
+<img src="https://z3.ax1x.com/2021/08/22/hpaTg0.png" srcset="/project/img/loading.gif" lazyload alt="step1" />
+<figcaption aria-hidden="true">step1</figcaption>
+</figure>
+<p>如果我想要更改 <span class="math inline">\([9,10]\)</span>
+的每个数加上 5，我们可以先直接在这个区间上改，并给它们打上标记。</p>
+<figure>
+<img src="https://z3.ax1x.com/2021/08/22/hpdV5d.png" srcset="/project/img/loading.gif" lazyload alt="step2" />
+<figcaption aria-hidden="true">step2</figcaption>
+</figure>
+<p>虽然，子节点没有更新值，但当我们要查询这两个子节点的信息时，我们会利用标记修改这两个子节点的信息，使查询的结果依旧准确。</p>
+<p>现在，来查询一下 <span class="math inline">\([9,9]\)</span>
+的值，当递归到 <span class="math inline">\([9,10]\)</span>
+时，因为懒标记不为 0 ，所以将该区间的子区间更新并清零。</p>
+<figure>
+<img src="https://z3.ax1x.com/2021/08/22/hpduxP.png" srcset="/project/img/loading.gif" lazyload alt="step3" />
+<figcaption aria-hidden="true">step3</figcaption>
+</figure>
+<p>当然为了编写的简单性，修改懒标记可以写一个单独的函数
+<code>pushdown</code> 。</p>
+<p>带乘法的查询也同理，只是新加一个乘法懒标记而已</p>
+<h3 id="带懒标记的查询">带懒标记的查询</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">LL <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r,<span class="hljs-type">int</span> s,<span class="hljs-type">int</span> tt,<span class="hljs-type">int</span> p)</span></span>&#123;<br><span class="hljs-comment">// l,r 为当前的, s,tt 为询问的	</span><br>	<span class="hljs-keyword">if</span>(l&gt;=s &amp;&amp; r &lt;= tt)<br>		<span class="hljs-keyword">return</span> t[p];<br>	<span class="hljs-type">int</span> mid = l+(r-l)/<span class="hljs-number">2</span>;<br>	<span class="hljs-keyword">if</span>(lazy[p])&#123;<br>		t[<span class="hljs-built_in">ls</span>(p)] += lazy[p] * (mid-l+<span class="hljs-number">1</span>);t[<span class="hljs-built_in">rs</span>(p)] += lazy[p] * (r-mid);<br>		lazy[<span class="hljs-built_in">ls</span>(p)] += lazy[p];lazy[<span class="hljs-built_in">rs</span>(p)] += lazy[p];<br>		lazy[p] = <span class="hljs-number">0</span>;<br>	&#125;<br>	LL sum = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">if</span>(mid &gt;= s)<br>		sum += <span class="hljs-built_in">query</span>(l,mid,s,tt,<span class="hljs-built_in">ls</span>(p));<br>    	<span class="hljs-comment">// 如果是求最大值，就改成</span><br>    	<span class="hljs-comment">// sum = max(quert(l,mid,s,t,ls(p)),sum);     最小值同理</span><br>	<span class="hljs-keyword">if</span>(tt &gt; mid)<br>		sum += <span class="hljs-built_in">query</span>(mid+<span class="hljs-number">1</span>,r,s,tt,<span class="hljs-built_in">rs</span>(p));<br>	<span class="hljs-keyword">return</span> sum;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="习题">习题</h2>
+<p>基本上有了这些操作就可以写以下几道题目：</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3372">洛谷 P3372
+【模板】线段树 1</a></p>
+<p>这道题是个纯模板题</p></li>
+<li><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3373">洛谷 P3373
+【模板】线段树 2</a></p>
+<p>这道题也差不多是个模板题，只是要注意：<strong>先乘后加</strong>
+懒标记</p></li>
+<li><p><a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1166">HDU-1166
+敌兵布阵</a></p>
+<p>单点修改的模板</p></li>
+<li><p><a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1754">HDU-1754 I Hate
+It</a></p>
+<p>单点修改，查询最大值的模板</p></li>
+<li><p><a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1394">HDU-1394 Minimum
+Inversion Number</a></p>
+<p>线段树解决逆序对问题</p></li>
+<li><p><a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-3468">POJ-3468 A Simple
+Problem with Integers</a></p>
+<p>区间修改的模板题</p></li>
+</ul>
+<p>模板题/好题未完待续 <span class="math inline">\(\dots
+\dots\)</span></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/project/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/project/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="print-no-link">#数据结构</a>
+      
+        <a href="/project/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" class="print-no-link">#线段树</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>学习线段树总结</div>
+      <div>https://skys0.github.io/project/2021/08/22/学习线段树总结/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Skys</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年8月22日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/project/2021/09/18/%E7%9F%A9%E9%98%B5/" title="矩阵">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">矩阵</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/project/2021/08/22/UVA1160%E9%A2%98%E8%A7%A3/" title="UVA1160题解">
+                        <span class="hidden-mobile">UVA1160题解</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/project/js/events.js" ></script>
+<script  src="/project/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/project/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/project/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/project/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
