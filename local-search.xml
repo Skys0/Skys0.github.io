@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>2023国庆随笔</title>
+    <link href="/2023/09/29/2023%E5%9B%BD%E5%BA%86%E9%9A%8F%E7%AC%94/"/>
+    <url>/2023/09/29/2023%E5%9B%BD%E5%BA%86%E9%9A%8F%E7%AC%94/</url>
+    
+    <content type="html"><![CDATA[<h1 id="国庆随笔">国庆随笔</h1><h3 id="section">9.29</h3><blockquote><p>云朵偷喝了我放在屋顶的酒，于是她脸红变成了晚霞</p></blockquote><p>怎么说呢，现在感觉挺迷茫的，到了一个自己根本不喜欢的专业（道路桥梁与渡河工程），想去参加ccpc，现在还不知道有没有资格参加，挺难受的，也不知道该干什么了，那些简单题不想刷了，准备明天去刷一点关于字符串和STL的题目，把之前的竞赛的东西给捡起来，国庆能不能达到我之前的编码能力还是个未知数；每天都在想她，没办法，只能等她打电话了，打电话的时候总是感觉时间不够用，还没聊好就要挂了，真的想她，但现实总会有所阻隔。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>随笔</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Java 暑假基础学习</title>
     <link href="/2023/07/21/Java%E6%9A%91%E5%81%87%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
     <url>/2023/07/21/Java%E6%9A%91%E5%81%87%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</url>
@@ -20,9 +39,9 @@
     
     <tags>
       
-      <tag>Java</tag>
-      
       <tag>随笔</tag>
+      
+      <tag>Java</tag>
       
     </tags>
     
@@ -126,9 +145,9 @@
     
     <tags>
       
-      <tag>简单题</tag>
-      
       <tag>ATCoder</tag>
+      
+      <tag>简单题</tag>
       
       <tag>模拟</tag>
       
@@ -381,9 +400,9 @@
     
     <tags>
       
-      <tag>CodeForces</tag>
-      
       <tag>简单题</tag>
+      
+      <tag>CodeForces</tag>
       
     </tags>
     
@@ -437,11 +456,11 @@
     
     <tags>
       
+      <tag>数论</tag>
+      
       <tag>LCM</tag>
       
       <tag>GCD</tag>
-      
-      <tag>数论</tag>
       
     </tags>
     
