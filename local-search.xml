@@ -4,17 +4,23 @@
   
   
   <entry>
-    <title>2023国庆随笔</title>
-    <link href="/2023/09/29/2023%E5%9B%BD%E5%BA%86%E9%9A%8F%E7%AC%94/"/>
-    <url>/2023/09/29/2023%E5%9B%BD%E5%BA%86%E9%9A%8F%E7%AC%94/</url>
+    <title>POJ-1321 棋盘问题</title>
+    <link href="/2023/10/10/POJ-1321-%E6%A3%8B%E7%9B%98%E9%97%AE%E9%A2%98/"/>
+    <url>/2023/10/10/POJ-1321-%E6%A3%8B%E7%9B%98%E9%97%AE%E9%A2%98/</url>
     
-    <content type="html"><![CDATA[<h1 id="国庆随笔">国庆随笔</h1><h3 id="section">9.29</h3><blockquote><p>云朵偷喝了我放在屋顶的酒，于是她脸红变成了晚霞</p></blockquote><p>怎么说呢，现在感觉挺迷茫的，到了一个自己根本不喜欢的专业（道路桥梁与渡河工程），想去参加ccpc，现在还不知道有没有资格参加，挺难受的，也不知道该干什么了，那些简单题不想刷了，准备明天去刷一点关于字符串和STL的题目，把之前的竞赛的东西给捡起来，国庆能不能达到我之前的编码能力还是个未知数；每天都在想她，没办法，只能等她打电话了，打电话的时候总是感觉时间不够用，还没聊好就要挂了，真的想她，但现实总会有所阻隔。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="poj-1321-棋盘问题">POJ-1321 棋盘问题</h2><h3 id="题目">题目</h3><p>在一个给定形状的棋盘（形状可能是不规则的）上面摆放棋子，棋子没有区别。要求摆放时任意的两个棋子不能放在棋盘中的同一行或者同一列，请编程求解对于给定形状和大小的棋盘，摆放k个棋子的所有可行的摆放方案<span class="math inline">\(C\)</span>。</p><h3 id="input">Input</h3><p>输入含有多组测试数据。 每组数据的第一行是两个正整数<spanclass="math inline">\(n,k\)</span> ，用一个空格隔开，表示了将在一个<spanclass="math inline">\(n \timesn\)</span>的矩阵内描述棋盘，以及摆放棋子的数目。 <spanclass="math inline">\(n \le 8,k \le n\)</span> 当为 <spanclass="math inline">\((-1 -1)\)</span> 时表示输入结束。</p><p>随后的 <span class="math inline">\(n\)</span>行描述了棋盘的形状：每行有 <span class="math inline">\(n\)</span>个字符，其中 <code>#</code> 表示棋盘区域， <code>.</code>表示空白区域（数据保证不出现多余的空白行或者空白列）。</p><h3 id="output">Output</h3><p>对于每一组数据，给出一行输出，输出摆放的方案数目 <spanclass="math inline">\(C\)</span> （数据保证<spanclass="math inline">\(C&lt;2^{31}\)</span>）</p><h2 id="思路">思路</h2><p>看到这种题，我首先想到暴力DFS（无剪枝），写了一下发现有重复的，就想到在 DFS时记下每个选择过的点，在每一次选择选择点之后去检查有没有违法点，还加了，还使用set 去重，最后发现 TLE 了，时间复杂度极大。</p><p>学习了一下别人的思想，发现可以一行一行的搜，因为是不能同行同列，可以以<strong>行</strong>为DFS 的深度，在开一个 Bool 数组来记录每一个列是否可用（<code>摆放时任意的两个棋子不能放在棋盘中的同一行或者同一列</code>)，如果搜完了最后一层并且达到了我们所需要的个数，就可以计入答案，很显然在搜索过程中已经完成了去重的工作，时间复杂度约为<span class="math inline">\(\Theta(n^2)\)</span>，完全足够</p><h3 id="代码">代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;cstring&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><br><span class="hljs-type">bool</span> x[<span class="hljs-number">100</span>][<span class="hljs-number">100</span>];<br><span class="hljs-type">bool</span> list[<span class="hljs-number">100</span>];<br><span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>,n,k;<br><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> t,<span class="hljs-type">int</span> step)</span></span>&#123;<br><span class="hljs-keyword">if</span>(t == n+<span class="hljs-number">1</span>)&#123;<br><span class="hljs-keyword">if</span>(step == k)cnt ++;<br><span class="hljs-keyword">return</span>;<br>&#125;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br><span class="hljs-keyword">if</span>(x[t][i] == <span class="hljs-number">1</span> &amp;&amp; list[i] == <span class="hljs-number">0</span>)&#123;<br>list[i] = <span class="hljs-number">1</span>;<br><span class="hljs-built_in">Dfs</span>(t+<span class="hljs-number">1</span>,step+<span class="hljs-number">1</span>);<br>list[i] = <span class="hljs-number">0</span>;<br>&#125;<br>&#125;<br><span class="hljs-built_in">Dfs</span>(t+<span class="hljs-number">1</span>,step);<br>&#125;<br> <br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-type">char</span> s;<br><span class="hljs-keyword">while</span>(<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d %d&quot;</span>,&amp;n,&amp;k) == <span class="hljs-number">2</span>)&#123;<br><span class="hljs-built_in">memset</span>(list,<span class="hljs-number">0</span>,<span class="hljs-built_in">sizeof</span>(list));<br><span class="hljs-keyword">if</span>(n == <span class="hljs-number">-1</span> &amp;&amp; k == <span class="hljs-number">-1</span>)<span class="hljs-keyword">break</span>;<br><span class="hljs-built_in">getchar</span>();<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++)&#123;<br>s = <span class="hljs-built_in">getchar</span>();<br><span class="hljs-keyword">if</span>(s == <span class="hljs-string">&#x27;#&#x27;</span>)&#123;x[i][j] = <span class="hljs-number">1</span>;&#125;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(s == <span class="hljs-string">&#x27;.&#x27;</span>)x[i][j] = <span class="hljs-number">0</span>;<br>&#125;<br><span class="hljs-built_in">getchar</span>();<br>&#125;<br><span class="hljs-built_in">Dfs</span>(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>);<br>cout&lt;&lt;cnt&lt;&lt;endl;<br>cnt = <span class="hljs-number">0</span>;<br>&#125;<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
     
+    
+    <categories>
+      
+      <category>算法</category>
+      
+    </categories>
     
     
     <tags>
       
-      <tag>随笔</tag>
+      <tag>题目 - 搜索</tag>
       
     </tags>
     
@@ -39,9 +45,9 @@
     
     <tags>
       
-      <tag>随笔</tag>
-      
       <tag>Java</tag>
+      
+      <tag>随笔</tag>
       
     </tags>
     
