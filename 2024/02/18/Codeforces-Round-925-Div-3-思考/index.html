@@ -16,22 +16,23 @@
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
   
-    <meta name="description" content="POJ-1321 棋盘问题题目在一个给定形状的棋盘（形状可能是不规则的）上面摆放棋子，棋子没有区别。要求摆放时任意的两个棋子不能放在棋盘中的同一行或者同一列，请编程求解对于给定形状和大小的棋盘，摆放k个棋子的所有可行的摆放方案 $C$。 Input输入含有多组测试数据。每组数据的第一行是两个正整数$n,k$ ，用一个空格隔开，表示了将在一个$n \times n$的矩阵内描述棋盘，以及摆放棋子的数">
+    <meta name="description" content="这也是我写的第一个比赛，感觉还行，还加了100多分，目标绿名。 A 题就是将a ~ z映射成1到26，给你一个数字，让你构造出字典序最小的拥有三个字母的单词，并且通过映射，三个字母相加等于那个数字。 也仅仅是每个字母位枚举，判断一下就 OK，没什么难的， 最多 $26^3$ 次找到。 B 题给你一串数字，只能从1到n，只能从前面的数字移走一部分给后面的数字，让你计算能不能将所有数字给变成相同的。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="POJ-1321 棋盘问题">
-<meta property="og:url" content="https://skys0.github.io/2023/10/10/POJ-1321-%E6%A3%8B%E7%9B%98%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="Codeforces Round 925 (Div. 3)思考">
+<meta property="og:url" content="https://skys0.github.io/2024/02/18/Codeforces-Round-925-Div-3-%E6%80%9D%E8%80%83/index.html">
 <meta property="og:site_name" content="Sky 的博客">
-<meta property="og:description" content="POJ-1321 棋盘问题题目在一个给定形状的棋盘（形状可能是不规则的）上面摆放棋子，棋子没有区别。要求摆放时任意的两个棋子不能放在棋盘中的同一行或者同一列，请编程求解对于给定形状和大小的棋盘，摆放k个棋子的所有可行的摆放方案 $C$。 Input输入含有多组测试数据。每组数据的第一行是两个正整数$n,k$ ，用一个空格隔开，表示了将在一个$n \times n$的矩阵内描述棋盘，以及摆放棋子的数">
+<meta property="og:description" content="这也是我写的第一个比赛，感觉还行，还加了100多分，目标绿名。 A 题就是将a ~ z映射成1到26，给你一个数字，让你构造出字典序最小的拥有三个字母的单词，并且通过映射，三个字母相加等于那个数字。 也仅仅是每个字母位枚举，判断一下就 OK，没什么难的， 最多 $26^3$ 次找到。 B 题给你一串数字，只能从1到n，只能从前面的数字移走一部分给后面的数字，让你计算能不能将所有数字给变成相同的。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-10-10T13:38:39.000Z">
-<meta property="article:modified_time" content="2023-10-10T15:01:05.227Z">
+<meta property="article:published_time" content="2024-02-18T01:13:04.000Z">
+<meta property="article:modified_time" content="2024-02-18T02:37:04.451Z">
 <meta property="article:author" content="Skys">
-<meta property="article:tag" content="题目 - 搜索">
+<meta property="article:tag" content="Codeforce">
+<meta property="article:tag" content="复盘">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>POJ-1321 棋盘问题 - Sky 的博客</title>
+  <title>Codeforces Round 925 (Div. 3)思考 - Sky 的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -191,13 +192,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://s2.loli.net/2023/10/10/aCGHAtz8YnyJIVf.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('https://s2.loli.net/2024/02/18/1HCrE2yW6iMOD7c.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="POJ-1321 棋盘问题"></span>
+            <span id="subtitle" data-typed-text="Codeforces Round 925 (Div. 3)思考"></span>
           
         </div>
 
@@ -208,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-10-10 21:38" pubdate>
-          2023年10月10日 晚上
+        <time datetime="2024-02-18 09:13" pubdate>
+          2024年2月18日 上午
         </time>
       </span>
     
@@ -220,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          917 字
         
       </span>
     
@@ -231,7 +232,7 @@
         
         
         
-          12 分钟
+          8 分钟
         
       </span>
     
@@ -268,20 +269,38 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">POJ-1321 棋盘问题</h1>
+            <h1 id="seo-header">Codeforces Round 925 (Div. 3)思考</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="POJ-1321-棋盘问题"><a href="#POJ-1321-棋盘问题" class="headerlink" title="POJ-1321 棋盘问题"></a>POJ-1321 棋盘问题</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>在一个给定形状的棋盘（形状可能是不规则的）上面摆放棋子，棋子没有区别。要求摆放时任意的两个棋子不能放在棋盘中的同一行或者同一列，请编程求解对于给定形状和大小的棋盘，摆放k个棋子的所有可行的摆放方案 $C$。</p>
-<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>输入含有多组测试数据。<br>每组数据的第一行是两个正整数$n,k$ ，用一个空格隔开，表示了将在一个$n \times n$的矩阵内描述棋盘，以及摆放棋子的数目。 $n \le 8,k \le n$ 当为 $(-1 -1)$ 时表示输入结束。</p>
-<p>随后的 $n$ 行描述了棋盘的形状：每行有 $n$ 个字符，其中 <code>#</code> 表示棋盘区域， <code>.</code> 表示空白区域（数据保证不出现多余的空白行或者空白列）。</p>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>对于每一组数据，给出一行输出，输出摆放的方案数目 $C$ （数据保证$C&lt;2^{31}$）</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>看到这种题，我首先想到暴力 DFS（无剪枝），写了一下发现有重复的，就想到在 DFS 时记下每个选择过的点，在每一次选择选择点之后去检查有没有违法点，还加了，还使用 set 去重，最后发现 TLE 了，时间复杂度极大。</p>
-<p>学习了一下别人的思想，发现可以一行一行的搜，因为是不能同行同列，可以以<strong>行</strong>为 DFS 的深度，在开一个 Bool 数组来记录每一个列是否可用（ <code>摆放时任意的两个棋子不能放在棋盘中的同一行或者同一列</code> )，如果搜完了最后一层并且达到了我们所需要的个数，就可以计入答案，很显然在搜索过程中已经完成了去重的工作，时间复杂度约为 $\Theta(n^2)$，完全足够</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;cstring&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><br><span class="hljs-type">bool</span> x[<span class="hljs-number">100</span>][<span class="hljs-number">100</span>];<br><span class="hljs-type">bool</span> list[<span class="hljs-number">100</span>];<br><span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>,n,k;<br><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> t,<span class="hljs-type">int</span> step)</span></span>&#123;<br>	<span class="hljs-keyword">if</span>(t == n+<span class="hljs-number">1</span>)&#123;<br>		<span class="hljs-keyword">if</span>(step == k)	cnt ++;<br>		<span class="hljs-keyword">return</span>;<br>	&#125;<br>	<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>		<span class="hljs-keyword">if</span>(x[t][i] == <span class="hljs-number">1</span> &amp;&amp; list[i] == <span class="hljs-number">0</span>)&#123;<br>			list[i] = <span class="hljs-number">1</span>;<br>			<span class="hljs-built_in">Dfs</span>(t+<span class="hljs-number">1</span>,step+<span class="hljs-number">1</span>);<br>			list[i] = <span class="hljs-number">0</span>;<br>		&#125;<br>	&#125;<br>	<span class="hljs-built_in">Dfs</span>(t+<span class="hljs-number">1</span>,step);<br>&#125;<br> 	<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-type">char</span> s;<br>	<span class="hljs-keyword">while</span>(<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d %d&quot;</span>,&amp;n,&amp;k) == <span class="hljs-number">2</span>)&#123;<br>		<span class="hljs-built_in">memset</span>(list,<span class="hljs-number">0</span>,<span class="hljs-built_in">sizeof</span>(list));<br>		<span class="hljs-keyword">if</span>(n == <span class="hljs-number">-1</span> &amp;&amp; k == <span class="hljs-number">-1</span>)	<span class="hljs-keyword">break</span>;<br>		<span class="hljs-built_in">getchar</span>();<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++)&#123;<br>				s = <span class="hljs-built_in">getchar</span>();<br>				<span class="hljs-keyword">if</span>(s == <span class="hljs-string">&#x27;#&#x27;</span>)&#123;	x[i][j] = <span class="hljs-number">1</span>;&#125;<br>				<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(s == <span class="hljs-string">&#x27;.&#x27;</span>)	x[i][j] = <span class="hljs-number">0</span>;<br>			&#125;<br>			<span class="hljs-built_in">getchar</span>();<br>		&#125;<br>			<span class="hljs-built_in">Dfs</span>(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>);<br>			cout&lt;&lt;cnt&lt;&lt;endl;<br>			cnt = <span class="hljs-number">0</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
+                <p>这也是我写的第一个比赛，感觉还行，还加了100多分，目标绿名。</p>
+<h2 id="A-题"><a href="#A-题" class="headerlink" title="A 题"></a>A 题</h2><p>就是将a ~ z映射成1到26，给你一个数字，让你构造出字典序最小的拥有三个字母的单词，并且通过映射，三个字母相加等于那个数字。</p>
+<p>也仅仅是每个字母位枚举，判断一下就 OK，没什么难的， 最多 $26^3$ 次找到。</p>
+<h2 id="B-题"><a href="#B-题" class="headerlink" title="B 题"></a>B 题</h2><p>给你一串数字，只能从1到n，只能从前面的数字移走一部分给后面的数字，让你计算能不能将所有数字给变成相同的。</p>
+<p>思路简单：先算出平均数（如果全部数字都相同，那么一定等于平均数），那么从1到n计算出它与平均分差的东西，如果小于0，那么说明一定不行，否则行。</p>
+<p>注意一下有数组大小 $2 \times 10^5$，前几次开小了，罚时了3次，哭死。</p>
+<h2 id="C-题"><a href="#C-题" class="headerlink" title="C 题"></a>C 题</h2><p>给你一串数字，你能做一种操作（且只能做 0 次或 1 次），你可以选择一个区间，让它全部变成你所给的数字，所付出的代价是 $j - i + 1$。输出让全部数字变成一样的最小的代价。</p>
+<p>其实观察样例就知道，从两边开始去做一次操作是最优的，用类似于双指针的东西。</p>
+<ul>
+<li>先判断两边是否相等，如果相等，那么直接找到两边不相等的地方来做操作</li>
+<li>如果不相等，看两边哪一边相等的更多一些，那边多就从那个边的不相等的地方开始做操作。</li>
+</ul>
+<p>注意一些数组得清零，不然就会多 WA 一次。</p>
+<h2 id="D-题"><a href="#D-题" class="headerlink" title="D 题"></a>D 题</h2><p>这道题比赛时，没做出来，还是数学基本功差了，<del>同时也与晚上太晚无法清醒思考有关</del>。</p>
+<p>给你一个数组，让你找到数组中最美丽的数对的个数。</p>
+<p>一个 $(i,j)$ 认为它是美丽的当且仅当：（$x$ 与 $y$ 给定）</p>
+<ul>
+<li>$a_i + a_j$ 能够整除于 $x$</li>
+<li>$a_i - a_j$ 能够整除于 $y$</li>
+</ul>
+<p>首先，第一条能推出 $(a_i \bmod x + a_j \bmod x)\bmod x &#x3D; 0$，所以 $(a_i \bmod x + a_j \bmod x)$ 等于 $0$ 或 $x$。 </p>
+<p>又因为 $0 &#x3D; x \bmod x$，所以 $a_i \bmod x&#x3D;(x − a_j \bmod x)\bmod x$</p>
+<p>因为 $(a_i - a_j)\mod y &#x3D; 0$ ，能推出 $a_i \bmod y &#x3D; a_j \bmod y$</p>
+<p>通过上面的两个式子就可以快速推出每对美丽的数对。最后通过 Map 来存放每个数对。</p>
+<p><strong>注意：不开Long Long见祖宗</strong></p>
+<p>后面的题目考场时没看，后面慢慢补吧</p>
+<h2 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续….."></a>未完待续…..</h2>
                 
               </div>
             
@@ -299,7 +318,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  <a href="/categories/%E5%A4%8D%E7%9B%98/" class="category-chain-item">复盘</a>
   
   
 
@@ -314,7 +333,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%A2%98%E7%9B%AE-%E6%90%9C%E7%B4%A2/" class="print-no-link">#题目 - 搜索</a>
+        <a href="/tags/Codeforce/" class="print-no-link">#Codeforce</a>
+      
+        <a href="/tags/%E5%A4%8D%E7%9B%98/" class="print-no-link">#复盘</a>
       
     </div>
   
@@ -326,8 +347,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>POJ-1321 棋盘问题</div>
-      <div>https://skys0.github.io/2023/10/10/POJ-1321-棋盘问题/</div>
+      <div>Codeforces Round 925 (Div. 3)思考</div>
+      <div>https://skys0.github.io/2024/02/18/Codeforces-Round-925-Div-3-思考/</div>
     </div>
     <div class="license-meta">
       
@@ -339,7 +360,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年10月10日</div>
+          <div>2024年2月18日</div>
         </div>
       
       
@@ -371,18 +392,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/11/%E7%B4%AB%E4%B9%A6%E5%88%B7%E9%A2%98%E9%9A%8F%E7%AC%94%E8%AE%B0%E5%BD%95/" title="紫书刷题随笔记录">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">紫书刷题随笔记录</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/07/21/Java%E6%9A%91%E5%81%87%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" title="Java 暑假基础学习">
-                        <span class="hidden-mobile">Java 暑假基础学习</span>
+                      <a href="/2023/10/19/%E7%B4%AB%E4%B9%A6%E7%AC%AC%E4%B8%89%E7%AB%A0%E4%B9%A0%E9%A2%98/" title="紫书第三章习题">
+                        <span class="hidden-mobile">紫书第三章习题</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
