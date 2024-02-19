@@ -16,15 +16,15 @@
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
   
-    <meta name="description" content="这也是我写的第一个比赛，感觉还行，还加了100多分，目标绿名。 A 题就是将a ~ z映射成1到26，给你一个数字，让你构造出字典序最小的拥有三个字母的单词，并且通过映射，三个字母相加等于那个数字。 也仅仅是每个字母位枚举，判断一下就 OK，没什么难的， 最多 $26^3$ 次找到。 B 题给你一串数字，只能从1到n，只能从前面的数字移走一部分给后面的数字，让你计算能不能将所有数字给变成相同的。">
+    <meta name="description" content="Codeforces Round 925 (Div. 3)思考 \(\Delta Rating : +152\) 这也是我写的第一个比赛，感觉还行，还加了100多分，目标绿名。 A 题 就是将a ~ z映射成1到26，给你一个数字，让你构造出字典序最小的拥有三个字母的单词，并且通过映射，三个字母相加等于那个数字。 也仅仅是每个字母位枚举，判断一下就 OK，没什么难的， 最多 \(26">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Codeforces Round 925 (Div. 3)思考">
+<meta property="og:title" content="Codeforces Round 925 (Div. 3) 思考">
 <meta property="og:url" content="https://skys0.github.io/2024/02/18/Codeforces-Round-925-Div-3-%E6%80%9D%E8%80%83/index.html">
 <meta property="og:site_name" content="Sky 的博客">
-<meta property="og:description" content="这也是我写的第一个比赛，感觉还行，还加了100多分，目标绿名。 A 题就是将a ~ z映射成1到26，给你一个数字，让你构造出字典序最小的拥有三个字母的单词，并且通过映射，三个字母相加等于那个数字。 也仅仅是每个字母位枚举，判断一下就 OK，没什么难的， 最多 $26^3$ 次找到。 B 题给你一串数字，只能从1到n，只能从前面的数字移走一部分给后面的数字，让你计算能不能将所有数字给变成相同的。">
+<meta property="og:description" content="Codeforces Round 925 (Div. 3)思考 \(\Delta Rating : +152\) 这也是我写的第一个比赛，感觉还行，还加了100多分，目标绿名。 A 题 就是将a ~ z映射成1到26，给你一个数字，让你构造出字典序最小的拥有三个字母的单词，并且通过映射，三个字母相加等于那个数字。 也仅仅是每个字母位枚举，判断一下就 OK，没什么难的， 最多 \(26">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-02-18T01:13:04.000Z">
-<meta property="article:modified_time" content="2024-02-18T02:37:04.451Z">
+<meta property="article:modified_time" content="2024-02-18T15:16:33.773Z">
 <meta property="article:author" content="Skys">
 <meta property="article:tag" content="Codeforce">
 <meta property="article:tag" content="复盘">
@@ -32,7 +32,7 @@
   
   
   
-  <title>Codeforces Round 925 (Div. 3)思考 - Sky 的博客</title>
+  <title>Codeforces Round 925 (Div. 3) 思考 - Sky 的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Codeforces Round 925 (Div. 3)思考"></span>
+            <span id="subtitle" data-typed-text="Codeforces Round 925 (Div. 3) 思考"></span>
           
         </div>
 
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          917 字
+          1k 字
         
       </span>
     
@@ -232,7 +232,7 @@
         
         
         
-          8 分钟
+          9 分钟
         
       </span>
     
@@ -269,38 +269,61 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Codeforces Round 925 (Div. 3)思考</h1>
+            <h1 id="seo-header">Codeforces Round 925 (Div. 3) 思考</h1>
             
             
               <div class="markdown-body">
                 
-                <p>这也是我写的第一个比赛，感觉还行，还加了100多分，目标绿名。</p>
-<h2 id="A-题"><a href="#A-题" class="headerlink" title="A 题"></a>A 题</h2><p>就是将a ~ z映射成1到26，给你一个数字，让你构造出字典序最小的拥有三个字母的单词，并且通过映射，三个字母相加等于那个数字。</p>
-<p>也仅仅是每个字母位枚举，判断一下就 OK，没什么难的， 最多 $26^3$ 次找到。</p>
-<h2 id="B-题"><a href="#B-题" class="headerlink" title="B 题"></a>B 题</h2><p>给你一串数字，只能从1到n，只能从前面的数字移走一部分给后面的数字，让你计算能不能将所有数字给变成相同的。</p>
+                <h1 id="codeforces-round-925-div.-3思考">Codeforces Round 925 (Div.
+3)思考</h1>
+<p><span class="math inline">\(\Delta Rating : +152\)</span></p>
+<p>这也是我写的第一个比赛，感觉还行，还加了100多分，目标绿名。</p>
+<h2 id="a-题">A 题</h2>
+<p>就是将a ~
+z映射成1到26，给你一个数字，让你构造出字典序最小的拥有三个字母的单词，并且通过映射，三个字母相加等于那个数字。</p>
+<p>也仅仅是每个字母位枚举，判断一下就 OK，没什么难的， 最多 <span
+class="math inline">\(26^3\)</span> 次找到。</p>
+<h2 id="b-题">B 题</h2>
+<p>给你一串数字，只能从1到n，只能从前面的数字移走一部分给后面的数字，让你计算能不能将所有数字给变成相同的。</p>
 <p>思路简单：先算出平均数（如果全部数字都相同，那么一定等于平均数），那么从1到n计算出它与平均分差的东西，如果小于0，那么说明一定不行，否则行。</p>
-<p>注意一下有数组大小 $2 \times 10^5$，前几次开小了，罚时了3次，哭死。</p>
-<h2 id="C-题"><a href="#C-题" class="headerlink" title="C 题"></a>C 题</h2><p>给你一串数字，你能做一种操作（且只能做 0 次或 1 次），你可以选择一个区间，让它全部变成你所给的数字，所付出的代价是 $j - i + 1$。输出让全部数字变成一样的最小的代价。</p>
-<p>其实观察样例就知道，从两边开始去做一次操作是最优的，用类似于双指针的东西。</p>
-<ul>
-<li>先判断两边是否相等，如果相等，那么直接找到两边不相等的地方来做操作</li>
-<li>如果不相等，看两边哪一边相等的更多一些，那边多就从那个边的不相等的地方开始做操作。</li>
-</ul>
+<p>注意一下有数组大小 <span class="math inline">\(2 \times
+10^5\)</span>，前几次开小了，罚时了3次，哭死。</p>
+<h2 id="c-题">C 题</h2>
+<p>给你一串数字，你能做一种操作（且只能做 0 次或 1
+次），你可以选择一个区间，让它全部变成你所给的数字，所付出的代价是 <span
+class="math inline">\(j - i +
+1\)</span>。输出让全部数字变成一样的最小的代价。</p>
+<p>其实观察样例就知道，从两边开始去做一次操作是最优的，用类似于双指针的东西。
+* 先判断两边是否相等，如果相等，那么直接找到两边不相等的地方来做操作 *
+如果不相等，看两边哪一边相等的更多一些，那边多就从那个边的不相等的地方开始做操作。</p>
 <p>注意一些数组得清零，不然就会多 WA 一次。</p>
-<h2 id="D-题"><a href="#D-题" class="headerlink" title="D 题"></a>D 题</h2><p>这道题比赛时，没做出来，还是数学基本功差了，<del>同时也与晚上太晚无法清醒思考有关</del>。</p>
+<h2 id="d-题">D 题</h2>
+<p>这道题比赛时，没做出来，还是数学基本功差了，<del>同时也与晚上太晚无法清醒思考有关</del>。</p>
 <p>给你一个数组，让你找到数组中最美丽的数对的个数。</p>
-<p>一个 $(i,j)$ 认为它是美丽的当且仅当：（$x$ 与 $y$ 给定）</p>
-<ul>
-<li>$a_i + a_j$ 能够整除于 $x$</li>
-<li>$a_i - a_j$ 能够整除于 $y$</li>
-</ul>
-<p>首先，第一条能推出 $(a_i \bmod x + a_j \bmod x)\bmod x &#x3D; 0$，所以 $(a_i \bmod x + a_j \bmod x)$ 等于 $0$ 或 $x$。 </p>
-<p>又因为 $0 &#x3D; x \bmod x$，所以 $a_i \bmod x&#x3D;(x − a_j \bmod x)\bmod x$</p>
-<p>因为 $(a_i - a_j)\mod y &#x3D; 0$ ，能推出 $a_i \bmod y &#x3D; a_j \bmod y$</p>
-<p>通过上面的两个式子就可以快速推出每对美丽的数对。最后通过 Map 来存放每个数对。</p>
+<p>一个 <span class="math inline">\((i,j)\)</span>
+认为它是美丽的当且仅当：（<span class="math inline">\(x\)</span> 与
+<span class="math inline">\(y\)</span> 给定） * <span
+class="math inline">\(a_i + a_j\)</span> 能够整除于 <span
+class="math inline">\(x\)</span> * <span class="math inline">\(a_i -
+a_j\)</span> 能够整除于 <span class="math inline">\(y\)</span></p>
+<p>首先，第一条能推出 <span class="math inline">\((a_i \bmod x + a_j
+\bmod x)\bmod x = 0\)</span>，所以 <span class="math inline">\((a_i
+\bmod x + a_j \bmod x)\)</span> 等于 <span
+class="math inline">\(0\)</span> 或 <span
+class="math inline">\(x\)</span>。</p>
+<p>又因为 <span class="math inline">\(0 = x \bmod x\)</span>，所以 <span
+class="math inline">\(a_i \bmod x=(x − a_j \bmod x)\bmod x\)</span></p>
+<p>因为 <span class="math inline">\((a_i - a_j)\mod y = 0\)</span>
+，能推出 <span class="math inline">\(a_i \bmod y = a_j \bmod
+y\)</span></p>
+<p>通过上面的两个式子就可以快速推出每对美丽的数对。最后通过 Map
+来存放每个数对。</p>
 <p><strong>注意：不开Long Long见祖宗</strong></p>
 <p>后面的题目考场时没看，后面慢慢补吧</p>
-<h2 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续….."></a>未完待续…..</h2>
+<p>总体总结：这次比赛因为是第一次去写，所以踩了许多坑：不开 long
+long，数组没有开大，还有手速不够快 （雾</p>
+<h2 id="未完待续.....">未完待续.....</h2>
+
                 
               </div>
             
@@ -347,7 +370,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Codeforces Round 925 (Div. 3)思考</div>
+      <div>Codeforces Round 925 (Div. 3) 思考</div>
       <div>https://skys0.github.io/2024/02/18/Codeforces-Round-925-Div-3-思考/</div>
     </div>
     <div class="license-meta">
@@ -391,6 +414,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/02/18/Codeforces-Round-926-Div-2-%E6%80%9D%E8%80%83/" title="Codeforces Round 926 (Div. 2) 思考">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Codeforces Round 926 (Div. 2) 思考</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
