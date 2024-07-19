@@ -4,11 +4,76 @@
   
   
   <entry>
+    <title>CS50笔记（查漏补缺）</title>
+    <link href="/2024/07/17/CS50%E7%AC%94%E8%AE%B0%EF%BC%88%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA%EF%BC%89/"/>
+    <url>/2024/07/17/CS50%E7%AC%94%E8%AE%B0%EF%BC%88%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<p>准备一个暑假在跑外卖的时候干点有用的事，就从学习CS50开始吧，正好学点自己不知道到的知识。</p><h3 id="并归排序"><a href="#并归排序" class="headerlink" title="并归排序"></a>并归排序</h3><p>还是基础功不太扎实，连这个都不知道。</p><p>归并排序基于分治思想将数组分段排序后合并，主要思想是将两个<strong>已经排好序</strong>的数合并在一起。</p><ol><li><p>注意：这个算法必须申请<strong>至少两倍空间</strong>，首先，设定两个指针，这两个指针在两个已经排好的数组的起始位置。</p></li><li><p>合并：从左向右，枚举两个数组<code>a[i]</code>和<code>b[i]</code>，找出最小的数放入新数组，直到有一个数组为空时，把另一个数组的剩下的元素放入新数组。</p></li><li><p>分治：如果数组长度为 1，该数组就是有序的，不用排序。如果数组长度大于 1，此时应将该数组分为两段，等分成左边和右边，检查有无序，无序重复此操作，左边有序后检查右边，两变边都有序了，合并（见2操作）。</p></li></ol><p>给一张动图吧，好理解一些，网上的：<img src="https://www.runoob.com/wp-content/uploads/2019/03/mergeSort.gif" alt="sort"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>CS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C语言</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Python 库 Matplotlib 学习</title>
+    <link href="/2024/05/22/Python%E5%BA%93-hexo-new-Python%E5%BA%93Matplotlib%E5%AD%A6%E4%B9%A0/"/>
+    <url>/2024/05/22/Python%E5%BA%93-hexo-new-Python%E5%BA%93Matplotlib%E5%AD%A6%E4%B9%A0/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Python 库 Matplotlib 学习</title>
+    <link href="/2024/05/22/Python%E5%BA%93Matplotlib%E5%AD%A6%E4%B9%A0/"/>
+    <url>/2024/05/22/Python%E5%BA%93Matplotlib%E5%AD%A6%E4%B9%A0/</url>
+    
+    <content type="html"><![CDATA[<p>在数学建模选拔赛中需要写一点画个图，秉承着需要啥就学啥的原则，来学一点Python 中的强大的库</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Python</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Python</tag>
+      
+      <tag>画图</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>git 学习（长期）</title>
     <link href="/2024/05/02/git%E5%AD%A6%E4%B9%A0%EF%BC%88%E9%95%BF%E6%9C%9F%EF%BC%89/"/>
     <url>/2024/05/02/git%E5%AD%A6%E4%B9%A0%EF%BC%88%E9%95%BF%E6%9C%9F%EF%BC%89/</url>
     
-    <content type="html"><![CDATA[<hr><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最经换电脑了，电脑里的东西全得转移，真的麻烦，搞这个博客就花了好长时间来 git，借此机会想来学习一下 git 相关知识，慢慢学。</p><p>…… 未完待续</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最经换电脑了，电脑里的东西全得转移，真的麻烦，搞这个博客就花了好长时间来 git，借此机会想来学习一下 git 相关知识，慢慢学。</p><p>…… 未完待续</p>]]></content>
     
     
     <categories>
@@ -180,9 +245,9 @@
     
     <tags>
       
-      <tag>数据结构</tag>
-      
       <tag>并查集</tag>
+      
+      <tag>数据结构</tag>
       
     </tags>
     

@@ -16,20 +16,22 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="背景最经换电脑了，电脑里的东西全得转移，真的麻烦，搞这个博客就花了好长时间来 git，借此机会想来学习一下 git 相关知识，慢慢学。 …… 未完待续">
+  <meta name="description" content="准备一个暑假在跑外卖的时候干点有用的事，就从学习CS50开始吧，正好学点自己不知道到的知识。 并归排序还是基础功不太扎实，连这个都不知道。 归并排序基于分治思想将数组分段排序后合并，主要思想是将两个已经排好序的数合并在一起。  注意：这个算法必须申请至少两倍空间，首先，设定两个指针，这两个指针在两个已经排好的数组的起始位置。  合并：从左向右，枚举两个数组a[i]和b[i]，找出最小的数放入新数组">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git 学习（长期）">
-<meta property="og:url" content="https://skys0.github.io/2024/05/02/git%E5%AD%A6%E4%B9%A0%EF%BC%88%E9%95%BF%E6%9C%9F%EF%BC%89/index.html">
+<meta property="og:title" content="CS50笔记（查漏补缺）">
+<meta property="og:url" content="https://skys0.github.io/2024/07/17/CS50%E7%AC%94%E8%AE%B0%EF%BC%88%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA%EF%BC%89/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="背景最经换电脑了，电脑里的东西全得转移，真的麻烦，搞这个博客就花了好长时间来 git，借此机会想来学习一下 git 相关知识，慢慢学。 …… 未完待续">
+<meta property="og:description" content="准备一个暑假在跑外卖的时候干点有用的事，就从学习CS50开始吧，正好学点自己不知道到的知识。 并归排序还是基础功不太扎实，连这个都不知道。 归并排序基于分治思想将数组分段排序后合并，主要思想是将两个已经排好序的数合并在一起。  注意：这个算法必须申请至少两倍空间，首先，设定两个指针，这两个指针在两个已经排好的数组的起始位置。  合并：从左向右，枚举两个数组a[i]和b[i]，找出最小的数放入新数组">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-05-02T15:15:01.000Z">
-<meta property="article:modified_time" content="2024-07-19T00:39:32.900Z">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2019/03/mergeSort.gif">
+<meta property="article:published_time" content="2024-07-17T14:10:46.000Z">
+<meta property="article:modified_time" content="2024-07-19T00:39:50.060Z">
 <meta property="article:author" content="Skys">
-<meta property="article:tag" content="Git">
+<meta property="article:tag" content="C语言">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.runoob.com/wp-content/uploads/2019/03/mergeSort.gif">
   
-  <title>git 学习（长期） - Skys</title>
+  <title>CS50笔记（查漏补缺） - Skys</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -171,12 +173,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://s2.loli.net/2024/07/19/XqIWQehHUDCfK4y.jpg') no-repeat center center;
+         style="background: url('https://s2.loli.net/2024/07/19/qrbNjM4dy5olvxS.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="git 学习（长期）">
+            <span class="h2" id="subtitle" title="CS50笔记（查漏补缺）">
               
             </span>
 
@@ -186,8 +188,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2024-05-02 23:15" pubdate>
-        2024年5月2日 晚上
+      <time datetime="2024-07-17 22:10" pubdate>
+        2024年7月17日 晚上
       </time>
     </span>
   
@@ -197,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      70 字
+      339 字
     </span>
   
 
@@ -235,11 +237,21 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">git 学习（长期）</h1>
+            <h1 style="display: none">CS50笔记（查漏补缺）</h1>
             
             <div class="markdown-body">
-              <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最经换电脑了，电脑里的东西全得转移，真的麻烦，搞这个博客就花了好长时间来 git，借此机会想来学习一下 git 相关知识，慢慢学。</p>
-<p>…… 未完待续</p>
+              <p>准备一个暑假在跑外卖的时候干点有用的事，就从学习CS50开始吧，正好学点自己不知道到的知识。</p>
+<h3 id="并归排序"><a href="#并归排序" class="headerlink" title="并归排序"></a>并归排序</h3><p>还是基础功不太扎实，连这个都不知道。</p>
+<p>归并排序基于分治思想将数组分段排序后合并，主要思想是将两个<strong>已经排好序</strong>的数合并在一起。</p>
+<ol>
+<li><p>注意：这个算法必须申请<strong>至少两倍空间</strong>，首先，设定两个指针，这两个指针在两个已经排好的数组的起始位置。</p>
+</li>
+<li><p>合并：从左向右，枚举两个数组<code>a[i]</code>和<code>b[i]</code>，找出最小的数放入新数组，直到有一个数组为空时，把另一个数组的剩下的元素放入新数组。</p>
+</li>
+<li><p>分治：如果数组长度为 1，该数组就是有序的，不用排序。如果数组长度大于 1，此时应将该数组分为两段，等分成左边和右边，检查有无序，无序重复此操作，左边有序后检查右边，两变边都有序了，合并（见2操作）。</p>
+</li>
+</ol>
+<p>给一张动图吧，好理解一些，网上的：<img src="https://www.runoob.com/wp-content/uploads/2019/03/mergeSort.gif" srcset="/img/loading.gif" lazyload alt="sort"></p>
 
             </div>
             <hr>
@@ -249,7 +261,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Git/">Git</a>
+                      <a class="hover-with-bg" href="/categories/CS/">CS</a>
                     
                   </div>
                 
@@ -257,7 +269,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Git/">Git</a>
+                      <a class="hover-with-bg" href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a>
                     
                   </div>
                 
@@ -274,18 +286,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/05/22/Python%E5%BA%93Matplotlib%E5%AD%A6%E4%B9%A0/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Python 库 Matplotlib 学习</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/08/Linux-%E5%AD%A6%E4%B9%A0-1/">
-                        <span class="hidden-mobile">Linux 学习 1</span>
+                      <a href="/2024/05/22/Python%E5%BA%93-hexo-new-Python%E5%BA%93Matplotlib%E5%AD%A6%E4%B9%A0/">
+                        <span class="hidden-mobile">Python 库 Matplotlib 学习</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
