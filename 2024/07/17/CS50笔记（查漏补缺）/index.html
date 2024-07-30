@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2019/03/mergeSort.gif">
 <meta property="article:published_time" content="2024-07-17T14:10:46.000Z">
-<meta property="article:modified_time" content="2024-07-19T00:39:50.060Z">
+<meta property="article:modified_time" content="2024-07-27T06:31:49.941Z">
 <meta property="article:author" content="Skys">
 <meta property="article:tag" content="C语言">
 <meta name="twitter:card" content="summary_large_image">
@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      339 字
+      1.9k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      6 分钟
     </span>
   
 
@@ -241,7 +241,7 @@
             
             <div class="markdown-body">
               <p>准备一个暑假在跑外卖的时候干点有用的事，就从学习CS50开始吧，正好学点自己不知道到的知识。</p>
-<h3 id="并归排序"><a href="#并归排序" class="headerlink" title="并归排序"></a>并归排序</h3><p>还是基础功不太扎实，连这个都不知道。</p>
+<h2 id="并归排序"><a href="#并归排序" class="headerlink" title="并归排序"></a>并归排序</h2><p>还是基础功不太扎实，连这个都不知道。</p>
 <p>归并排序基于分治思想将数组分段排序后合并，主要思想是将两个<strong>已经排好序</strong>的数合并在一起。</p>
 <ol>
 <li><p>注意：这个算法必须申请<strong>至少两倍空间</strong>，首先，设定两个指针，这两个指针在两个已经排好的数组的起始位置。</p>
@@ -252,6 +252,79 @@
 </li>
 </ol>
 <p>给一张动图吧，好理解一些，网上的：<img src="https://www.runoob.com/wp-content/uploads/2019/03/mergeSort.gif" srcset="/img/loading.gif" lazyload alt="sort"></p>
+<h2 id="C-标准库"><a href="#C-标准库" class="headerlink" title="C 标准库 "></a>C 标准库 <string.h></h2><h3 id="strcmp"><a href="#strcmp" class="headerlink" title="strcmp()"></a>strcmp()</h3><p><code>int strcmp(const char *str1, const char *str2)</code></p>
+<p>str1 ——— 要进行比较的第一个字符串</p>
+<p>str2 ——— 要进行比较的第二个字符串 </p>
+<p>返回值如下：</p>
+<ul>
+<li>如果返回值小于 0，则表示 str1 小于 str2。</li>
+<li>如果返回值大于 0，则表示 str1 大于 str2。</li>
+<li>如果返回值等于 0，则表示 str1 等于 str2。</li>
+</ul>
+<h3 id="strcpy"><a href="#strcpy" class="headerlink" title="strcpy()"></a>strcpy()</h3><p><code>char *strcpy(char *dest, const char *src)</code></p>
+<p>dest — 指向用于存储复制内容的目标数组。\<br>src — 要复制的字符串。</p>
+<h2 id="C-标准库-1"><a href="#C-标准库-1" class="headerlink" title="C 标准库 "></a>C 标准库 <stdlib.h></h2><h3 id="malloc"><a href="#malloc" class="headerlink" title="malloc()"></a>malloc()</h3><p>C 库函数 <code>void *malloc(size_t size)</code> 分配所需的内存空间，并返回一个指向它的指针。</p>
+<p><code>void *malloc(size_t size)</code></p>
+<p>size — 内存块的大小，以字节为单位。</p>
+<h3 id="free"><a href="#free" class="headerlink" title="free()"></a>free()</h3><p>C 库函数 <code>void free(void *ptr)</code> 释放之前调用 calloc、malloc 或 realloc 所分配的内存空间。</p>
+<p><code>void free(void *ptr)</code></p>
+<p>ptr — 指针指向一个要释放内存的内存块，该内存块之前是通过调用 malloc、calloc 或 realloc 进行分配内存的。如果传递的参数是一个空指针，则不会执行任何动作。</p>
+<p>C 标准库 <stdio.h></p>
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><h4 id="fopen"><a href="#fopen" class="headerlink" title="fopen()"></a>fopen()</h4><p>可以使用 fopen() 函数来创建一个新的文件或者打开一个已有的文件，这个调用会初始化类型 FILE 的一个对象，类型 FILE 包含了所有用来控制流的必要的信息。下面是这个函数调用的原型：</p>
+<p><code>FILE *fopen( const char *filename, const char *mode );</code></p>
+<p>filename ——- 字符串，用来命名文件。</p>
+<p>mode ————- 访问模式，有下面几种格式：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>模式</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r</td>
+<td>打开一个已有的文本文件，允许读取文件。</td>
+</tr>
+<tr>
+<td>w</td>
+<td>打开一个文本文件，允许写入文件。如果文件不存在，则会创建一个新文件。在这里，您的程序会从文件的开头写入内容。如果文件存在，则该会被截断为零长度，重新写入。</td>
+</tr>
+<tr>
+<td>a</td>
+<td>打开一个文本文件，以追加模式写入文件。如果文件不存在，则会创建一个新文件。在这里，您的程序会在已有的文件内容中追加内容。</td>
+</tr>
+<tr>
+<td>r+</td>
+<td>打开一个文本文件，允许读写文件。</td>
+</tr>
+<tr>
+<td>w+</td>
+<td>打开一个文本文件，允许读写文件。如果文件已存在，则文件会被截断为零长度，如果文件不存在，则会创建一个新文件。</td>
+</tr>
+<tr>
+<td>a+</td>
+<td>打开一个文本文件，允许读写文件。如果文件不存在，则会创建一个新文件。读取会从文件的开头开始，写入则只能是追加模式。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="fclose"><a href="#fclose" class="headerlink" title="fclose()"></a>fclose()</h4><p>为了关闭文件，请使用 fclose() 函数。函数的原型如下：</p>
+<p><code>int fclose( FILE *fp );</code></p>
+<p>如果成功关闭文件，fclose() 函数返回零，如果关闭文件时发生错误，函数返回 EOF。</p>
+<h4 id="fprintf"><a href="#fprintf" class="headerlink" title="fprintf()"></a>fprintf()</h4><p>函数 fprintf() 函数根据指定的格式发送信息到由stream（流）指定的文件。因此 fprintf() 可以使得信息输出到指定的文件。</p>
+<p><code>int fprintf( FILE *stream, const char *format, ... );</code></p>
+<p>第一个参数是文件指针，第二个和后面都和printf() 一样的。将内容输出到字符串中。</p>
+<h4 id="fread"><a href="#fread" class="headerlink" title="fread()"></a>fread()</h4><p>C 库函数 size_t fread(void <em>ptr, size_t size, size_t nmemb, FILE </em>stream) 从给定流 stream 读取数据到 ptr 所指向的数组中。</p>
+<p><code>size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)</code></p>
+<p>参数：</p>
+<ul>
+<li>ptr — 这是指向带有最小尺寸 size*nmemb 字节的内存块的指针。</li>
+<li>size — 这是要读取的每个元素的大小，以字节为单位。</li>
+<li>nmemb — 这是元素的个数，每个元素的大小为 size 字节。</li>
+<li>stream — 这是指向 FILE 对象的指针，该 FILE 对象指定了一个输入流。</li>
+</ul>
 
             </div>
             <hr>
@@ -290,7 +363,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/05/22/Python%E5%BA%93-hexo-new-Python%E5%BA%93Matplotlib%E5%AD%A6%E4%B9%A0/">
+                      <a href="/2024/05/22/Python%E5%BA%93Matplotlib%E5%AD%A6%E4%B9%A0/">
                         <span class="hidden-mobile">Python 库 Matplotlib 学习</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
