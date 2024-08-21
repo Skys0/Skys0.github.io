@@ -1,0 +1,633 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Skys">
+  <meta name="keywords" content="">
+  <meta name="description" content="准备一个暑假在跑外卖的时候干点有用的事，就从学习CS50开始吧，正好学点自己不知道到的知识。 2024-07-17~2024-08-17 结束正好用时一个月，也终于结束了，因为不是零基础，所以有些课程跳了，有的太简单了，还是挺有感慨的，以前发现自己编程同龄人无敌，现在才发现任重道远，开学后要好好学学指针。 并归排序 还是基础功不太扎实，连这个都不知道。 归并排序基于分治思想将数组分段排序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS50笔记（查漏补缺）">
+<meta property="og:url" content="https://skys0.github.io/2024/07/17/CS50%E7%AC%94%E8%AE%B0%EF%BC%88%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA%EF%BC%89/index.html">
+<meta property="og:site_name" content="Skys">
+<meta property="og:description" content="准备一个暑假在跑外卖的时候干点有用的事，就从学习CS50开始吧，正好学点自己不知道到的知识。 2024-07-17~2024-08-17 结束正好用时一个月，也终于结束了，因为不是零基础，所以有些课程跳了，有的太简单了，还是挺有感慨的，以前发现自己编程同龄人无敌，现在才发现任重道远，开学后要好好学学指针。 并归排序 还是基础功不太扎实，连这个都不知道。 归并排序基于分治思想将数组分段排序">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-17T14:10:46.000Z">
+<meta property="article:modified_time" content="2024-08-17T06:51:52.885Z">
+<meta property="article:author" content="Skys">
+<meta property="article:tag" content="C语言">
+<meta property="article:tag" content="SQL">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>CS50笔记（查漏补缺） - Skys</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/monokai.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"skys0.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"-","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Skys</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://s2.loli.net/2024/07/19/qrbNjM4dy5olvxS.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="CS50笔记（查漏补缺）">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2024-07-17 22:10" pubdate>
+        2024年7月17日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.4k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      8 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">CS50笔记（查漏补缺）</h1>
+            
+            <div class="markdown-body">
+              <p>准备一个暑假在跑外卖的时候干点有用的事，就从学习CS50开始吧，正好学点自己不知道到的知识。</p>
+<p><strong>2024-07-17~2024-08-17</strong>
+结束正好用时一个月，也终于结束了，因为不是零基础，所以有些课程跳了，有的太简单了，还是挺有感慨的，以前发现自己编程同龄人无敌，现在才发现任重道远，开学后要好好学学指针。</p>
+<h2 id="并归排序">并归排序</h2>
+<p>还是基础功不太扎实，连这个都不知道。</p>
+<p>归并排序基于分治思想将数组分段排序后合并，主要思想是将两个<strong>已经排好序</strong>的数合并在一起。</p>
+<ol type="1">
+<li><p>注意：这个算法必须申请<strong>至少两倍空间</strong>，首先，设定两个指针，这两个指针在两个已经排好的数组的起始位置。</p></li>
+<li><p>合并：从左向右，枚举两个数组<code>a[i]</code>和<code>b[i]</code>，找出最小的数放入新数组，直到有一个数组为空时，把另一个数组的剩下的元素放入新数组。</p></li>
+<li><p>分治：如果数组长度为
+1，该数组就是有序的，不用排序。如果数组长度大于
+1，此时应将该数组分为两段，等分成左边和右边，检查有无序，无序重复此操作，左边有序后检查右边，两变边都有序了，合并（见2操作）。</p></li>
+</ol>
+<p>给一张动图吧，好理解一些，网上的：<img
+src="https://www.runoob.com/wp-content/uploads/2019/03/mergeSort.gif" srcset="/img/loading.gif" lazyload
+alt="sort" /></p>
+<h2 id="c-标准库-string.h">C 标准库 &lt;string.h&gt;</h2>
+<h3 id="strcmp">strcmp()</h3>
+<p><code>int strcmp(const char *str1, const char *str2)</code></p>
+<p>str1 ------ 要进行比较的第一个字符串</p>
+<p>str2 ------ 要进行比较的第二个字符串</p>
+<p>返回值如下： * 如果返回值小于 0，则表示 str1 小于 str2。 *
+如果返回值大于 0，则表示 str1 大于 str2。 * 如果返回值等于 0，则表示
+str1 等于 str2。</p>
+<h3 id="strcpy">strcpy()</h3>
+<p><code>char *strcpy(char *dest, const char *src)</code></p>
+<p>dest -- 指向用于存储复制内容的目标数组。<br />
+src -- 要复制的字符串。</p>
+<h2 id="c-标准库-stdlib.h">C 标准库 &lt;stdlib.h&gt;</h2>
+<h3 id="malloc">malloc()</h3>
+<p>C 库函数 <code>void *malloc(size_t size)</code>
+分配所需的内存空间，并返回一个指向它的指针。</p>
+<p><code>void *malloc(size_t size)</code></p>
+<p>size -- 内存块的大小，以字节为单位。</p>
+<h3 id="free">free()</h3>
+<p>C 库函数 <code>void free(void *ptr)</code> 释放之前调用
+calloc、malloc 或 realloc 所分配的内存空间。</p>
+<p><code>void free(void *ptr)</code></p>
+<p>ptr -- 指针指向一个要释放内存的内存块，该内存块之前是通过调用
+malloc、calloc 或 realloc
+进行分配内存的。如果传递的参数是一个空指针，则不会执行任何动作。</p>
+<p>C 标准库 &lt;stdio.h&gt;</p>
+<h3 id="文件操作">文件操作</h3>
+<h4 id="fopen">fopen()</h4>
+<p>可以使用 fopen()
+函数来创建一个新的文件或者打开一个已有的文件，这个调用会初始化类型 FILE
+的一个对象，类型 FILE
+包含了所有用来控制流的必要的信息。下面是这个函数调用的原型：</p>
+<p><code>FILE *fopen( const char *filename, const char *mode );</code></p>
+<p>filename ----- 字符串，用来命名文件。</p>
+<p>mode --------- 访问模式，有下面几种格式：</p>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 90%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>模式</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r</td>
+<td>打开一个已有的文本文件，允许读取文件。</td>
+</tr>
+<tr>
+<td>w</td>
+<td>打开一个文本文件，允许写入文件。如果文件不存在，则会创建一个新文件。在这里，您的程序会从文件的开头写入内容。如果文件存在，则该会被截断为零长度，重新写入。</td>
+</tr>
+<tr>
+<td>a</td>
+<td>打开一个文本文件，以追加模式写入文件。如果文件不存在，则会创建一个新文件。在这里，您的程序会在已有的文件内容中追加内容。</td>
+</tr>
+<tr>
+<td>r+</td>
+<td>打开一个文本文件，允许读写文件。</td>
+</tr>
+<tr>
+<td>w+</td>
+<td>打开一个文本文件，允许读写文件。如果文件已存在，则文件会被截断为零长度，如果文件不存在，则会创建一个新文件。</td>
+</tr>
+<tr>
+<td>a+</td>
+<td>打开一个文本文件，允许读写文件。如果文件不存在，则会创建一个新文件。读取会从文件的开头开始，写入则只能是追加模式。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="fclose">fclose()</h4>
+<p>为了关闭文件，请使用 fclose() 函数。函数的原型如下：</p>
+<p><code>int fclose( FILE *fp );</code></p>
+<p>如果成功关闭文件，fclose()
+函数返回零，如果关闭文件时发生错误，函数返回 EOF。</p>
+<h4 id="fprintf">fprintf()</h4>
+<p>函数 fprintf()
+函数根据指定的格式发送信息到由stream（流）指定的文件。因此 fprintf()
+可以使得信息输出到指定的文件。</p>
+<p><code>int fprintf( FILE *stream, const char *format, ... );</code></p>
+<p>第一个参数是文件指针，第二个和后面都和printf()
+一样的。将内容输出到字符串中。</p>
+<h4 id="fread">fread()</h4>
+<p>C 库函数 size_t fread(void <em>ptr, size_t size, size_t nmemb, FILE
+</em>stream) 从给定流 stream 读取数据到 ptr 所指向的数组中。</p>
+<p><code>size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)</code></p>
+<p>参数：</p>
+<ul>
+<li>ptr -- 这是指向带有最小尺寸 size*nmemb 字节的内存块的指针。</li>
+<li>size -- 这是要读取的每个元素的大小，以字节为单位。</li>
+<li>nmemb -- 这是元素的个数，每个元素的大小为 size 字节。</li>
+<li>stream -- 这是指向 FILE 对象的指针，该 FILE
+对象指定了一个输入流。</li>
+</ul>
+<h2 id="sql">SQL</h2>
+<h3 id="select">SELECT</h3>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> column1, column2, ...<br><span class="hljs-keyword">FROM</span> table_name;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li><p><strong>column1, column2,
+...</strong>：要选择的字段名称，可以为多个字段。如果不指定字段名称，则会选择所有字段。</p></li>
+<li><p><strong>table_name</strong>：要查询的表名称。</p></li>
+<li><p>注意：在 <code>SELECT</code> 后在加 <code>DISTINCT</code>
+可以去重</p></li>
+</ul>
+<h3 id="where">WHERE</h3>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> column1, column2, ...<br><span class="hljs-keyword">FROM</span> table_name<br><span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">condition</span>;<br></code></pre></div></td></tr></table></figure>
+<p>WHERE 相当于 if ，<code>condition</code> 是条件。</p>
+<h4 id="order-by">ORDER BY</h4>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> column1, column2, ...<br><span class="hljs-keyword">FROM</span> table_name<br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> column1, column2, ... <span class="hljs-keyword">ASC</span><span class="hljs-operator">|</span><span class="hljs-keyword">DESC</span>;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li><strong>column1, column2,
+...</strong>：要排序的字段名称，可以为多个字段。</li>
+<li><strong>ASC</strong>：表示按升序排序。</li>
+<li><strong>DESC</strong>：表示按降序排序。</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/CS50/">CS50</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a>
+                    
+                      <a class="hover-with-bg" href="/tags/SQL/">SQL</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/08/17/UCB-CS70-discrete-Math-and-probability-theory/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">UCB CS70: discrete Math and probability theory</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/05/22/Python%E5%BA%93Matplotlib%E5%AD%A6%E4%B9%A0/">
+                        <span class="hidden-mobile">Python 库 Matplotlib 学习</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
