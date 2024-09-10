@@ -27,9 +27,12 @@
 <meta property="og:image" content="https://s2.loli.net/2024/09/08/8HYlK2rPO7SD5VF.png">
 <meta property="og:image" content="https://s2.loli.net/2024/09/08/ZXOEij3dUBwmLK1.png">
 <meta property="og:image" content="https://s2.loli.net/2024/09/08/li8VRZKedbEJzak.png">
+<meta property="og:image" content="https://s2.loli.net/2024/09/10/23CHIv95YDNyGWV.png">
 <meta property="article:published_time" content="2024-09-04T15:22:15.000Z">
-<meta property="article:modified_time" content="2024-09-09T06:16:31.478Z">
+<meta property="article:modified_time" content="2024-09-10T08:25:31.643Z">
 <meta property="article:author" content="Skys">
+<meta property="article:tag" content="排序">
+<meta property="article:tag" content="堆排序">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://s2.loli.net/2024/09/08/tTX1eJirlWSyq8L.png">
   
@@ -175,7 +178,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
+         style="background: url('https://i.loli.net/2021/10/27/1ynG6uKxAjXSldU.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -201,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      781 字
+      1.5k 字
     </span>
   
 
@@ -210,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2 分钟
+      5 分钟
     </span>
   
 
@@ -262,6 +265,7 @@ class="math inline">\(2 \times i + 1\)</span>。
 现在是无序堆，我们要让这个无序堆变成最大堆（最小堆）。</p>
 <p>从最后一个子堆开始，首先开始对比左右儿子，有的话取较大的子节点，再与父节点相比，如果比父节点大，那么就将儿子与父亲交换，这样一个子堆就变成了最大堆。</p>
 <p>最后自顶向上去创建最大堆，直至最大堆完成。</p>
+<p>将创建完成的最大堆的父节点给下放，放到最下面的一个节点，不动它了，之后对前面的继续变成最大堆，不断重复这些步骤。</p>
 <h3 id="例子">例子</h3>
 <p>首先我们选一个数组 [100, 5, 3, 11, 33, 6, 8,
 7]，按照数组顺序来构建一棵树。如下图</p>
@@ -295,14 +299,36 @@ alt="graph_3" />
 </figure>
 <p>然后继续开始最大堆调整，直至一轮结束，在 7
 升至顶部之后，对顶部重新做最大堆调整，左孩子33代替7的位置。这里就不给图了。</p>
-<p>最后不断建立最大堆，并且扩大有序区，最终全部有序</p>
-<p><img src="" srcset="/img/loading.gif" lazyload /></p>
+<p>最后不断建立最大堆，并且扩大有序区，最终全部有序，最终图如下图所示</p>
+<figure>
+<img src="https://s2.loli.net/2024/09/10/23CHIv95YDNyGWV.png" srcset="/img/loading.gif" lazyload
+alt="graph 6.png" />
+<figcaption aria-hidden="true">graph <em>6</em>.png</figcaption>
+</figure>
+<h2 id="代码">代码</h2>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *x,<span class="hljs-keyword">int</span> *y)</span></span>&#123;       <span class="hljs-comment">// 交换代码</span><br>	<span class="hljs-keyword">int</span> tmp = *x;<br>	*x = *y;<br>	*y = tmp;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">max_heapify</span><span class="hljs-params">(<span class="hljs-keyword">int</span> start,<span class="hljs-keyword">int</span> end)</span></span>&#123;            <span class="hljs-comment">// 对于 start到end的堆，从顶上开始往下去让整个堆符合最大堆的性质</span><br>	<span class="hljs-keyword">int</span> dad = start;<br>	<span class="hljs-keyword">int</span> son =  dad * <span class="hljs-number">2</span>;<br>	<span class="hljs-keyword">while</span>(son &lt;= end)&#123;      <span class="hljs-comment">// 如何儿子没有超过范围，也就是这个父节点有儿子的话</span><br>		<span class="hljs-keyword">if</span>(son + <span class="hljs-number">1</span> &lt;= end &amp;&amp; a[son] &lt; a[son+<span class="hljs-number">1</span>])     <span class="hljs-comment">//两个儿子比较</span><br>			son ++;<br>		<span class="hljs-keyword">if</span>(a[dad] &gt; a[son]) <span class="hljs-comment">// 儿子与父节点比较</span><br>			<span class="hljs-keyword">return</span>;<br>		<span class="hljs-keyword">else</span>&#123;       <span class="hljs-comment">// 如果不符合最大堆的性质，则交换父节点与子节点</span><br>			swap(&amp;a[dad],&amp;a[son]);<br>			dad = son;<br>			son = dad * <span class="hljs-number">2</span>;<br>		&#125;<br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">HeapSort</span><span class="hljs-params">()</span>     <span class="hljs-comment">// 真正的堆排序</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=n;i&gt;=<span class="hljs-number">1</span>;i--)<br>		max_heapify(i,n);       <span class="hljs-comment">// 第一次完整的堆排序</span><br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=n;i&gt;<span class="hljs-number">1</span>;i--)&#123;<br>		swap(&amp;a[<span class="hljs-number">1</span>],&amp;a[i]);      <span class="hljs-comment">// 将父节点下放</span><br>		max_heapify(<span class="hljs-number">1</span>,i<span class="hljs-number">-1</span>);     <span class="hljs-comment">// 注意是 i-1</span><br>	&#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%8E%92%E5%BA%8F/">排序</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%A0%86%E6%8E%92%E5%BA%8F/">堆排序</a>
+                    
+                  </div>
                 
               </div>
               
@@ -468,6 +494,48 @@ alt="graph_3" />
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 
