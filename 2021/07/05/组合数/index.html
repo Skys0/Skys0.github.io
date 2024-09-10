@@ -16,12 +16,12 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="这几天的竞赛期末考试中遇到了组合数的题目，就是 NOIP2016 组合数问题 原题，正好现在数学学到了一点点排列组合，就来整理一下吧。 组合数 就是从 \(n\) 个不同元素中，抽取 \(m\) 个元素的方案数。 组合数公式为： \[\dbinom{n}{m}&#x3D; \dfrac{n!}{m! \times (n-m)!}\] 通过杨辉三角可得到递推公式： \(\dbinom{i}{">
+  <meta name="description" content="这几天的竞赛期末考试中遇到了组合数的题目，就是 NOIP2016 组合数问题 原题，正好现在数学学到了一点点排列组合，就来整理一下吧。 组合数就是从 $n$ 个不同元素中，抽取 $m$ 个元素的方案数。 组合数公式为： \dbinom{n}{m}&#x3D; \dfrac{n!}{m! \times (n-m)!}通过杨辉三角可得到递推公式： $\dbinom{i}{j} &#x3D; \dbinom{i-1}{j-">
 <meta property="og:type" content="article">
 <meta property="og:title" content="组合数">
 <meta property="og:url" content="https://skys0.github.io/2021/07/05/%E7%BB%84%E5%90%88%E6%95%B0/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="这几天的竞赛期末考试中遇到了组合数的题目，就是 NOIP2016 组合数问题 原题，正好现在数学学到了一点点排列组合，就来整理一下吧。 组合数 就是从 \(n\) 个不同元素中，抽取 \(m\) 个元素的方案数。 组合数公式为： \[\dbinom{n}{m}&#x3D; \dfrac{n!}{m! \times (n-m)!}\] 通过杨辉三角可得到递推公式： \(\dbinom{i}{">
+<meta property="og:description" content="这几天的竞赛期末考试中遇到了组合数的题目，就是 NOIP2016 组合数问题 原题，正好现在数学学到了一点点排列组合，就来整理一下吧。 组合数就是从 $n$ 个不同元素中，抽取 $m$ 个元素的方案数。 组合数公式为： \dbinom{n}{m}&#x3D; \dfrac{n!}{m! \times (n-m)!}通过杨辉三角可得到递推公式： $\dbinom{i}{j} &#x3D; \dbinom{i-1}{j-">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://latex.codecogs.com/gif.latex?\dbinom{n}{k} = \dfrac{n!}{k!(n-k)!} = \dfrac{n\cdot(n-1)\cdot(n-2)\dots\cdot1}{k\cdot(k-1)\dots\cdot1\cdot(n-k)\cdot(n-k-1)\dots\cdot1}">
 <meta property="og:image" content="http://latex.codecogs.com/gif.latex?\dbinom{n}{k-1} \cdot \dfrac{n-k+1}{k} = \dfrac{n\cdot(n-1)\cdot(n-2)\dots\cdot1\cdot(n - k + 1)}{k\cdot(k-1)\dots\cdot1\cdot(n-k+1)\cdot(n-k-1)\dots\cdot1}">
@@ -244,50 +244,40 @@
             <h1 style="display: none">组合数</h1>
             
             <div class="markdown-body">
-              <p>这几天的竞赛期末考试中遇到了组合数的题目，就是 <a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2822">NOIP2016 组合数问题</a>
-原题，正好现在数学学到了一点点排列组合，就来整理一下吧。</p>
-<h2 id="组合数">组合数</h2>
-<p>就是从 <span class="math inline">\(n\)</span> 个不同元素中，抽取
-<span class="math inline">\(m\)</span> 个元素的方案数。</p>
+              <p>这几天的竞赛期末考试中遇到了组合数的题目，就是 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2822">NOIP2016 组合数问题</a> 原题，正好现在数学学到了一点点排列组合，就来整理一下吧。</p>
+<h2 id="组合数"><a href="#组合数" class="headerlink" title="组合数"></a>组合数</h2><p>就是从 $n$ 个不同元素中，抽取 $m$ 个元素的方案数。</p>
 <p>组合数公式为：</p>
-<p><span class="math display">\[\dbinom{n}{m}= \dfrac{n!}{m! \times
-(n-m)!}\]</span></p>
-<p>通过杨辉三角可得到递推公式：</p>
-<p><span class="math inline">\(\dbinom{i}{j} = \dbinom{i-1}{j-1} +
-\dbinom{i-1}{j}\)</span></p>
+<script type="math/tex; mode=display">\dbinom{n}{m}= \dfrac{n!}{m! \times (n-m)!}</script><p>通过杨辉三角可得到递推公式：</p>
+<p>$\dbinom{i}{j} = \dbinom{i-1}{j-1} + \dbinom{i-1}{j}$ </p>
 <p>还有一个递推公式（可证明）：</p>
-<p><span class="math display">\[\dbinom{i}{j} = \dfrac{n-k+1}{k} \times
-\dbinom{i}{j-1}\]</span></p>
-<p>但是这个可能会乘法溢出</p>
+<script type="math/tex; mode=display">\dbinom{i}{j} = \dfrac{n-k+1}{k} \times \dbinom{i}{j-1}</script><p>但是这个可能会乘法溢出</p>
 <details>
-<summary>
-证明
-</summary>
-<img src="http://latex.codecogs.com/gif.latex?\dbinom{n}{k} = \dfrac{n!}{k!(n-k)!} = \dfrac{n\cdot(n-1)\cdot(n-2)\dots\cdot1}{k\cdot(k-1)\dots\cdot1\cdot(n-k)\cdot(n-k-1)\dots\cdot1}" srcset="/img/loading.gif" lazyload />
-<br><br>
-<img src="http://latex.codecogs.com/gif.latex?\dbinom{n}{k-1} \cdot \dfrac{n-k+1}{k} = \dfrac{n\cdot(n-1)\cdot(n-2)\dots\cdot1\cdot(n - k + 1)}{k\cdot(k-1)\dots\cdot1\cdot(n-k+1)\cdot(n-k-1)\dots\cdot1}" srcset="/img/loading.gif" lazyload />
-<br><br>
-<img src="http://latex.codecogs.com/gif.latex? = \dbinom{n}{k}" srcset="/img/loading.gif" lazyload />
-<br><br>
-<img src="http://latex.codecogs.com/gif.latex?\therefore" srcset="/img/loading.gif" lazyload />证明完毕
+    <summary>证明</summary>
+    <img src="http://latex.codecogs.com/gif.latex?\dbinom{n}{k} = \dfrac{n!}{k!(n-k)!} = \dfrac{n\cdot(n-1)\cdot(n-2)\dots\cdot1}{k\cdot(k-1)\dots\cdot1\cdot(n-k)\cdot(n-k-1)\dots\cdot1}" srcset="/img/loading.gif" lazyload />
+    <br><br>
+    <img src="http://latex.codecogs.com/gif.latex?\dbinom{n}{k-1} \cdot \dfrac{n-k+1}{k} = \dfrac{n\cdot(n-1)\cdot(n-2)\dots\cdot1\cdot(n - k + 1)}{k\cdot(k-1)\dots\cdot1\cdot(n-k+1)\cdot(n-k-1)\dots\cdot1}" srcset="/img/loading.gif" lazyload />
+    <br><br>
+       <img src="http://latex.codecogs.com/gif.latex? = \dbinom{n}{k}" srcset="/img/loading.gif" lazyload />
+    <br><br>
+    <img src="http://latex.codecogs.com/gif.latex?\therefore" srcset="/img/loading.gif" lazyload />证明完毕
 </details>
-<h2 id="题目思路">题目思路</h2>
-<ul>
+
+
+
+<h2 id="题目思路"><a href="#题目思路" class="headerlink" title="题目思路"></a>题目思路</h2><ul>
 <li><p>暴力</p>
-<p>暴力，暴力，暴力！</p></li>
+<p>暴力，暴力，暴力！</p>
+</li>
 <li><p>预处理</p>
-<p>用第一个递推公式先递推出来所有的数，然后对于每一次查询进行判断是否 %
-k == 0，时间复杂度为 <span
-class="math inline">\(\mathcal{O}(q+tn^2)\)</span>，还是有点慢</p></li>
+<p>用第一个递推公式先递推出来所有的数，然后对于每一次查询进行判断是否 % k == 0，时间复杂度为 $\mathcal{O}(q+tn^2)$，还是有点慢</p>
+</li>
 <li><p>预处理优化</p>
-<p>我们可以想到每一判断都 % k 有点慢所以可以在预处理时 % k，判断是否等于
-0 ，开过 <span class="math inline">\(O2\)</span> 95
-pts，还需要优化。</p></li>
+<p>我们可以想到每一判断都 % k 有点慢所以可以在预处理时 % k，判断是否等于 0 ，开过 $O2$ 95 pts，还需要优化。</p>
+</li>
 <li><p>前缀和+预处理</p>
-<p>我们可以二维前缀和等于 0 的个数，然后每一次查询即可，时间复杂度变成了
-<span class="math inline">\(\mathcal{O}(q+t)\)</span> ,可以过了。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> p = <span class="hljs-number">1000</span>;<br><span class="hljs-keyword">int</span> c[<span class="hljs-number">2010</span>][<span class="hljs-number">2010</span>] = &#123;<span class="hljs-number">0</span>&#125;;<br><span class="hljs-keyword">int</span> f[<span class="hljs-number">2010</span>][<span class="hljs-number">2010</span>] = &#123;<span class="hljs-number">0</span>&#125;;<br><span class="hljs-keyword">int</span> n,m,k,t;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">complet</span><span class="hljs-params">()</span></span>&#123;<br>	c[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>	c[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>	c[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>; <br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;=<span class="hljs-number">2000</span>;i++)&#123;<br>		c[i][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>		c[i][i] = <span class="hljs-number">1</span>;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;i;j++)&#123;<br>			c[i][j] = (c[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>] + c[i<span class="hljs-number">-1</span>][j]) % k;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;<span class="hljs-number">2000</span>;i++)&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;=i;j++)&#123;<br>        	f[i][j] = f[i<span class="hljs-number">-1</span>][j] + f[i][j<span class="hljs-number">-1</span>] - f[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>];		\\ 前缀和<br>        	<span class="hljs-keyword">if</span>(c[i][j] == <span class="hljs-number">0</span>)	f[i][j] ++;<br>        &#125;<br>        f[i][i+<span class="hljs-number">1</span>] = f[i][i];<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> cnt = <span class="hljs-number">0</span>;<br>	cin&gt;&gt;t&gt;&gt;k;<br>	<span class="hljs-built_in">complet</span>();<br>	<span class="hljs-keyword">while</span>(t--)&#123;<br>		cnt = <span class="hljs-number">0</span>;<br>		<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d %d&quot;</span>,&amp;n,&amp;m);<br>		<span class="hljs-keyword">if</span>(m &gt; n)<br>			m = n;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,f[n][m]);<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
+<p>我们可以二维前缀和等于 0 的个数，然后每一次查询即可，时间复杂度变成了 $\mathcal{O}(q+t)$ ,可以过了。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> p = <span class="hljs-number">1000</span>;<br><span class="hljs-keyword">int</span> c[<span class="hljs-number">2010</span>][<span class="hljs-number">2010</span>] = &#123;<span class="hljs-number">0</span>&#125;;<br><span class="hljs-keyword">int</span> f[<span class="hljs-number">2010</span>][<span class="hljs-number">2010</span>] = &#123;<span class="hljs-number">0</span>&#125;;<br><span class="hljs-keyword">int</span> n,m,k,t;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">complet</span><span class="hljs-params">()</span></span>&#123;<br>	c[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>	c[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>	c[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>; <br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;=<span class="hljs-number">2000</span>;i++)&#123;<br>		c[i][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>		c[i][i] = <span class="hljs-number">1</span>;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;i;j++)&#123;<br>			c[i][j] = (c[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>] + c[i<span class="hljs-number">-1</span>][j]) % k;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;<span class="hljs-number">2000</span>;i++)&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;=i;j++)&#123;<br>        	f[i][j] = f[i<span class="hljs-number">-1</span>][j] + f[i][j<span class="hljs-number">-1</span>] - f[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>];		\\ 前缀和<br>        	<span class="hljs-keyword">if</span>(c[i][j] == <span class="hljs-number">0</span>)	f[i][j] ++;<br>        &#125;<br>        f[i][i+<span class="hljs-number">1</span>] = f[i][i];<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> cnt = <span class="hljs-number">0</span>;<br>	cin&gt;&gt;t&gt;&gt;k;<br>	<span class="hljs-built_in">complet</span>();<br>	<span class="hljs-keyword">while</span>(t--)&#123;<br>		cnt = <span class="hljs-number">0</span>;<br>		<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d %d&quot;</span>,&amp;n,&amp;m);<br>		<span class="hljs-keyword">if</span>(m &gt; n)<br>			m = n;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,f[n][m]);<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+</li>
 </ul>
 
             </div>
