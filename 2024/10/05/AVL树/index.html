@@ -16,20 +16,21 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="突发奇想来用 Python 来缩放图像，搜到可以用 opencv 来实现功能，就稍微了解一下，当然 opencv 的功能不只这些。 注意：此处所有 cv 在实际写时改成 cv2 或者在导入库时加入一句 import cv2 as cv 基本功能 读取图像 可以用 cv.imread() 来读取图像，一共有两个参数，第一个提供图片所在目录，第二个是一个标志，表示读取的方式：  c">
+  <meta name="description" content="AVL 树 前言 AVL 树是二叉搜索&amp;平衡树的一种，能够担任快速地插入，查找，等操作的数据结构。二叉搜索树上的基本操作所花费的时间与这棵树的高度成正比。对于一个有 \(n\) 个结点的二叉搜索树中，这些操作的最优时间复杂度为 \(O(\log n)\)，最坏为 \(O(n)\)。 二叉搜索树的定义  空树为二叉搜索树 如果二叉搜索树的左子树不为空，那么它的左子树上所有点">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用 Python opencv 缩放图像">
-<meta property="og:url" content="https://skys0.github.io/2022/04/29/%E4%BD%BF%E7%94%A8-Python-opencv-%E7%BC%A9%E6%94%BE%E5%9B%BE%E5%83%8F/index.html">
+<meta property="og:title" content="AVL树">
+<meta property="og:url" content="https://skys0.github.io/2024/10/05/AVL%E6%A0%91/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="突发奇想来用 Python 来缩放图像，搜到可以用 opencv 来实现功能，就稍微了解一下，当然 opencv 的功能不只这些。 注意：此处所有 cv 在实际写时改成 cv2 或者在导入库时加入一句 import cv2 as cv 基本功能 读取图像 可以用 cv.imread() 来读取图像，一共有两个参数，第一个提供图片所在目录，第二个是一个标志，表示读取的方式：  c">
+<meta property="og:description" content="AVL 树 前言 AVL 树是二叉搜索&amp;平衡树的一种，能够担任快速地插入，查找，等操作的数据结构。二叉搜索树上的基本操作所花费的时间与这棵树的高度成正比。对于一个有 \(n\) 个结点的二叉搜索树中，这些操作的最优时间复杂度为 \(O(\log n)\)，最坏为 \(O(n)\)。 二叉搜索树的定义  空树为二叉搜索树 如果二叉搜索树的左子树不为空，那么它的左子树上所有点">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-04-29T13:43:26.000Z">
-<meta property="article:modified_time" content="2022-04-29T14:49:30.000Z">
+<meta property="article:published_time" content="2024-10-04T16:00:27.000Z">
+<meta property="article:modified_time" content="2024-10-05T11:06:37.899Z">
 <meta property="article:author" content="Skys">
-<meta property="article:tag" content="opencv">
+<meta property="article:tag" content="二叉平衡树">
+<meta property="article:tag" content="AVL 树">
 <meta name="twitter:card" content="summary_large_image">
   
-  <title>使用 Python opencv 缩放图像 - Skys</title>
+  <title>AVL树 - Skys</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -171,12 +172,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://s2.loli.net/2022/04/29/n3H2GM6yJ8Nf1LF.jpg') no-repeat center center;
+         style="background: url('https://s2.loli.net/2024/10/04/pXrzqbu2ZhSV5lU.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="使用 Python opencv 缩放图像">
+            <span class="h2" id="subtitle" title="AVL树">
               
             </span>
 
@@ -186,8 +187,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-04-29 21:43" pubdate>
-        2022年4月29日 晚上
+      <time datetime="2024-10-05 00:00" pubdate>
+        2024年10月5日 凌晨
       </time>
     </span>
   
@@ -197,7 +198,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      1.2k 字
     </span>
   
 
@@ -235,54 +236,36 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">使用 Python opencv 缩放图像</h1>
+            <h1 style="display: none">AVL树</h1>
             
             <div class="markdown-body">
-              <p>突发奇想来用 Python 来缩放图像，搜到可以用 opencv
-来实现功能，就稍微了解一下，当然 opencv 的功能不只这些。</p>
-<p><strong>注意</strong>：此处所有 <code>cv</code> 在实际写时改成
-<code>cv2</code> 或者在导入库时加入一句
-<code>import cv2 as cv</code></p>
-<h2 id="基本功能">基本功能</h2>
-<h3 id="读取图像">读取图像</h3>
-<p>可以用 <code>cv.imread()</code>
-来读取图像，一共有两个参数，第一个提供图片所在目录，第二个是一个标志，表示读取的方式：</p>
+              <h1 id="avl-树">AVL 树</h1>
+<h2 id="前言">前言</h2>
+<p>AVL
+树是二叉搜索&amp;平衡树的一种，能够担任快速地插入，查找，等操作的数据结构。二叉搜索树上的基本操作所花费的时间与这棵树的高度成正比。对于一个有
+<span class="math inline">\(n\)</span>
+个结点的二叉搜索树中，这些操作的最优时间复杂度为 <span
+class="math inline">\(O(\log n)\)</span>，最坏为 <span
+class="math inline">\(O(n)\)</span>。</p>
+<h2 id="二叉搜索树的定义">二叉搜索树的定义</h2>
 <ul>
-<li><p>cv.IMREAD_COLOR ：加载彩色图像，默认</p></li>
-<li><p>cv.IMREAD_GRAYSCALE：以灰度模式加载图像</p></li>
-<li><p>cv.IMREAD_UNCHANGED：加载图像</p></li>
+<li>空树为二叉搜索树</li>
+<li>如果二叉搜索树的左子树不为空，那么它的左子树上所有点的附加权值均小于其根节点的值。</li>
+<li>若二叉搜索树的右子树不为空，则其右子树上所有点的附加权值均大于其根节点的值。</li>
+<li>二叉搜索树的左右子树均为二叉搜索树。</li>
 </ul>
-<p><strong>注意</strong>：即使图像路径错误，它也不会引发任何错误，但是
-<code>print img</code> 会给出 <code>None</code></p>
-<h3 id="显示图像">显示图像</h3>
-<p>使用函数 <code>cv.imshow()</code>
-在窗口上显示图像，窗口自动适合图像尺寸。</p>
-<p>第一个参数是字符串，表示窗口名，第二个参数是我们需要显示的图片的参数。</p>
-<p>一般配合以下函数使用：</p>
-<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">cv.imshow(<span class="hljs-string">&#x27;img&#x27;</span>,img)<br>cv.waitKey(<span class="hljs-number">0</span>)<br>cv.destoryAllWindows()<br></code></pre></div></td></tr></table></figure>
-<p><code>cv.waitKey()</code>
-是一个控制键盘的函数。其参数是以毫秒为单位的时间。如果您在这段时间内按下任何键，程序将继续运行。如果
-<code>0</code> 被传递，它将无限期地等待一次敲击键。</p>
-<h3 id="写入图像">写入图像</h3>
-<p>使用 <code>cv.imwrite()</code>
-保存图像，第一个参数是文件名，第二个参数是要保存的图像。</p>
-<h3 id="缩放">缩放</h3>
-<p>使用函数 <code>cv.resize()</code>：</p>
-<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">resize(src, dsize, dst=<span class="hljs-literal">None</span>, fx=<span class="hljs-literal">None</span>, fy=<span class="hljs-literal">None</span>, interpolation=<span class="hljs-literal">None</span>)<br></code></pre></div></td></tr></table></figure>
-<p><code>scr</code>：是需要缩放的图片的对象</p>
-<p><code>dsize</code>：目标图像大小。当 dsize 为 0
-时，通过以下公式计算得出：</p>
-<ul>
-<li><code>disize = Size(round(fx*scr.cols) , round(fy*src.rows))</code></li>
-</ul>
-<p>所以 <code>disze</code> 与 <code>(fx , fy)</code> 不能同时为 0</p>
-<p><code>fx,fy</code>
-：水平和垂直轴的比例因子。当它为零时，计算公式如下：<code>(double)dsize.width/src.cols</code>
-和 <code>(double)dsize.width/src.cols</code></p>
-<p><code>interpolation</code> ：插值方法，具体我也不太懂，最好使用
-<code>cv.INTER_LINEAR</code> 参数</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># Distant-Skys</span><br><span class="hljs-comment"># To make a picture smaller or bigger.</span><br><br><span class="hljs-keyword">import</span> cv2 <span class="hljs-keyword">as</span> cv<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>image = cv.imread(<span class="hljs-string">&#x27;1.jpg&#x27;</span>)<br><br>res = cv.resize(image,<span class="hljs-literal">None</span>,fx=<span class="hljs-number">0.7</span>,fy=<span class="hljs-number">0.7</span>,interpolation=cv.INTER_CUBIC)<br><span class="hljs-comment"># if want to make picture bigger ,let ((fx and fy) &gt; 1).</span><br><br><span class="hljs-comment"># print the result picture.</span><br><span class="hljs-comment"># cv.imshow(&#x27;result image&#x27;,res)</span><br><span class="hljs-comment"># cv.waitKey(0)</span><br><span class="hljs-comment"># cv.destroyAllWindows()</span><br><br>cv.imwrite(<span class="hljs-string">&#x27;1_result.jpg&#x27;</span>,res)<br></code></pre></div></td></tr></table></figure>
+<p>简单来说，就是一棵树满足全部左子树的值小于其根节点，全部右子树的值大于其根节点。</p>
+<h2 id="节点的定义">节点的定义</h2>
+<p>与正常的树相同，有左右子节点。还有需要维护的总体大小，高度。全部用指针实现。在保存时只需保存根节点的指针就行。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AVLTreeNote</span>&#123;</span><br>	<span class="hljs-keyword">public</span>:<br>		<span class="hljs-keyword">int</span> key;<br>		AVLTreeNote *Left;<br>		AVLTreeNote *Right;<br>		<span class="hljs-keyword">int</span> height;<br>		<span class="hljs-keyword">int</span> size;<br>		<span class="hljs-keyword">int</span> count;<br>		<span class="hljs-built_in">AVLTreeNote</span>(<span class="hljs-keyword">int</span> value): <span class="hljs-built_in">key</span>(value), <span class="hljs-built_in">size</span>(<span class="hljs-number">1</span>), <span class="hljs-built_in">count</span>(<span class="hljs-number">1</span>), <span class="hljs-built_in">Left</span>(<span class="hljs-literal">nullptr</span>), <span class="hljs-built_in">Right</span>(<span class="hljs-literal">nullptr</span>),<span class="hljs-built_in">height</span>(<span class="hljs-number">1</span>) &#123;&#125;<br>&#125;;<br></code></pre></div></td></tr></table></figure>
+<h2 id="基本操作">基本操作</h2>
+<h3 id="遍历">遍历</h3>
+<p>对于一个符合要求的二叉平衡树，它的中序遍历为非降的序列。那么可以利用这个性质来debug。(在小范围数据特别好用)，时间复杂度为
+<span class="math inline">\(O(n)\)</span>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-comment">// 树的中序遍历，并且按顺序输出节点</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Traversal</span><span class="hljs-params">(AVLTreeNote* root)</span></span>&#123;<br>	<span class="hljs-keyword">if</span>(root == <span class="hljs-literal">nullptr</span>)&#123;<br>		<span class="hljs-keyword">return</span>;<br>	&#125;<br>	<span class="hljs-built_in">Traversal</span>(root-&gt;Left);<br>	cout&lt;&lt;<span class="hljs-string">&quot;root-&gt;key: &quot;</span>&lt;&lt;root-&gt;key&lt;&lt;<span class="hljs-string">&quot; height: &quot;</span>&lt;&lt;root-&gt;height&lt;&lt;<span class="hljs-string">&quot; size: &quot;</span>&lt;&lt;root-&gt;size&lt;&lt;<span class="hljs-string">&quot; count : &quot;</span>&lt;&lt;root-&gt;count&lt;&lt;<span class="hljs-string">&quot; Left(if have): &quot;</span>&lt;&lt;(root-&gt;Left ? root-&gt;Left-&gt;key : <span class="hljs-number">-1</span>)&lt;&lt;<span class="hljs-string">&quot; Right(if have): &quot;</span>&lt;&lt;(root-&gt;Right ? root-&gt;Right-&gt;key : <span class="hljs-number">-1</span>)&lt;&lt;endl;<br>	<span class="hljs-built_in">Traversal</span>(root-&gt;Right);<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h3 id="寻找最大最小值">寻找最大最小值</h3>
+<p>一个二叉搜索树上的最小值为二叉搜索树左链的顶点，最大值为二叉搜索树右链的顶点。时间复杂度为
+<span class="math inline">\(O(h)\)</span>。</p>
 
             </div>
             <hr>
@@ -292,7 +275,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Python/">Python</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
                     
                   </div>
                 
@@ -300,7 +283,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/opencv/">opencv</a>
+                      <a class="hover-with-bg" href="/tags/%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91/">二叉平衡树</a>
+                    
+                      <a class="hover-with-bg" href="/tags/AVL-%E6%A0%91/">AVL 树</a>
                     
                   </div>
                 
@@ -317,18 +302,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/08/Linux-%E5%AD%A6%E4%B9%A0-1/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Linux 学习 1</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/01/29/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                        <span class="hidden-mobile">Java学习笔记</span>
+                      <a href="/2024/09/04/%E5%A0%86%E6%8E%92%E5%BA%8F%EF%BC%88Heapsort%EF%BC%89/">
+                        <span class="hidden-mobile">堆排序（Heapsort）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
