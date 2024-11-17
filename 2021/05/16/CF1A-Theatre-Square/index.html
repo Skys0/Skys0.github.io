@@ -16,19 +16,19 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="题目 题目描述 用 \(a \times a\) 的石板覆盖 \(n \times m\) 的长方形广场，允许石板覆盖的区域超出广场，不允许打破石板，石板的两侧应平行于广场两侧，要求覆盖完广场所需的石板数量最少是多少。 输入格式 输入有三个数字 \(n,m,a\) (\(1≤n,m,a≤10^9\)) 思路 首先，我们看到是广场是长方形的，而石板是正方形的，很容易就想到可能会出现一中">
+  <meta name="description" content="题目题目描述用 $a \times a$ 的石板覆盖 $n \times m$ 的长方形广场，允许石板覆盖的区域超出广场，不允许打破石板，石板的两侧应平行于广场两侧，要求覆盖完广场所需的石板数量最少是多少。 输入格式输入有三个数字 $n,m,a$ ($1≤n,m,a≤10^9$) 思路首先，我们看到是广场是长方形的，而石板是正方形的，很容易就想到可能会出现一中特殊情况：（广场的面积不足以铺一个石板">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CF1A Theatre Square">
 <meta property="og:url" content="https://skys0.github.io/2021/05/16/CF1A-Theatre-Square/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="题目 题目描述 用 \(a \times a\) 的石板覆盖 \(n \times m\) 的长方形广场，允许石板覆盖的区域超出广场，不允许打破石板，石板的两侧应平行于广场两侧，要求覆盖完广场所需的石板数量最少是多少。 输入格式 输入有三个数字 \(n,m,a\) (\(1≤n,m,a≤10^9\)) 思路 首先，我们看到是广场是长方形的，而石板是正方形的，很容易就想到可能会出现一中">
+<meta property="og:description" content="题目题目描述用 $a \times a$ 的石板覆盖 $n \times m$ 的长方形广场，允许石板覆盖的区域超出广场，不允许打破石板，石板的两侧应平行于广场两侧，要求覆盖完广场所需的石板数量最少是多少。 输入格式输入有三个数字 $n,m,a$ ($1≤n,m,a≤10^9$) 思路首先，我们看到是广场是长方形的，而石板是正方形的，很容易就想到可能会出现一中特殊情况：（广场的面积不足以铺一个石板">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://z3.ax1x.com/2021/05/16/gcWxnP.png">
 <meta property="article:published_time" content="2021-05-16T05:42:03.000Z">
 <meta property="article:modified_time" content="2021-10-27T09:32:58.000Z">
 <meta property="article:author" content="Skys">
-<meta property="article:tag" content="简单题">
 <meta property="article:tag" content="CodeForces">
+<meta property="article:tag" content="简单题">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://z3.ax1x.com/2021/05/16/gcWxnP.png">
   
@@ -200,7 +200,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      542 字
+      532 字
     </span>
   
 
@@ -241,19 +241,10 @@
             <h1 style="display: none">CF1A Theatre Square</h1>
             
             <div class="markdown-body">
-              <h1 id="题目">题目</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>用 <span class="math inline">\(a \times a\)</span> 的石板覆盖 <span
-class="math inline">\(n \times m\)</span>
-的长方形广场，允许石板覆盖的区域超出广场，不允许打破石板，石板的两侧应平行于广场两侧，要求覆盖完广场所需的石板数量最少是多少。</p>
-<h1 id="输入格式">输入格式</h1>
-<p>输入有三个数字 <span class="math inline">\(n,m,a\)</span> (<span
-class="math inline">\(1≤n,m,a≤10^9\)</span>)</p>
-<h1 id="思路">思路</h1>
-<p>首先，我们看到是广场是长方形的，而石板是正方形的，<del>很容易就想到</del>可能会出现一中特殊情况：（广场的面积不足以铺一个石板），还会想到将长和宽一起除以石板边长，就是这个边所可以容纳多少个石板边长，最后再将所得的个数相乘，就是我们的答案了。
-<img src="https://z3.ax1x.com/2021/05/16/gcWxnP.png" srcset="/img/loading.gif" lazyload
-alt="gcWxnP.png" /></p>
-<p><span class="math inline">\(AC\)</span> 代码： <figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cmath&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> n,m,a;<br>	cin&gt;&gt;n&gt;&gt;m&gt;&gt;a;<br>	cout&lt;&lt;(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>)(<span class="hljs-built_in">ceil</span>(n/(<span class="hljs-keyword">double</span>)a)*<span class="hljs-built_in">ceil</span>(m/(<span class="hljs-keyword">double</span>)a))&lt;&lt;endl;<span class="hljs-comment">//注意一定要long long 不然就会强制转换为科学计数法</span><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125; <br><br></code></pre></div></td></tr></table></figure></p>
+              <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>用 $a \times a$ 的石板覆盖 $n \times m$ 的长方形广场，允许石板覆盖的区域超出广场，不允许打破石板，石板的两侧应平行于广场两侧，要求覆盖完广场所需的石板数量最少是多少。</p>
+<h1 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h1><p>输入有三个数字 $n,m,a$ ($1≤n,m,a≤10^9$)</p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>首先，我们看到是广场是长方形的，而石板是正方形的，<del>很容易就想到</del>可能会出现一中特殊情况：（广场的面积不足以铺一个石板），还会想到将长和宽一起除以石板边长，就是这个边所可以容纳多少个石板边长，最后再将所得的个数相乘，就是我们的答案了。<br><img src="https://z3.ax1x.com/2021/05/16/gcWxnP.png" srcset="/img/loading.gif" lazyload alt="gcWxnP.png"></p>
+<p>$AC$ 代码：<br><figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cmath&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> n,m,a;<br>	cin&gt;&gt;n&gt;&gt;m&gt;&gt;a;<br>	cout&lt;&lt;(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>)(<span class="hljs-built_in">ceil</span>(n/(<span class="hljs-keyword">double</span>)a)*<span class="hljs-built_in">ceil</span>(m/(<span class="hljs-keyword">double</span>)a))&lt;&lt;endl;<span class="hljs-comment">//注意一定要long long 不然就会强制转换为科学计数法</span><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125; <br><br></code></pre></div></td></tr></table></figure></p>
 
             </div>
             <hr>
@@ -271,9 +262,9 @@ alt="gcWxnP.png" /></p>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%AE%80%E5%8D%95%E9%A2%98/">简单题</a>
-                    
                       <a class="hover-with-bg" href="/tags/CodeForces/">CodeForces</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%80%E5%8D%95%E9%A2%98/">简单题</a>
                     
                   </div>
                 
