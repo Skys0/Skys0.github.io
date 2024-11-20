@@ -16,12 +16,12 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="这几天在复习 qbxt 的知识，学到了线段树，就来总结一下。 线段树 上面这张图显然是线段树，线段树就是一个处理区间的一个数据结构，将整个线段划分成一个树的结构，将长度不是 1 的段划分成两个子区间来求解，通过合并两个区间的信息来求解，这也是一个高效的数据结构。 总体时间复杂度为 $O(\log n)$    适用范围：区间的最小值或最大值，区间的修改，区间求和  操作在所有操作开始之前，可以观察">
+  <meta name="description" content="这几天在复习 qbxt 的知识，学到了线段树，就来总结一下。 线段树  上面这张图显然是线段树，线段树就是一个处理区间的一个数据结构，将整个线段划分成一个树的结构，将长度不是 1 的段划分成两个子区间来求解，通过合并两个区间的信息来求解，这也是一个高效的数据结构。 总体时间复杂度为 \(O(\log n)\)  适用范围：区间的最小值或最大值，区间的修改，区间求和  操作 在">
 <meta property="og:type" content="article">
 <meta property="og:title" content="学习线段树总结">
 <meta property="og:url" content="https://skys0.github.io/2021/08/22/%E5%AD%A6%E4%B9%A0%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="这几天在复习 qbxt 的知识，学到了线段树，就来总结一下。 线段树 上面这张图显然是线段树，线段树就是一个处理区间的一个数据结构，将整个线段划分成一个树的结构，将长度不是 1 的段划分成两个子区间来求解，通过合并两个区间的信息来求解，这也是一个高效的数据结构。 总体时间复杂度为 $O(\log n)$    适用范围：区间的最小值或最大值，区间的修改，区间求和  操作在所有操作开始之前，可以观察">
+<meta property="og:description" content="这几天在复习 qbxt 的知识，学到了线段树，就来总结一下。 线段树  上面这张图显然是线段树，线段树就是一个处理区间的一个数据结构，将整个线段划分成一个树的结构，将长度不是 1 的段划分成两个子区间来求解，通过合并两个区间的信息来求解，这也是一个高效的数据结构。 总体时间复杂度为 \(O(\log n)\)  适用范围：区间的最小值或最大值，区间的修改，区间求和  操作 在">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://z3.ax1x.com/2021/08/17/f4sLWR.png">
 <meta property="og:image" content="https://z3.ax1x.com/2021/08/20/fj97CQ.jpg">
@@ -205,7 +205,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.3k 字
+      3.4k 字
     </span>
   
 
@@ -214,7 +214,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10 分钟
+      11 分钟
     </span>
   
 
@@ -247,72 +247,109 @@
             
             <div class="markdown-body">
               <p>这几天在复习 qbxt 的知识，学到了线段树，就来总结一下。</p>
-<h1 id="线段树"><a href="#线段树" class="headerlink" title="线段树"></a>线段树</h1><p><img src="https://z3.ax1x.com/2021/08/17/f4sLWR.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p>上面这张图显然是线段树，线段树就是一个处理区间的一个数据结构，将整个线段划分成一个树的结构，将长度不是 1 的段划分成两个子区间来求解，通过合并两个区间的信息来求解，这也是一个高效的数据结构。</p>
-<p>总体时间复杂度为 $O(\log n)$  </p>
+<h1 id="线段树">线段树</h1>
+<p><img src="https://z3.ax1x.com/2021/08/17/f4sLWR.png" srcset="/img/loading.gif" lazyload /></p>
+<p>上面这张图显然是线段树，线段树就是一个处理区间的一个数据结构，将整个线段划分成一个树的结构，将长度不是
+1
+的段划分成两个子区间来求解，通过合并两个区间的信息来求解，这也是一个高效的数据结构。</p>
+<p>总体时间复杂度为 <span class="math inline">\(O(\log n)\)</span></p>
 <ul>
 <li>适用范围：区间的最小值或最大值，区间的修改，区间求和</li>
 </ul>
-<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><p>在所有操作开始之前，可以观察到一个根节点为 $p$ 的左儿子为 $p^2$ ，右儿子为  $p^2+1$</p>
+<h2 id="操作">操作</h2>
+<p>在所有操作开始之前，可以观察到一个根节点为 <span
+class="math inline">\(p\)</span> 的左儿子为 <span
+class="math inline">\(p^2\)</span> ，右儿子为 <span
+class="math inline">\(p^2+1\)</span></p>
 <figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">int</span> <span class="hljs-title">ls</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>&#123;<span class="hljs-keyword">return</span> x&lt;&lt;<span class="hljs-number">1</span>;&#125;   <span class="hljs-comment">// 左儿子 left sons</span><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">int</span> <span class="hljs-title">rs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>&#123;<span class="hljs-keyword">return</span> (x&lt;&lt;<span class="hljs-number">1</span>)+<span class="hljs-number">1</span>;&#125;   <span class="hljs-comment">// 右儿子 right sons</span><br></code></pre></div></td></tr></table></figure>
-<h3 id="建树"><a href="#建树" class="headerlink" title="建树"></a>建树</h3><p>我们可以想到像树上 DFS 一样，可以一直访问儿子节点，直到儿子节点长度为 1  ，我们可以通过数据上的值去更改子节点的值，再有子节点来合并（更新）父节点的值。</p>
+<h3 id="建树">建树</h3>
+<p>我们可以想到像树上 DFS 一样，可以一直访问儿子节点，直到儿子节点长度为
+1
+，我们可以通过数据上的值去更改子节点的值，再有子节点来合并（更新）父节点的值。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">built</span><span class="hljs-params">(<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r,<span class="hljs-keyword">int</span> p)</span></span>&#123;<br>    <span class="hljs-comment">// 建树 [l,r] 为当前的区间，p 为当前的节点编号</span><br>	lazy[p] = <span class="hljs-number">1</span>;		<span class="hljs-comment">// lazy_tag 后面会讲到</span><br>	<span class="hljs-keyword">if</span>(l == r)&#123;			<span class="hljs-comment">// 如果 长度为 1 </span><br>		d[p] = a[l];<br>		<span class="hljs-keyword">return</span>;<br>	&#125;<br>	<span class="hljs-keyword">int</span> mid = l+(r-l)/<span class="hljs-number">2</span>;	<span class="hljs-comment">// 递归求解</span><br>	<span class="hljs-built_in">built</span>(l,mid,<span class="hljs-built_in">ls</span>(p));<span class="hljs-built_in">built</span>(mid+<span class="hljs-number">1</span>,r,<span class="hljs-built_in">rs</span>(p));<br>	d[p] = d[<span class="hljs-built_in">ls</span>(p)] + d[<span class="hljs-built_in">rs</span>(p)] ;  <span class="hljs-comment">// 由儿子更新父亲，合并</span><br>    <span class="hljs-comment">// 如果是求最大值，改成 d[p] = max(d[ls(p)],d[rs(p)]);最小值同样 </span><br>&#125;<br></code></pre></div></td></tr></table></figure>
-<h3 id="区间查询"><a href="#区间查询" class="headerlink" title="区间查询"></a>区间查询</h3><p>首先，我们可以想到还是像建树一样递归求解，如果这个区间在所要求的区间上了，直接返回，如果左儿子的子区间和原答案有交集，那么就递归到相应的节点上求解。那么思路就讲好了，代码怎么写呢？下面放上几张图就了解了</p>
-<p>设所在区间为 $[l,r]$ , 查询区间为 $[s,t]$ 。</p>
-<p><img src="https://z3.ax1x.com/2021/08/20/fj97CQ.jpg" srcset="/img/loading.gif" lazyload alt="tree"></p>
+<h3 id="区间查询">区间查询</h3>
+<p>首先，我们可以想到还是像建树一样递归求解，如果这个区间在所要求的区间上了，直接返回，如果左儿子的子区间和原答案有交集，那么就递归到相应的节点上求解。那么思路就讲好了，代码怎么写呢？下面放上几张图就了解了</p>
+<p>设所在区间为 <span class="math inline">\([l,r]\)</span> , 查询区间为
+<span class="math inline">\([s,t]\)</span> 。</p>
+<figure>
+<img src="https://z3.ax1x.com/2021/08/20/fj97CQ.jpg" srcset="/img/loading.gif" lazyload alt="tree" />
+<figcaption aria-hidden="true">tree</figcaption>
+</figure>
 <p>那么根据这张图可以很显然的推出所在区间在查询区间的判断方式：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-keyword">if</span>(s &lt;= l &amp;&amp; r &lt;= t)<br></code></pre></div></td></tr></table></figure>
-<p>设中间位置为 $mid = \dfrac{(l+r)}{2}$  。</p>
-<p><img src="https://z3.ax1x.com/2021/08/20/fjiS1J.jpg" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>设中间位置为 <span class="math inline">\(mid =
+\dfrac{(l+r)}{2}\)</span> 。</p>
+<p><img src="https://z3.ax1x.com/2021/08/20/fjiS1J.jpg" srcset="/img/loading.gif" lazyload /></p>
 <p>可以很<del>简单</del>的看出，进入左儿子的条件是：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-keyword">if</span>(mid &gt;= s)<br></code></pre></div></td></tr></table></figure>
 <p>进入右儿子的条件是：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-keyword">if</span>(mid &lt; t)<br></code></pre></div></td></tr></table></figure>
 <p>综上，我们可以得出查询代码：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-function">LL <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r,<span class="hljs-keyword">int</span> s,<span class="hljs-keyword">int</span> t,<span class="hljs-keyword">int</span> p)</span></span>&#123;<br><span class="hljs-comment">// l,r 为当前的, s,t 为询问的	</span><br>	<span class="hljs-keyword">if</span>(l&gt;=s &amp;&amp; r &lt;= tt)<br>		<span class="hljs-keyword">return</span> d[p];<br>	<span class="hljs-keyword">int</span> mid = l+(r-l)/<span class="hljs-number">2</span>;<br>	<span class="hljs-built_in">pushdown</span>(p,l,r); <br>	LL sum = <span class="hljs-number">0</span>; <br>	<span class="hljs-keyword">if</span>(mid &gt;= s)<br>		sum += <span class="hljs-built_in">query</span>(l,mid,s,t,<span class="hljs-built_in">ls</span>(p));    <span class="hljs-comment">// 如果是求最大值，就改成</span><br>		<span class="hljs-comment">// sum = max(quert(l,mid,s,t,ls(p)),sum);     最小值同样</span><br>	<span class="hljs-keyword">if</span>(tt &gt; mid)<br>		sum += <span class="hljs-built_in">query</span>(mid+<span class="hljs-number">1</span>,r,s,tt,<span class="hljs-built_in">rs</span>(p));<br>	<span class="hljs-keyword">return</span> sum;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<h3 id="单点修改"><a href="#单点修改" class="headerlink" title="单点修改"></a>单点修改</h3><p>在讲区间修改之前，我先来讲一下最基础的单点修改。单点修改也是递归找需要更改的点，然后再返回合并父节点的值</p>
+<h3 id="单点修改">单点修改</h3>
+<p>在讲区间修改之前，我先来讲一下最基础的单点修改。单点修改也是递归找需要更改的点，然后再返回合并父节点的值</p>
 <figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r,<span class="hljs-keyword">int</span> f,<span class="hljs-keyword">int</span> c,<span class="hljs-keyword">int</span> p)</span></span>&#123;<br>	<span class="hljs-comment">// [l,r] 当前 p 节点的范围，f 是修改的点的编号， c 是修改的值</span><br>	<span class="hljs-keyword">if</span>(l == r)&#123;			<span class="hljs-comment">// 如果递归到所达到的点了</span><br>		d[p] = c;<br>		<span class="hljs-comment">// 如果是加上 c ，改成</span><br>		<span class="hljs-comment">// d[p] += c;</span><br>        <span class="hljs-comment">// 减去同理</span><br>		<span class="hljs-keyword">return</span>;<br>	&#125;<br>	<span class="hljs-keyword">int</span> mid = l + (r-l)/<span class="hljs-number">2</span>;<br>	<span class="hljs-keyword">if</span>(mid &gt;= f)	<span class="hljs-comment">// 如果所要修改的点在左儿子上，进入左儿子</span><br>		<span class="hljs-built_in">update</span>(l,mid,f,c,<span class="hljs-built_in">ls</span>(p));<br>	<span class="hljs-keyword">else</span><br>		<span class="hljs-built_in">update</span>(mid+<span class="hljs-number">1</span>,r,f,c,<span class="hljs-built_in">rs</span>(p));<br>	d[p] = d[<span class="hljs-built_in">ls</span>(p)] + d[<span class="hljs-built_in">rs</span>(p)];<br>    <span class="hljs-comment">// 如果是求最大值，就改成</span><br>    <span class="hljs-comment">// d[p] = max(d[ls(p)] + d[rs(p)]);</span><br>    <span class="hljs-comment">// 最小值同理</span><br>	<span class="hljs-keyword">return</span>;<br>&#125;	<br></code></pre></div></td></tr></table></figure>
-<h3 id="区间修改"><a href="#区间修改" class="headerlink" title="区间修改"></a>区间修改</h3><ul>
+<h3 id="区间修改">区间修改</h3>
+<ul>
 <li><p>懒标记</p>
 <p>简单来说，就是通过<strong>延迟</strong>对节点信息的更改，从而减少可能不必要的操作次数。每次执行修改时，我们通过打标记的方法表明该节点对应的区间在某一次操作中被更改，但不更新该节点的子节点的信息。实质性的修改则在下一次访问带有标记的节点时才进行。</p>
-<div class="hljs code-wrapper"><pre><code>                                                                                                                                                                ----- OI-Wiki
-</code></pre></div></li>
+<div class="hljs code-wrapper"><pre><code>                                                                                                                                                              ----- OI-Wiki</code></pre></div></li>
 </ul>
-<p>这段话<del>深刻的阐释了</del>懒标记的作用，如果不用懒标记时间复杂度将会达到 $\mathcal{O}(n \log n)$ 有点慢，这样一来时间复杂度为 $\mathcal{O}(\log n)$ 的。</p>
+<p>这段话<del>深刻的阐释了</del>懒标记的作用，如果不用懒标记时间复杂度将会达到
+<span class="math inline">\(\mathcal{O}(n \log n)\)</span>
+有点慢，这样一来时间复杂度为 <span
+class="math inline">\(\mathcal{O}(\log n)\)</span> 的。</p>
 <p>听我这样一讲有点蒙先来看代码吧：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r,<span class="hljs-keyword">int</span> s,<span class="hljs-keyword">int</span> tt,<span class="hljs-keyword">int</span> c,<span class="hljs-keyword">int</span> p)</span></span>&#123;<br>	<span class="hljs-comment">// [l,r] 为当前的, [s,t] 为询问的</span><br>	<span class="hljs-keyword">if</span>(l &gt;= s &amp;&amp; r &lt;= tt)&#123;<br>		t[p] += (r-l+<span class="hljs-number">1</span>)*c;lazy[p] += c  <span class="hljs-comment">//懒标记;</span><br>		<span class="hljs-keyword">return</span>;<br>	&#125;<br>	<span class="hljs-keyword">int</span> mid = l+(r-l)/<span class="hljs-number">2</span>;<br>	<span class="hljs-keyword">if</span>(lazy[p] &amp;&amp; l!=r)&#123; 	<span class="hljs-comment">// 懒标记的更新</span><br>		t[<span class="hljs-built_in">ls</span>(p)] += (mid-l+<span class="hljs-number">1</span>)*lazy[p];t[<span class="hljs-built_in">rs</span>(p)] += (r-mid) * lazy[p];<br>		lazy[<span class="hljs-built_in">ls</span>(p)] += lazy[p];lazy[<span class="hljs-built_in">rs</span>(p)] += lazy[p];<br>		lazy[p] = <span class="hljs-number">0</span>;<br>	&#125;<br>	<span class="hljs-keyword">if</span>(mid &gt;= s)<br>		<span class="hljs-built_in">update</span>(l,mid,s,tt,c,<span class="hljs-built_in">ls</span>(p));<br>	<span class="hljs-keyword">if</span>(tt &gt; mid)<br>		<span class="hljs-built_in">update</span>(mid+<span class="hljs-number">1</span>,r,s,tt,c,<span class="hljs-built_in">rs</span>(p));<br>	t[p] = t[<span class="hljs-built_in">ls</span>(p)] + t[<span class="hljs-built_in">rs</span>(p)];<br>&#125;<br></code></pre></div></td></tr></table></figure>
 <p>举个例子吧：</p>
-<p><img src="https://z3.ax1x.com/2021/08/22/hpaTg0.png" srcset="/img/loading.gif" lazyload alt="step1"></p>
-<p>如果我想要更改 $[9,10]$ 的每个数加上 5，我们可以先直接在这个区间上改，并给它们打上标记。</p>
-<p><img src="https://z3.ax1x.com/2021/08/22/hpdV5d.png" srcset="/img/loading.gif" lazyload alt="step2"></p>
+<figure>
+<img src="https://z3.ax1x.com/2021/08/22/hpaTg0.png" srcset="/img/loading.gif" lazyload alt="step1" />
+<figcaption aria-hidden="true">step1</figcaption>
+</figure>
+<p>如果我想要更改 <span class="math inline">\([9,10]\)</span>
+的每个数加上 5，我们可以先直接在这个区间上改，并给它们打上标记。</p>
+<figure>
+<img src="https://z3.ax1x.com/2021/08/22/hpdV5d.png" srcset="/img/loading.gif" lazyload alt="step2" />
+<figcaption aria-hidden="true">step2</figcaption>
+</figure>
 <p>虽然，子节点没有更新值，但当我们要查询这两个子节点的信息时，我们会利用标记修改这两个子节点的信息，使查询的结果依旧准确。</p>
-<p>现在，来查询一下 $[9,9]$ 的值，当递归到 $[9,10]$ 时，因为懒标记不为 0 ，所以将该区间的子区间更新并清零。</p>
-<p><img src="https://z3.ax1x.com/2021/08/22/hpduxP.png" srcset="/img/loading.gif" lazyload alt="step3"></p>
-<p>当然为了编写的简单性，修改懒标记可以写一个单独的函数 <code>pushdown</code> 。</p>
+<p>现在，来查询一下 <span class="math inline">\([9,9]\)</span>
+的值，当递归到 <span class="math inline">\([9,10]\)</span>
+时，因为懒标记不为 0 ，所以将该区间的子区间更新并清零。</p>
+<figure>
+<img src="https://z3.ax1x.com/2021/08/22/hpduxP.png" srcset="/img/loading.gif" lazyload alt="step3" />
+<figcaption aria-hidden="true">step3</figcaption>
+</figure>
+<p>当然为了编写的简单性，修改懒标记可以写一个单独的函数
+<code>pushdown</code> 。</p>
 <p>带乘法的查询也同理，只是新加一个乘法懒标记而已</p>
-<h3 id="带懒标记的查询"><a href="#带懒标记的查询" class="headerlink" title="带懒标记的查询"></a>带懒标记的查询</h3><figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-function">LL <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r,<span class="hljs-keyword">int</span> s,<span class="hljs-keyword">int</span> tt,<span class="hljs-keyword">int</span> p)</span></span>&#123;<br><span class="hljs-comment">// l,r 为当前的, s,tt 为询问的	</span><br>	<span class="hljs-keyword">if</span>(l&gt;=s &amp;&amp; r &lt;= tt)<br>		<span class="hljs-keyword">return</span> t[p];<br>	<span class="hljs-keyword">int</span> mid = l+(r-l)/<span class="hljs-number">2</span>;<br>	<span class="hljs-keyword">if</span>(lazy[p])&#123;<br>		t[<span class="hljs-built_in">ls</span>(p)] += lazy[p] * (mid-l+<span class="hljs-number">1</span>);t[<span class="hljs-built_in">rs</span>(p)] += lazy[p] * (r-mid);<br>		lazy[<span class="hljs-built_in">ls</span>(p)] += lazy[p];lazy[<span class="hljs-built_in">rs</span>(p)] += lazy[p];<br>		lazy[p] = <span class="hljs-number">0</span>;<br>	&#125;<br>	LL sum = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">if</span>(mid &gt;= s)<br>		sum += <span class="hljs-built_in">query</span>(l,mid,s,tt,<span class="hljs-built_in">ls</span>(p));<br>    	<span class="hljs-comment">// 如果是求最大值，就改成</span><br>    	<span class="hljs-comment">// sum = max(quert(l,mid,s,t,ls(p)),sum);     最小值同理</span><br>	<span class="hljs-keyword">if</span>(tt &gt; mid)<br>		sum += <span class="hljs-built_in">query</span>(mid+<span class="hljs-number">1</span>,r,s,tt,<span class="hljs-built_in">rs</span>(p));<br>	<span class="hljs-keyword">return</span> sum;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><p>基本上有了这些操作就可以写以下几道题目：</p>
+<h3 id="带懒标记的查询">带懒标记的查询</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-function">LL <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r,<span class="hljs-keyword">int</span> s,<span class="hljs-keyword">int</span> tt,<span class="hljs-keyword">int</span> p)</span></span>&#123;<br><span class="hljs-comment">// l,r 为当前的, s,tt 为询问的	</span><br>	<span class="hljs-keyword">if</span>(l&gt;=s &amp;&amp; r &lt;= tt)<br>		<span class="hljs-keyword">return</span> t[p];<br>	<span class="hljs-keyword">int</span> mid = l+(r-l)/<span class="hljs-number">2</span>;<br>	<span class="hljs-keyword">if</span>(lazy[p])&#123;<br>		t[<span class="hljs-built_in">ls</span>(p)] += lazy[p] * (mid-l+<span class="hljs-number">1</span>);t[<span class="hljs-built_in">rs</span>(p)] += lazy[p] * (r-mid);<br>		lazy[<span class="hljs-built_in">ls</span>(p)] += lazy[p];lazy[<span class="hljs-built_in">rs</span>(p)] += lazy[p];<br>		lazy[p] = <span class="hljs-number">0</span>;<br>	&#125;<br>	LL sum = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">if</span>(mid &gt;= s)<br>		sum += <span class="hljs-built_in">query</span>(l,mid,s,tt,<span class="hljs-built_in">ls</span>(p));<br>    	<span class="hljs-comment">// 如果是求最大值，就改成</span><br>    	<span class="hljs-comment">// sum = max(quert(l,mid,s,t,ls(p)),sum);     最小值同理</span><br>	<span class="hljs-keyword">if</span>(tt &gt; mid)<br>		sum += <span class="hljs-built_in">query</span>(mid+<span class="hljs-number">1</span>,r,s,tt,<span class="hljs-built_in">rs</span>(p));<br>	<span class="hljs-keyword">return</span> sum;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h2 id="习题">习题</h2>
+<p>基本上有了这些操作就可以写以下几道题目：</p>
 <ul>
-<li><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3372">洛谷 P3372 【模板】线段树 1</a> </p>
-<p>这道题是个纯模板题</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3373">洛谷 P3373 【模板】线段树 2</a></p>
-<p>这道题也差不多是个模板题，只是要注意：<strong>先乘后加</strong> 懒标记</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1166">HDU-1166 敌兵布阵</a></p>
-<p>单点修改的模板</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1754">HDU-1754 I Hate It</a></p>
-<p>单点修改，查询最大值的模板</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1394">HDU-1394 Minimum Inversion Number</a> </p>
-<p>线段树解决逆序对问题</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-3468">POJ-3468 A Simple Problem with Integers</a></p>
-<p>区间修改的模板题</p>
-</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3372">洛谷 P3372
+【模板】线段树 1</a></p>
+<p>这道题是个纯模板题</p></li>
+<li><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3373">洛谷 P3373
+【模板】线段树 2</a></p>
+<p>这道题也差不多是个模板题，只是要注意：<strong>先乘后加</strong>
+懒标记</p></li>
+<li><p><a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1166">HDU-1166
+敌兵布阵</a></p>
+<p>单点修改的模板</p></li>
+<li><p><a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1754">HDU-1754 I Hate
+It</a></p>
+<p>单点修改，查询最大值的模板</p></li>
+<li><p><a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1394">HDU-1394 Minimum
+Inversion Number</a></p>
+<p>线段树解决逆序对问题</p></li>
+<li><p><a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-3468">POJ-3468 A Simple
+Problem with Integers</a></p>
+<p>区间修改的模板题</p></li>
 </ul>
-<p>模板题/好题未完待续 $\dots \dots$ </p>
+<p>模板题/好题未完待续 <span class="math inline">\(\dots
+\dots\)</span></p>
 
             </div>
             <hr>
