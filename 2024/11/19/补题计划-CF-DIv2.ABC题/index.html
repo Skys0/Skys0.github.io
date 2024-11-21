@@ -16,15 +16,15 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="CF Div2. 除了正常的学习算法以及每周一次的周赛，现在每天有时间就写写CF的div2.的前几题，具体是ABC这三题左右难度。遇到好题，以及不会的题目都会放在这里，每5场Div 2.放在一起。 Codeforces Round 987 (Div. 2) B 题 中文题目 挺有意思的，很像冒泡排序，就是对于一个数，它与它后面一个数的差值等于 \(1\) 就交换，否则不动，判断是否">
+  <meta name="description" content="CF Div2. 除了正常的学习算法以及每周一次的周赛，现在每天有时间就写写CF的div2.的前几题，具体是ABC这三题左右难度。遇到好题，以及不会的题目都会放在这里，每4场Div 2.放在一起。 Codeforces Round 987 (Div. 2) B 题 中文题目 挺有意思的，很像冒泡排序，就是对于一个数，它与它后面一个数的差值等于 \(1\) 就交换，否则不动，判断是否">
 <meta property="og:type" content="article">
 <meta property="og:title" content="补题计划-CF DIv2.ABC题-1">
 <meta property="og:url" content="https://skys0.github.io/2024/11/19/%E8%A1%A5%E9%A2%98%E8%AE%A1%E5%88%92-CF-DIv2.ABC%E9%A2%98/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="CF Div2. 除了正常的学习算法以及每周一次的周赛，现在每天有时间就写写CF的div2.的前几题，具体是ABC这三题左右难度。遇到好题，以及不会的题目都会放在这里，每5场Div 2.放在一起。 Codeforces Round 987 (Div. 2) B 题 中文题目 挺有意思的，很像冒泡排序，就是对于一个数，它与它后面一个数的差值等于 \(1\) 就交换，否则不动，判断是否">
+<meta property="og:description" content="CF Div2. 除了正常的学习算法以及每周一次的周赛，现在每天有时间就写写CF的div2.的前几题，具体是ABC这三题左右难度。遇到好题，以及不会的题目都会放在这里，每4场Div 2.放在一起。 Codeforces Round 987 (Div. 2) B 题 中文题目 挺有意思的，很像冒泡排序，就是对于一个数，它与它后面一个数的差值等于 \(1\) 就交换，否则不动，判断是否">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-11-19T06:19:09.000Z">
-<meta property="article:modified_time" content="2024-11-20T07:47:07.840Z">
+<meta property="article:modified_time" content="2024-11-21T12:34:32.128Z">
 <meta property="article:author" content="Skys">
 <meta property="article:tag" content="CodeForces">
 <meta property="article:tag" content="Div2">
@@ -198,7 +198,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      6.1k 字
+      7.6k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      19 分钟
+      24 分钟
     </span>
   
 
@@ -240,7 +240,7 @@
             
             <div class="markdown-body">
               <h1 id="cf-div2.">CF Div2.</h1>
-<p>除了正常的学习算法以及每周一次的周赛，现在每天有时间就写写CF的div2.的前几题，具体是ABC这三题左右难度。遇到好题，以及不会的题目都会放在这里，每5场Div
+<p>除了正常的学习算法以及每周一次的周赛，现在每天有时间就写写CF的div2.的前几题，具体是ABC这三题左右难度。遇到好题，以及不会的题目都会放在这里，每4场Div
 2.放在一起。</p>
 <h2 id="codeforces-round-987-div.-2">Codeforces Round 987 (Div. 2)</h2>
 <h3 id="b-题">B 题</h3>
@@ -343,6 +343,32 @@ class="math inline">\(i\)</span> 用双指针的方法，判断出大于 <span
 class="math inline">\(a_i\)</span>
 的最小和的的两个，这样我们只需要改其他的，这些的在区间因为是有序的，中间的必然符合，那么不用改变。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br>vector&lt;<span class="hljs-keyword">int</span>&gt; a;<br><span class="hljs-keyword">int</span> T;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	cin&gt;&gt;T;<br>	<span class="hljs-keyword">while</span>(T--)&#123;<br>		a.<span class="hljs-built_in">clear</span>();<br>		<span class="hljs-keyword">int</span> n;<br>		cin&gt;&gt;n;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>			<span class="hljs-keyword">int</span> x;<br>			cin&gt;&gt;x;<br>			a.<span class="hljs-built_in">push_back</span>(x);<br>		&#125;<br>		<span class="hljs-built_in">sort</span>(a.<span class="hljs-built_in">begin</span>(),a.<span class="hljs-built_in">end</span>());<br>		<br>		<span class="hljs-keyword">int</span> ans = n - <span class="hljs-number">2</span>;<br>		<span class="hljs-keyword">int</span> l = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> r=<span class="hljs-number">2</span>;r &lt; n;r++)&#123;<br>			<span class="hljs-keyword">if</span>(r - l &gt;= <span class="hljs-number">2</span>  &amp;&amp; a[l] + a[l+<span class="hljs-number">1</span>] &lt;= a[r])	l++;<br>			ans = <span class="hljs-built_in">min</span>(ans,n - (r - l + <span class="hljs-number">1</span>));<br>		&#125;<br>		cout&lt;&lt;ans&lt;&lt;endl;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h2 id="codeforces-round-982-div.-2">Codeforces Round 982 (Div. 2)</h2>
+<h3 id="b-题-3">B 题</h3>
+<p><a
+target="_blank" rel="noopener" href="https://vjudge.net/problem/CodeForces-2027B#author=GPT_zh">中文题目</a></p>
+<p>这道题感觉不像 1100
+的，感觉看懂题都挺难的。当时看完这个题目一点思路都没有，
+还是看了题解之后才理解题目让我干啥的，看了评论区的发现有许多人也说这次的
+B 有点怪，而且感觉题目没有说清楚到底要干啥。</p>
+<p>定义一种排序叫斯大林排序，就是如果一个数小于它前面的数，则删掉它，直到按照非递减顺序</p>
+<p>定义一个数组为脆弱数组，就是对任意子序列任意使用这种排列可以使整个数组递减。</p>
+<p>用贪心，当第一个为最大时，那我一定可以通过从他到倒数第二个用一次斯大林排序变成递减序列。
+所以他后面比他大的我要全部提前删掉</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxn = <span class="hljs-number">10000</span>;<br>vector&lt;<span class="hljs-keyword">int</span>&gt; v;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> T;<br>	cin&gt;&gt;T;<br>	<span class="hljs-keyword">while</span>(T--)&#123;<br>		<span class="hljs-keyword">int</span> n;cin&gt;&gt;n;<br>		v.<span class="hljs-built_in">clear</span>();<br>		v.<span class="hljs-built_in">push_back</span>(<span class="hljs-number">0</span>);<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>			<span class="hljs-keyword">int</span> x;cin&gt;&gt;x;<br>			v.<span class="hljs-built_in">push_back</span>(x);<br>		&#125;<br>		<br>		<span class="hljs-keyword">int</span> ans = <span class="hljs-number">999999</span>;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>			<span class="hljs-keyword">int</span> sum = i - <span class="hljs-number">1</span>;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=i+<span class="hljs-number">1</span>;j&lt;=n;j++)<br>				<span class="hljs-keyword">if</span>(v[i] &lt; v[j])		sum ++;<br>			ans = <span class="hljs-built_in">min</span>(ans,sum);<br>		&#125;<br>		cout&lt;&lt;ans&lt;&lt;endl;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h3 id="c-题-3">C 题</h3>
+<p><a
+target="_blank" rel="noopener" href="https://vjudge.net/problem/CodeForces-2027C#author=GPT_zh">中文题目</a></p>
+<p>这道题我只会的暴力 <span
+class="math inline">\(O(n^2)\)</span>，再进一步就想不出来了。只好看题解，才发现题解用了数组当前大小来DFS。</p>
+<p>正解应该是，将每个 <span class="math inline">\(a_i\)</span>
+能够加零的数组当前大小给存起来，然后从长度为 <span
+class="math inline">\(n\)</span> 开始DFS，在DFS区间内取最大值。</p>
+<p>时间复杂度为（估计） <span class="math inline">\(O(n \log
+n)\)</span>。</p>
+<p>对了注意 vis 数组，要用 map 实现，因为数组没有那么大 <span
+class="math inline">\(10^9\)</span> 左右（就因为这个改了半天）。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxn = <span class="hljs-number">300010</span>;<br><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> a[maxn];<br>map&lt;<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>,vector&lt;<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>&gt;&gt; mp;<br>map&lt;<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>,<span class="hljs-keyword">bool</span>&gt; vis;<br><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ans = <span class="hljs-number">0</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> t)</span></span>&#123;<br>	vis[t] = <span class="hljs-number">1</span>;<br>	ans = <span class="hljs-built_in">max</span>(ans,t);<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> it : mp[t])&#123;<br>		<span class="hljs-keyword">if</span>(!vis[t + it - <span class="hljs-number">1</span>])&#123;<br>			<span class="hljs-built_in">dfs</span>(t + it - <span class="hljs-number">1</span>);<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> T;cin&gt;&gt;T;<br>	<span class="hljs-keyword">while</span>(T--)&#123;<br>		<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> n;<br>		cin&gt;&gt;n;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%lld&quot;</span>,&amp;a[i]);<br>		<br>		vis.<span class="hljs-built_in">clear</span>();	<br>		mp.<span class="hljs-built_in">clear</span>();<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">2</span>;i&lt;=n;i++)<br>			mp[a[i] + i - <span class="hljs-number">1</span>].<span class="hljs-built_in">push_back</span>(i);<br>		ans = <span class="hljs-number">0</span>;<br>		<span class="hljs-built_in">dfs</span>(n);<br>		cout&lt;&lt;ans&lt;&lt;endl;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
             </div>
             <hr>
