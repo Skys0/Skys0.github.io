@@ -446,9 +446,9 @@
     
     <tags>
       
-      <tag>简单题</tag>
-      
       <tag>ATCoder</tag>
+      
+      <tag>简单题</tag>
       
       <tag>模拟</tag>
       
@@ -477,9 +477,9 @@
     
     <tags>
       
-      <tag>数据结构</tag>
-      
       <tag>并查集</tag>
+      
+      <tag>数据结构</tag>
       
     </tags>
     
@@ -701,9 +701,9 @@
     
     <tags>
       
-      <tag>CodeForces</tag>
-      
       <tag>简单题</tag>
+      
+      <tag>CodeForces</tag>
       
     </tags>
     
@@ -757,11 +757,11 @@
     
     <tags>
       
+      <tag>数论</tag>
+      
       <tag>LCM</tag>
       
       <tag>GCD</tag>
-      
-      <tag>数论</tag>
       
     </tags>
     
