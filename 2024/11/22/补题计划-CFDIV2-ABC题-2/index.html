@@ -16,23 +16,21 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="题目 题目描述 用 \(a \times a\) 的石板覆盖 \(n \times m\) 的长方形广场，允许石板覆盖的区域超出广场，不允许打破石板，石板的两侧应平行于广场两侧，要求覆盖完广场所需的石板数量最少是多少。 输入格式 输入有三个数字 \(n,m,a\) (\(1≤n,m,a≤10^9\)) 思路 首先，我们看到是广场是长方形的，而石板是正方形的，很容易就想到可能会出现一中">
+  <meta name="description" content="CF Div2. 写了四个的 Div2 了，知道自己差不多在哪了，继续开始突破，看看一周能不能再突破一百。 现在大约在 \(1200\) 左右。 Codeforces Round 980 (Div. 2) B 题 本来想的是排序之后一个一个判断是否能不能超过 \(k\)，如果不能则需要比这个多一次才能跳到下一个数组上，没想到连样例都没过。 后来看了看样例解释就懂了，同样是排序，变成递">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CF1A Theatre Square">
-<meta property="og:url" content="https://skys0.github.io/2021/05/16/CF1A-Theatre-Square/index.html">
+<meta property="og:title" content="补题计划-CF DIV2.ABC题-2">
+<meta property="og:url" content="https://skys0.github.io/2024/11/22/%E8%A1%A5%E9%A2%98%E8%AE%A1%E5%88%92-CFDIV2-ABC%E9%A2%98-2/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="题目 题目描述 用 \(a \times a\) 的石板覆盖 \(n \times m\) 的长方形广场，允许石板覆盖的区域超出广场，不允许打破石板，石板的两侧应平行于广场两侧，要求覆盖完广场所需的石板数量最少是多少。 输入格式 输入有三个数字 \(n,m,a\) (\(1≤n,m,a≤10^9\)) 思路 首先，我们看到是广场是长方形的，而石板是正方形的，很容易就想到可能会出现一中">
+<meta property="og:description" content="CF Div2. 写了四个的 Div2 了，知道自己差不多在哪了，继续开始突破，看看一周能不能再突破一百。 现在大约在 \(1200\) 左右。 Codeforces Round 980 (Div. 2) B 题 本来想的是排序之后一个一个判断是否能不能超过 \(k\)，如果不能则需要比这个多一次才能跳到下一个数组上，没想到连样例都没过。 后来看了看样例解释就懂了，同样是排序，变成递">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://z3.ax1x.com/2021/05/16/gcWxnP.png">
-<meta property="article:published_time" content="2021-05-16T05:42:03.000Z">
-<meta property="article:modified_time" content="2021-10-27T09:32:58.000Z">
+<meta property="article:published_time" content="2024-11-22T10:11:56.000Z">
+<meta property="article:modified_time" content="2024-11-22T13:18:03.739Z">
 <meta property="article:author" content="Skys">
 <meta property="article:tag" content="CodeForces">
-<meta property="article:tag" content="简单题">
+<meta property="article:tag" content="Div2">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://z3.ax1x.com/2021/05/16/gcWxnP.png">
   
-  <title>CF1A Theatre Square - Skys</title>
+  <title>补题计划-CF DIV2.ABC题-2 - Skys</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -179,7 +177,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="CF1A Theatre Square">
+            <span class="h2" id="subtitle" title="补题计划-CF DIV2.ABC题-2">
               
             </span>
 
@@ -189,8 +187,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-05-16 13:42" pubdate>
-        2021年5月16日 下午
+      <time datetime="2024-11-22 18:11" pubdate>
+        2024年11月22日 晚上
       </time>
     </span>
   
@@ -200,7 +198,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      542 字
+      1.6k 字
     </span>
   
 
@@ -209,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2 分钟
+      5 分钟
     </span>
   
 
@@ -238,22 +236,24 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">CF1A Theatre Square</h1>
+            <h1 style="display: none">补题计划-CF DIV2.ABC题-2</h1>
             
             <div class="markdown-body">
-              <h1 id="题目">题目</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>用 <span class="math inline">\(a \times a\)</span> 的石板覆盖 <span
-class="math inline">\(n \times m\)</span>
-的长方形广场，允许石板覆盖的区域超出广场，不允许打破石板，石板的两侧应平行于广场两侧，要求覆盖完广场所需的石板数量最少是多少。</p>
-<h1 id="输入格式">输入格式</h1>
-<p>输入有三个数字 <span class="math inline">\(n,m,a\)</span> (<span
-class="math inline">\(1≤n,m,a≤10^9\)</span>)</p>
-<h1 id="思路">思路</h1>
-<p>首先，我们看到是广场是长方形的，而石板是正方形的，<del>很容易就想到</del>可能会出现一中特殊情况：（广场的面积不足以铺一个石板），还会想到将长和宽一起除以石板边长，就是这个边所可以容纳多少个石板边长，最后再将所得的个数相乘，就是我们的答案了。
-<img src="https://z3.ax1x.com/2021/05/16/gcWxnP.png" srcset="/img/loading.gif" lazyload
-alt="gcWxnP.png" /></p>
-<p><span class="math inline">\(AC\)</span> 代码： <figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cmath&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> n,m,a;<br>	cin&gt;&gt;n&gt;&gt;m&gt;&gt;a;<br>	cout&lt;&lt;(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>)(<span class="hljs-built_in">ceil</span>(n/(<span class="hljs-keyword">double</span>)a)*<span class="hljs-built_in">ceil</span>(m/(<span class="hljs-keyword">double</span>)a))&lt;&lt;endl;<span class="hljs-comment">//注意一定要long long 不然就会强制转换为科学计数法</span><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125; <br><br></code></pre></div></td></tr></table></figure></p>
+              <h1 id="cf-div2.">CF Div2.</h1>
+<p>写了四个的 Div2
+了，知道自己差不多在哪了，继续开始突破，看看一周能不能再突破一百。</p>
+<p>现在大约在 <span class="math inline">\(1200\)</span> 左右。</p>
+<h2 id="codeforces-round-980-div.-2">Codeforces Round 980 (Div. 2)</h2>
+<h3 id="b-题">B 题</h3>
+<p>本来想的是排序之后一个一个判断是否能不能超过 <span
+class="math inline">\(k\)</span>，如果不能则需要比这个多一次才能跳到下一个数组上，没想到连样例都没过。</p>
+<p>后来看了看样例解释就懂了，同样是排序，变成递增的，然后一个一个判断能不能这个数后面的每个都去和他一样的话，总和能不能超过所需要的饮料，能的话就需要多一次去判断是否是空的了。</p>
+<p>如果不能，那这个不行，就只能用完这个了。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> maxn = <span class="hljs-number">200010</span>;<br><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> T;<br><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> a[maxn];<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	cin&gt;&gt;T;<br>	<span class="hljs-keyword">while</span>(T--)&#123;<br>		<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> n,k;cin&gt;&gt;n&gt;&gt;k;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;a[i]);<br>		<br>		<span class="hljs-built_in">sort</span>(a+<span class="hljs-number">1</span>,a+n+<span class="hljs-number">1</span>);<br>		<br>		<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ans = <span class="hljs-number">0</span>;		<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>			<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> len = (n - i + <span class="hljs-number">1</span>);<br>			<span class="hljs-comment">// cout&lt;&lt;i&lt;&lt;&quot; &quot;&lt;&lt;a[i]&lt;&lt;&quot; &quot;&lt;&lt;len&lt;&lt;endl;</span><br>			<span class="hljs-keyword">if</span>(a[i] * len &gt;= k)&#123;<br>				ans += k;<br>				<span class="hljs-keyword">break</span>;<br>			&#125;<br>			<span class="hljs-keyword">else</span>&#123;<br>				ans += (a[i] + <span class="hljs-number">1</span>);<br>				k -= a[i];<br>			&#125;<br>		&#125;<br>		cout&lt;&lt;ans&lt;&lt;endl;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h3 id="c-题">C 题</h3>
+<p>这道题题目根本没有什么提醒让我从哪里想，题解就感觉很空穴来风，样例解释也没有什么可以往这上面靠的。</p>
+<p>题解思路就是用这两个小数组的总和作为值从小到大排序，最后排序的结果就是答案。题解证明：注意，如果在最终的顺序中有两个相邻的数组，左边数组的元素之和大于右边数组的元素之和，那么我们可以交换它们，并且逆序对的数量不会增加。因此，我们可以通过交换相邻的数组，使得每次逆序对的数量不增加，从而将任何最优解转化为我们的解。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxn = <span class="hljs-number">100010</span>;<br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">nums</span>&#123;</span><br>	<span class="hljs-keyword">int</span> a1,a2;<br>	<span class="hljs-keyword">int</span> sum;<br>&#125; a[maxn];<br><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">cmp</span><span class="hljs-params">(nums x,nums y)</span></span>&#123;<br>	<span class="hljs-keyword">return</span> x.sum &lt; y.sum;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> T;<br>	cin&gt;&gt;T;<br>	<span class="hljs-keyword">while</span>(T--)&#123;<br>		<span class="hljs-keyword">int</span> n;cin&gt;&gt;n;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>			<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d %d&quot;</span>,&amp;a[i].a1,&amp;a[i].a2);<br>			a[i].sum = a[i].a1 + a[i].a2;<br>		&#125;<br>		<br>		<span class="hljs-built_in">sort</span>(a+<span class="hljs-number">1</span>,a+n+<span class="hljs-number">1</span>,cmp);<br>		<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>			<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d %d &quot;</span>,a[i].a1,a[i].a2);<br>		&#125;<br>		cout&lt;&lt;endl;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
             </div>
             <hr>
@@ -273,7 +273,7 @@ alt="gcWxnP.png" /></p>
                     
                       <a class="hover-with-bg" href="/tags/CodeForces/">CodeForces</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%AE%80%E5%8D%95%E9%A2%98/">简单题</a>
+                      <a class="hover-with-bg" href="/tags/Div2/">Div2</a>
                     
                   </div>
                 
@@ -290,18 +290,12 @@ alt="gcWxnP.png" /></p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/06/23/LCA%E9%97%AE%E9%A2%98/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LCA问题</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/04/07/P3383-%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%BA%BF%E6%80%A7%E7%AD%9B%E7%B4%A0%E6%95%B0/">
-                        <span class="hidden-mobile">P3383 【模板】线性筛素数</span>
+                      <a href="/2024/11/19/%E8%A1%A5%E9%A2%98%E8%AE%A1%E5%88%92-CF-DIv2.ABC%E9%A2%98/">
+                        <span class="hidden-mobile">补题计划-CF DIv2.ABC题-1</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
