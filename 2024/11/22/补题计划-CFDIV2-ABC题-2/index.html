@@ -24,7 +24,7 @@
 <meta property="og:description" content="CF Div2. 写了四个的 Div2 了，知道自己差不多在哪了，继续开始突破，看看一周能不能再突破一百。 现在大约在 \(1200\) 左右。 Codeforces Round 980 (Div. 2) B 题 本来想的是排序之后一个一个判断是否能不能超过 \(k\)，如果不能则需要比这个多一次才能跳到下一个数组上，没想到连样例都没过。 后来看了看样例解释就懂了，同样是排序，变成递">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-11-22T10:11:56.000Z">
-<meta property="article:modified_time" content="2024-11-22T13:18:03.739Z">
+<meta property="article:modified_time" content="2024-11-23T11:45:47.324Z">
 <meta property="article:author" content="Skys">
 <meta property="article:tag" content="CodeForces">
 <meta property="article:tag" content="Div2">
@@ -198,7 +198,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.6k 字
+      2.5k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5 分钟
+      8 分钟
     </span>
   
 
@@ -254,6 +254,22 @@ class="math inline">\(k\)</span>，如果不能则需要比这个多一次才能
 <p>这道题题目根本没有什么提醒让我从哪里想，题解就感觉很空穴来风，样例解释也没有什么可以往这上面靠的。</p>
 <p>题解思路就是用这两个小数组的总和作为值从小到大排序，最后排序的结果就是答案。题解证明：注意，如果在最终的顺序中有两个相邻的数组，左边数组的元素之和大于右边数组的元素之和，那么我们可以交换它们，并且逆序对的数量不会增加。因此，我们可以通过交换相邻的数组，使得每次逆序对的数量不增加，从而将任何最优解转化为我们的解。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxn = <span class="hljs-number">100010</span>;<br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">nums</span>&#123;</span><br>	<span class="hljs-keyword">int</span> a1,a2;<br>	<span class="hljs-keyword">int</span> sum;<br>&#125; a[maxn];<br><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">cmp</span><span class="hljs-params">(nums x,nums y)</span></span>&#123;<br>	<span class="hljs-keyword">return</span> x.sum &lt; y.sum;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> T;<br>	cin&gt;&gt;T;<br>	<span class="hljs-keyword">while</span>(T--)&#123;<br>		<span class="hljs-keyword">int</span> n;cin&gt;&gt;n;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>			<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d %d&quot;</span>,&amp;a[i].a1,&amp;a[i].a2);<br>			a[i].sum = a[i].a1 + a[i].a2;<br>		&#125;<br>		<br>		<span class="hljs-built_in">sort</span>(a+<span class="hljs-number">1</span>,a+n+<span class="hljs-number">1</span>,cmp);<br>		<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>			<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d %d &quot;</span>,a[i].a1,a[i].a2);<br>		&#125;<br>		cout&lt;&lt;endl;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h2 id="codeforces-round-979-div.-2">Codeforces Round 979 (Div. 2)</h2>
+<h3 id="c-题-1">C 题</h3>
+<p>这个比赛前2题没什么难度，都是 <span
+class="math inline">\(800\)</span> 分左右，有点简单了，C
+题很显然是构造题，想了想，能想到有第一个或最后一个是 <span
+class="math inline">\(1\)</span>
+的肯定能赢，但是后面怎么处理，根本想不到。还是只能看题解了。</p>
+<p>如果中间的有两个 <code>true</code> 那么一定可以赢，我们可以让 Alice
+最后去管理两个 <code>true</code>。首先第一个放在 <code>or</code>
+之前。如果 Bob 没有将他的运算符放在两个 <code>true</code> 之间，那么
+Alice 将在下一步中将 <code>or</code> 放在两个 <code>true</code>
+之间并获胜。</p>
+<p>如果没有连续的 <code>true</code>，每当 Alice 将 <code>true</code>
+或相邻位置放置时，Bob 都会通过在 <code>true</code> 之后放置
+<code>and</code> 来响应，这将使此子句无效为 <code>false</code>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">bool</span> x[<span class="hljs-number">200010</span>];<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> T;<br>	cin&gt;&gt;T;<br>	<span class="hljs-keyword">while</span>(T--)&#123;<br>		<span class="hljs-keyword">int</span> n;<br>		cin&gt;&gt;n;<br>		string s;<br>		cin&gt;&gt;s;<br>		<span class="hljs-built_in">memset</span>(x,<span class="hljs-number">0</span>,<span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(x));<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;s.<span class="hljs-built_in">length</span>();i++)<br>			<span class="hljs-keyword">if</span>(s[i] == <span class="hljs-string">&#x27;1&#x27;</span>)<br>				x[i] = <span class="hljs-number">1</span>;<br>		<br>		<span class="hljs-keyword">bool</span> win = <span class="hljs-literal">false</span>;<br>		<span class="hljs-keyword">if</span>(x[<span class="hljs-number">0</span>] || x[n<span class="hljs-number">-1</span>])&#123;cout&lt;&lt;<span class="hljs-string">&quot;YES&quot;</span>&lt;&lt;endl;<span class="hljs-keyword">continue</span>;&#125;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;n;i++)&#123;<br>			<span class="hljs-keyword">if</span>(x[i] &amp;&amp; x[i<span class="hljs-number">-1</span>])<br>				win = <span class="hljs-literal">true</span>;<br>		&#125;<br>		<br>		<span class="hljs-keyword">if</span>(win) cout &lt;&lt; <span class="hljs-string">&quot;YES&quot;</span> &lt;&lt; endl;<br>        <span class="hljs-keyword">else</span> cout &lt;&lt; <span class="hljs-string">&quot;NO&quot;</span> &lt;&lt; endl;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
             </div>
             <hr>
