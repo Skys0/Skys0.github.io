@@ -16,26 +16,21 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="这几天的竞赛期末考试中遇到了组合数的题目，就是 NOIP2016 组合数问题 原题，正好现在数学学到了一点点排列组合，就来整理一下吧。 组合数 就是从 \(n\) 个不同元素中，抽取 \(m\) 个元素的方案数。 组合数公式为： \[\dbinom{n}{m}&#x3D; \dfrac{n!}{m! \times (n-m)!}\] 通过杨辉三角可得到递推公式： \(\dbinom{i}{">
+  <meta name="description" content="线性规划相关学习 线性规划是统筹学中最重要的一种系统优化方案，引用领域十分广泛，包括生产计划、物资调运、任务分配、资源优化配置、经济规划等问题。也有许多线性规划的应用，我们这里就用COPT的规划求解器去学习使用。 线性规划的基本定义 一般形式为： \(\max (\min) z &#x3D; c_1x_1+c_2x_2+ \cdots  +c_nx_n\) \(s.t. \begin{case">
 <meta property="og:type" content="article">
-<meta property="og:title" content="组合数">
-<meta property="og:url" content="https://skys0.github.io/2021/07/05/%E7%BB%84%E5%90%88%E6%95%B0/index.html">
+<meta property="og:title" content="线性规划相关学习">
+<meta property="og:url" content="https://skys0.github.io/2025/01/13/%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E7%9B%B8%E5%85%B3/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="这几天的竞赛期末考试中遇到了组合数的题目，就是 NOIP2016 组合数问题 原题，正好现在数学学到了一点点排列组合，就来整理一下吧。 组合数 就是从 \(n\) 个不同元素中，抽取 \(m\) 个元素的方案数。 组合数公式为： \[\dbinom{n}{m}&#x3D; \dfrac{n!}{m! \times (n-m)!}\] 通过杨辉三角可得到递推公式： \(\dbinom{i}{">
+<meta property="og:description" content="线性规划相关学习 线性规划是统筹学中最重要的一种系统优化方案，引用领域十分广泛，包括生产计划、物资调运、任务分配、资源优化配置、经济规划等问题。也有许多线性规划的应用，我们这里就用COPT的规划求解器去学习使用。 线性规划的基本定义 一般形式为： \(\max (\min) z &#x3D; c_1x_1+c_2x_2+ \cdots  +c_nx_n\) \(s.t. \begin{case">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://latex.codecogs.com/gif.latex?\dbinom{n}{k} = \dfrac{n!}{k!(n-k)!} = \dfrac{n\cdot(n-1)\cdot(n-2)\dots\cdot1}{k\cdot(k-1)\dots\cdot1\cdot(n-k)\cdot(n-k-1)\dots\cdot1}">
-<meta property="og:image" content="http://latex.codecogs.com/gif.latex?\dbinom{n}{k-1} \cdot \dfrac{n-k+1}{k} = \dfrac{n\cdot(n-1)\cdot(n-2)\dots\cdot1\cdot(n - k + 1)}{k\cdot(k-1)\dots\cdot1\cdot(n-k+1)\cdot(n-k-1)\dots\cdot1}">
-<meta property="og:image" content="http://latex.codecogs.com/gif.latex? = \dbinom{n}{k}">
-<meta property="og:image" content="http://latex.codecogs.com/gif.latex?\therefore">
-<meta property="article:published_time" content="2021-07-05T00:26:11.000Z">
-<meta property="article:modified_time" content="2025-01-13T10:06:58.191Z">
+<meta property="article:published_time" content="2025-01-13T10:02:24.000Z">
+<meta property="article:modified_time" content="2025-01-14T13:36:54.443Z">
 <meta property="article:author" content="Skys">
-<meta property="article:tag" content="数论">
-<meta property="article:tag" content="组合数">
+<meta property="article:tag" content="Math">
+<meta property="article:tag" content="线性规划">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://latex.codecogs.com/gif.latex?\dbinom{n}{k} = \dfrac{n!}{k!(n-k)!} = \dfrac{n\cdot(n-1)\cdot(n-2)\dots\cdot1}{k\cdot(k-1)\dots\cdot1\cdot(n-k)\cdot(n-k-1)\dots\cdot1}">
   
-  <title>组合数 - Skys</title>
+  <title>线性规划相关学习 - Skys</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -177,12 +172,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.loli.net/2021/10/27/tzO6afpnkXZi3Kd.jpg') no-repeat center center;
+         style="background: url('https://s2.loli.net/2024/09/04/xEbOSRmPCiVnMuf.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="组合数">
+            <span class="h2" id="subtitle" title="线性规划相关学习">
               
             </span>
 
@@ -192,8 +187,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-07-05 08:26" pubdate>
-        2021年7月5日 早上
+      <time datetime="2025-01-13 18:02" pubdate>
+        2025年1月13日 晚上
       </time>
     </span>
   
@@ -203,7 +198,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      2.1k 字
     </span>
   
 
@@ -212,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4 分钟
+      7 分钟
     </span>
   
 
@@ -241,54 +236,33 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">组合数</h1>
+            <h1 style="display: none">线性规划相关学习</h1>
             
             <div class="markdown-body">
-              <p>这几天的竞赛期末考试中遇到了组合数的题目，就是 <a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2822">NOIP2016 组合数问题</a>
-原题，正好现在数学学到了一点点排列组合，就来整理一下吧。</p>
-<h2 id="组合数">组合数</h2>
-<p>就是从 <span class="math inline">\(n\)</span> 个不同元素中，抽取
-<span class="math inline">\(m\)</span> 个元素的方案数。</p>
-<p>组合数公式为：</p>
-<p><span class="math display">\[\dbinom{n}{m}= \dfrac{n!}{m! \times
-(n-m)!}\]</span></p>
-<p>通过杨辉三角可得到递推公式：</p>
-<p><span class="math inline">\(\dbinom{i}{j} = \dbinom{i-1}{j-1} +
-\dbinom{i-1}{j}\)</span></p>
-<p>还有一个递推公式（可证明）：</p>
-<p><span class="math display">\[\dbinom{i}{j} = \dfrac{n-k+1}{k} \times
-\dbinom{i}{j-1}\]</span></p>
-<p>但是这个可能会乘法溢出</p>
-<details>
-<summary>
-证明
-</summary>
-<img src="http://latex.codecogs.com/gif.latex?\dbinom{n}{k} = \dfrac{n!}{k!(n-k)!} = \dfrac{n\cdot(n-1)\cdot(n-2)\dots\cdot1}{k\cdot(k-1)\dots\cdot1\cdot(n-k)\cdot(n-k-1)\dots\cdot1}" srcset="/img/loading.gif" lazyload />
-<br><br>
-<img src="http://latex.codecogs.com/gif.latex?\dbinom{n}{k-1} \cdot \dfrac{n-k+1}{k} = \dfrac{n\cdot(n-1)\cdot(n-2)\dots\cdot1\cdot(n - k + 1)}{k\cdot(k-1)\dots\cdot1\cdot(n-k+1)\cdot(n-k-1)\dots\cdot1}" srcset="/img/loading.gif" lazyload />
-<br><br>
-<img src="http://latex.codecogs.com/gif.latex? = \dbinom{n}{k}" srcset="/img/loading.gif" lazyload />
-<br><br>
-<img src="http://latex.codecogs.com/gif.latex?\therefore" srcset="/img/loading.gif" lazyload />证明完毕
-</details>
-<h2 id="题目思路">题目思路</h2>
-<ul>
-<li><p>暴力</p>
-<p>暴力，暴力，暴力！</p></li>
-<li><p>预处理</p>
-<p>用第一个递推公式先递推出来所有的数，然后对于每一次查询进行判断是否 %
-k == 0，时间复杂度为 <span
-class="math inline">\(\mathcal{O}(q+tn^2)\)</span>，还是有点慢</p></li>
-<li><p>预处理优化</p>
-<p>我们可以想到每一判断都 % k 有点慢所以可以在预处理时 % k，判断是否等于
-0 ，开过 <span class="math inline">\(O2\)</span> 95
-pts，还需要优化。</p></li>
-<li><p>前缀和+预处理</p>
-<p>我们可以二维前缀和等于 0 的个数，然后每一次查询即可，时间复杂度变成了
-<span class="math inline">\(\mathcal{O}(q+t)\)</span> ,可以过了。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> p = <span class="hljs-number">1000</span>;<br><span class="hljs-keyword">int</span> c[<span class="hljs-number">2010</span>][<span class="hljs-number">2010</span>] = &#123;<span class="hljs-number">0</span>&#125;;<br><span class="hljs-keyword">int</span> f[<span class="hljs-number">2010</span>][<span class="hljs-number">2010</span>] = &#123;<span class="hljs-number">0</span>&#125;;<br><span class="hljs-keyword">int</span> n,m,k,t;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">complet</span><span class="hljs-params">()</span></span>&#123;<br>	c[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>	c[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>	c[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>; <br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;=<span class="hljs-number">2000</span>;i++)&#123;<br>		c[i][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>		c[i][i] = <span class="hljs-number">1</span>;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;i;j++)&#123;<br>			c[i][j] = (c[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>] + c[i<span class="hljs-number">-1</span>][j]) % k;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;<span class="hljs-number">2000</span>;i++)&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;=i;j++)&#123;<br>        	f[i][j] = f[i<span class="hljs-number">-1</span>][j] + f[i][j<span class="hljs-number">-1</span>] - f[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>];		\\ 前缀和<br>        	<span class="hljs-keyword">if</span>(c[i][j] == <span class="hljs-number">0</span>)	f[i][j] ++;<br>        &#125;<br>        f[i][i+<span class="hljs-number">1</span>] = f[i][i];<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> cnt = <span class="hljs-number">0</span>;<br>	cin&gt;&gt;t&gt;&gt;k;<br>	<span class="hljs-built_in">complet</span>();<br>	<span class="hljs-keyword">while</span>(t--)&#123;<br>		cnt = <span class="hljs-number">0</span>;<br>		<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d %d&quot;</span>,&amp;n,&amp;m);<br>		<span class="hljs-keyword">if</span>(m &gt; n)<br>			m = n;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,f[n][m]);<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
-</ul>
+              <h1 id="线性规划相关学习">线性规划相关学习</h1>
+<p>线性规划是统筹学中最重要的一种系统优化方案，引用领域十分广泛，包括生产计划、物资调运、任务分配、资源优化配置、经济规划等问题。也有许多线性规划的应用，我们这里就用COPT的规划求解器去学习使用。</p>
+<h2 id="线性规划的基本定义">线性规划的基本定义</h2>
+<p>一般形式为：</p>
+<p><span class="math inline">\(\max (\min) z = c_1x_1+c_2x_2+
+\cdots  +c_nx_n\)</span></p>
+<p><span class="math inline">\(s.t.
+\begin{cases}  a_{11}x_1+a_{12}x_2+\cdots + c_{1n}x_n = b_1 \\ a_{21}x_1
++ a_{22}x_2 + \cdots+c_{2n}x_n = b_2 \\ \cdots \\ x_1,x_2,x_3\cdots x_n
+\geq 0 \end{cases}\)</span></p>
+<p>其中<span class="math inline">\(\max (\min) z = c_1x_1+c_2x_2+
+\cdots  +c_nx_n\)</span> 称为目标函数，</p>
+<p><span class="math inline">\(a_{11}x_1+a_{12}x_2+\cdots + c_{1n}x_n =
+b_1 \\ a_{21}x_1 + a_{22}x_2 + \cdots+c_{2n}x_n = b_2\)</span>
+称为约束条件，这里的=号，可以更换成<span class="math inline">\(\leq \
+\geq \ \neq\)</span></p>
+<p><span class="math inline">\(x_1,x_2,x_3\cdots x_n \geq 0\)</span>
+称为非负约束。</p>
+<p>线性规划问题可以由向量和矩阵表示：</p>
+<p><span class="math inline">\(\max(\min) z = C^T X \\ s.t.
+\begin{cases} AX \leq(=,\geq) \ b \\ X \geq 0 \end{cases}\)</span></p>
+<p>对于正常的解法，单纯形法等方法，不在介绍，直接上COPT怎么用。</p>
+<h2 id="copt如何解决线性规划">COPT如何解决线性规划</h2>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">题目：某加工厂需要加工一批圆钢调料，规格为70cm,52cm,35cm，这三种圆钢条料的需要量为100条，150条，900条</span><br><span class="hljs-string">库房库存一批长 180cm 的圆钢坯料，先对圆钢坯料进行切割。</span><br><span class="hljs-string">问：如何下料，使总余料最少。</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-keyword">import</span> coptpy <span class="hljs-keyword">as</span> cp<br><span class="hljs-keyword">from</span> coptpy <span class="hljs-keyword">import</span> COPT<br><br>env = cp.Envr() 	<br>model = env.createModel(<span class="hljs-string">&quot;eg2&quot;</span>)	<span class="hljs-comment"># 搭建环境</span><br><br>x1 = model.addVar(lb=<span class="hljs-number">0</span>, name=<span class="hljs-string">&quot;x1&quot;</span>) 			<span class="hljs-comment"># 定义变量，参数lb为下界，ub为上界</span><br>x2 = model.addVar(lb=<span class="hljs-number">0</span>, name=<span class="hljs-string">&quot;x2&quot;</span>)			<span class="hljs-comment"># vtype为变量类型COPT.CONTINUOUS连续型变量，COPT.BINARY二进制变量</span><br>x3 = model.addVar(lb=<span class="hljs-number">0</span>, name=<span class="hljs-string">&quot;x3&quot;</span>)			<span class="hljs-comment"># COPT.INTEGER 为整数变量</span><br>x4 = model.addVar(lb=<span class="hljs-number">0</span>, name=<span class="hljs-string">&quot;x4&quot;</span>)<br>x5 = model.addVar(lb=<span class="hljs-number">0</span>, name=<span class="hljs-string">&quot;x5&quot;</span>)<br>x6 = model.addVar(lb=<span class="hljs-number">0</span>, name=<span class="hljs-string">&quot;x6&quot;</span>)<br>x7 = model.addVar(lb=<span class="hljs-number">0</span>, name=<span class="hljs-string">&quot;x7&quot;</span>)<br>x8 = model.addVar(lb=<span class="hljs-number">0</span>, name=<span class="hljs-string">&quot;x8&quot;</span>)<br><br>model.addConstr(<span class="hljs-number">2</span>*x1 + x2 + x3 + x4 &gt;= <span class="hljs-number">100</span>)		<span class="hljs-comment"># 给出约束条件</span><br>model.addConstr(<span class="hljs-number">2</span>*x2 + x3 + <span class="hljs-number">3</span>*x5 + <span class="hljs-number">2</span>*x6 + x7 &gt;= <span class="hljs-number">150</span>)<br>model.addConstr(x1 + <span class="hljs-number">3</span>*x3 + <span class="hljs-number">2</span>*x6 + <span class="hljs-number">3</span>*x7 + <span class="hljs-number">5</span>*x8 &gt;= <span class="hljs-number">900</span>)<br><br>model.setObjective(<span class="hljs-number">5</span>*x1 + <span class="hljs-number">6</span>*x2 + <span class="hljs-number">23</span>*x3 + <span class="hljs-number">5</span>*x4 + <span class="hljs-number">24</span>*x5 + <span class="hljs-number">6</span>*x6 + <span class="hljs-number">23</span>*x7 + <span class="hljs-number">5</span>*x8, sense=COPT.MINIMIZE)<br><span class="hljs-comment"># 设置目标函数 setObjective(expr, sense=None)，expr为表达式，sense为目标函数的优化方向，有MAXIMIZE和MINIMIZE</span><br><br>model.solve()<br><span class="hljs-comment"># 解线性规划</span><br><br><span class="hljs-keyword">if</span> model.status == COPT.OPTIMAL: 		<span class="hljs-comment"># 输出规划中的一些变量值</span><br>  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Objective value: &#123;&#125;&quot;</span>.<span class="hljs-built_in">format</span>(model.objval))<br>  allvars = model.getVars()<br><br>  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Variable solution:&quot;</span>)<br>  <span class="hljs-keyword">for</span> var <span class="hljs-keyword">in</span> allvars:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot; x[&#123;0&#125;]: &#123;1&#125;&quot;</span>.<span class="hljs-built_in">format</span>(var.index, var.x))<br><br>  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Variable basis status:&quot;</span>)<br>  <span class="hljs-keyword">for</span> var <span class="hljs-keyword">in</span> allvars:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot; x[&#123;0&#125;]: &#123;1&#125;&quot;</span>.<span class="hljs-built_in">format</span>(var.index, var.basis))<br></code></pre></div></td></tr></table></figure>
 
             </div>
             <hr>
@@ -298,7 +272,7 @@ pts，还需要优化。</p></li>
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</a>
                     
                   </div>
                 
@@ -306,9 +280,9 @@ pts，还需要优化。</p></li>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E8%AE%BA/">数论</a>
+                      <a class="hover-with-bg" href="/tags/Math/">Math</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%BB%84%E5%90%88%E6%95%B0/">组合数</a>
+                      <a class="hover-with-bg" href="/tags/%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92/">线性规划</a>
                     
                   </div>
                 
@@ -325,18 +299,12 @@ pts，还需要优化。</p></li>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/07/28/UVA11426-GCD-Extreme-II/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">UVA11426 GCD - Extreme (II)</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/06/23/LCA%E9%97%AE%E9%A2%98/">
-                        <span class="hidden-mobile">LCA问题</span>
+                      <a href="/2025/01/13/vx/">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
