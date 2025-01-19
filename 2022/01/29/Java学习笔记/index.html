@@ -16,12 +16,12 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="Java 学习 Java 的基本模板： 12345678import java.util.*;import java.io.*;public class Main &amp;#123;    public static void main(String[] args)&amp;#123;        &#x2F;&#x2F; Do somethings;    &amp;#125;&amp;#125;  Java 的输入不是像 c++ 一样有简单">
+  <meta name="description" content="Java 学习  Java 的基本模板： 12345678import java.util.*;import java.io.*;public class Main &amp;#123;    public static void main(String[] args)&amp;#123;        &#x2F;&#x2F; Do somethings;    &amp;#125;&amp;#125; Java 的输入不是像 c++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java学习笔记">
 <meta property="og:url" content="https://skys0.github.io/2022/01/29/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="Java 学习 Java 的基本模板： 12345678import java.util.*;import java.io.*;public class Main &amp;#123;    public static void main(String[] args)&amp;#123;        &#x2F;&#x2F; Do somethings;    &amp;#125;&amp;#125;  Java 的输入不是像 c++ 一样有简单">
+<meta property="og:description" content="Java 学习  Java 的基本模板： 12345678import java.util.*;import java.io.*;public class Main &amp;#123;    public static void main(String[] args)&amp;#123;        &#x2F;&#x2F; Do somethings;    &amp;#125;&amp;#125; Java 的输入不是像 c++">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-01-29T10:53:58.000Z">
 <meta property="article:modified_time" content="2024-09-04T15:13:02.933Z">
@@ -197,7 +197,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      487 字
+      485 字
     </span>
   
 
@@ -238,20 +238,23 @@
             <h1 style="display: none">Java学习笔记</h1>
             
             <div class="markdown-body">
-              <h1 id="Java-学习"><a href="#Java-学习" class="headerlink" title="Java 学习"></a>Java 学习</h1><ul>
+              <h1 id="java-学习">Java 学习</h1>
+<ul>
 <li><p>Java 的<strong>基本</strong>模板：</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.*;<br><span class="hljs-keyword">import</span> java.io.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;<br>        <span class="hljs-comment">// Do somethings;</span><br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-</li>
-<li><p>Java 的输入不是像 c++ 一样有简单的函数，而是先要创建一个输入类：</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.*;<br><span class="hljs-keyword">import</span> java.io.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;<br>        <span class="hljs-comment">// Do somethings;</span><br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
+<li><p>Java 的输入不是像 c++
+一样有简单的函数，而是先要创建一个输入类：</p>
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">Scanner cin = <span class="hljs-keyword">new</span> Scanner(System.in);<br></code></pre></div></td></tr></table></figure>
 <p>读入的话，可以使用其中的方法：</p>
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">n = cin.next();<br><span class="hljs-comment">// 可以读到下一个空格之前</span><br>n = cin.nextLine();<br><span class="hljs-comment">// 可以读一整行</span><br></code></pre></div></td></tr></table></figure>
-<p><strong>注意</strong>：<code>cin.next()</code> 不能读带有空格的字符串，<code>cin.nextLine()</code> 可以读带有空格的字符串，也可以获得空白。</p>
-<p>当然，int 和 float 有 <code>nextInt()</code> \ <code>nextFloat()</code>。读入之前最好用 <code>hasNextInt()</code> \ <code>hasNextFloat()</code> 来验证。</p>
-</li>
+<p><strong>注意</strong>：<code>cin.next()</code>
+不能读带有空格的字符串，<code>cin.nextLine()</code>
+可以读带有空格的字符串，也可以获得空白。</p>
+<p>当然，int 和 float 有 <code>nextInt()</code>
+ <code>nextFloat()</code>。读入之前最好用 <code>hasNextInt()</code>
+ <code>hasNextFloat()</code> 来验证。</p></li>
 <li><p>Java 的输出较为简单：</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">System.out.println(n);    <span class="hljs-comment">// 输出完换行</span><br>System.out.print(n);    <span class="hljs-comment">// 输出完不换行</span><br></code></pre></div></td></tr></table></figure>
-</li>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">System.out.println(n);    <span class="hljs-comment">// 输出完换行</span><br>System.out.print(n);    <span class="hljs-comment">// 输出完不换行</span><br></code></pre></div></td></tr></table></figure></li>
 </ul>
 
             </div>

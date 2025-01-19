@@ -16,12 +16,12 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="没想到没几天又开始学到算法部分了，这一次定义将会学习的更加严谨。按照书上的拓展学习。 图的相关概念图 (graph) 是一个二元组 $G&#x3D;(V(G), E(G))$。其中 $V(G)$ 是非空集，称为 点集，对于 $V$ 中的每个元素，我们称其为 顶点 或 节点，简称 点；$E(G)$ 为 $V(G)$ 各结点之间边的集合，称为 边集。 常用 $G&#x3D;(V,E)$ 表示图。 当 $V,E$ 都是有限">
+  <meta name="description" content="没想到没几天又开始学到算法部分了，这一次定义将会学习的更加严谨。按照书上的拓展学习。 图的相关概念 图 (graph) 是一个二元组 \(G&#x3D;(V(G), E(G))\)。其中 \(V(G)\) 是非空集，称为 点集，对于 \(V\) 中的每个元素，我们称其为 顶点 或 节点，简称 点；\(E(G)\) 为 \(V(G)\) 各结点之间边的集合，称为 边集。 常用 \(G&#x3D;(V,E)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图与网络分析基础">
 <meta property="og:url" content="https://skys0.github.io/2025/01/18/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="没想到没几天又开始学到算法部分了，这一次定义将会学习的更加严谨。按照书上的拓展学习。 图的相关概念图 (graph) 是一个二元组 $G&#x3D;(V(G), E(G))$。其中 $V(G)$ 是非空集，称为 点集，对于 $V$ 中的每个元素，我们称其为 顶点 或 节点，简称 点；$E(G)$ 为 $V(G)$ 各结点之间边的集合，称为 边集。 常用 $G&#x3D;(V,E)$ 表示图。 当 $V,E$ 都是有限">
+<meta property="og:description" content="没想到没几天又开始学到算法部分了，这一次定义将会学习的更加严谨。按照书上的拓展学习。 图的相关概念 图 (graph) 是一个二元组 \(G&#x3D;(V(G), E(G))\)。其中 \(V(G)\) 是非空集，称为 点集，对于 \(V\) 中的每个元素，我们称其为 顶点 或 节点，简称 点；\(E(G)\) 为 \(V(G)\) 各结点之间边的集合，称为 边集。 常用 \(G&#x3D;(V,E)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-18T09:47:32.000Z">
 <meta property="article:modified_time" content="2025-01-19T15:03:46.342Z">
@@ -201,7 +201,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5k 字
+      5.5k 字
     </span>
   
 
@@ -210,7 +210,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      16 分钟
+      17 分钟
     </span>
   
 
@@ -243,111 +243,348 @@
             
             <div class="markdown-body">
               <p>没想到没几天又开始学到算法部分了，这一次定义将会学习的更加严谨。按照书上的拓展学习。</p>
-<h1 id="图的相关概念"><a href="#图的相关概念" class="headerlink" title="图的相关概念"></a>图的相关概念</h1><p><strong>图 (graph)</strong> 是一个二元组 $G=(V(G), E(G))$。其中 $V(G)$ 是非空集，称为 <strong>点集</strong>，对于 $V$ 中的每个元素，我们称其为 <strong>顶点</strong> 或 <strong>节点</strong>，简称 <strong>点</strong>；$E(G)$ 为 $V(G)$ 各结点之间边的集合，称为 <strong>边集</strong>。</p>
-<p>常用 $G=(V,E)$ 表示图。</p>
-<p>当 $V,E$ 都是有限集合时，称 $G$ 为 <strong>有限图</strong>。</p>
-<p>当 $V$ 或 $E$ 是无限集合时，称 $G$ 为 <strong>无限图</strong>。</p>
-<p>图有多种，包括 <strong>无向图</strong>，<strong>有向图</strong>，<strong>混合图</strong> 等。</p>
-<p>若 $G$ 为无向图，则 $E$ 中的每个元素为一个无序二元组 $(u, v)$，称作 <strong>无向边</strong>，简称 <strong>边</strong>，其中 $u, v \in V$。设 $e = (u, v)$，则 $u$ 和 $v$ 称为 $e$ 的 <strong>端点</strong>。</p>
-<p>若 $G$ 的每条边 $e_k=(u_k,v_k)$ 都被赋予一个数作为该边的 <strong>权</strong>，则称 $G$ 为 <strong>赋权图</strong>。如果这些权都是正实数，就称 $G$ 为 <strong>正权图</strong>。与一个顶点 $v$ 关联的边的条数称作该顶点的 <strong>度</strong>，记作 $d(v)$。特别地，对于边 $(v, v)$，则每条这样的边要对 $d(v)$ 产生 $2$ 的贡献。</p>
-<p>对于一张无向图 $𝐺=(𝑉,𝐸)$，对于 $𝑢,𝑣∈𝑉$，若存在一条途径使得 $𝑣=𝑢,𝑣𝑘=𝑣$，则称 𝑢 和 𝑣 是 <strong>连通的</strong>。由定义，任意一个顶点和自身连通，任意一条边的两个端点连通。</p>
-<p>若无向图 $𝐺=(𝑉,𝐸)$，满足其中任意两个顶点均连通，则称 $𝐺$ 是 <strong>连通图</strong>，$𝐺$ 的这一性质称作 <strong>连通性</strong>。</p>
+<h1 id="图的相关概念">图的相关概念</h1>
+<p><strong>图 (graph)</strong> 是一个二元组 <span
+class="math inline">\(G=(V(G), E(G))\)</span>。其中 <span
+class="math inline">\(V(G)\)</span> 是非空集，称为
+<strong>点集</strong>，对于 <span class="math inline">\(V\)</span>
+中的每个元素，我们称其为 <strong>顶点</strong> 或
+<strong>节点</strong>，简称 <strong>点</strong>；<span
+class="math inline">\(E(G)\)</span> 为 <span
+class="math inline">\(V(G)\)</span> 各结点之间边的集合，称为
+<strong>边集</strong>。</p>
+<p>常用 <span class="math inline">\(G=(V,E)\)</span> 表示图。</p>
+<p>当 <span class="math inline">\(V,E\)</span> 都是有限集合时，称 <span
+class="math inline">\(G\)</span> 为 <strong>有限图</strong>。</p>
+<p>当 <span class="math inline">\(V\)</span> 或 <span
+class="math inline">\(E\)</span> 是无限集合时，称 <span
+class="math inline">\(G\)</span> 为 <strong>无限图</strong>。</p>
+<p>图有多种，包括
+<strong>无向图</strong>，<strong>有向图</strong>，<strong>混合图</strong>
+等。</p>
+<p>若 <span class="math inline">\(G\)</span> 为无向图，则 <span
+class="math inline">\(E\)</span> 中的每个元素为一个无序二元组 <span
+class="math inline">\((u, v)\)</span>，称作
+<strong>无向边</strong>，简称 <strong>边</strong>，其中 <span
+class="math inline">\(u, v \in V\)</span>。设 <span
+class="math inline">\(e = (u, v)\)</span>，则 <span
+class="math inline">\(u\)</span> 和 <span
+class="math inline">\(v\)</span> 称为 <span
+class="math inline">\(e\)</span> 的 <strong>端点</strong>。</p>
+<p>若 <span class="math inline">\(G\)</span> 的每条边 <span
+class="math inline">\(e_k=(u_k,v_k)\)</span> 都被赋予一个数作为该边的
+<strong>权</strong>，则称 <span class="math inline">\(G\)</span> 为
+<strong>赋权图</strong>。如果这些权都是正实数，就称 <span
+class="math inline">\(G\)</span> 为 <strong>正权图</strong>。与一个顶点
+<span class="math inline">\(v\)</span> 关联的边的条数称作该顶点的
+<strong>度</strong>，记作 <span
+class="math inline">\(d(v)\)</span>。特别地，对于边 <span
+class="math inline">\((v, v)\)</span>，则每条这样的边要对 <span
+class="math inline">\(d(v)\)</span> 产生 <span
+class="math inline">\(2\)</span> 的贡献。</p>
+<p>对于一张无向图 <span class="math inline">\(𝐺=(𝑉,𝐸)\)</span>，对于
+<span class="math inline">\(𝑢,𝑣∈𝑉\)</span>，若存在一条途径使得 <span
+class="math inline">\(𝑣=𝑢,𝑣𝑘=𝑣\)</span>，则称 𝑢 和 𝑣 是
+<strong>连通的</strong>。由定义，任意一个顶点和自身连通，任意一条边的两个端点连通。</p>
+<p>若无向图 <span
+class="math inline">\(𝐺=(𝑉,𝐸)\)</span>，满足其中任意两个顶点均连通，则称
+<span class="math inline">\(𝐺\)</span> 是 <strong>连通图</strong>，<span
+class="math inline">\(𝐺\)</span> 的这一性质称作
+<strong>连通性</strong>。</p>
 <p>最基本的就这些了。</p>
-<h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><p>一个无圈的连通图称为<strong>树</strong>。</p>
-<p>给了一个无向图$G=(V,E)$，保留 $G$ 的所有点，而删掉部分 $G$，的边或者说保留一部分 $G$ 的边，所获得的图称为$G$的<strong>生成子图</strong>。如果 $G$ 的生成子图是一个树，则称这个生产子图为一个生成树。</p>
-<h3 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h3><p>在一个赋权图的联通的无向图 $G$ 中找一个生成树，并使得这个生成树的所有边的权数之和最小。</p>
-<h4 id="Kruskal-算法求最小生成树"><a href="#Kruskal-算法求最小生成树" class="headerlink" title="Kruskal 算法求最小生成树"></a>Kruskal 算法求最小生成树</h4><p>基本思想是从小到大加入边，是个贪心算法。</p>
-<ol>
-<li>新建图 $G$，$G$ 中拥有原图中相同的节点，但没有任何边。</li>
+<h2 id="树">树</h2>
+<p>一个无圈的连通图称为<strong>树</strong>。</p>
+<p>给了一个无向图<span class="math inline">\(G=(V,E)\)</span>，保留
+<span class="math inline">\(G\)</span> 的所有点，而删掉部分 <span
+class="math inline">\(G\)</span>，的边或者说保留一部分 <span
+class="math inline">\(G\)</span> 的边，所获得的图称为<span
+class="math inline">\(G\)</span>的<strong>生成子图</strong>。如果 <span
+class="math inline">\(G\)</span>
+的生成子图是一个树，则称这个生产子图为一个生成树。</p>
+<h3 id="最小生成树">最小生成树</h3>
+<p>在一个赋权图的联通的无向图 <span class="math inline">\(G\)</span>
+中找一个生成树，并使得这个生成树的所有边的权数之和最小。</p>
+<h4 id="kruskal-算法求最小生成树">Kruskal 算法求最小生成树</h4>
+<p>基本思想是从小到大加入边，是个贪心算法。</p>
+<ol type="1">
+<li>新建图 <span class="math inline">\(G\)</span>，<span
+class="math inline">\(G\)</span>
+中拥有原图中相同的节点，但没有任何边。</li>
 <li>将原图中所有的边按权值从小到大排序。</li>
-<li>从权值最小的边开始，如果这条边连接的两个节点于图 $G$ 中不在同一个连通分量（不是联通的）中，则添加这条边到图 $G$ 中。</li>
-<li>重复3，直到 $G$ 中所有的节点都在同一个联通分量中。</li>
+<li>从权值最小的边开始，如果这条边连接的两个节点于图 <span
+class="math inline">\(G\)</span>
+中不在同一个连通分量（不是联通的）中，则添加这条边到图 <span
+class="math inline">\(G\)</span> 中。</li>
+<li>重复3，直到 <span class="math inline">\(G\)</span>
+中所有的节点都在同一个联通分量中。</li>
 </ol>
 <p>伪代码：</p>
 <figure class="highlight oxygene"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs oxygene">KRUSKAL-<span class="hljs-function"><span class="hljs-keyword">FUNCTION</span><span class="hljs-params">(G, w)</span></span><br><span class="hljs-function">    <span class="hljs-title">F</span> :</span>= 空集合<br>    <span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span> 图 G 中的顶点 v<br>        <span class="hljs-keyword">do</span> 将 v 加入森林 F<br>    所有的边(u, v) ∈ E依权重 w 递增排序<br>    <span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span> 边(u, v) ∈ E<br>        <span class="hljs-keyword">do</span> <span class="hljs-keyword">if</span> u 和 v 不在同一棵子树<br>            <span class="hljs-keyword">then</span> F := F ∪ <span class="hljs-comment">&#123;(u, v)&#125;</span><br>                将 u 和 v 所在的子树合并<br></code></pre></div></td></tr></table></figure>
-<p>通过使用路径压缩的并查集，平均时间复杂度为$O(\left| E \right| \log \left| V \right|)$，其中 $E,V$ 分别是图的边集和点集。</p>
-<p>还有如果同时使用路径压缩和按秩合并的并查集，时间复杂度可以优化到$O(\left| E \right| \alpha( \left| V \right|))$，其中 $\alpha$ 表示反阿克曼函数名。</p>
-<h4 id=""><a href="#" class="headerlink" title=" "></a> </h4><p><del>不是利威尔兵长创的</del>，需要两个自然数作为输入值，输出一个自然数，它的输出值增长速度非常高。</p>
-<p>定义：</p>
-<script type="math/tex; mode=display">
-A(n,m) = \begin{cases}n + 1 & \text{如果 m=0} \\ A(m-1,1) & \text{如果 m>0 且 n=0} \\ A(m-1,A(m,n-1)) & \text{如果 m>0 且 n>0 }\end{cases}</script><p>由于这个函数的增加速率非常快，那么它的反函数就相应的增长的非常慢。</p>
-<h4 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h4><p>思路很简单，为了造出一棵最小生成树，我们从最小边权的边开始，按边权从小到大依次加入，如果某次加边产生了环，就扔掉这条边，直到加入了 $n-1$ 条边，即形成了一棵树。</p>
-<p>证明：使用归纳法，证明任何时候 K 算法选择的边集都被某棵 MST 所包含。</p>
+<p>通过使用路径压缩的并查集，平均时间复杂度为<span
+class="math inline">\(O(\left| E \right| \log \left| V
+\right|)\)</span>，其中 <span class="math inline">\(E,V\)</span>
+分别是图的边集和点集。</p>
+<p>还有如果同时使用路径压缩和按秩合并的并查集，时间复杂度可以优化到<span
+class="math inline">\(O(\left| E \right| \alpha( \left| V
+\right|))\)</span>，其中 <span class="math inline">\(\alpha\)</span>
+表示反阿克曼函数名。</p>
+<p>####</p>
+<p><del>不是利威尔兵长创的</del>，需要两个自然数作为输入值，输出一个自然数，它的输出值增长速度非常高。</p>
+<p>定义： <span class="math display">\[
+A(n,m) = \begin{cases}n + 1 &amp; \text{如果 m=0} \\ A(m-1,1) &amp;
+\text{如果 m&gt;0 且 n=0} \\ A(m-1,A(m,n-1)) &amp; \text{如果 m&gt;0 且
+n&gt;0 }\end{cases}
+\]</span>
+由于这个函数的增加速率非常快，那么它的反函数就相应的增长的非常慢。</p>
+<h4 id="证明">证明</h4>
+<p>思路很简单，为了造出一棵最小生成树，我们从最小边权的边开始，按边权从小到大依次加入，如果某次加边产生了环，就扔掉这条边，直到加入了
+<span class="math inline">\(n-1\)</span> 条边，即形成了一棵树。</p>
+<p>证明：使用归纳法，证明任何时候 K 算法选择的边集都被某棵 MST
+所包含。</p>
 <p>基础：对于算法刚开始时，显然成立（最小生成树存在）。</p>
-<p>归纳：假设某时刻成立，当前边集为 $F$，令 $T$ 为这棵 MST，考虑下一条加入的边 $e$。</p>
-<p>如果 $e$ 属于 $T$，那么成立。</p>
-<p>否则，$T+e$ 一定存在一个环，考虑这个环上不属于 $F$ 的另一条边 $f$（一定只有一条）。</p>
-<p>首先，$f$ 的权值一定不会比 $e$ 小，不然 $f$ 会在 $e$ 之前被选取。</p>
-<p>然后，$f$ 的权值一定不会比 $e$ 大，不然 $T+e-f$ 就是一棵比 $T$ 还优的生成树了。</p>
-<p>所以，$T+e-f$ 包含了 $F$，并且也是一棵最小生成树，归纳成立。</p>
-<h2 id="最短路问题"><a href="#最短路问题" class="headerlink" title="最短路问题"></a>最短路问题</h2><p>最短路问题是指对一个赋权的有向图 $D$ 中指定的两点 $v_s$ 和 $v_t$，找到一条从 $v_s$ 到 $v_t$ 的路，使得这条路上所有弧的总和最小，这条路被称为从 $v_s$ 到 $v_t$ 的最短路。这条路上所有弧的权数的总和被称为从 $v_s$ 到 $v_t$ 的距离。</p>
-<p>我们一般讨论单源的最短路，全源最短路径得用 Floyd 算法以及 Johnson 全源最短路径算法，这里不再讨论。</p>
-<h3 id="Dijkstra-算法"><a href="#Dijkstra-算法" class="headerlink" title="Dijkstra 算法"></a>Dijkstra 算法</h3><p>Dijkstra 算法由荷兰计算机科学家 E. W. Dijkstra 于 1956 年发现，1959 年公开发表。是一种求解 <strong>非负权图</strong> 上单源最短路径的算法。</p>
-<h4 id="松弛"><a href="#松弛" class="headerlink" title="松弛"></a>松弛</h4><p>对于边 $(u,v)$，松弛操作对应下面的式子：$dis(v) = \min(dis(v), dis(u) + w(u, v))$。</p>
-<p>$dis(v)$ 表示的含义是起点开始，到 $v$ 的最短路径，$w(u,v)$ 表示边 $(u,v)$ 的权值 $w$。</p>
-<p>这么做的含义是显然的：我们尝试用 $S \to u \to v$（其中 $S \to u$ 的路径取最短路）这条路径去更新 $v$ 点最短路的长度，如果这条路径更优，就进行更新。</p>
-<h4 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h4><p>将结点分成两个集合：已确定最短路长度的点集（记为 $S$ 集合）的和未确定最短路长度的点集（记为 $T$ 集合）。一开始所有的点都属于 $T$ 集合。</p>
-<p>初始化 $dis(s)=0$，其他点的 $dis$ 均为 $+\infty$。</p>
+<p>归纳：假设某时刻成立，当前边集为 <span
+class="math inline">\(F\)</span>，令 <span
+class="math inline">\(T\)</span> 为这棵 MST，考虑下一条加入的边 <span
+class="math inline">\(e\)</span>。</p>
+<p>如果 <span class="math inline">\(e\)</span> 属于 <span
+class="math inline">\(T\)</span>，那么成立。</p>
+<p>否则，<span class="math inline">\(T+e\)</span>
+一定存在一个环，考虑这个环上不属于 <span
+class="math inline">\(F\)</span> 的另一条边 <span
+class="math inline">\(f\)</span>（一定只有一条）。</p>
+<p>首先，<span class="math inline">\(f\)</span> 的权值一定不会比 <span
+class="math inline">\(e\)</span> 小，不然 <span
+class="math inline">\(f\)</span> 会在 <span
+class="math inline">\(e\)</span> 之前被选取。</p>
+<p>然后，<span class="math inline">\(f\)</span> 的权值一定不会比 <span
+class="math inline">\(e\)</span> 大，不然 <span
+class="math inline">\(T+e-f\)</span> 就是一棵比 <span
+class="math inline">\(T\)</span> 还优的生成树了。</p>
+<p>所以，<span class="math inline">\(T+e-f\)</span> 包含了 <span
+class="math inline">\(F\)</span>，并且也是一棵最小生成树，归纳成立。</p>
+<h2 id="最短路问题">最短路问题</h2>
+<p>最短路问题是指对一个赋权的有向图 <span
+class="math inline">\(D\)</span> 中指定的两点 <span
+class="math inline">\(v_s\)</span> 和 <span
+class="math inline">\(v_t\)</span>，找到一条从 <span
+class="math inline">\(v_s\)</span> 到 <span
+class="math inline">\(v_t\)</span>
+的路，使得这条路上所有弧的总和最小，这条路被称为从 <span
+class="math inline">\(v_s\)</span> 到 <span
+class="math inline">\(v_t\)</span>
+的最短路。这条路上所有弧的权数的总和被称为从 <span
+class="math inline">\(v_s\)</span> 到 <span
+class="math inline">\(v_t\)</span> 的距离。</p>
+<p>我们一般讨论单源的最短路，全源最短路径得用 Floyd 算法以及 Johnson
+全源最短路径算法，这里不再讨论。</p>
+<h3 id="dijkstra-算法">Dijkstra 算法</h3>
+<p>Dijkstra 算法由荷兰计算机科学家 E. W. Dijkstra 于 1956 年发现，1959
+年公开发表。是一种求解 <strong>非负权图</strong>
+上单源最短路径的算法。</p>
+<h4 id="松弛">松弛</h4>
+<p>对于边 <span
+class="math inline">\((u,v)\)</span>，松弛操作对应下面的式子：<span
+class="math inline">\(dis(v) = \min(dis(v), dis(u) + w(u,
+v))\)</span>。</p>
+<p><span class="math inline">\(dis(v)\)</span> 表示的含义是起点开始，到
+<span class="math inline">\(v\)</span> 的最短路径，<span
+class="math inline">\(w(u,v)\)</span> 表示边 <span
+class="math inline">\((u,v)\)</span> 的权值 <span
+class="math inline">\(w\)</span>。</p>
+<p>这么做的含义是显然的：我们尝试用 <span class="math inline">\(S \to u
+\to v\)</span>（其中 <span class="math inline">\(S \to u\)</span>
+的路径取最短路）这条路径去更新 <span class="math inline">\(v\)</span>
+点最短路的长度，如果这条路径更优，就进行更新。</p>
+<h4 id="过程">过程</h4>
+<p>将结点分成两个集合：已确定最短路长度的点集（记为 <span
+class="math inline">\(S\)</span> 集合）的和未确定最短路长度的点集（记为
+<span class="math inline">\(T\)</span> 集合）。一开始所有的点都属于
+<span class="math inline">\(T\)</span> 集合。</p>
+<p>初始化 <span class="math inline">\(dis(s)=0\)</span>，其他点的 <span
+class="math inline">\(dis\)</span> 均为 <span
+class="math inline">\(+\infty\)</span>。</p>
 <p>然后重复这些操作：</p>
-<ol>
-<li>从 $T$ 集合中，选取一个最短路长度最小的结点，移到 $S$ 集合中。</li>
-<li>对那些刚刚被加入 $S$ 集合的结点的所有出边执行<strong>松弛</strong>操作。</li>
+<ol type="1">
+<li>从 <span class="math inline">\(T\)</span>
+集合中，选取一个最短路长度最小的结点，移到 <span
+class="math inline">\(S\)</span> 集合中。</li>
+<li>对那些刚刚被加入 <span class="math inline">\(S\)</span>
+集合的结点的所有出边执行<strong>松弛</strong>操作。</li>
 </ol>
-<p>直到 $T$ 集合为空，算法结束。</p>
-<h4 id="正确性证明"><a href="#正确性证明" class="headerlink" title="正确性证明"></a>正确性证明</h4><p> $D(u)$ 为 $s$ 点到 $u$ 点的 <strong>实际</strong> 最短路长度。</p>
-<p>下面用数学归纳法证明，在 <strong>所有边权值非负</strong> 的前提下，Dijkstra 算法的正确性。</p>
-<p>简单来说，我们要证明的，就是在执行 1 操作时，取出的结点 $u$ 最短路均已经被确定，即满足 $D(u) = dis(u)$。</p>
-<p>初始时 $S = \varnothing$，假设成立。</p>
+<p>直到 <span class="math inline">\(T\)</span> 集合为空，算法结束。</p>
+<h4 id="正确性证明">正确性证明</h4>
+<p><span class="math inline">\(D(u)\)</span> 为 <span
+class="math inline">\(s\)</span> 点到 <span
+class="math inline">\(u\)</span> 点的 <strong>实际</strong>
+最短路长度。</p>
+<p>下面用数学归纳法证明，在 <strong>所有边权值非负</strong>
+的前提下，Dijkstra 算法的正确性。</p>
+<p>简单来说，我们要证明的，就是在执行 1 操作时，取出的结点 <span
+class="math inline">\(u\)</span> 最短路均已经被确定，即满足 <span
+class="math inline">\(D(u) = dis(u)\)</span>。</p>
+<p>初始时 <span class="math inline">\(S =
+\varnothing\)</span>，假设成立。</p>
 <p>接下来用反证法。</p>
-<p>设 $u$ 点为算法中第一个在加入 $S$ 集合时不满足 $D(u) = dis(u)$ 的点。因为 $u$ 点一定满足 $D(u)=dis(u)=0$，且它一定是第一个加入 $S$ 集合的点，因此将 $u$ 加入 $S$ 集合前，$S \neq \varnothing$，如果不存在 $s$ 到 $u$ 的路径，则 $D(u) = dis(u) = +\infty$，与假设矛盾。</p>
-<p>于是一定存在路径 $s \to x \to y \to u$，其中 $y$ 为 $s \to u$ 路径上第一个属于 $T$ 集合的点，而 $x$ 为 $y$ 的前驱结点（显然 $x \in S$）。需要注意的是，可能存在 $s = x$ 或 $y = u$ 的情况，即 $s \to x$ 或 $y \to u$ 可能是空路径。</p>
-<p>因为在 $u$ 结点之前加入的结点都满足 $D(u) = dis(u)$，所以在 $x$ 点加入到 $S$ 集合时，有 $D(x) = dis(x)$，此时边 $(x,y)$ 会被松弛，从而可以证明，将 $u$ 加入到 $S$ 时，一定有 $D(y)=dis(y)$。</p>
-<p>下面证明 $D(u) = dis(u)$ 成立。在路径 $s \to x \to y \to u$ 中，因为图上所有边边权非负，因此 $D(y) \leq D(u)$。从而 $dis(y) = D(y) \leq D(u)\leq dis(u)$。但是因为 $u$ 结点在 1 过程中被取出 $T$ 集合时，$y$ 结点还没有被取出 $T$ 集合，因此此时有 $dis(u)\leq dis(y)$，从而得到 $dis(y) = D(y) = D(u) = dis(u)$，这与 $D(u)\neq dis(u)$ 的假设矛盾，故假设不成立。</p>
-<p>因此我们证明了，1 操作每次取出的点，其最短路均已经被确定。命题得证。</p>
-<p>注意到证明过程中的关键不等式 $D(y) \leq D(u)$ 是在图上所有边边权非负的情况下得出的。当图上存在负权边时，这一不等式不再成立，Dijkstra 算法的正确性将无法得到保证，算法可能会给出错误的结果。</p>
-<h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><p>$|E|$ 表示边数，$|V|$ 顶点数</p>
-<p>朴素方法：$O(|E|^2)$</p>
-<p>使用二叉堆优化方法：$O((|E| + |V|) \log |V|)$</p>
-<h2 id="网络流问题"><a href="#网络流问题" class="headerlink" title="网络流问题"></a>网络流问题</h2><h3 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h3><p>网络是指一个特殊的有向图 $G=(V,E)$，其与一般有向图的不同之处在于有容量和源汇点。</p>
+<p>设 <span class="math inline">\(u\)</span> 点为算法中第一个在加入
+<span class="math inline">\(S\)</span> 集合时不满足 <span
+class="math inline">\(D(u) = dis(u)\)</span> 的点。因为 <span
+class="math inline">\(u\)</span> 点一定满足 <span
+class="math inline">\(D(u)=dis(u)=0\)</span>，且它一定是第一个加入 <span
+class="math inline">\(S\)</span> 集合的点，因此将 <span
+class="math inline">\(u\)</span> 加入 <span
+class="math inline">\(S\)</span> 集合前，<span class="math inline">\(S
+\neq \varnothing\)</span>，如果不存在 <span
+class="math inline">\(s\)</span> 到 <span
+class="math inline">\(u\)</span> 的路径，则 <span
+class="math inline">\(D(u) = dis(u) = +\infty\)</span>，与假设矛盾。</p>
+<p>于是一定存在路径 <span class="math inline">\(s \to x \to y \to
+u\)</span>，其中 <span class="math inline">\(y\)</span> 为 <span
+class="math inline">\(s \to u\)</span> 路径上第一个属于 <span
+class="math inline">\(T\)</span> 集合的点，而 <span
+class="math inline">\(x\)</span> 为 <span
+class="math inline">\(y\)</span> 的前驱结点（显然 <span
+class="math inline">\(x \in S\)</span>）。需要注意的是，可能存在 <span
+class="math inline">\(s = x\)</span> 或 <span class="math inline">\(y =
+u\)</span> 的情况，即 <span class="math inline">\(s \to x\)</span> 或
+<span class="math inline">\(y \to u\)</span> 可能是空路径。</p>
+<p>因为在 <span class="math inline">\(u\)</span>
+结点之前加入的结点都满足 <span class="math inline">\(D(u) =
+dis(u)\)</span>，所以在 <span class="math inline">\(x\)</span> 点加入到
+<span class="math inline">\(S\)</span> 集合时，有 <span
+class="math inline">\(D(x) = dis(x)\)</span>，此时边 <span
+class="math inline">\((x,y)\)</span> 会被松弛，从而可以证明，将 <span
+class="math inline">\(u\)</span> 加入到 <span
+class="math inline">\(S\)</span> 时，一定有 <span
+class="math inline">\(D(y)=dis(y)\)</span>。</p>
+<p>下面证明 <span class="math inline">\(D(u) = dis(u)\)</span>
+成立。在路径 <span class="math inline">\(s \to x \to y \to u\)</span>
+中，因为图上所有边边权非负，因此 <span class="math inline">\(D(y) \leq
+D(u)\)</span>。从而 <span class="math inline">\(dis(y) = D(y) \leq
+D(u)\leq dis(u)\)</span>。但是因为 <span
+class="math inline">\(u\)</span> 结点在 1 过程中被取出 <span
+class="math inline">\(T\)</span> 集合时，<span
+class="math inline">\(y\)</span> 结点还没有被取出 <span
+class="math inline">\(T\)</span> 集合，因此此时有 <span
+class="math inline">\(dis(u)\leq dis(y)\)</span>，从而得到 <span
+class="math inline">\(dis(y) = D(y) = D(u) = dis(u)\)</span>，这与 <span
+class="math inline">\(D(u)\neq dis(u)\)</span>
+的假设矛盾，故假设不成立。</p>
+<p>因此我们证明了，1
+操作每次取出的点，其最短路均已经被确定。命题得证。</p>
+<p>注意到证明过程中的关键不等式 <span class="math inline">\(D(y) \leq
+D(u)\)</span>
+是在图上所有边边权非负的情况下得出的。当图上存在负权边时，这一不等式不再成立，Dijkstra
+算法的正确性将无法得到保证，算法可能会给出错误的结果。</p>
+<h4 id="时间复杂度">时间复杂度</h4>
+<p><span class="math inline">\(|E|\)</span> 表示边数，<span
+class="math inline">\(|V|\)</span> 顶点数</p>
+<p>朴素方法：<span class="math inline">\(O(|E|^2)\)</span></p>
+<p>使用二叉堆优化方法：<span class="math inline">\(O((|E| + |V|) \log
+|V|)\)</span></p>
+<h2 id="网络流问题">网络流问题</h2>
+<h3 id="前置知识">前置知识</h3>
+<p>网络是指一个特殊的有向图 <span
+class="math inline">\(G=(V,E)\)</span>，其与一般有向图的不同之处在于有容量和源汇点。</p>
 <ul>
-<li>$E$ 中的每条边 $(u, v)$ 都有一个被称为容量的权值，记作 $c(u, v)$。当 $(u,v)\notin E$ 时，可以假定 $c(u,v)=0$。</li>
-<li>$V$ 中有两个特殊的点：源点 $s$ 和汇点 $t$（$s \neq t$）。</li>
+<li><span class="math inline">\(E\)</span> 中的每条边 <span
+class="math inline">\((u, v)\)</span> 都有一个被称为容量的权值，记作
+<span class="math inline">\(c(u, v)\)</span>。当 <span
+class="math inline">\((u,v)\notin E\)</span> 时，可以假定 <span
+class="math inline">\(c(u,v)=0\)</span>。</li>
+<li><span class="math inline">\(V\)</span> 中有两个特殊的点：源点 <span
+class="math inline">\(s\)</span> 和汇点 <span
+class="math inline">\(t\)</span>（<span class="math inline">\(s \neq
+t\)</span>）。</li>
 </ul>
-<p>对于网络 $G=(V, E)$，流是一个从边集 $E$ 到整数集或实数集的函数，其满足以下性质。</p>
-<ol>
-<li>容量限制：对于每条边，流经该边的流量不得超过该边的容量，即 $0 \leq f(u,v) \leq c(u,v)$；</li>
-<li>流守恒性（平衡条件）：除源汇点外，任意结点 $u$ 的净流量为 $0$（输入量等于输出量）。其中，我们定义 $u$ 的净流量为 $f(u) = \sum<em>{x \in V} f(u, x) - \sum</em>{x \in V} f(x, u)$。</li>
+<p>对于网络 <span class="math inline">\(G=(V,
+E)\)</span>，流是一个从边集 <span class="math inline">\(E\)</span>
+到整数集或实数集的函数，其满足以下性质。</p>
+<ol type="1">
+<li>容量限制：对于每条边，流经该边的流量不得超过该边的容量，即 <span
+class="math inline">\(0 \leq f(u,v) \leq c(u,v)\)</span>；</li>
+<li>流守恒性（平衡条件）：除源汇点外，任意结点 <span
+class="math inline">\(u\)</span> 的净流量为 <span
+class="math inline">\(0\)</span>（输入量等于输出量）。其中，我们定义
+<span class="math inline">\(u\)</span> 的净流量为 <span
+class="math inline">\(f(u) = \sum_{x \in V} f(u, x) - \sum_{x \in V}
+f(x, u)\)</span>。</li>
 </ol>
-<p>定义网络 $D$，若 $\mu$ 为网络中的一条链，给 $\mu$ 定向为从 $u<em>s$ 到 $u_t$，$\mu$ 上的弧凡与 $\mu$ 同向称为前向弧，反向为后向弧，其集合分别用 $\mu^+$ 和 $\mu ^-$ 表示。设 $f={f</em>{ij}}$ 是一个可行流，如果满足</p>
-<script type="math/tex; mode=display">
-\begin{cases} 0 \leq f_{ij} \leq c_{ij} & (v_i,v_j) \in \mu^+ \\ c_{ij} \geq f_{ij} > 0 & (v_i,v_j) \in \mu^- \end{cases}</script><p>则称 $\mu$ 为从 $v_s$ 到 $v_t$ 的一条增广链。</p>
-<p>对于给定网络 $G=(V,E,C)$ ，设 $S,T \subset V$ ，且 $S\cup T=V,S \cap T = \varnothing,v_s\in S,v_t\in T$ ，则称 $(S,T)$ 为割集</p>
-<p>残量网络：根据原网络，定义的一个可描述每条边当前可调配流量的网络图，其中<strong>可调配残量</strong> $r(u,v)=c(u,v)−f(u,v)$ ，表明每条弧还能再有多 少流量经过。</p>
-<h3 id="网络最大流问题（标号法）"><a href="#网络最大流问题（标号法）" class="headerlink" title="网络最大流问题（标号法）"></a>网络最大流问题（标号法）</h3><p>最大流问题：对于网络 $G = (V, E)$，给<strong>每条边指定流量</strong>，得到合适的流 $f$，使得 $f$ 的流量尽可能大。此时我们称 $f$ 是 $G$ 的最大流。</p>
+<p>定义网络 <span class="math inline">\(D\)</span>，若 <span
+class="math inline">\(\mu\)</span> 为网络中的一条链，给 <span
+class="math inline">\(\mu\)</span> 定向为从 <span
+class="math inline">\(u_s\)</span> 到 <span
+class="math inline">\(u_t\)</span>，<span
+class="math inline">\(\mu\)</span> 上的弧凡与 <span
+class="math inline">\(\mu\)</span>
+同向称为前向弧，反向为后向弧，其集合分别用 <span
+class="math inline">\(\mu^+\)</span> 和 <span class="math inline">\(\mu
+^-\)</span> 表示。设 <span class="math inline">\(f={f_{ij}}\)</span>
+是一个可行流，如果满足 <span class="math display">\[
+\begin{cases} 0 \leq f_{ij} \leq c_{ij} &amp; (v_i,v_j) \in \mu^+ \\
+c_{ij} \geq f_{ij} &gt; 0 &amp; (v_i,v_j) \in \mu^- \end{cases}
+\]</span> 则称 <span class="math inline">\(\mu\)</span> 为从 <span
+class="math inline">\(v_s\)</span> 到 <span
+class="math inline">\(v_t\)</span> 的一条增广链。</p>
+<p>对于给定网络 <span class="math inline">\(G=(V,E,C)\)</span> ，设
+<span class="math inline">\(S,T \subset V\)</span> ，且 <span
+class="math inline">\(S\cup T=V,S \cap T = \varnothing,v_s\in S,v_t\in
+T\)</span> ，则称 <span class="math inline">\((S,T)\)</span> 为割集</p>
+<p>残量网络：根据原网络，定义的一个可描述每条边当前可调配流量的网络图，其中<strong>可调配残量</strong>
+<span class="math inline">\(r(u,v)=c(u,v)−f(u,v)\)</span>
+，表明每条弧还能再有多 少流量经过。</p>
+<h3 id="网络最大流问题标号法">网络最大流问题（标号法）</h3>
+<p>最大流问题：对于网络 <span class="math inline">\(G = (V,
+E)\)</span>，给<strong>每条边指定流量</strong>，得到合适的流 <span
+class="math inline">\(f\)</span>，使得 <span
+class="math inline">\(f\)</span> 的流量尽可能大。此时我们称 <span
+class="math inline">\(f\)</span> 是 <span
+class="math inline">\(G\)</span> 的最大流。</p>
 <p>这里我们只讨论运筹书上写的标号法求最大流，不讨论更深入的。</p>
-<h4 id="标号过程"><a href="#标号过程" class="headerlink" title="标号过程"></a>标号过程</h4><ol>
-<li><p>源点 $v_s$ 标号$(0,+\infty)$</p>
-</li>
-<li><p>不断选择一个已标号的顶点 $v_i$ ，对所有与 $v_i$ 相邻而没有标号的顶点 $v_j$ 按如下规则处理：</p>
+<h4 id="标号过程">标号过程</h4>
+<ol type="1">
+<li><p>源点 <span class="math inline">\(v_s\)</span> 标号<span
+class="math inline">\((0,+\infty)\)</span></p></li>
+<li><p>不断选择一个已标号的顶点 <span class="math inline">\(v_i\)</span>
+，对所有与 <span class="math inline">\(v_i\)</span> 相邻而没有标号的顶点
+<span class="math inline">\(v_j\)</span> 按如下规则处理：</p>
 <ul>
-<li><p>若 $(v<em>i,v_j)\in E$ ，并且 $f</em>{ij}&lt;c<em>{ij}$ ，则给顶点 $v_j$ 标号 $(v_i,\delta_j),\delta_j=\min(\delta_i,c</em>{ij}−f_{ij})$</p>
-</li>
-<li><p>若 $(v<em>j,v_i)\in E$ ，并且 $f</em>{ij}&gt;0$，则给顶点 $v<em>j$ 标号 $(v_i,\delta_j),\delta_j=\ min(\delta_i,f</em>{ji})$</p>
-</li>
-</ul>
-</li>
-<li><p>当无法选择后，若终点 $v_i$ 得到标号，说明存在增广链，转到调整阶段，否则说明不存在增广链，此时可行流 $f$ 即为最大流</p>
-</li>
+<li><p>若 <span class="math inline">\((v_i,v_j)\in E\)</span> ，并且
+<span class="math inline">\(f_{ij}&lt;c_{ij}\)</span> ，则给顶点 <span
+class="math inline">\(v_j\)</span> 标号 <span
+class="math inline">\((v_i,\delta_j),\delta_j=\min(\delta_i,c_{ij}−f_{ij})\)</span></p></li>
+<li><p>若 <span class="math inline">\((v_j,v_i)\in E\)</span> ，并且
+<span class="math inline">\(f_{ij}&gt;0\)</span>，则给顶点 <span
+class="math inline">\(v_j\)</span> 标号 <span
+class="math inline">\((v_i,\delta_j),\delta_j=\
+min(\delta_i,f_{ji})\)</span></p></li>
+</ul></li>
+<li><p>当无法选择后，若终点 <span class="math inline">\(v_i\)</span>
+得到标号，说明存在增广链，转到调整阶段，否则说明不存在增广链，此时可行流
+<span class="math inline">\(f\)</span> 即为最大流</p></li>
 </ol>
-<h4 id="调整过程"><a href="#调整过程" class="headerlink" title="调整过程"></a>调整过程</h4><ul>
-<li>应用反向追踪法，从终点 $v_t$ 及其其他顶点的第一个标号，找出增广链</li>
+<h4 id="调整过程">调整过程</h4>
+<ul>
+<li>应用反向追踪法，从终点 <span class="math inline">\(v_t\)</span>
+及其其他顶点的第一个标号，找出增广链</li>
 <li>调整结束后去掉所有标号，再次进行标号过程。</li>
 </ul>
-<h3 id="最小费用最大流问题"><a href="#最小费用最大流问题" class="headerlink" title="最小费用最大流问题"></a>最小费用最大流问题</h3><p>最小费用最大流问题：在网络 $G = (V, E)$ 上，对每条边给定一个权值 $w(u, v)$，称为费用（cost），含义是单位流量通过 $(u, v)$ 所花费的代价。对于 $G$ 所有可能的最大流，我们称其中总费用最小的一者为最小费用最大流。</p>
-<h5 id="增流网络"><a href="#增流网络" class="headerlink" title="增流网络"></a>增流网络</h5><p><strong>顶点</strong>：增流网络 $D_f$ 的顶点与原网络相同</p>
+<h3 id="最小费用最大流问题">最小费用最大流问题</h3>
+<p>最小费用最大流问题：在网络 <span class="math inline">\(G = (V,
+E)\)</span> 上，对每条边给定一个权值 <span class="math inline">\(w(u,
+v)\)</span>，称为费用（cost），含义是单位流量通过 <span
+class="math inline">\((u, v)\)</span> 所花费的代价。对于 <span
+class="math inline">\(G\)</span>
+所有可能的最大流，我们称其中总费用最小的一者为最小费用最大流。</p>
+<h5 id="增流网络">增流网络</h5>
+<p><strong>顶点</strong>：增流网络 <span
+class="math inline">\(D_f\)</span> 的顶点与原网络相同</p>
 <p><strong>弧与权</strong>：</p>
 <ul>
-<li>在 D 中的弧 $(v<em>i,v_j)$ 若为<strong>零流弧</strong>，即 $f</em>{ij} = 0$ ，则在 $D<em>f$ 中构建一个同向的弧，$c</em>{ij}^, = c<em>{ij} - f</em>{ij},b<em>{ij}^, = b</em>{ij}$</li>
+<li>在 D 中的弧 <span class="math inline">\((v_i,v_j)\)</span>
+若为<strong>零流弧</strong>，即 <span class="math inline">\(f_{ij} =
+0\)</span> ，则在 <span class="math inline">\(D_f\)</span>
+中构建一个同向的弧，<span class="math inline">\(c_{ij}^, = c_{ij} -
+f_{ij},b_{ij}^, = b_{ij}\)</span></li>
 </ul>
 
             </div>
