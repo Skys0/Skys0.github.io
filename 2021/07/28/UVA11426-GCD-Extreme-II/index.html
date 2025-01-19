@@ -16,20 +16,20 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="UVA11426 GCD - Extreme (II) 这几天我看了 LRJ 的书看到了这一题，就把这道题写了，正好这道题挺不错的。 题目 题目PDF 知识 欧拉函数  定义： \(\varphi(n)\) 为小于等于 \(n\) 与 \(n\) 互质的数的个数  它有一些有趣的性质：  \(\varphi(n)\) 是积性函数 ： 如果有 \(\gcd(i,j) &#x3D;">
+  <meta name="description" content="UVA11426 GCD - Extreme (II)这几天我看了 LRJ 的书看到了这一题，就把这道题写了，正好这道题挺不错的。 题目题目PDF 知识欧拉函数 定义： $\varphi(n)$ 为小于等于 $n$ 与 $n$ 互质的数的个数  它有一些有趣的性质：  $\varphi(n)$  是积性函数 ： 如果有 $\gcd(i,j) &#x3D; 1$ 那么就有 $\varphi(i \times">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UVA11426 GCD - Extreme (II)">
 <meta property="og:url" content="https://skys0.github.io/2021/07/28/UVA11426-GCD-Extreme-II/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="UVA11426 GCD - Extreme (II) 这几天我看了 LRJ 的书看到了这一题，就把这道题写了，正好这道题挺不错的。 题目 题目PDF 知识 欧拉函数  定义： \(\varphi(n)\) 为小于等于 \(n\) 与 \(n\) 互质的数的个数  它有一些有趣的性质：  \(\varphi(n)\) 是积性函数 ： 如果有 \(\gcd(i,j) &#x3D;">
+<meta property="og:description" content="UVA11426 GCD - Extreme (II)这几天我看了 LRJ 的书看到了这一题，就把这道题写了，正好这道题挺不错的。 题目题目PDF 知识欧拉函数 定义： $\varphi(n)$ 为小于等于 $n$ 与 $n$ 互质的数的个数  它有一些有趣的性质：  $\varphi(n)$  是积性函数 ： 如果有 $\gcd(i,j) &#x3D; 1$ 那么就有 $\varphi(i \times">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-28T05:24:13.000Z">
 <meta property="article:modified_time" content="2021-10-27T12:22:54.000Z">
 <meta property="article:author" content="Skys">
 <meta property="article:tag" content="数论">
-<meta property="article:tag" content="UVA">
-<meta property="article:tag" content="题解">
 <meta property="article:tag" content="筛法">
+<meta property="article:tag" content="题解">
+<meta property="article:tag" content="UVA">
 <meta name="twitter:card" content="summary_large_image">
   
   <title>UVA11426 GCD - Extreme (II) - Skys</title>
@@ -241,56 +241,27 @@
             <h1 style="display: none">UVA11426 GCD - Extreme (II)</h1>
             
             <div class="markdown-body">
-              <h1 id="uva11426-gcd---extreme-ii">UVA11426 GCD - Extreme (II)</h1>
-<p>这几天我看了 LRJ
-的书看到了这一题，就把这道题写了，正好这道题挺不错的。</p>
-<h2 id="题目">题目</h2>
-<p><a
-target="_blank" rel="noopener" href="https://uva.onlinejudge.org/external/114/p11424.pdf">题目PDF</a></p>
-<h2 id="知识">知识</h2>
-<h3 id="欧拉函数">欧拉函数</h3>
-<ul>
-<li>定义： <span class="math inline">\(\varphi(n)\)</span> 为小于等于
-<span class="math inline">\(n\)</span> 与 <span
-class="math inline">\(n\)</span> 互质的数的个数</li>
+              <h1 id="UVA11426-GCD-Extreme-II"><a href="#UVA11426-GCD-Extreme-II" class="headerlink" title="UVA11426 GCD - Extreme (II)"></a>UVA11426 GCD - Extreme (II)</h1><p>这几天我看了 LRJ 的书看到了这一题，就把这道题写了，正好这道题挺不错的。</p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a target="_blank" rel="noopener" href="https://uva.onlinejudge.org/external/114/p11424.pdf">题目PDF</a></p>
+<h2 id="知识"><a href="#知识" class="headerlink" title="知识"></a>知识</h2><h3 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h3><ul>
+<li>定义： $\varphi(n)$ 为小于等于 $n$ 与 $n$ 互质的数的个数</li>
 </ul>
 <p>它有一些有趣的性质：</p>
 <ul>
-<li><span class="math inline">\(\varphi(n)\)</span> 是积性函数 ： 如果有
-<span class="math inline">\(\gcd(i,j) = 1\)</span> 那么就有 <span
-class="math inline">\(\varphi(i \times j) = \varphi(i) \times
-\varphi(j)\)</span></li>
+<li>$\varphi(n)$  是积性函数 ： 如果有 $\gcd(i,j) = 1$ 那么就有 $\varphi(i \times j) = \varphi(i) \times \varphi(j)$</li>
 </ul>
-<h3 id="如何求欧拉函数">如何求欧拉函数：</h3>
-<p>用一个类似于筛法求素数的方法，时间复杂度相似于埃氏筛法 <span
-class="math inline">\(\mathcal{O}(n\log \log n)\)</span></p>
+<h3 id="如何求欧拉函数："><a href="#如何求欧拉函数：" class="headerlink" title="如何求欧拉函数："></a>如何求欧拉函数：</h3><p>用一个类似于筛法求素数的方法，时间复杂度相似于埃氏筛法 $\mathcal{O}(n\log \log n)$</p>
 <p><strong>模板代码</strong>如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> phi[maxn];<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">table</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>&#123;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt;= n;i ++)<br>        phi[i] = <span class="hljs-number">0</span>;<br>    phi[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>;i &lt;= n;i ++)<br>    	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = i;j &lt;= n;j ++)&#123;<br>    		<span class="hljs-keyword">if</span>(!phi[j])		phi[j] = j;<br>    		phi[j] = phi[j] / i * (i<span class="hljs-number">-1</span>);<br>    	&#125;<br>   	<span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<h2 id="思路">思路</h2>
-<p>首先，我们能想到暴力，每一次将每一个的 <span
-class="math inline">\(\gcd\)</span> 求出 ，最差时间复杂度为 <span
-class="math inline">\(\mathcal{O}(n^2\log n )\)</span>
-，太慢，在这个数据目前无能为力，所以想办法优化。</p>
-<p>设 <span class="math display">\[\large f(n) =
-\sum\limits_{i=1}^{n-1}\gcd(i,n)\]</span> ，</p>
-<p>所以答案为 <span class="math display">\[\large S(n) =
-\sum\limits_{i=1}^{n} f(i)\]</span>。</p>
-<p><del>易证</del> ，<span class="math inline">\(\gcd(i,n)\)</span>
-的值都是 n 的约数，我们好好看看这个柿子有什么优化的地方</p>
-<p>设 <span class="math inline">\(\dfrac{x}{i}\)</span> ，所以 <span
-class="math inline">\(\gcd(\dfrac{x}{i},\dfrac{n}{i}) = 1\)</span></p>
-<p><span class="math inline">\(\therefore\)</span> <span
-class="math inline">\(\dfrac{x}{i}\)</span> 与 <span
-class="math inline">\(\dfrac{n}{i}\)</span> 互质</p>
-<p>所以小于等于 <span class="math inline">\(\dfrac{n}{i}\)</span>
-的互质的 <span class="math inline">\(\dfrac{x}{i}\)</span> 一共有 <span
-class="math inline">\(\varphi(\dfrac{n}{i})\)</span> 个</p>
-<p>又 <span class="math inline">\(\because\)</span> <span
-class="math inline">\(\gcd(i,n)\)</span> <span
-class="math inline">\(\leqslant n\)</span></p>
-<p>$$ <span class="math inline">\(\large f(n) = \sum\limits_{i\subset A}
-i \times \varphi(\dfrac{n}{i})\)</span> <span class="math inline">\(( A
-= n\)</span> 的约数 <span class="math inline">\()\)</span></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>首先，我们能想到暴力，每一次将每一个的 $\gcd$ 求出 ，最差时间复杂度为 $\mathcal{O}(n^2\log n )$ ，太慢，在这个数据目前无能为力，所以想办法优化。</p>
+<p>设 <script type="math/tex">\large f(n) = \sum\limits_{i=1}^{n-1}\gcd(i,n)</script> ，</p>
+<p>所以答案为  <script type="math/tex">\large S(n) = \sum\limits_{i=1}^{n} f(i)</script>。</p>
+<p><del>易证</del> ，$\gcd(i,n)$ 的值都是 n 的约数，我们好好看看这个柿子有什么优化的地方</p>
+<p>设 $\dfrac{x}{i}$ ，所以 $\gcd(\dfrac{x}{i},\dfrac{n}{i}) = 1$</p>
+<p>$\therefore$  $\dfrac{x}{i}$ 与 $\dfrac{n}{i}$ 互质</p>
+<p>所以小于等于 $\dfrac{n}{i}$ 的互质的 $\dfrac{x}{i}$ 一共有 $\varphi(\dfrac{n}{i})$  个</p>
+<p>又 $\because$   $\gcd(i,n)$  $\leqslant n$ </p>
+<p>$\therefore $   $\large f(n) = \sum\limits_{i\subset A} i \times \varphi(\dfrac{n}{i})$  $( A = n$ 的约数 $)$ </p>
 <p>上面的柿子就是我们所需要的，时间复杂度与求欧拉筛法同阶。</p>
 <p>代码 ：</p>
 <figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstring&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxn = <span class="hljs-number">4000000</span>;<br><br><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> phi[maxn],s[maxn],f[maxn];<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">phi_c</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">2</span>;i&lt;=maxn;i++)	phi[i] = <span class="hljs-number">0</span>;<br>	phi[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">2</span>;i&lt;=maxn;i++)&#123;<br>		<span class="hljs-keyword">if</span>(!phi[i])<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=i;j&lt;=maxn;j+=i)&#123;<br>			<span class="hljs-keyword">if</span>(!phi[j])<br>				phi[j] = j;<br>				phi[j] = phi[j] / i * (i<span class="hljs-number">-1</span>);<br>		&#125;<br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-built_in">phi_c</span>();<br>	<span class="hljs-built_in">memset</span>(f,<span class="hljs-number">0</span>,<span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(f));<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=maxn;i++)<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=i*<span class="hljs-number">2</span>;j&lt;=maxn;j+=i)<br>			f[j] += i*phi[j/i];<br>			<br>	s[<span class="hljs-number">2</span>] = f[<span class="hljs-number">2</span>];<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">3</span>;j&lt;=maxn;j++)<br>		s[j] = s[j<span class="hljs-number">-1</span>] + f[j];<br>		<br>	<span class="hljs-keyword">int</span> n;<br>	<span class="hljs-keyword">while</span>(<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;n) &amp;&amp; n)<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%lld\n&quot;</span>,s[n]);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
@@ -313,11 +284,11 @@ i \times \varphi(\dfrac{n}{i})\)</span> <span class="math inline">\(( A
                     
                       <a class="hover-with-bg" href="/tags/%E6%95%B0%E8%AE%BA/">数论</a>
                     
-                      <a class="hover-with-bg" href="/tags/UVA/">UVA</a>
+                      <a class="hover-with-bg" href="/tags/%E7%AD%9B%E6%B3%95/">筛法</a>
                     
                       <a class="hover-with-bg" href="/tags/%E9%A2%98%E8%A7%A3/">题解</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%AD%9B%E6%B3%95/">筛法</a>
+                      <a class="hover-with-bg" href="/tags/UVA/">UVA</a>
                     
                   </div>
                 

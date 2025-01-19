@@ -16,12 +16,12 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="Linux 文件权限学习 用户与用户组  文件拥有者(root) 一般用户组 其他人  文件权限 在终端输入 ls -al 后，就会出现一堆东西，其中在每一行的前面的是文件的权限，共有10个字符，  第一个字符代表这个文件是目录、文件或链接文件。  d 则是目录 - 则是文件 l 则是链接文件  接下来三个为一组，共三组；其中 r 表示可读，w 表示可写，x 表">
+  <meta name="description" content="Linux 文件权限学习用户与用户组 文件拥有者(root)  一般用户组  其他人   文件权限在终端输入 ls -al 后，就会出现一堆东西，其中在每一行的前面的是文件的权限，共有10个字符，  第一个字符代表这个文件是目录、文件或链接文件。  d 则是目录  - 则是文件  l 则是链接文件    接下来三个为一组，共三组；其中 r 表示可读，w 表示可写，x 表示可执行  第一组 文件拥有">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 学习 1">
 <meta property="og:url" content="https://skys0.github.io/2022/08/08/Linux-%E5%AD%A6%E4%B9%A0-1/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="Linux 文件权限学习 用户与用户组  文件拥有者(root) 一般用户组 其他人  文件权限 在终端输入 ls -al 后，就会出现一堆东西，其中在每一行的前面的是文件的权限，共有10个字符，  第一个字符代表这个文件是目录、文件或链接文件。  d 则是目录 - 则是文件 l 则是链接文件  接下来三个为一组，共三组；其中 r 表示可读，w 表示可写，x 表">
+<meta property="og:description" content="Linux 文件权限学习用户与用户组 文件拥有者(root)  一般用户组  其他人   文件权限在终端输入 ls -al 后，就会出现一堆东西，其中在每一行的前面的是文件的权限，共有10个字符，  第一个字符代表这个文件是目录、文件或链接文件。  d 则是目录  - 则是文件  l 则是链接文件    接下来三个为一组，共三组；其中 r 表示可读，w 表示可写，x 表示可执行  第一组 文件拥有">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-08T08:32:39.000Z">
 <meta property="article:modified_time" content="2022-08-08T08:41:42.000Z">
@@ -238,71 +238,86 @@
             <h1 style="display: none">Linux 学习 1</h1>
             
             <div class="markdown-body">
-              <h1 id="linux-文件权限学习">Linux 文件权限学习</h1>
-<h2 id="用户与用户组">用户与用户组</h2>
-<ol type="1">
-<li><p>文件拥有者(root)</p></li>
-<li><p>一般用户组</p></li>
-<li><p>其他人</p></li>
+              <h1 id="Linux-文件权限学习"><a href="#Linux-文件权限学习" class="headerlink" title="Linux 文件权限学习"></a>Linux 文件权限学习</h1><h2 id="用户与用户组"><a href="#用户与用户组" class="headerlink" title="用户与用户组"></a>用户与用户组</h2><ol>
+<li><p>文件拥有者(root)</p>
+</li>
+<li><p>一般用户组</p>
+</li>
+<li><p>其他人</p>
+</li>
 </ol>
-<h2 id="文件权限">文件权限</h2>
-<p>在终端输入 <code>ls -al</code>
-后，就会出现一堆东西，其中在每一行的前面的是文件的权限，共有10个字符，</p>
+<h2 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h2><p>在终端输入 <code>ls -al</code> 后，就会出现一堆东西，其中在每一行的前面的是文件的权限，共有10个字符，</p>
 <ul>
 <li><p>第一个字符代表这个文件是目录、文件或链接文件。</p>
 <ul>
-<li><p><code>d</code> 则是目录</p></li>
-<li><p><code>-</code> 则是文件</p></li>
-<li><p><code>l</code> 则是链接文件</p></li>
-</ul></li>
-<li><p>接下来三个为一组，共三组；其中 <code>r</code>
-表示可读，<code>w</code> 表示可写，<code>x</code> 表示可执行</p>
-<ul>
-<li><p>第一组 <strong>文件拥有者(root)</strong> 可具备的权限</p></li>
-<li><p>第二组 <strong>一般用户</strong> 的权限</p></li>
-<li><p>第三组 <strong>没有加入本用户组的其他账号</strong>
-的权限</p></li>
-</ul></li>
+<li><p><code>d</code> 则是目录</p>
+</li>
+<li><p><code>-</code> 则是文件</p>
+</li>
+<li><p><code>l</code> 则是链接文件</p>
+</li>
 </ul>
-<h2 id="修改文件属性">修改文件属性</h2>
+</li>
+<li><p>接下来三个为一组，共三组；其中 <code>r</code> 表示可读，<code>w</code> 表示可写，<code>x</code> 表示可执行</p>
 <ul>
+<li><p>第一组 <strong>文件拥有者(root)</strong> 可具备的权限</p>
+</li>
+<li><p>第二组 <strong>一般用户</strong> 的权限</p>
+</li>
+<li><p>第三组 <strong>没有加入本用户组的其他账号</strong> 的权限</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="修改文件属性"><a href="#修改文件属性" class="headerlink" title="修改文件属性"></a>修改文件属性</h2><ul>
 <li><p><code>chgrp</code></p>
 <ul>
-<li><p>修改文件所属用户组</p></li>
-<li><p>参数 <code>-R</code> ：进行递归修改</p></li>
-<li><p>语法：<code>chgrp [-R][user] dir/file</code></p></li>
-</ul></li>
+<li><p>修改文件所属用户组</p>
+</li>
+<li><p>参数 <code>-R</code> ：进行递归修改</p>
+</li>
+<li><p>语法：<code>chgrp [-R][user] dir/file</code></p>
+</li>
+</ul>
+</li>
 <li><p><code>chown</code></p>
 <ul>
-<li><p>修改文件拥有者</p></li>
-<li><p>语法：<code>chown [-R] [owner][:group] file</code></p></li>
-</ul></li>
+<li><p>修改文件拥有者</p>
+</li>
+<li><p>语法：<code>chown [-R] [owner][:group] file</code></p>
+</li>
+</ul>
+</li>
 <li><p><code>chmod</code></p>
 <ul>
-<li><p>修改权限</p></li>
-<li><p>数字类型修改权限：<code>r=4,w=2,x=1</code>，每种身份的的权限需要累加的，例如<code>owner=rwx=4+2+1=7,group=rwx=4+2+1=7,others=0+0+0=0</code>，所以权限数字是
-770，</p></li>
-<li><p>符号类型修改权限：身份
-<code>u=user,g=group,o=others</code>，<code>+(加入),-(移除),=(设置)</code></p></li>
-<li><p>语法：<code>chmod [-R] [xyz] file/dir</code> 或者
-<code>chmod [ugo...][[+-=][rwxX]] file/dir</code></p></li>
-</ul></li>
+<li><p>修改权限</p>
+</li>
+<li><p>数字类型修改权限：<code>r=4,w=2,x=1</code>，每种身份的的权限需要累加的，例如<code>owner=rwx=4+2+1=7,group=rwx=4+2+1=7,others=0+0+0=0</code>，所以权限数字是 770，</p>
+</li>
+<li><p>符号类型修改权限：身份 <code>u=user,g=group,o=others</code>，<code>+(加入),-(移除),=(设置)</code></p>
+</li>
+<li><p>语法：<code>chmod [-R] [xyz] file/dir</code> 或者 <code>chmod [ugo...][[+-=][rwxX]] file/dir</code></p>
+</li>
 </ul>
-<h2 id="目录与文件的权限意义">目录与文件的权限意义</h2>
-<h3 id="权限对文件的重要性">权限对文件的重要性</h3>
-<ul>
-<li><p>r(read)：可读取此文件的实际内容</p></li>
-<li><p>w(write)：可以编辑，修改此文件的内容</p></li>
-<li><p>x(execute)：该文件具有被系统执行的权限</p></li>
+</li>
 </ul>
-<p>注意，文件是否能被执行，与文件名后缀无关，与 x 权限有关，记得与
-Windows 区分开</p>
+<h2 id="目录与文件的权限意义"><a href="#目录与文件的权限意义" class="headerlink" title="目录与文件的权限意义"></a>目录与文件的权限意义</h2><h3 id="权限对文件的重要性"><a href="#权限对文件的重要性" class="headerlink" title="权限对文件的重要性"></a>权限对文件的重要性</h3><ul>
+<li><p>r(read)：可读取此文件的实际内容</p>
+</li>
+<li><p>w(write)：可以编辑，修改此文件的内容</p>
+</li>
+<li><p>x(execute)：该文件具有被系统执行的权限</p>
+</li>
+</ul>
+<p>注意，文件是否能被执行，与文件名后缀无关，与 x 权限有关，记得与 Windows 区分开</p>
 <p>有 w 权限，但并不具备有删除文件本身的权限</p>
-<h3 id="权限对目录的重要性">权限对目录的重要性</h3>
-<ul>
-<li><p>r：具有读取目录结构的权限</p></li>
-<li><p>w：改动该目录结构列表的权限</p></li>
-<li><p>x：用户能否进入该目录成为工作目录（目前所在的目录）</p></li>
+<h3 id="权限对目录的重要性"><a href="#权限对目录的重要性" class="headerlink" title="权限对目录的重要性"></a>权限对目录的重要性</h3><ul>
+<li><p>r：具有读取目录结构的权限</p>
+</li>
+<li><p>w：改动该目录结构列表的权限</p>
+</li>
+<li><p>x：用户能否进入该目录成为工作目录（目前所在的目录）</p>
+</li>
 </ul>
 <p>开放目录给任何人看时，应该至少给予 r 或 x 的权限。</p>
 <p>先这样吧，有时间在来整理。</p>
