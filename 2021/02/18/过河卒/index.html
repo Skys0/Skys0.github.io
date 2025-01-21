@@ -16,12 +16,12 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="过河卒 本题链接：p1002 过河卒 ## 题目描述 棋盘上 $ A $ 点有一个过河卒，需要走到目标$ B $点。卒行走的规则：可以向下、或者向右。同时在棋盘上 $ C $ 点有一个对方的马，该马所在的点和所有跳跃一步可达的点称为对方马的控制点。因此称之为“马拦过河卒”。 棋盘用坐标表示，$ A $ 点 $ (0,0) $ 、$ B $ 点 $ (n,m) $ ，同样马的位置坐标是">
+  <meta name="description" content="过河卒本题链接：p1002 过河卒 题目描述棋盘上 $ A $ 点有一个过河卒，需要走到目标$ B $点。卒行走的规则：可以向下、或者向右。同时在棋盘上 $ C $ 点有一个对方的马，该马所在的点和所有跳跃一步可达的点称为对方马的控制点。因此称之为“马拦过河卒”。 棋盘用坐标表示，$ A $ 点 $ (0,0) $ 、$ B $ 点 $ (n,m) $ ，同样马的位置坐标是需要给出的。 现在要求你">
 <meta property="og:type" content="article">
 <meta property="og:title" content="过河卒">
 <meta property="og:url" content="https://skys0.github.io/2021/02/18/%E8%BF%87%E6%B2%B3%E5%8D%92/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="过河卒 本题链接：p1002 过河卒 ## 题目描述 棋盘上 $ A $ 点有一个过河卒，需要走到目标$ B $点。卒行走的规则：可以向下、或者向右。同时在棋盘上 $ C $ 点有一个对方的马，该马所在的点和所有跳跃一步可达的点称为对方马的控制点。因此称之为“马拦过河卒”。 棋盘用坐标表示，$ A $ 点 $ (0,0) $ 、$ B $ 点 $ (n,m) $ ，同样马的位置坐标是">
+<meta property="og:description" content="过河卒本题链接：p1002 过河卒 题目描述棋盘上 $ A $ 点有一个过河卒，需要走到目标$ B $点。卒行走的规则：可以向下、或者向右。同时在棋盘上 $ C $ 点有一个对方的马，该马所在的点和所有跳跃一步可达的点称为对方马的控制点。因此称之为“马拦过河卒”。 棋盘用坐标表示，$ A $ 点 $ (0,0) $ 、$ B $ 点 $ (n,m) $ ，同样马的位置坐标是需要给出的。 现在要求你">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-18T10:41:14.000Z">
 <meta property="article:modified_time" content="2021-10-27T12:23:20.000Z">
@@ -238,226 +238,193 @@
             <h1 style="display: none">过河卒</h1>
             
             <div class="markdown-body">
-              <h1 id="过河卒">过河卒</h1>
-<p><strong>本题链接</strong>：<a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1002">p1002 过河卒</a> ##
-题目描述</p>
-<p>棋盘上 $ A $ 点有一个过河卒，需要走到目标$ B
-$点。卒行走的规则：可以向下、或者向右。同时在棋盘上 $ C $
-点有一个对方的马，该马所在的点和所有跳跃一步可达的点称为对方马的控制点。因此称之为“马拦过河卒”。</p>
-<p>棋盘用坐标表示，$ A $ 点 $ (0,0) $ 、$ B $ 点 $ (n,m) $
-，同样马的位置坐标是需要给出的。</p>
-<p>现在要求你计算出卒从 $ A $ 点能够到达 $ B $
-点的路径的条数，假设马的位置是固定不动的，并不是卒走一步马走一步。<br />
-## 输入格式</p>
-<p>一行四个正整数，分别表示 $ B $ 点坐标和马的坐标。 ## 输出格式
-一个整数，表示所有的路径条数。</p>
-<h2 id="说明提示">说明/提示</h2>
-<p>对于100%的数据, $ 1≤n,m≤20 $ ，$ 0≤ $ 马的坐标 $ ≤20 $。</p>
-<h1 id="求解">求解</h1>
-<p>我看到这题时，我就想到用递推来做这题</p>
-<h4 id="根据题意并根据样例第一步可以写出下列-简单的-表格">1.
-根据题意并根据样例，第一步可以写出下列 <del>（简单的）</del> 表格：</h4>
+              <h1 id="过河卒"><a href="#过河卒" class="headerlink" title="过河卒"></a>过河卒</h1><p><strong>本题链接</strong>：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1002">p1002 过河卒</a></p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>棋盘上 $ A $ 点有一个过河卒，需要走到目标$ B $点。卒行走的规则：可以向下、或者向右。同时在棋盘上 $ C $ 点有一个对方的马，该马所在的点和所有跳跃一步可达的点称为对方马的控制点。因此称之为“马拦过河卒”。</p>
+<p>棋盘用坐标表示，$ A $ 点 $ (0,0) $ 、$ B $ 点 $ (n,m) $ ，同样马的位置坐标是需要给出的。</p>
+<p>现在要求你计算出卒从 $ A $ 点能够到达 $ B $ 点的路径的条数，假设马的位置是固定不动的，并不是卒走一步马走一步。  </p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>一行四个正整数，分别表示 $ B $ 点坐标和马的坐标。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一个整数，表示所有的路径条数。</p>
+<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h2><p>对于100%的数据, $ 1≤n,m≤20 $ ，$ 0≤ $ 马的坐标 $ ≤20 $。</p>
+<h1 id="求解"><a href="#求解" class="headerlink" title="求解"></a>求解</h1><p>我看到这题时，我就想到用递推来做这题</p>
+<h4 id="1-根据题意并根据样例，第一步可以写出下列-（简单的）-表格："><a href="#1-根据题意并根据样例，第一步可以写出下列-（简单的）-表格：" class="headerlink" title="1. 根据题意并根据样例，第一步可以写出下列 （简单的） 表格："></a>1. 根据题意并根据样例，第一步可以写出下列 <del>（简单的）</del> 表格：</h4><div class="table-container">
 <table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-</colgroup>
 <thead>
 <tr>
-<th style="text-align: right;"></th>
-<th style="text-align: right;">[0]</th>
-<th style="text-align: right;">[1]</th>
-<th style="text-align: right;">[2]</th>
-<th style="text-align: right;">[3]</th>
-<th style="text-align: right;">[4]</th>
-<th style="text-align: right;">[5]</th>
-<th style="text-align: right;">[6]</th>
+<th style="text-align:right"></th>
+<th style="text-align:right">[0]</th>
+<th style="text-align:right">[1]</th>
+<th style="text-align:right">[2]</th>
+<th style="text-align:right">[3]</th>
+<th style="text-align:right">[4]</th>
+<th style="text-align:right">[5]</th>
+<th style="text-align:right">[6]</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: right;">[0]</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
+<td style="text-align:right">[0]</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
 </tr>
 <tr>
-<td style="text-align: right;">[1]</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">7</td>
+<td style="text-align:right">[1]</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">7</td>
 </tr>
 <tr>
-<td style="text-align: right;">[2]</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">28</td>
+<td style="text-align:right">[2]</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">15</td>
+<td style="text-align:right">21</td>
+<td style="text-align:right">28</td>
 </tr>
 <tr>
-<td style="text-align: right;">[3]</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">35</td>
-<td style="text-align: right;">56</td>
-<td style="text-align: right;">84</td>
+<td style="text-align:right">[3]</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">20</td>
+<td style="text-align:right">35</td>
+<td style="text-align:right">56</td>
+<td style="text-align:right">84</td>
 </tr>
 <tr>
-<td style="text-align: right;">[4]</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">35</td>
-<td style="text-align: right;">70</td>
-<td style="text-align: right;">135</td>
-<td style="text-align: right;">219</td>
+<td style="text-align:right">[4]</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">15</td>
+<td style="text-align:right">35</td>
+<td style="text-align:right">70</td>
+<td style="text-align:right">135</td>
+<td style="text-align:right">219</td>
 </tr>
 <tr>
-<td style="text-align: right;">[5]</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">56</td>
-<td style="text-align: right;">126</td>
-<td style="text-align: right;">261</td>
-<td style="text-align: right;">370</td>
+<td style="text-align:right">[5]</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">21</td>
+<td style="text-align:right">56</td>
+<td style="text-align:right">126</td>
+<td style="text-align:right">261</td>
+<td style="text-align:right">370</td>
 </tr>
 <tr>
-<td style="text-align: right;">[6]</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">28</td>
-<td style="text-align: right;">84</td>
-<td style="text-align: right;">210</td>
-<td style="text-align: right;">471</td>
-<td style="text-align: right;">841</td>
+<td style="text-align:right">[6]</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">28</td>
+<td style="text-align:right">84</td>
+<td style="text-align:right">210</td>
+<td style="text-align:right">471</td>
+<td style="text-align:right">841</td>
 </tr>
 </tbody>
 </table>
-<p><del>（显而易见）</del>，这里可以利用<a
-target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8A%A0%E6%B3%95%E5%8E%9F%E7%90%86/7538330?fr=aladdin">加法原理</a>，写出<strong>递推式</strong>：</p>
-<p><span class="math display">\[
-f[i][j]=f[i-1][j]+f[i][j-1];(start:f[0][0]=1)\]</span></p>
-<h4 id="第二步再加上马的影响">2. 第二步再加上马的影响</h4>
+</div>
+<p><del>（显而易见）</del>，这里可以利用<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8A%A0%E6%B3%95%E5%8E%9F%E7%90%86/7538330?fr=aladdin">加法原理</a>，写出<strong>递推式</strong>：</p>
+<script type="math/tex; mode=display">f[i][j]=f[i-1][j]+f[i][j-1];(start:f[0][0]=1)</script><h4 id="2-第二步再加上马的影响"><a href="#2-第二步再加上马的影响" class="headerlink" title="2. 第二步再加上马的影响"></a>2. 第二步再加上马的影响</h4><div class="table-container">
 <table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-</colgroup>
 <thead>
 <tr>
-<th style="text-align: center;"></th>
-<th style="text-align: center;">[0]</th>
-<th style="text-align: center;">[1]</th>
-<th style="text-align: center;">[2]</th>
-<th style="text-align: center;">[3]</th>
-<th style="text-align: center;">[4]</th>
-<th style="text-align: center;">[5]</th>
-<th style="text-align: center;">[6]</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">[0]</th>
+<th style="text-align:center">[1]</th>
+<th style="text-align:center">[2]</th>
+<th style="text-align:center">[3]</th>
+<th style="text-align:center">[4]</th>
+<th style="text-align:center">[5]</th>
+<th style="text-align:center">[6]</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;">[0]</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
+<td style="text-align:center">[0]</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
 </tr>
 <tr>
-<td style="text-align: center;">[1]</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">2</td>
+<td style="text-align:center">[1]</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
 </tr>
 <tr>
-<td style="text-align: center;">[2]</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">2</td>
+<td style="text-align:center">[2]</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">2</td>
 </tr>
 <tr>
-<td style="text-align: center;">[3]</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">3</td>
+<td style="text-align:center">[3]</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">3</td>
 </tr>
 <tr>
-<td style="text-align: center;">[4]</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">3</td>
+<td style="text-align:center">[4]</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">3</td>
 </tr>
 <tr>
-<td style="text-align: center;">[5]</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">3</td>
+<td style="text-align:center">[5]</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">3</td>
 </tr>
 <tr>
-<td style="text-align: center;">[6]</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">6</td>
+<td style="text-align:center">[6]</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">6</td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>根据这个表格，我们可以想到先把马的控制点，也就是马能到达的地方（包括他本身的这个点，做一个预处理，之后递推的时候，如果到达马的控制点，直接跳过，继续下一个点。</p>
-<p>基本思路就是这样，但是在测评中发现了第三个点：只有long
-long类型才能AC。</p>
+<p>基本思路就是这样，但是在测评中发现了第三个点：只有long long类型才能AC。</p>
 <p>代码如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span>   </span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">int</span> n,m,x,y;<br><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> map[<span class="hljs-number">42</span>][<span class="hljs-number">42</span>]=&#123;&#123;<span class="hljs-number">1</span>&#125;&#125;;  \\递推开始式为f[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">bool</span> horse[<span class="hljs-number">42</span>][<span class="hljs-number">42</span>];<br><span class="hljs-keyword">int</span> hx[<span class="hljs-number">9</span>]=&#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">-1</span>,<span class="hljs-number">-1</span>,<span class="hljs-number">-2</span>,<span class="hljs-number">-2</span>&#125;,  \\马的位移<br>	hy[<span class="hljs-number">9</span>]=&#123;<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">-2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">-1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">-2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">-1</span>&#125;;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">()</span></span><br><span class="hljs-function">	</span>&#123;<br>		cin&gt;&gt;n&gt;&gt;m&gt;&gt;x&gt;&gt;y;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;=<span class="hljs-number">8</span>;i++)<br>			&#123;<br>				<span class="hljs-keyword">int</span> xx=x+hx[i],yy=y+hy[i];<br>				<span class="hljs-keyword">if</span> (xx&gt;n||xx&lt;<span class="hljs-number">0</span>||yy&gt;m||yy&lt;<span class="hljs-number">0</span>)<br>					<span class="hljs-keyword">continue</span>;<br>				horse[xx][yy]=<span class="hljs-number">1</span>;<br>			&#125;<br>		<span class="hljs-keyword">int</span> l=<span class="hljs-number">0</span>,k=<span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">while</span> (!horse[<span class="hljs-number">0</span>][++k]&amp;&amp;k&lt;=m)<br>			map[<span class="hljs-number">0</span>][k]=<span class="hljs-number">1</span>;<br>		<span class="hljs-keyword">while</span> (!horse[++l][<span class="hljs-number">0</span>]&amp;&amp;l&lt;=n)<br>			map[l][<span class="hljs-number">0</span>]=<span class="hljs-number">1</span>;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)<br>			<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;=m;j++)<br>				<span class="hljs-keyword">if</span> (!horse[i][j])<br>					map[i][j]=map[i<span class="hljs-number">-1</span>][j]+map[i][j<span class="hljs-number">-1</span>];   \\递推式<br>		cout&lt;&lt;map[n][m]&lt;&lt;endl;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;<br></code></pre></div></td></tr></table></figure>
 
