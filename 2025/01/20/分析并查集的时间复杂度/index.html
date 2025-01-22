@@ -16,15 +16,15 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="并查集的时间复杂度最近突然对我最常用的数据结构——并查集的时间复杂度产生了一些兴趣，就找了找b站的视频看了看。 引入并查集是一种用于管理元素所属集合的数据结构，实现为一个森林，其中每棵树表示一个集合，树中的节点表示对应集合中的元素。 并查集支持两种操作：  合并（Union）：合并两个元素所属集合（合并对应的树） 查询（Find）：查询某个元素所属集合（查询对应的树的根节点），这可以用于判断两个元">
+  <meta name="description" content="并查集的时间复杂度 最近突然对我最常用的数据结构——并查集的时间复杂度产生了一些兴趣，就来找找资料来理解理解。 引入 并查集是一种用于管理元素所属集合的数据结构，实现为一个森林，其中每棵树表示一个集合，树中的节点表示对应集合中的元素。 并查集支持两种操作：  合并（Union）：合并两个元素所属集合（合并对应的树） 查询（Find）：查询某个元素所属集合（查询对应的树的根节点），这可">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分析并查集的时间复杂度">
 <meta property="og:url" content="https://skys0.github.io/2025/01/20/%E5%88%86%E6%9E%90%E5%B9%B6%E6%9F%A5%E9%9B%86%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="并查集的时间复杂度最近突然对我最常用的数据结构——并查集的时间复杂度产生了一些兴趣，就找了找b站的视频看了看。 引入并查集是一种用于管理元素所属集合的数据结构，实现为一个森林，其中每棵树表示一个集合，树中的节点表示对应集合中的元素。 并查集支持两种操作：  合并（Union）：合并两个元素所属集合（合并对应的树） 查询（Find）：查询某个元素所属集合（查询对应的树的根节点），这可以用于判断两个元">
+<meta property="og:description" content="并查集的时间复杂度 最近突然对我最常用的数据结构——并查集的时间复杂度产生了一些兴趣，就来找找资料来理解理解。 引入 并查集是一种用于管理元素所属集合的数据结构，实现为一个森林，其中每棵树表示一个集合，树中的节点表示对应集合中的元素。 并查集支持两种操作：  合并（Union）：合并两个元素所属集合（合并对应的树） 查询（Find）：查询某个元素所属集合（查询对应的树的根节点），这可">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-20T07:20:56.000Z">
-<meta property="article:modified_time" content="2025-01-21T04:49:40.244Z">
+<meta property="article:modified_time" content="2025-01-22T09:58:58.827Z">
 <meta property="article:author" content="Skys">
 <meta property="article:tag" content="并查集">
 <meta property="article:tag" content="时间复杂度分析">
@@ -173,7 +173,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://s2.loli.net/2025/01/20/eJF8PWLXNwTiqot.jpg') no-repeat center center;
+         style="background: url('https://s2.loli.net/2025/01/21/kFN9tB7Hp1xs3DS.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      3.3k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5 分钟
+      10 分钟
     </span>
   
 
@@ -240,55 +240,219 @@
             <h1 style="display: none">分析并查集的时间复杂度</h1>
             
             <div class="markdown-body">
-              <h2 id="并查集的时间复杂度"><a href="#并查集的时间复杂度" class="headerlink" title="并查集的时间复杂度"></a>并查集的时间复杂度</h2><p>最近突然对我最常用的数据结构——并查集的时间复杂度产生了一些兴趣，就找了找b站的视频看了看。</p>
-<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>并查集是一种用于管理元素所属集合的数据结构，实现为一个森林，其中每棵树表示一个集合，树中的节点表示对应集合中的元素。</p>
+              <h1 id="并查集的时间复杂度">并查集的时间复杂度</h1>
+<p>最近突然对我最常用的数据结构——并查集的时间复杂度产生了一些兴趣，就来找找资料来理解理解。</p>
+<h2 id="引入">引入</h2>
+<p>并查集是一种用于管理元素所属集合的数据结构，实现为一个森林，其中每棵树表示一个集合，树中的节点表示对应集合中的元素。</p>
 <p>并查集支持两种操作：</p>
 <ul>
 <li>合并（Union）：合并两个元素所属集合（合并对应的树）</li>
 <li>查询（Find）：查询某个元素所属集合（查询对应的树的根节点），这可以用于判断两个元素是否属于同一集合</li>
 </ul>
-<h2 id="朴素算法"><a href="#朴素算法" class="headerlink" title="朴素算法"></a>朴素算法</h2><p>查询：我们需要沿着树向上移动，直至找到根节点。</p>
+<h2 id="朴素算法">朴素算法</h2>
+<p>查询：我们需要沿着树向上移动，直至找到根节点。</p>
 <p>合并：要合并两棵树，我们只需要将一棵树的根节点连到另一棵树的根节点。</p>
 <p>那么这样的时间复杂度有多少呢？</p>
-<h3 id="排名（Rank）"><a href="#排名（Rank）" class="headerlink" title="排名（Rank）"></a>排名（Rank）</h3><p>对于并查集的中的每个树，其中 $V$ 是节点集合，$E$ 是边集合，$r$ 为树的叶节点，对于任意节点 $v \in V$，定义节点 $v$ 的排名 $\text{rank}$ 为：</p>
+<h3 id="排名rank">排名（Rank）</h3>
+<p>对于并查集的中的每个树，其中 <span class="math inline">\(V\)</span>
+是节点集合，<span class="math inline">\(E\)</span> 是边集合，<span
+class="math inline">\(r\)</span> 为树的叶节点，对于任意节点 <span
+class="math inline">\(v \in V\)</span>，定义节点 <span
+class="math inline">\(v\)</span> 的排名 <span
+class="math inline">\(\text{rank}\)</span> 为：</p>
 <ul>
-<li>如果 $v$ 没有叶节点 ，则 $\text{rank}(v) = 0$</li>
-<li>如果 $v$ 有叶节点 ，则 $\text{rank}(v) = \max{\text{rank}(\text{son})} + 1$</li>
+<li>如果 <span class="math inline">\(v\)</span> 没有叶节点 ，则 <span
+class="math inline">\(\text{rank}(v) = 0\)</span></li>
+<li>如果 <span class="math inline">\(v\)</span> 有叶节点 ，则 <span
+class="math inline">\(\text{rank}(v) = \max\{\text{rank}(\text{son})\} +
+1\)</span></li>
 </ul>
 <p>某个节点到<strong>根结点</strong>的路径上的边数的<strong>最大值</strong>为排名（Rank）</p>
+<p>注意：下面所有秩都和 <span class="math inline">\(\text{rank}\)</span>
+一个意思</p>
 <p>那么就有以下性质：</p>
-<ol>
-<li>对于任意节点 $x$，$\text{rank}(x)$ 只会增加</li>
-<li>在合并时，只有根节点的 $\text{rank}(x)$ 才有可能增加</li>
-<li>在一条路径（从下至上）中 $\text{rank}(x)$ 严格递增</li>
+<ol type="1">
+<li>对于任意节点 <span class="math inline">\(x\)</span>，<span
+class="math inline">\(\text{rank}(x)\)</span> 只会增加</li>
+<li>在合并时，只有根节点的 <span
+class="math inline">\(\text{rank}(x)\)</span> 才有可能增加</li>
+<li>在一条路径（从下至上）中 <span
+class="math inline">\(\text{rank}(x)\)</span> 严格递增</li>
 </ol>
-<h4 id="rank-的引理-1"><a href="#rank-的引理-1" class="headerlink" title="rank 的引理 1"></a>rank 的引理 1</h4><p>对于任意的查询Find操作，该操作中生成的图 $G$，$|G| = n$，对于所有的 $r \in {1,2,3 \dots n}$，$\text{rank} = r$ 的元素个数  $\leq \frac{n}{2^r}$</p>
-<h5 id="证明引理-1"><a href="#证明引理-1" class="headerlink" title="证明引理 1"></a>证明引理 1</h5><ol>
-<li><p>假设一：如果两个的不相同的点的 $\text{rank}$ 相同，那么他们的子树不可能有重合部分。</p>
+<h4 id="rank-的引理-1">rank 的引理 1</h4>
+<p>对于任意的查询Find操作，该操作中生成的图 <span
+class="math inline">\(G\)</span>，<span class="math inline">\(|G| =
+n\)</span>，对于所有的 <span class="math inline">\(r \in \{1,2,3 \dots
+n\}\)</span>，<span class="math inline">\(\text{rank} = r\)</span>
+的元素个数 <span class="math inline">\(\leq \frac{n}{2^r}\)</span></p>
+<h5 id="证明引理-1">证明引理 1</h5>
+<ol type="1">
+<li>假设一：如果两个的不相同的点的 <span
+class="math inline">\(\text{rank}\)</span>
+相同，那么他们的子树不可能有重合部分。
 <ul>
-<li>反证：如果有重合部分，那么一定有一个路径 $x\to z \to y$，$z$ 为重合部分，$x,y$ 为两个 rank 相同的点，那么可以得出 $x$ 和 $y$ 之间有更大的祖先，那么就有更大的 $\text{rank}$，与假设不符。</li>
-</ul>
-</li>
-<li><p>假设二：$\text{rank}=x$ 的子树的元素 $\ge 2^n$（数学归纳法）</p>
-</li>
+<li>反证：如果有重合部分，那么一定有一个路径 <span
+class="math inline">\(x\to z \to y\)</span>，<span
+class="math inline">\(z\)</span> 为重合部分，<span
+class="math inline">\(x,y\)</span> 为两个 rank 相同的点，那么可以得出
+<span class="math inline">\(x\)</span> 和 <span
+class="math inline">\(y\)</span> 之间有更大的祖先，那么就有更大的 <span
+class="math inline">\(\text{rank}\)</span>，与假设不符。</li>
+</ul></li>
+<li>假设二：<span class="math inline">\(\text{rank}=x\)</span>
+的子树的元素 <span class="math inline">\(\ge
+2^n\)</span>（数学归纳法）</li>
 </ol>
-<p>证明：<strong>Base</strong>：$\text{rank} = 0,size =0$</p>
+<p>证明：<strong>Base</strong>：<span class="math inline">\(\text{rank}
+= 0,size =0\)</span></p>
 <p><strong>inductive step</strong>：</p>
-<ol>
-<li><p>不一样的子树大小，$\text{rank}$ 不变</p>
-</li>
-<li><p>一样的子树大小， $\text{rank} + 1$</p>
-</li>
+<ol type="1">
+<li><p>不一样的子树大小，<span
+class="math inline">\(\text{rank}\)</span> 不变</p></li>
+<li><p>一样的子树大小， <span class="math inline">\(\text{rank} +
+1\)</span></p></li>
 </ol>
-<p>$X_s = 合并前一个子树的大小 \geq 2^r,Y_s = 合并前另一个子树的大小 \geq 2^r$</p>
-<p>合并后，Union(x,y)得到了新祖先 $Z$，$\text{rank}(z) = r+1$</p>
-<p>$Z_s \geq 2^r + 2^r \geq 2^{r+1}$，假设二证明完毕</p>
-<p>现在我们来证明引理 1：n 个元素，我们设<strong>每个</strong> $\text{rank}=x$ 的子树的大小为 $x$，假设二可知，$x \geq 2^r$</p>
-<p>我们两边取倒数，并且同时乘一个 n，那么可以得出 $\dfrac{n}{x} \leq \dfrac{n}{2^r}$，那么可以看出左边就是 $\text{rank} = r$ 的元素个数，引理 1 也证明完毕了。</p>
-<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>证明了这么多，我们也能看出来 $\text{rank}$ 其实就是一个子树的深度，也是我们最多要查询的次数。</p>
-<p>首先，$最大\text{rank}的个数=祖先的个数=1$，显然，那么根据引理1，得出：</p>
-<script type="math/tex; mode=display">
-1 \leq \frac{n}{2^r} \ \Rightarrow 2^r \leq n \Rightarrow r \leq \log_{2}n</script><p>那么我们可以得到查询和合并的时间复杂度为 $O(\log_{2} n)$</p>
+<p><span class="math inline">\(X_s = 合并前一个子树的大小 \geq 2^r,Y_s =
+合并前另一个子树的大小 \geq 2^r\)</span></p>
+<p>合并后，Union(x,y)得到了新祖先 <span
+class="math inline">\(Z\)</span>，<span
+class="math inline">\(\text{rank}(z) = r+1\)</span></p>
+<p><span class="math inline">\(Z_s \geq 2^r + 2^r \geq
+2^{r+1}\)</span>，假设二证明完毕</p>
+<p>现在我们来证明引理 1：n 个元素，我们设<strong>每个</strong> <span
+class="math inline">\(\text{rank}=x\)</span> 的子树的大小为 <span
+class="math inline">\(x\)</span>，假设二可知，<span
+class="math inline">\(x \geq 2^r\)</span></p>
+<p>我们两边取倒数，并且同时乘一个 n，那么可以得出 <span
+class="math inline">\(\dfrac{n}{x} \leq
+\dfrac{n}{2^r}\)</span>，那么可以看出左边就是 <span
+class="math inline">\(\text{rank} = r\)</span> 的元素个数，引理 1
+也证明完毕了。</p>
+<h3 id="时间复杂度">时间复杂度</h3>
+<p>证明了这么多，我们也能看出来 <span
+class="math inline">\(\text{rank}\)</span>
+其实就是一个子树的深度，也是我们最多要查询的次数。</p>
+<p>首先，<span
+class="math inline">\(最大\text{rank}的个数=祖先的个数=1\)</span>，显然，那么根据引理1，得出：
+<span class="math display">\[
+1 \leq \frac{n}{2^r} \ \Rightarrow 2^r \leq n \Rightarrow r \leq
+\log_{2}n
+\]</span> 那么我们可以得到查询和合并的时间复杂度为 <span
+class="math inline">\(O(\log_{2} n)\)</span></p>
+<h2 id="路径压缩启发式合并按秩合并">路径压缩+启发式合并（按秩合并）</h2>
+<p>上面的朴素算法已经很快了，但是考虑一种可能，如果这个不是一个正常的树，而是一条链，而我们正常的去查询最底下的节点，那么复杂度将会退化成
+<span
+class="math inline">\(O(n)\)</span>，这并不是我们想要的，想到我们查询时有许多地方时冗余的，我们就想到了路径压缩。</p>
+<p><strong>路径压缩</strong>：查询过程中经过的每个元素都属于该集合，我们可以将其直接连到根节点以加快后续查询。</p>
+<p>在合并时我们又想到了这两个的 <span
+class="math inline">\(\text{rank}\)</span>
+不同也会导致路径压缩的时候会多了一些不该有的操作。</p>
+<p><strong>启发式合并（按秩合并）</strong>：合并时，选择哪棵树的根节点作为新树的根节点会影响未来操作的复杂度。我们可以将节点较少或深度较小的树连到另一棵，以免发生退化。</p>
+<p>另一种做法则是使用“秩”来比较树的大小。”秩“的定义如下：</p>
+<ul>
+<li>只有根节点的树（即只有一个元素的集合），秩为0；</li>
+<li>当两棵秩不同的树合并后，新的树的秩为原来两棵树的秩的较大者；</li>
+<li>当两棵秩相同的树合并后，新的树的秩为原来的树的秩加一。</li>
+</ul>
+<p>容易发现，在没有路径压缩优化时，树的秩等于树的深度减一。在有路径压缩优化时，树的秩仍然能反映出树的深度和大小。在合并时根据两棵树的秩的大小，决定新的根节点，这被称作<strong>按秩合并</strong>。</p>
+<h3 id="hopcroft-ullman-theorem">Hopcroft-Ullman Theorem</h3>
+<p><strong>注意：经过路径压缩过时，<span
+class="math inline">\(\text{rank}\)</span>
+不变，相当于被冻结了，不管压缩到哪都不会改变</strong></p>
+<p><strong>内容：</strong>通过“按秩合并”和“路径压缩”优化后，进行 <span
+class="math inline">\(m\)</span> 次合并+查询的操作的时间复杂度为 <span
+class="math inline">\(O(m \log^* n)\)</span>，其中 <span
+class="math inline">\(\log^* n\)</span> 表示对 <span
+class="math inline">\(n\)</span> 反复应用对数运算，直到结果小于等于 1
+所需要的次数，一般叫迭代对数。</p>
+<table>
+<thead>
+<tr>
+<th><span class="math inline">\(x\)</span></th>
+<th><span class="math inline">\(\lg^* x\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline">\((−\infty, 1]\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\((1, 2]\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\((2, 4]\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\((4, 16]\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\((16, 65536]\)</span></td>
+<td><span class="math inline">\(4\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\((65536, 2^{65536}]\)</span></td>
+<td><span class="math inline">\(5\)</span></td>
+</tr>
+</tbody>
+</table>
+<h4 id="证明">证明</h4>
+<p>首先我们来定义一个 <span class="math inline">\(\text{rank \
+blocks}\)</span>（秩块）；<span
+class="math inline">\(\{0\},\{1\},\{2,3,4\},\{5,\dots, 2 4
+\},\{17,18,\dots,2^{16}\},
+\{65537,\dots,2^{65536}\},\dots,\{\dots,n\}\)</span></p>
+<p>很显然这些块只会有 <span class="math inline">\(O(\log^* n)\)</span>
+个。</p>
+<p>我们给每个节点分类，我们现在称一个节点 <span
+class="math inline">\(x\)</span>（可变）是好的当：</p>
+<ol type="1">
+<li><span class="math inline">\(x\)</span> 或者 <span
+class="math inline">\(x\)</span> 的父节点为根节点</li>
+<li>父亲的 <span class="math inline">\(\text{rank}\)</span> 比自己的
+<span class="math inline">\(\text{rank}\)</span> 大。
+<strong>注意：<span class="math inline">\(\text{rank}
+不变\)</span></strong></li>
+</ol>
+<p>如果两个条件都不符合，那么就是坏节点。</p>
+<p>我们会尽量将一个节点变成好节点。</p>
+<p>第一个要点：要点：每次查找操作只会访问 <span
+class="math inline">\(O(\log^* n)\)</span> 个好节点 （计算方式为 <span
+class="math inline">\(2 + 秩块的数量 = O(\log^* n)\)</span>）</p>
+<p>结论：在 <span class="math inline">\(m\)</span>
+次操作中完成的总工作量可以表示为两种：</p>
+<ul>
+<li><span class="math inline">\(O(m \log^*
+n)\)</span>（访问好节点的次数）</li>
+<li>访问“坏节点”的总次数，下面就来论证。</li>
+</ul>
+<p>首先我们思考，在路径压缩中，其父节点被更改为具有严格更大 <span
+class="math inline">\(\text{rank}\)</span> 的节点，这种情况最多只会发生
+<span class="math inline">\(2^k\)</span> 次，之后 <span
+class="math inline">\(x\)</span>
+将永久成为“好节点”。（很显然，在路径压缩中，那个节点相当于在往上跳，最多跳到这个
+block 的第一个）</p>
+<p>总时间复杂度：<span class="math inline">\(O(m \log^* n) +
+O(访问坏节点的次数)\)</span>。</p>
+<p>我们对一个秩块 <span class="math inline">\(\{k+1, k+2, \dots,
+2^k\}\)</span> 分析：</p>
+<p>对于每个最终秩处于此块的 <span class="math inline">\(x\)</span>，当
+<span class="math inline">\(x\)</span> 是“坏节点”时的访问次数最多为
+<span class="math inline">\(2^k\)</span>。</p>
+<p>具有最终 <span class="math inline">\(\text{rank}\)</span>
+处于此块的对象总数为： <span class="math display">\[
+\sum_{i=k+1}^{2^k} \frac{n}{2^i} \leq \frac{n}{2^k}
+\]</span> 因此，此秩块中对“坏节点”的访问总次数最多为 <span
+class="math inline">\(n\)</span>。</p>
+<p>因为只有 <span class="math inline">\(O(\log^* n)\)</span>
+个秩块。</p>
+<p><strong>总时间复杂度</strong>：</p>
+<p><span class="math inline">\(O((m + n) \log^* n)\)</span>，在 <span
+class="math inline">\(m\)</span> 足够大时，<span
+class="math inline">\(n\)</span> 可以省略，证明完毕。</p>
 
             </div>
             <hr>
@@ -326,6 +490,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2025/01/21/%E5%AD%98%E5%82%A8%E8%AE%BA/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">存储论</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

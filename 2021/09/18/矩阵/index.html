@@ -16,12 +16,12 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="矩阵定义在数学中，矩阵（Matrix）是一个按照长方阵列排列的复数或实数集合。 就像下面一样： \begin{bmatrix}     1&amp;2&amp;3\\1&amp;2&amp;3 \end{bmatrix}特别的，主对角线上为 1，其余位置为 0 的叫做单位矩阵 $I$： \begin{bmatrix}     1&amp;0&amp;\cdots&amp;0\\     \vdots&amp;1&amp;\ddots&amp;0\\     0&amp;0&amp;\dots">
+  <meta name="description" content="矩阵 定义 在数学中，矩阵（Matrix）是一个按照长方阵列排列的复数或实数集合。 就像下面一样： \[\begin{bmatrix}     1&amp;2&amp;3\\1&amp;2&amp;3 \end{bmatrix}\] 特别的，主对角线上为 1，其余位置为 0 的叫做单位矩阵 \(I\)： \[\begin{bmatrix}     1&amp;0&amp;\cdo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="矩阵">
 <meta property="og:url" content="https://skys0.github.io/2021/09/18/%E7%9F%A9%E9%98%B5/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="矩阵定义在数学中，矩阵（Matrix）是一个按照长方阵列排列的复数或实数集合。 就像下面一样： \begin{bmatrix}     1&amp;2&amp;3\\1&amp;2&amp;3 \end{bmatrix}特别的，主对角线上为 1，其余位置为 0 的叫做单位矩阵 $I$： \begin{bmatrix}     1&amp;0&amp;\cdots&amp;0\\     \vdots&amp;1&amp;\ddots&amp;0\\     0&amp;0&amp;\dots">
+<meta property="og:description" content="矩阵 定义 在数学中，矩阵（Matrix）是一个按照长方阵列排列的复数或实数集合。 就像下面一样： \[\begin{bmatrix}     1&amp;2&amp;3\\1&amp;2&amp;3 \end{bmatrix}\] 特别的，主对角线上为 1，其余位置为 0 的叫做单位矩阵 \(I\)： \[\begin{bmatrix}     1&amp;0&amp;\cdo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-09-18T15:59:21.000Z">
 <meta property="article:modified_time" content="2025-01-19T06:03:19.553Z">
@@ -198,7 +198,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.1k 字
+      3.3k 字
     </span>
   
 
@@ -239,68 +239,123 @@
             <h1 style="display: none">矩阵</h1>
             
             <div class="markdown-body">
-              <h1 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>在数学中，矩阵（Matrix）是一个按照长方阵列排列的复数或实数集合。</p>
+              <h1 id="矩阵">矩阵</h1>
+<h2 id="定义">定义</h2>
+<p>在数学中，矩阵（Matrix）是一个按照长方阵列排列的复数或实数集合。</p>
 <p>就像下面一样：</p>
-<script type="math/tex; mode=display">\begin{bmatrix}
-    1&2&3\\1&2&3
-\end{bmatrix}</script><p>特别的，主对角线上为 1，其余位置为 0 的叫做单位矩阵 $I$：</p>
-<script type="math/tex; mode=display">\begin{bmatrix}
-    1&0&\cdots&0\\
-    \vdots&1&\ddots&0\\
-    0&0&\dots&1\\
-\end{bmatrix}</script><h2 id="矩阵的运算"><a href="#矩阵的运算" class="headerlink" title="矩阵的运算"></a>矩阵的运算</h2><p>矩阵的加减法是逐个元素进行的。</p>
-<h3 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h3><p>矩阵相乘只有在第一个矩阵的列数和第二个矩阵的行数相同时才有意义。</p>
-<p>设 $P$ 为 $M \times N$ 的矩阵，$Q$ 是 $N \times Q$ 的矩阵，$C$ 矩阵为 $C = PQ$，则 $C$ 矩阵上 $i$ 行 $j$ 列的元素为。</p>
-<script type="math/tex; mode=display">c_{i,j} = \sum\limits_{k=1}^{M}P_{i,k}Q_{k,j}</script><p>没有看懂，没事，有一种<del>比较简单</del>的方法。</p>
-<p>设 $A$ 矩阵为:</p>
-<script type="math/tex; mode=display">\begin{bmatrix}
-    a&b\\
-    c&d\\
-\end{bmatrix}</script><p>设 $B$ 矩阵为:</p>
-<script type="math/tex; mode=display">\begin{bmatrix}
+<p><span class="math display">\[\begin{bmatrix}
+    1&amp;2&amp;3\\1&amp;2&amp;3
+\end{bmatrix}\]</span></p>
+<p>特别的，主对角线上为 1，其余位置为 0 的叫做单位矩阵 <span
+class="math inline">\(I\)</span>：</p>
+<p><span class="math display">\[\begin{bmatrix}
+    1&amp;0&amp;\cdots&amp;0\\
+    \vdots&amp;1&amp;\ddots&amp;0\\
+    0&amp;0&amp;\dots&amp;1\\
+\end{bmatrix}\]</span></p>
+<h2 id="矩阵的运算">矩阵的运算</h2>
+<p>矩阵的加减法是逐个元素进行的。</p>
+<h3 id="乘法">乘法</h3>
+<p>矩阵相乘只有在第一个矩阵的列数和第二个矩阵的行数相同时才有意义。</p>
+<p>设 <span class="math inline">\(P\)</span> 为 <span
+class="math inline">\(M \times N\)</span> 的矩阵，<span
+class="math inline">\(Q\)</span> 是 <span class="math inline">\(N \times
+Q\)</span> 的矩阵，<span class="math inline">\(C\)</span> 矩阵为 <span
+class="math inline">\(C = PQ\)</span>，则 <span
+class="math inline">\(C\)</span> 矩阵上 <span
+class="math inline">\(i\)</span> 行 <span
+class="math inline">\(j\)</span> 列的元素为。</p>
+<p><span class="math display">\[c_{i,j} =
+\sum\limits_{k=1}^{M}P_{i,k}Q_{k,j}\]</span></p>
+<p>没有看懂，没事，有一种<del>比较简单</del>的方法。</p>
+<p>设 <span class="math inline">\(A\)</span> 矩阵为:</p>
+<p><span class="math display">\[\begin{bmatrix}
+    a&amp;b\\
+    c&amp;d\\
+\end{bmatrix}\]</span></p>
+<p>设 <span class="math inline">\(B\)</span> 矩阵为:</p>
+<p><span class="math display">\[\begin{bmatrix}
     e\\f
-\end{bmatrix}</script><p>所以 $A$ 与 $B$ 的乘积是：</p>
-<script type="math/tex; mode=display">e\begin{bmatrix}
+\end{bmatrix}\]</span></p>
+<p>所以 <span class="math inline">\(A\)</span> 与 <span
+class="math inline">\(B\)</span> 的乘积是：</p>
+<p><span class="math display">\[e\begin{bmatrix}
     a\\c
 \end{bmatrix} + f\begin{bmatrix}
     b\\d
-\end{bmatrix}</script><p>注意，<strong>矩阵乘法满足结合律，不满足一般的交换律</strong>。</p>
+\end{bmatrix}\]</span></p>
+<p>注意，<strong>矩阵乘法满足结合律，不满足一般的交换律</strong>。</p>
 <p>给出一个封装好的矩阵乘法：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">mat</span>&#123;</span><br>	<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> c[N][N];<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">unit</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-built_in">memset</span>(c,<span class="hljs-number">0</span>,<span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(c));<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)   c[i][i] = <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">mat</span><span class="hljs-params">()</span></span>&#123;<span class="hljs-built_in">memset</span>(c,<span class="hljs-number">0</span>,<span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(c));&#125;<br>	<span class="hljs-keyword">inline</span> mat <span class="hljs-keyword">operator</span>*(<span class="hljs-keyword">const</span> mat &amp;M)&#123;<br>		mat ans;<br>		<span class="hljs-built_in">memset</span>(ans.c,<span class="hljs-number">0</span>,<span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(ans.c);<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++)<br>				<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> k=<span class="hljs-number">1</span>;k&lt;=n;k++)<br>					ans.c[i][j] += (c[i][k] * M.c[k][j]) % P,ans.c[i][j] %= P;<br>		<span class="hljs-keyword">return</span> ans;<br>	&#125;<br>&#125;;<br></code></pre></div></td></tr></table></figure>
-<p>如果算一个矩阵的 $A^k$，可以使用快速幂来加速到 $\mathcal{O}(n^3 \log k)$。</p>
+<p>如果算一个矩阵的 <span
+class="math inline">\(A^k\)</span>，可以使用快速幂来加速到 <span
+class="math inline">\(\mathcal{O}(n^3 \log k)\)</span>。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-comment">// 快速幂</span><br><span class="hljs-function">mat <span class="hljs-title">qpow</span><span class="hljs-params">(mat x,<span class="hljs-keyword">int</span> y)</span></span>&#123;<br>    mat ans.<span class="hljs-built_in">unit</span>();<br>    <span class="hljs-keyword">while</span>(y &gt; <span class="hljs-number">0</span>)&#123;<br>        <span class="hljs-keyword">if</span>(y % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>)<br>            ans = ans * x;<br>        y = y / <span class="hljs-number">2</span>;<br>        x = x * x;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ans;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<h2 id="矩阵的应用"><a href="#矩阵的应用" class="headerlink" title="矩阵的应用"></a>矩阵的应用</h2><h3 id="快速求斐波拉契数列"><a href="#快速求斐波拉契数列" class="headerlink" title="快速求斐波拉契数列"></a>快速求斐波拉契数列</h3><p>斐波拉契数列形如：</p>
-<script type="math/tex; mode=display">F_1 = F_2 = 1,F_i = F_{i-1} + F_{i-2}  (i  \geq 3)</script><p>当然可以使用递推的方法来求，时间复杂度 $\mathcal{O}(n)$ ，还挺快。<br>但是遇到<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1962">这道题目</a>就不行了，$2^{63}$ 绝对会 TLE，所以可以用矩阵加速递推。</p>
-<p>我们可以设 <script type="math/tex">f(n) = \begin{bmatrix}F_{n} & F_{n-1}\end{bmatrix}</script> ，我们希望可以从 $f(n-1)$ 推出它。</p>
-<p>正好我们之前学了矩阵的乘法，所以我们可以尝试设一个矩阵 $\text{base}$ ，使得 $f(n) = \text{base} \times f(n-1)$，也就是：</p>
-<script type="math/tex; mode=display">\begin{bmatrix}
- F_i & F_{i-1}
-\end{bmatrix} = \text{base} \times 
+<h2 id="矩阵的应用">矩阵的应用</h2>
+<h3 id="快速求斐波拉契数列">快速求斐波拉契数列</h3>
+<p>斐波拉契数列形如： <span class="math display">\[F_1 = F_2 = 1,F_i =
+F_{i-1} + F_{i-2}  (i  \geq 3)\]</span><br />
+当然可以使用递推的方法来求，时间复杂度 <span
+class="math inline">\(\mathcal{O}(n)\)</span> ，还挺快。 但是遇到<a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1962">这道题目</a>就不行了，<span
+class="math inline">\(2^{63}\)</span> 绝对会
+TLE，所以可以用矩阵加速递推。</p>
+<p>我们可以设 <span class="math display">\[f(n) = \begin{bmatrix}F_{n}
+&amp; F_{n-1}\end{bmatrix}\]</span> ，我们希望可以从 <span
+class="math inline">\(f(n-1)\)</span> 推出它。</p>
+<p>正好我们之前学了矩阵的乘法，所以我们可以尝试设一个矩阵 <span
+class="math inline">\(\text{base}\)</span> ，使得 <span
+class="math inline">\(f(n) = \text{base} \times
+f(n-1)\)</span>，也就是：</p>
+<p><span class="math display">\[ \begin{bmatrix}
+F_i &amp; F_{i-1}
+\end{bmatrix} = \text{base} \times
 \begin{bmatrix}
-F_{i-1} & F_{i-2}
-\end{bmatrix}</script><p>因为前后都是 $1 \times 2$ 的矩阵，所以可以知道 $\text{base}$ 矩阵是 $2 \times 2$ 的矩阵。</p>
-<p>所以 $\text{base} = \begin{bmatrix}<br>a &amp; b \<br>c &amp; d \<br>\end{bmatrix}$</p>
-<p>xxxxxxxxxx17 1# Distant-Skys2# To make a picture smaller or bigger.3​4import cv2 as cv5import numpy as np6​7image = cv.imread(‘1.jpg’)8​9res = cv.resize(image,None,fx=0.7,fy=0.7,interpolation=cv.INTER_CUBIC)10# if want to make picture bigger ,let ((fx and fy) &gt; 1).11​12# print the result picture.13# cv.imshow(‘result image’,res)14# cv.waitKey(0)15# cv.destroyAllWindows()16​17cv.imwrite(‘1_result.jpg’,res)python</p>
-<script type="math/tex; mode=display">\begin{bmatrix}
- F_i & F_{i-1}
-\end{bmatrix} = 
+F_{i-1} &amp; F_{i-2}
+\end{bmatrix}\]</span></p>
+<p>因为前后都是 <span class="math inline">\(1 \times 2\)</span>
+的矩阵，所以可以知道 <span class="math inline">\(\text{base}\)</span>
+矩阵是 <span class="math inline">\(2 \times 2\)</span> 的矩阵。</p>
+<p>所以 <span class="math inline">\(\text{base} = \begin{bmatrix}
+a &amp; b \\
+c &amp; d \\
+\end{bmatrix}\)</span></p>
+<p>xxxxxxxxxx17 1# Distant-Skys2# To make a picture smaller or
+bigger.3​4import cv2 as cv5import numpy as np6​7image =
+cv.imread('1.jpg')8​9res =
+cv.resize(image,None,fx=0.7,fy=0.7,interpolation=cv.INTER_CUBIC)10# if
+want to make picture bigger ,let ((fx and fy) &gt; 1).11​12# print the
+result picture.13# cv.imshow('result image',res)14# cv.waitKey(0)15#
+cv.destroyAllWindows()16​17cv.imwrite('1_result.jpg',res)python</p>
+<p><span class="math display">\[\begin{bmatrix}
+F_i &amp; F_{i-1}
+\end{bmatrix} =
 F_{i-1} \times \begin{bmatrix}
-a & b
-\end{bmatrix} + F_{i-2} \times 
+a &amp; b
+\end{bmatrix} + F_{i-2} \times
 \begin{bmatrix}
-c & d
-\end{bmatrix}</script><script type="math/tex; mode=display">\begin{bmatrix}
- F_i & F_{i-1}
-\end{bmatrix} = 
+c &amp; d
+\end{bmatrix}\]</span></p>
+<p><span class="math display">\[\begin{bmatrix}
+F_i &amp; F_{i-1}
+\end{bmatrix} =
 \begin{bmatrix}
-a F_{i-1} + c F_{i-2}  & b F_{i-1} + d F_{i-2}
-\end{bmatrix}</script><p>又因为 <script type="math/tex">F_i = F_{i-1} + F_{i-2}</script>，所以 <script type="math/tex">a = 1,c = 1,b = 1,d = 0</script>。</p>
-<p>综上所述， <script type="math/tex">\text{base} = \begin{bmatrix} 1 & 1 
-\\1 & 0
-\end{bmatrix}</script>。</p>
-<p>那么因为初始项为 $F_1,F_2$。所以 $F_n = \begin{bmatrix} F_1 &amp; F_2 \end{bmatrix} \times \text{base}^{n-2}$</p>
+a F_{i-1} + c F_{i-2}  &amp; b F_{i-1} + d F_{i-2}
+\end{bmatrix}\]</span></p>
+<p>又因为 <span class="math display">\[F_i = F_{i-1} +
+F_{i-2}\]</span>，所以 <span class="math display">\[a = 1,c = 1,b = 1,d
+= 0\]</span>。</p>
+<p>综上所述， <span class="math display">\[\text{base} = \begin{bmatrix}
+1 &amp; 1
+\\1 &amp; 0
+\end{bmatrix}\]</span>。</p>
+<p>那么因为初始项为 <span class="math inline">\(F_1,F_2\)</span>。所以
+<span class="math inline">\(F_n = \begin{bmatrix} F_1 &amp; F_2
+\end{bmatrix} \times \text{base}^{n-2}\)</span></p>
 <p>好好品品。</p>
-<p>$\text{base}^{n-2}$ 矩阵可以通过上面的快速幂来求，所以时间复杂度为 $\mathcal{O}(\log n)$。</p>
+<p><span class="math inline">\(\text{base}^{n-2}\)</span>
+矩阵可以通过上面的快速幂来求，所以时间复杂度为 <span
+class="math inline">\(\mathcal{O}(\log n)\)</span>。</p>
 <p>这题核心代码：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">mat</span>&#123;</span><br>	<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> c[<span class="hljs-number">4</span>][<span class="hljs-number">4</span>];<br>	<span class="hljs-built_in">mat</span>() &#123;<span class="hljs-built_in">memset</span>(c,<span class="hljs-number">0</span>,<span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(c));&#125;<br>	<span class="hljs-keyword">inline</span> mat <span class="hljs-keyword">operator</span>*(<span class="hljs-keyword">const</span> mat&amp; M)&#123;<br>		mat res;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">2</span>;i++)<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;=<span class="hljs-number">2</span>;j++)<br>				<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> k=<span class="hljs-number">1</span>;k&lt;=<span class="hljs-number">2</span>;k++)<br>					res.c[i][j] = (res.c[i][j] + c[i][k]*M.c[k][j]) % mod;<br>		<span class="hljs-keyword">return</span> res;<br>	&#125;<br>&#125;;<br><br>mat base,ans;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span>&#123;<br>	base.c[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>] = base.c[<span class="hljs-number">1</span>][<span class="hljs-number">2</span>] = base.c[<span class="hljs-number">2</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>	ans.c[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>] = ans.c[<span class="hljs-number">1</span>][<span class="hljs-number">2</span>] = <span class="hljs-number">1</span>; <br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">qpow</span><span class="hljs-params">(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> y)</span></span>&#123;<br>	<span class="hljs-keyword">while</span>(y &gt; <span class="hljs-number">0</span>)&#123;<br>		<span class="hljs-keyword">if</span>(y % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>)<br>			ans = ans * base;<br>		y = y / <span class="hljs-number">2</span>;<br>		base = base * base;<br>	&#125;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
 <p>其实矩阵可以干事情的很多，就写这么多吧。</p>
