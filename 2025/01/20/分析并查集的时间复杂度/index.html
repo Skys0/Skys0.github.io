@@ -16,20 +16,22 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="并查集的时间复杂度 最近突然对我最常用的数据结构——并查集的时间复杂度产生了一些兴趣，就来找找资料来理解理解。 引入 并查集是一种用于管理元素所属集合的数据结构，实现为一个森林，其中每棵树表示一个集合，树中的节点表示对应集合中的元素。 并查集支持两种操作：  合并（Union）：合并两个元素所属集合（合并对应的树） 查询（Find）：查询某个元素所属集合（查询对应的树的根节点），这可">
+  <meta name="description" content="并查集的时间复杂度 其实自从高二开始学习并查集就发现这个数据结构真的奇妙，能解决许多问题，但是对时间复杂度就不太理解，大二退役之后我开始想去知道为什么是这个奇妙的时间复杂度，遂有此文。 本文参考了：OI-Wiki，coursera上的算法课程 这里证明并没有引入势能分析，但是相关东西异曲同工。 引入 并查集是一种用于管理元素所属集合的数据结构，实现为一个森林，其中每棵树表示一个集合，树中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分析并查集的时间复杂度">
 <meta property="og:url" content="https://skys0.github.io/2025/01/20/%E5%88%86%E6%9E%90%E5%B9%B6%E6%9F%A5%E9%9B%86%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="并查集的时间复杂度 最近突然对我最常用的数据结构——并查集的时间复杂度产生了一些兴趣，就来找找资料来理解理解。 引入 并查集是一种用于管理元素所属集合的数据结构，实现为一个森林，其中每棵树表示一个集合，树中的节点表示对应集合中的元素。 并查集支持两种操作：  合并（Union）：合并两个元素所属集合（合并对应的树） 查询（Find）：查询某个元素所属集合（查询对应的树的根节点），这可">
+<meta property="og:description" content="并查集的时间复杂度 其实自从高二开始学习并查集就发现这个数据结构真的奇妙，能解决许多问题，但是对时间复杂度就不太理解，大二退役之后我开始想去知道为什么是这个奇妙的时间复杂度，遂有此文。 本文参考了：OI-Wiki，coursera上的算法课程 这里证明并没有引入势能分析，但是相关东西异曲同工。 引入 并查集是一种用于管理元素所属集合的数据结构，实现为一个森林，其中每棵树表示一个集合，树中">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2025/01/23/rWEjnAXFbfmUO8w.png">
 <meta property="article:published_time" content="2025-01-20T07:20:56.000Z">
-<meta property="article:modified_time" content="2025-01-22T09:58:58.827Z">
+<meta property="article:modified_time" content="2025-01-23T10:11:27.531Z">
 <meta property="article:author" content="Skys">
 <meta property="article:tag" content="并查集">
 <meta property="article:tag" content="时间复杂度分析">
 <meta property="article:tag" content="数学归纳法">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s2.loli.net/2025/01/23/rWEjnAXFbfmUO8w.png">
   
   <title>分析并查集的时间复杂度 - Skys</title>
 
@@ -199,7 +201,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.3k 字
+      5.6k 字
     </span>
   
 
@@ -208,7 +210,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10 分钟
+      18 分钟
     </span>
   
 
@@ -241,7 +243,10 @@
             
             <div class="markdown-body">
               <h1 id="并查集的时间复杂度">并查集的时间复杂度</h1>
-<p>最近突然对我最常用的数据结构——并查集的时间复杂度产生了一些兴趣，就来找找资料来理解理解。</p>
+<p>其实自从高二开始学习并查集就发现这个数据结构真的奇妙，能解决许多问题，但是对时间复杂度就不太理解，大二退役之后我开始想去知道为什么是这个奇妙的时间复杂度，遂有此文。</p>
+<p>本文参考了：<a target="_blank" rel="noopener" href="https://oiwiki.org/ds/dsu/">OI-Wiki</a>，<a
+target="_blank" rel="noopener" href="https://www.coursera.org/lecture/algorithms-greedy/path-compression-the-hopcroft-ullman-analysis-i-advanced-optional-KdbbU">coursera上的算法课程</a></p>
+<p>这里证明并没有引入势能分析，但是相关东西异曲同工。</p>
 <h2 id="引入">引入</h2>
 <p>并查集是一种用于管理元素所属集合的数据结构，实现为一个森林，其中每棵树表示一个集合，树中的节点表示对应集合中的元素。</p>
 <p>并查集支持两种操作：</p>
@@ -355,7 +360,7 @@ class="math inline">\(\text{rank}\)</span>
 <li>当两棵秩相同的树合并后，新的树的秩为原来的树的秩加一。</li>
 </ul>
 <p>容易发现，在没有路径压缩优化时，树的秩等于树的深度减一。在有路径压缩优化时，树的秩仍然能反映出树的深度和大小。在合并时根据两棵树的秩的大小，决定新的根节点，这被称作<strong>按秩合并</strong>。</p>
-<h3 id="hopcroft-ullman-theorem">Hopcroft-Ullman Theorem</h3>
+<h3 id="theorem">Theorem</h3>
 <p><strong>注意：经过路径压缩过时，<span
 class="math inline">\(\text{rank}\)</span>
 不变，相当于被冻结了，不管压缩到哪都不会改变</strong></p>
@@ -400,7 +405,7 @@ class="math inline">\(n\)</span> 反复应用对数运算，直到结果小于�
 </tbody>
 </table>
 <h4 id="证明">证明</h4>
-<p>首先我们来定义一个 <span class="math inline">\(\text{rank \
+<p>首先我们来定义一个 <span class="math inline">\(\text{rank\,
 blocks}\)</span>（秩块）；<span
 class="math inline">\(\{0\},\{1\},\{2,3,4\},\{5,\dots, 2 4
 \},\{17,18,\dots,2^{16}\},
@@ -418,7 +423,7 @@ class="math inline">\(x\)</span> 的父节点为根节点</li>
 不变\)</span></strong></li>
 </ol>
 <p>如果两个条件都不符合，那么就是坏节点。</p>
-<p>我们会尽量将一个节点变成好节点。</p>
+<p><strong>我们会尽量将一个节点变成好节点。</strong></p>
 <p>第一个要点：要点：每次查找操作只会访问 <span
 class="math inline">\(O(\log^* n)\)</span> 个好节点 （计算方式为 <span
 class="math inline">\(2 + 秩块的数量 = O(\log^* n)\)</span>）</p>
@@ -427,7 +432,7 @@ class="math inline">\(2 + 秩块的数量 = O(\log^* n)\)</span>）</p>
 <ul>
 <li><span class="math inline">\(O(m \log^*
 n)\)</span>（访问好节点的次数）</li>
-<li>访问“坏节点”的总次数，下面就来论证。</li>
+<li>访问坏节点的总次数，下面就来论证。</li>
 </ul>
 <p>首先我们思考，在路径压缩中，其父节点被更改为具有严格更大 <span
 class="math inline">\(\text{rank}\)</span> 的节点，这种情况最多只会发生
@@ -450,9 +455,128 @@ class="math inline">\(n\)</span>。</p>
 <p>因为只有 <span class="math inline">\(O(\log^* n)\)</span>
 个秩块。</p>
 <p><strong>总时间复杂度</strong>：</p>
-<p><span class="math inline">\(O((m + n) \log^* n)\)</span>，在 <span
-class="math inline">\(m\)</span> 足够大时，<span
-class="math inline">\(n\)</span> 可以省略，证明完毕。</p>
+<p><span class="math inline">\(O((m + n) \log^*
+n)\)</span>，在正常操作中 <span class="math inline">\(m\)</span> 与
+<span class="math inline">\(n\)</span> 同阶，就可以是 <span
+class="math inline">\(O(m \log^* n)\)</span>，证明完毕。</p>
+<h3 id="tarjans-bound">Tarjan’s Bound</h3>
+<p>该证明在1975年由Tarjan完成，后在1989年，由Fredman证明该结构下无法找到更好的时间复杂度</p>
+<p><strong>内容</strong>：通过“按秩合并”和“路径压缩”优化后，进行 <span
+class="math inline">\(m\)</span> 次合并和查找操作的时间复杂度为 <span
+class="math inline">\(O(m \alpha(n))\)</span>，其中 <span
+class="math inline">\(\alpha(n)\)</span> 是反阿克曼函数。</p>
+<h4 id="阿克曼函数">阿克曼函数</h4>
+<p>需要两个自然数作为输入值，输出一个自然数，它的输出值增长速度非常高。</p>
+<p>定义： <span class="math display">\[
+A(m,n) = \begin{cases}n + 1 &amp; \text{如果 m=0} \\ A(m-1,1) &amp;
+\text{如果 m&gt;0 且 n=0} \\ A(m-1,A(m,n-1)) &amp; \text{如果 m&gt;0 且
+n&gt;0 }\end{cases}
+\]</span>
+由于这个函数的增加速率非常快，那么它的反函数就相应的增长的非常慢。</p>
+<p><strong>反函数的定义</strong>：对于每个 <span class="math inline">\(n
+\geq 4\)</span>，<span class="math inline">\(\alpha(n)\)</span> 是满足
+<span class="math inline">\(A_k(2) \geq n\)</span> 的最小 <span
+class="math inline">\(k\)</span> 值，其中 <span
+class="math inline">\(A_k(2)\)</span> 是阿克曼函数。</p>
+<blockquote>
+<p><span class="math inline">\(\alpha(n) = 1 \Rightarrow
+n=4\)</span></p>
+<p><span class="math inline">\(\alpha(n) = 2 \Rightarrow n=5 \dots
+8\)</span></p>
+<p><span class="math inline">\(\alpha(n) = 3 \Rightarrow n=9 ,10\dots
+2048\)</span></p>
+<p><span class="math inline">\(\alpha(n) = 4 \Rightarrow n=4\dots n(n
+满足 \log^*n= 2048)\)</span></p>
+<p><span class="math inline">\(\cdots\)</span></p>
+</blockquote>
+<h4 id="证明-1">证明</h4>
+<p>我们定义 <span class="math inline">\(x\)</span> 为不是根节点 <span
+class="math inline">\(\delta(x)\)</span> 是最大的 <span
+class="math inline">\(k\)</span> 使得 <span
+class="math inline">\(\text{rank}(\text{parent}[x]) \geq
+A_k(\text{rank}(x))\)</span></p>
+<p>显然， <span class="math inline">\(\delta(x)\)</span> 是递增的。</p>
+<p>这里有一个性质：只要 <span class="math inline">\(\text{rank} \geq
+2\)</span> 的点，那么一定会有 <span class="math inline">\(\delta(x) \leq
+\alpha(n)\)</span></p>
+<p>证明： <span class="math display">\[
+A_{\alpha(n)}(2) \geq n \geq \text{rank}(parent[x]) \geq
+A_k(\text{rank}(x))
+\]</span> 其中 <span class="math inline">\(n \geq
+\text{rank}(parent[x])\)</span>
+很显然一定成立，左边其实就是上面反函数的定义，右边就是 <span
+class="math inline">\(\delta(x)\)</span>
+的定义，最左边与最右边分别进行反函数，即证成立。</p>
+<p>这里我们继续定义好节点与坏节点：</p>
+<p>一个点为好的节点当且仅当符合下面几个条件，我们称这个节点为坏节点：</p>
+<ol type="1">
+<li><span class="math inline">\(x\)</span> 不是根节点</li>
+<li>它的父亲不是根节点</li>
+<li><span class="math inline">\(\text{rank}(x) \geq 2\)</span></li>
+<li><span class="math inline">\(x\)</span> 存在祖先 <span
+class="math inline">\(y\)</span> 使得 <span
+class="math inline">\(\delta(y) = \delta(x)\)</span></li>
+</ol>
+<p>否则，<span class="math inline">\(x\)</span> 是好的节点。</p>
+<p>同 Hopcroft-Ullman 类似，在一次路径中最多有 <span
+class="math inline">\(\Theta(\alpha(n)) \leq 2 +2 +\alpha(n)\)</span>
+个好节点。</p>
+<p>那么最终 <span class="math inline">\(m\)</span>
+次操作（合并与查询）的总时间复杂度：<span
+class="math inline">\(O(m\alpha(n))(访问好节点的次数)+访问坏节点的次数\)</span></p>
+<p>下面我们来计算一下这个坏节点的个数，我们同样只先看一次路径的：</p>
+<figure>
+<img src="https://s2.loli.net/2025/01/23/rWEjnAXFbfmUO8w.png" srcset="/img/loading.gif" lazyload
+alt="A path" />
+<figcaption aria-hidden="true">A path</figcaption>
+</figure>
+<p>路径压缩：<span class="math inline">\(p&#39;\)</span> 是 <span
+class="math inline">\(x\)</span> 的新父亲或者更向上，则有： <span
+class="math display">\[
+\text{rank}(x的新父亲) \geq \text{rank}(p&#39;) \geq A_k(\text{rank}(y))
+\geq A_k(\text{rank}(p))
+\]</span> 中间这个过渡我们用到了上面 <span
+class="math inline">\(\delta(x)\)</span> 的定义，其他的都很显然。</p>
+<p>假设 <span class="math inline">\(r =
+\text{rank}(x)\)</span>，然后我们对 <span
+class="math inline">\(x\)</span> 做 <span
+class="math inline">\(r\)</span>
+次查找（<strong>路径压缩</strong>），假设每次都是有用的，那么我的 <span
+class="math inline">\(\delta(x)\)</span> <strong>至少</strong> <span
+class="math inline">\(+1\)</span></p>
+<p>为什么？我们不从理性的（数学的）角度去分析，而是去从感性的角度，首先想
+<span class="math inline">\(\text{rank}(x) =
+0，1\)</span>，显然根据定义，本身就是好节点，成立。</p>
+<p>那么 <span class="math inline">\(\text{rank}(x) \geq 2\)</span>
+呢？压缩一次会压缩到好节点的同地方，下一次必然会压缩到下一个 <span
+class="math inline">\(\delta(x) + 1\)</span>
+中，所以的证，而且是<strong>至少</strong>。</p>
+<p>那最多可以加多少次 1 呢？<span
+class="math inline">\(\alpha(n)\)</span> 次</p>
+<p>那么 <span class="math inline">\(x\)</span> 是坏的 <span
+class="math inline">\(\leq r \alpha(n)\)</span></p>
+<p>那么我们开始算总共访问坏节点的次数： <span class="math display">\[
+\begin{align*}
+&amp;总共访问坏节点的次数  \\
+&amp;\leq \Sigma_{所有节点}\text{rank}(x) \cdot \alpha(n) \tag 1\\
+&amp;= \alpha(n) \cdot \Sigma_{r \geq 0} \,r \,(\text{rank}=r
+节点的个数) \tag2\\
+&amp;\leq n \alpha(n) \Sigma_{r \geq 0} \frac{r}{2^r} \tag 3\\
+&amp;= O(n \alpha(n))
+\end{align*}
+\]</span> 我们来解释一下这个东西怎么来的，在 <span
+class="math inline">\((2) \to (3)\)</span> 中的推导中我们用到了 rank
+的引理 1，不理解的可以倒回去看看，这里我们对每个 <span
+class="math inline">\(r\)</span> 都用了一个引理 1 并相加，<span
+class="math inline">\((3)\)</span> 中的 <span
+class="math inline">\(\Sigma_{r \geq 0}
+\frac{r}{2^r}\)</span>，其实是个几何级数，最后是个常数，可以省略，就得到了坏节点的次数。</p>
+<p>那么我们能得出总共的时间复杂度为：</p>
+<p><span class="math inline">\(O((n+m)
+\alpha(n))\)</span>，同样在正常操作中 <span
+class="math inline">\(m\)</span> 与 <span
+class="math inline">\(n\)</span> 同阶，就可以是 <span
+class="math inline">\(O(m \alpha(n))\)</span>，证明完毕。</p>
 
             </div>
             <hr>
