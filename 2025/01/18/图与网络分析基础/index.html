@@ -24,13 +24,13 @@
 <meta property="og:description" content="没想到没几天又开始学到算法部分了，这一次定义将会学习的更加严谨。按照书上的拓展学习。 图的相关概念 图 (graph) 是一个二元组 \(G&#x3D;(V(G), E(G))\)。其中 \(V(G)\) 是非空集，称为 点集，对于 \(V\) 中的每个元素，我们称其为 顶点 或 节点，简称 点；\(E(G)\) 为 \(V(G)\) 各结点之间边的集合，称为 边集。 常用 \(G&#x3D;(V,E)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-18T09:47:32.000Z">
-<meta property="article:modified_time" content="2025-01-23T09:10:25.261Z">
+<meta property="article:modified_time" content="2025-01-23T10:21:52.388Z">
 <meta property="article:author" content="Skys">
+<meta property="article:tag" content="运筹学">
 <meta property="article:tag" content="网络流">
 <meta property="article:tag" content="图">
 <meta property="article:tag" content="生成树">
 <meta property="article:tag" content="最短路">
-<meta property="article:tag" content="运筹学">
 <meta name="twitter:card" content="summary_large_image">
   
   <title>图与网络分析基础 - Skys</title>
@@ -201,7 +201,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      6.6k 字
+      7k 字
     </span>
   
 
@@ -210,7 +210,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      21 分钟
+      22 分钟
     </span>
   
 
@@ -329,7 +329,12 @@ class="math inline">\(O(\left| E \right| \alpha( \left| V
 \right|))\)</span>，其中 <span class="math inline">\(\alpha\)</span>
 表示反阿克曼函数。</p>
 <p>#### 反阿克曼函数</p>
-<p><del>不是利威尔兵长创的</del>，需要两个自然数作为输入值，输出一个自然数，它的输出值增长速度非常高</p>
+<p>x 1# Distant-Skys2# To make a picture smaller or bigger.3​4import cv2
+as cv5import numpy as np6​7image = cv.imread('1.jpg')8​9res =
+cv.resize(image,None,fx=0.7,fy=0.7,interpolation=cv.INTER_CUBIC)10# if
+want to make picture bigger ,let ((fx and fy) &gt; 1).11​12# print the
+result picture.13# cv.imshow('result image',res)14# cv.waitKey(0)15#
+cv.destroyAllWindows()16​17cv.imwrite('1_result.jpg',res)python</p>
 <p>定义： <span class="math display">\[
 A(m,n) = \begin{cases}n + 1 &amp; \text{如果 m=0} \\ A(m-1,1) &amp;
 \text{如果 m&gt;0 且 n=0} \\ A(m-1,A(m,n-1)) &amp; \text{如果 m&gt;0 且
@@ -645,6 +650,8 @@ class="math inline">\(\theta\)</span>，把增流圈方向上与负回路方向�
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
+                      <a class="hover-with-bg" href="/tags/%E8%BF%90%E7%AD%B9%E5%AD%A6/">运筹学</a>
+                    
                       <a class="hover-with-bg" href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/">网络流</a>
                     
                       <a class="hover-with-bg" href="/tags/%E5%9B%BE/">图</a>
@@ -652,8 +659,6 @@ class="math inline">\(\theta\)</span>，把增流圈方向上与负回路方向�
                       <a class="hover-with-bg" href="/tags/%E7%94%9F%E6%88%90%E6%A0%91/">生成树</a>
                     
                       <a class="hover-with-bg" href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/">最短路</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E8%BF%90%E7%AD%B9%E5%AD%A6/">运筹学</a>
                     
                   </div>
                 
