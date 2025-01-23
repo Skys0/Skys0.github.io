@@ -20,9 +20,9 @@
     
     <tags>
       
-      <tag>存储论</tag>
-      
       <tag>运筹学</tag>
+      
+      <tag>存储论</tag>
       
     </tags>
     
@@ -76,8 +76,6 @@
     
     <tags>
       
-      <tag>运筹学</tag>
-      
       <tag>网络流</tag>
       
       <tag>图</tag>
@@ -85,6 +83,8 @@
       <tag>生成树</tag>
       
       <tag>最短路</tag>
+      
+      <tag>运筹学</tag>
       
     </tags>
     
@@ -952,11 +952,11 @@
     
     <tags>
       
+      <tag>数论</tag>
+      
       <tag>LCM</tag>
       
       <tag>GCD</tag>
-      
-      <tag>数论</tag>
       
     </tags>
     
