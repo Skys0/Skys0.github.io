@@ -24,7 +24,7 @@
 <meta property="og:description" content="线性规划基础 线性规划是统筹学中最重要的一种系统优化方案，引用领域十分广泛，包括生产计划、物资调运、任务分配、资源优化配置、经济规划等问题。也有许多线性规划的应用，我们这里就用COPT的规划求解器去学习使用。 线性规划的基本定义 一般形式为： \(\max (\min) z &#x3D; c_1x_1+c_2x_2+ \cdots  +c_nx_n\) \(s.t. \begin{cases}">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-13T10:02:24.000Z">
-<meta property="article:modified_time" content="2025-01-23T05:14:51.912Z">
+<meta property="article:modified_time" content="2025-02-10T15:30:47.326Z">
 <meta property="article:author" content="Skys">
 <meta property="article:tag" content="运筹学">
 <meta property="article:tag" content="Math">
@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.2k 字
+      4k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7 分钟
+      13 分钟
     </span>
   
 
@@ -268,6 +268,79 @@ b_1 \\ a_{21}x_1 + a_{22}x_2 + \cdots+c_{2n}x_n = b_2\)</span>
 <p>跟线性规划没有什么差距，就只是将连续型的变量变成了离散的，只能取整数
 <code>COPT.INTEGER</code>。</p>
 <p>所有变量全取整数的规划叫纯整数规划，部分变量取整数的规划称为混合整数规划。所有变量都取0,1两个值的规划叫0-1规划，部分的叫0-1混合规划。</p>
+<h2 id="copt">COPT</h2>
+<h3 id="简介">简介</h3>
+<p>杉数求解器COPT（Cardinal
+Optimizer）是杉数自主研发的针对大规模优化问题的高效数学规划求解器套件，也是支撑杉数端到端供应链平台的核心组件，是目前同时具备大规模混合整数规划、线性规划（单纯形法和内点法）、半定规划、（混合整数）二阶锥规划以及（混合整数）凸二次规划和（混合整数）凸二次约束规划问题求解能力的综合性能数学规划求解器。</p>
+<p>其实现在感觉这个 COPT
+在国内挺冷门的，自己就来看看官方文档，同步写在这篇文档下吧。</p>
+<h3
+id="model.addgenconstrand">Model.<strong>addGenConstrAnd</strong>()</h3>
+<h4 id="摘要">摘要</h4>
+<p><code>addGenConstrAnd(resvar, vars, name="")</code></p>
+<h4 id="描述">描述</h4>
+<p>添加一条逻辑 <code>and</code> 约束，<span class="math inline">\(y=x_1
+\ \text{and} \ x_2 \dots\text{and} \ x_n\)</span> 至模型中。</p>
+<h4 id="参量">参量</h4>
+<p><code>resvar</code> ：等式左端项 <code>y</code>，二进制型</p>
+<p><code>vars</code>：用 <code>and</code> 连接的变量，一般为列表类型</p>
+<p><code>name</code>：约束名称，可选参数</p>
+<h4 id="例子">例子</h4>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># Add logical constraint: y = x1 &amp; x2</span><br>model.addGenConstrAnd(y, [x1, x2], name=<span class="hljs-string">&quot;and_constr&quot;</span>)<br></code></pre></div></td></tr></table></figure>
+<p>同理，添加一条逻辑 <code>or</code>
+约束，为<code>Model.addGenConstrOr()</code>，这里不再赘述。</p>
+<h3 id="model.addgenconstrabs">Model.addGenConstrAbs()</h3>
+<h4 id="摘要-1">摘要</h4>
+<p><code>addGenConstrAbs(resvar, argvar, name="")</code> #### 描述
+添加⼀条形如 <span class="math inline">\(cy+d=|ax+b|\)</span>
+的约束到模型中。 #### 参量</p>
+<p><code>resvar</code>：<span class="math inline">\(cy+d\)</span>
+，可取值为 <code>Var</code> 类、 <code>MVar</code> 类、
+<code>LinExpr</code> 类 或 <code>MLinExpr</code> 对象。</p>
+<p><code>argvar</code>：<span class="math inline">\(ax+b\)</span>
+，可取值为 <code>Var</code> 类、 <code>MVar</code> 类、
+<code>LinExpr</code> 类 或 <code>MLinExpr</code> 对象。</p>
+<p><code>name</code>：约束名称，可选参数</p>
+<h3 id="model.addgenconstrmin">Model.addGenConstrMin()</h3>
+<h4 id="摘要-2">摘要</h4>
+<p><code>addGenConstrMin(resvar, vars, constant=None, name="")</code></p>
+<h4 id="描述-1">描述</h4>
+<p>添加⼀条形如 <span
+class="math inline">\(y=\min\{x_1,x_2,\dots,x_n,c\}\)</span>
+的约束到模型中。</p>
+<h4 id="参量-1">参量</h4>
+<p><code>resvar</code>：等式左端项 <code>y</code></p>
+<p><code>vars</code>：等式右端 <span
+class="math inline">\(\min\{\}\)</span> 函数的变量</p>
+<p><code>constant</code>：等式右端 <span
+class="math inline">\(\min\{\}\)</span> 函数中的常数项，可选参数</p>
+<p><code>name</code>：约束名称，可选参数</p>
+<p>添加最大值同理：<code>Model.addGenConstrMax()</code></p>
+<h3 id="model.addgenconstrpwl">Model.addGenConstrPWL()</h3>
+<h4 id="摘要-3">摘要</h4>
+<p><code>addGenConstrPWL(xvar, yvar, xpts, ypts, name="")</code></p>
+<h4 id="描述-2">描述</h4>
+<p>添加形如 <span class="math inline">\(y=f(x)\)</span> 的约束。</p>
+<h4 id="参量-2">参量</h4>
+<p><code>xvar</code>：<code>x</code> ，可取值为 <code>Var</code>
+类对象或 <code>MVar</code> 类对象。</p>
+<p><code>yvar</code>：等式左端项 <code>y</code></p>
+<p><code>xpts</code>： <span
+class="math inline">\(\hat{x}\)</span>，分段点的横坐标，需按照取值从小到大的顺序排列，可取值为
+<code>List</code> 类。</p>
+<p><code>ypts</code>：<span
+class="math inline">\(\hat{y}\)</span>，分段点的纵坐标，可取值为
+<code>List</code> 类。</p>
+<p><code>name</code>：约束名称，可选参数</p>
+<h4 id="例子-1">例子</h4>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># Set non-linear functions f(x) and g(z) (converting to PWL constraints)</span><br>npts = <span class="hljs-number">101</span>	<span class="hljs-comment"># 分成 100 份</span><br>ptu = []<br>ptf = []<br>ptg = []<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(npts):<br>    ptu.append(lb + (ub - lb) * i / (npts - <span class="hljs-number">1</span>))		<span class="hljs-comment"># ptu 是间断的 100 个点</span><br>    ptf.append(f(ptu[i]))		<span class="hljs-comment"># ptf 是对应 f(x) 的 100 个点的函数值</span><br>    ptg.append(g(ptu[i]))		<span class="hljs-comment"># ptg 是对应 g(x) 的 100 个点的函数值</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Ptu:&quot;</span>, ptu)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Ptf:&quot;</span>, ptf)<br>m.addGenConstrPWL(x, s, ptu, ptf, name=<span class="hljs-string">&#x27;f_exp&#x27;</span>)<br>m.addGenConstrPWL(z, t, ptu, ptg, name=<span class="hljs-string">&#x27;g_sqrt&#x27;</span>)<br></code></pre></div></td></tr></table></figure>
+<h3 id="quicksum">quicksum()</h3>
+<h4 id="摘要-4">摘要</h4>
+<p><code>quicksum(data)</code> #### 描述 快速构建表达式，求和 #### 参量
+<code>data</code>：生成表达式待加项</p>
+<h4 id="例子-2">例子</h4>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">cp.quicksum(fixed_costs[i] * y[i] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> lines)<br><span class="hljs-comment"># 可以这种写法：列表推导式</span><br></code></pre></div></td></tr></table></figure>
+<p>这里提一下这里的写法有点奇怪：<strong>列表推导式</strong>的基本语法如下：<code>[表达式 for 元素 in 可迭代对象 if 条件]</code>，这种可以比较优美的写出来</p>
 
             </div>
             <hr>
