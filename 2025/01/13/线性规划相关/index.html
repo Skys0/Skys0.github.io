@@ -24,7 +24,7 @@
 <meta property="og:description" content="线性规划基础 线性规划是统筹学中最重要的一种系统优化方案，引用领域十分广泛，包括生产计划、物资调运、任务分配、资源优化配置、经济规划等问题。也有许多线性规划的应用，我们这里就用COPT的规划求解器去学习使用。 线性规划的基本定义 一般形式为： \(\max (\min) z &#x3D; c_1x_1+c_2x_2+ \cdots  +c_nx_n\) \(s.t. \begin{cases}">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-13T10:02:24.000Z">
-<meta property="article:modified_time" content="2025-02-10T15:30:47.326Z">
+<meta property="article:modified_time" content="2025-02-11T06:44:01.448Z">
 <meta property="article:author" content="Skys">
 <meta property="article:tag" content="运筹学">
 <meta property="article:tag" content="Math">
@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4k 字
+      4.8k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      13 分钟
+      15 分钟
     </span>
   
 
@@ -268,6 +268,18 @@ b_1 \\ a_{21}x_1 + a_{22}x_2 + \cdots+c_{2n}x_n = b_2\)</span>
 <p>跟线性规划没有什么差距，就只是将连续型的变量变成了离散的，只能取整数
 <code>COPT.INTEGER</code>。</p>
 <p>所有变量全取整数的规划叫纯整数规划，部分变量取整数的规划称为混合整数规划。所有变量都取0,1两个值的规划叫0-1规划，部分的叫0-1混合规划。</p>
+<h3 id="指示约束">指示约束</h3>
+<p>指示约束（Indicator
+Constraints）是一类特殊的约束，通常用于涉及二进制变量的优化问题中。这类约束帮助我们通过控制一个二进制决策变量的状态（是
+0 还是 1）来影响其他变量或约束的行为。</p>
+<ol type="1">
+<li>If-Then
+约束：这个约束表示如果某个条件为真，那么另一个条件也必须成立。这个约束的意思是：如果某个条件为真，那么另一个条件必须也为真</li>
+<li>Only-If 约束：只有当第二个条件为真时，第一个条件才能成立。“只有当 B
+成立时，A 才能成立“</li>
+<li>If-and-Only-If
+约束：两个条件互为必要且充分条件，即一个条件成立时，另一个条件必定成立，反之亦然。</li>
+</ol>
 <h2 id="copt">COPT</h2>
 <h3 id="简介">简介</h3>
 <p>杉数求解器COPT（Cardinal
@@ -336,11 +348,34 @@ class="math inline">\(\hat{y}\)</span>，分段点的纵坐标，可取值为
 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># Set non-linear functions f(x) and g(z) (converting to PWL constraints)</span><br>npts = <span class="hljs-number">101</span>	<span class="hljs-comment"># 分成 100 份</span><br>ptu = []<br>ptf = []<br>ptg = []<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(npts):<br>    ptu.append(lb + (ub - lb) * i / (npts - <span class="hljs-number">1</span>))		<span class="hljs-comment"># ptu 是间断的 100 个点</span><br>    ptf.append(f(ptu[i]))		<span class="hljs-comment"># ptf 是对应 f(x) 的 100 个点的函数值</span><br>    ptg.append(g(ptu[i]))		<span class="hljs-comment"># ptg 是对应 g(x) 的 100 个点的函数值</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Ptu:&quot;</span>, ptu)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Ptf:&quot;</span>, ptf)<br>m.addGenConstrPWL(x, s, ptu, ptf, name=<span class="hljs-string">&#x27;f_exp&#x27;</span>)<br>m.addGenConstrPWL(z, t, ptu, ptg, name=<span class="hljs-string">&#x27;g_sqrt&#x27;</span>)<br></code></pre></div></td></tr></table></figure>
 <h3 id="quicksum">quicksum()</h3>
 <h4 id="摘要-4">摘要</h4>
-<p><code>quicksum(data)</code> #### 描述 快速构建表达式，求和 #### 参量
-<code>data</code>：生成表达式待加项</p>
+<p><code>quicksum(data)</code></p>
+<h4 id="描述-3">描述</h4>
+<p>快速构建表达式，求和</p>
+<h4 id="参量-3">参量</h4>
+<p><code>data</code>：生成表达式待加项</p>
 <h4 id="例子-2">例子</h4>
 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">cp.quicksum(fixed_costs[i] * y[i] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> lines)<br><span class="hljs-comment"># 可以这种写法：列表推导式</span><br></code></pre></div></td></tr></table></figure>
-<p>这里提一下这里的写法有点奇怪：<strong>列表推导式</strong>的基本语法如下：<code>[表达式 for 元素 in 可迭代对象 if 条件]</code>，这种可以比较优美的写出来</p>
+<p>这里提一下这里的写法有点奇怪：<strong>列表推导式</strong>的基本语法如下：<code>[表达式 for 元素 in 可迭代对象 if 条件]</code>，这种可以比较优美的写出一个列表，感觉还挺符合阅读习惯的。</p>
+<h3 id="model.addgenconstrindicator">Model.addGenConstrIndicator()</h3>
+<h4 id="摘要-5">摘要</h4>
+<p><code>addGenConstrIndicator(binvar, binval, lhs, sense=None, rhs=None, type=COPT.INDICATOR_IF, name="")</code></p>
+<h4 id="描述-4">描述</h4>
+<p>添加一个指定类型的指示约束(Indicator)到模型中</p>
+<h4 id="参量-4">参量</h4>
+<p><code>binvar</code>：Indicator变量。</p>
+<p><code>binval</code>：Indicator变量的取值，可取值为 <code>True</code>
+或 <code>False</code> 。</p>
+<p><code>lhs</code>：Indicator约束中线性约束的左端项或线性约束构建器。</p>
+<p><code>sense</code>：Indicator约束中线性约束的<strong>类型</strong>。可选参量（其实可以省略，直接放到
+<code>lhs</code> 上一起写））</p>
+<p><code>rhs</code>：Indicator约束中线性约束的左端项或线性约束构建器。（其实可以省略，直接放到
+<code>lhs</code> 上一起写）</p>
+<p><code>type</code>：Indicator约束的类型。可选参量。有以下参数可以选：</p>
+<ul>
+<li><code>COPT.INDICATOR_IF</code>（If-Then约束）</li>
+<li><code>COPT.INDICATOR_ONLYIF</code> （Only-If约束）</li>
+<li><code>COPT.INDICATOR_ONLYIF</code>（If-and-Only-If约束）</li>
+</ul>
 
             </div>
             <hr>
