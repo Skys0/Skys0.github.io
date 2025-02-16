@@ -16,12 +16,12 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="基本概念 输入过程： 顾客源：可以是无限的，也可以是有限的 顾客的到达方式：单个到达或者是成批到达 顾客到达时间间隔分布：负指数分布（单位时间顾客到达数服从 \(\lambda\) 为参数的指数分布） 排队规则： 排队系统类型：如果所有服务台都正被占用，等候的称为等待制，随即离去的称为损失制 排队队列可以是单列，也可以是多列 接受服务的顺序：先到先服务（FCFS）、后到先服务（FC">
+  <meta name="description" content="基本概念输入过程： 顾客源：可以是无限的，也可以是有限的 顾客的到达方式：单个到达或者是成批到达 顾客到达时间间隔分布：负指数分布（单位时间顾客到达数服从 $\lambda$ 为参数的指数分布） 排队规则： 排队系统类型：如果所有服务台都正被占用，等候的称为等待制，随即离去的称为损失制 排队队列可以是单列，也可以是多列 接受服务的顺序：先到先服务（FCFS）、后到先服务（FCFS）、随机服务（SI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="排队论">
 <meta property="og:url" content="https://skys0.github.io/2025/01/24/%E6%8E%92%E9%98%9F%E8%AE%BA/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="基本概念 输入过程： 顾客源：可以是无限的，也可以是有限的 顾客的到达方式：单个到达或者是成批到达 顾客到达时间间隔分布：负指数分布（单位时间顾客到达数服从 \(\lambda\) 为参数的指数分布） 排队规则： 排队系统类型：如果所有服务台都正被占用，等候的称为等待制，随即离去的称为损失制 排队队列可以是单列，也可以是多列 接受服务的顺序：先到先服务（FCFS）、后到先服务（FC">
+<meta property="og:description" content="基本概念输入过程： 顾客源：可以是无限的，也可以是有限的 顾客的到达方式：单个到达或者是成批到达 顾客到达时间间隔分布：负指数分布（单位时间顾客到达数服从 $\lambda$ 为参数的指数分布） 排队规则： 排队系统类型：如果所有服务台都正被占用，等候的称为等待制，随即离去的称为损失制 排队队列可以是单列，也可以是多列 接受服务的顺序：先到先服务（FCFS）、后到先服务（FCFS）、随机服务（SI">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-24T13:01:11.000Z">
 <meta property="article:modified_time" content="2025-01-27T02:37:25.527Z">
@@ -198,7 +198,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.7k 字
+      2.5k 字
     </span>
   
 
@@ -239,12 +239,10 @@
             <h1 style="display: none">排队论</h1>
             
             <div class="markdown-body">
-              <h2 id="基本概念">基本概念</h2>
-<p>输入过程：</p>
+              <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>输入过程：</p>
 <p>顾客源：可以是无限的，也可以是有限的</p>
 <p>顾客的到达方式：单个到达或者是成批到达</p>
-<p>顾客到达时间间隔分布：负指数分布（单位时间顾客到达数服从 <span
-class="math inline">\(\lambda\)</span> 为参数的指数分布）</p>
+<p>顾客到达时间间隔分布：负指数分布（单位时间顾客到达数服从 $\lambda$ 为参数的指数分布）</p>
 <p>排队规则：</p>
 <p>排队系统类型：如果所有服务台都正被占用，等候的称为等待制，随即离去的称为损失制</p>
 <p>排队队列可以是单列，也可以是多列</p>
@@ -254,125 +252,63 @@ class="math inline">\(\lambda\)</span> 为参数的指数分布）</p>
 <p>单队对多服务台<strong>并联</strong>式</p>
 <p>多队对多服务台<strong>并联</strong>式</p>
 <p>单队对多服务台<strong>串联</strong>式</p>
-<p>单队对多服务台<strong>串并联</strong>混合式</p>
-<p>排队系统模型表示：<span
-class="math inline">\(A/B/C/D/E/F\)</span></p>
-<p>分别表示：顾客到达时间间隔分布/服务时间分布/服务台数目/系统中顾客容量限制/顾客源数目/服务规则</p>
-<ol type="1">
-<li>顾客到达时间间隔分布：<span class="math inline">\(M\)</span>
-——负指数分布</li>
-<li>服务时间分布：<span class="math inline">\(M\)</span>
-——负指数分布</li>
-<li>服务台数目：<span
-class="math inline">\(1\)</span>——一个服务台，<span
-class="math inline">\(C\)</span>——多个服务台</li>
-<li>系统中顾客容量限制：<span
-class="math inline">\(\infty\)</span>——系统中顾客容量无限制，<span
-class="math inline">\(N\)</span>——系统最多容纳 <span
-class="math inline">\(N\)</span> 个顾客</li>
-<li>顾客源数量：<span
-class="math inline">\(\infty\)</span>——顾客源数量无限多，<span
-class="math inline">\(N\)</span>——顾客源的总体一共有 <span
-class="math inline">\(N\)</span> 个</li>
-<li>服务规则：<span class="math inline">\(FCFS\)</span>——先到先服务</li>
+<p>单队对多服务台<strong>串并联</strong>混合式 </p>
+<p>排队系统模型表示：$A/B/C/D/E/F$</p>
+<p>分别表示：顾客到达时间间隔分布/服务时间分布/服务台数目/系统中顾客容量限制/顾客源数目/服务规则  </p>
+<ol>
+<li>顾客到达时间间隔分布：$M$ ——负指数分布</li>
+<li>服务时间分布：$M$ ——负指数分布</li>
+<li>服务台数目：$1$——一个服务台，$C$——多个服务台</li>
+<li>系统中顾客容量限制：$\infty$——系统中顾客容量无限制，$N$——系统最多容纳 $N$ 个顾客</li>
+<li>顾客源数量：$\infty$——顾客源数量无限多，$N$——顾客源的总体一共有 $N$ 个</li>
+<li>服务规则：$FCFS$——先到先服务</li>
 </ol>
 <p>排队系统的指标：</p>
 <ul>
-<li>状态概率分布 <span class="math inline">\(P_n\)</span>：系统中有
-<span class="math inline">\(n\)</span> 个顾客的概率</li>
-<li>队长 <span class="math inline">\(L\)</span>：系统的平均顾客数</li>
-<li>排队长 <span
-class="math inline">\(L_q\)</span>：系统中排队等待的平均顾客数</li>
-<li>顾客平均停留时间 <span class="math inline">\(W\)</span></li>
-<li>顾客平均等待时间 <span class="math inline">\(W_q\)</span></li>
+<li>状态概率分布 $P_n$：系统中有 $n$ 个顾客的概率</li>
+<li>队长 $L$：系统的平均顾客数</li>
+<li>排队长 $L_q$：系统中排队等待的平均顾客数</li>
+<li>顾客平均停留时间 $W$</li>
+<li>顾客平均等待时间 $W_q$ </li>
 </ul>
-<h2 id="马尔可夫排队模型">马尔可夫排队模型</h2>
-<p>将一个新顾客到来看作为生，将一个顾客服务完离开看作死，设置 <span
-class="math inline">\(N(t)\)</span> 为任意时刻 <span
-class="math inline">\(t\)</span>
-排队系统的状态。满足下列生灭过程特征的排队模型称为马尔科夫排队模型：</p>
+<h2 id="马尔可夫排队模型"><a href="#马尔可夫排队模型" class="headerlink" title="马尔可夫排队模型"></a>马尔可夫排队模型</h2><p>将一个新顾客到来看作为生，将一个顾客服务完离开看作死，设置 $N(t)$ 为任意时刻 $t$ 排队系统的状态。满足下列生灭过程特征的排队模型称为马尔科夫排队模型：</p>
 <ul>
-<li><p>给定 <span
-class="math inline">\(N(t)=n\)</span>，到下一个顾客到达的间隔时间服从参数为
-<span class="math inline">\(\lambda_n(n=0,1,2,\dots)\)</span>
-的负指数分布；</p></li>
-<li><p>给定 <span
-class="math inline">\(N(t)=n\)</span>，到下一个顾客离开的间隔时间服从参数为
-<span class="math inline">\(\mu_n(n=0,1,2,...)\)</span>
-的负指数分布；</p></li>
-<li><p>同一时刻只有一个顾客达到或离去。</p></li>
+<li><p>给定 $N(t)=n$，到下一个顾客到达的间隔时间服从参数为 $\lambda_n(n=0,1,2,\dots)$ 的负指数分布；</p>
+</li>
+<li><p>给定 $N(t)=n$，到下一个顾客离开的间隔时间服从参数为 $\mu_n(n=0,1,2,…)$ 的负指数分布；</p>
+</li>
+<li>同一时刻只有一个顾客达到或离去。</li>
 </ul>
-<h3 id="状态平衡方程">状态平衡方程：</h3>
-<p>对于 <span class="math inline">\(N(t)\)</span>
-的分布，在平稳状态下，就是状态平衡方程</p>
-<p><strong>平稳状态</strong>：对于任一状态 <span
-class="math inline">\(n\)</span>，流入的等于流出。</p>
-<p>那么可以得出： <span class="math display">\[
+<h3 id="状态平衡方程："><a href="#状态平衡方程：" class="headerlink" title="状态平衡方程："></a>状态平衡方程：</h3><p>对于 $N(t)$ 的分布，在平稳状态下，就是状态平衡方程</p>
+<p><strong>平稳状态</strong>：对于任一状态 $n$，流入的等于流出。</p>
+<p>那么可以得出：</p>
+<script type="math/tex; mode=display">
 \begin{align*}
-状态 0: &amp; P_1\mu_1 = P_0\lambda_0   &amp;
-P_1=\frac{\lambda_0}{\mu_1} P_0\\
-状态 1: &amp; P_0\lambda_0 + P_2\mu_2 = P_1\mu_1 + P_1\lambda_1   &amp;
-P_2=\frac{\lambda_1\lambda_0}{\mu_2\mu_1}P_0 \\
-状态 2: &amp; P_1\lambda_1 + P_3\mu_3 = P_2\mu_2 + P_2\lambda_2   &amp;
-P_3 = \frac{\lambda_2\lambda_1\lambda_0}{\mu_3\mu_2\mu_1}P_0 \\
-&amp;\vdots \\
-状态 n: &amp; P_{n-1}\lambda_{n-1} + P_{n+1}\mu_{n+1} = P_{n}\mu_{n} +
-P_{n}\lambda_{n}   &amp; P_n =
-\frac{\lambda_{n-1}\lambda_{n-2}\cdots\lambda_0}{\mu_{n-1}\mu_{n-2}\cdots\mu_1}
-P_0 \\
-\end{align*}
-\]</span> 通过 <span class="math inline">\(P_0 + P_1 + P_2 \cdots + P_n
-= 1\)</span> 可以算出 <span class="math inline">\(P_0\)</span>
-那么进一步可以算出其他的</p>
-<h2 id="mm1fcfs-排队模型">M/M/1/∞/∞/FCFS 排队模型</h2>
-<p>模型含义：顾客到达过程服从泊松流，服务时间服从负指数分布，单服务台，系统容量和顾客来源无限，先到先服务。设单位时间内顾客平均到达率为
-<span
-class="math inline">\(\lambda\)</span>，单位时间内服务台平均服务率为
-<span class="math inline">\(\mu\)</span>。</p>
-<h3 id="状态平衡方程-1">状态平衡方程</h3>
-<p><span class="math display">\[
+状态 0: & P_1\mu_1 = P_0\lambda_0   & P_1=\frac{\lambda_0}{\mu_1} P_0\\
+状态 1: & P_0\lambda_0 + P_2\mu_2 = P_1\mu_1 + P_1\lambda_1   & P_2=\frac{\lambda_1\lambda_0}{\mu_2\mu_1}P_0 \\
+状态 2: & P_1\lambda_1 + P_3\mu_3 = P_2\mu_2 + P_2\lambda_2   & P_3 = \frac{\lambda_2\lambda_1\lambda_0}{\mu_3\mu_2\mu_1}P_0 \\
+&\vdots \\
+状态 n: & P_{n-1}\lambda_{n-1} + P_{n+1}\mu_{n+1} = P_{n}\mu_{n} + P_{n}\lambda_{n}   & P_n = \frac{\lambda_{n-1}\lambda_{n-2}\cdots\lambda_0}{\mu_{n-1}\mu_{n-2}\cdots\mu_1} P_0 \\
+\end{align*}</script><p>通过 $P_0 + P_1 + P_2 \cdots + P_n = 1$ 可以算出 $P_0$ 那么进一步可以算出其他的</p>
+<h2 id="M-M-1-∞-∞-FCFS-排队模型"><a href="#M-M-1-∞-∞-FCFS-排队模型" class="headerlink" title="M/M/1/∞/∞/FCFS 排队模型"></a>M/M/1/∞/∞/FCFS 排队模型</h2><p>模型含义：顾客到达过程服从泊松流，服务时间服从负指数分布，单服务台，系统容量和顾客来源无限，先到先服务。设单位时间内顾客平均到达率为 $\lambda$，单位时间内服务台平均服务率为 $\mu$。</p>
+<h3 id="状态平衡方程"><a href="#状态平衡方程" class="headerlink" title="状态平衡方程"></a>状态平衡方程</h3><script type="math/tex; mode=display">
 \begin{align*}
-状态 0: &amp; P_1\mu = P_0\lambda   &amp; P_1=\frac{\lambda}{\mu} P_0 =
-\rho P_0\\
-状态 1: &amp; P_0\lambda + P_2\mu = P_1\mu + P_1\lambda   &amp;
-P_2=\rho^2 P_0 \\
-状态 2: &amp; P_1\lambda + P_3\mu = P_2\mu + P_2\lambda   &amp; P_3 =
-\rho^3 P_0 \\
-&amp;\vdots \\
-状态 n: &amp; P_{n-1}\lambda + P_{n+1}\mu = P_{n}\mu +
-P_{n}\lambda   &amp; P_n = \rho^n  P_0 \\
-\end{align*}
-\]</span></p>
-<p>通过 <span class="math inline">\(P_0 + P_1 + P_2 \cdots + P_n =
-1\)</span> 可以算出 <span class="math inline">\(P_0 = 1 -
-\rho\)</span>，<span class="math inline">\(P_n =
-\rho^n(1-\rho)\)</span></p>
-<p>队长：<span class="math inline">\(L = \Sigma_{n=0}^{\infty} nP_n =
-\frac{\rho}{1-\rho}\)</span></p>
-<p>排队长：<span class="math inline">\(L_q =
-\frac{\rho^2}{1-\rho}\)</span></p>
-<p>顾客平均停留时间：<span class="math inline">\(W = \frac{1}{\mu -
-\lambda}\)</span></p>
-<p>顾客平均等待时间：<span class="math inline">\(W_q =
-\frac{\lambda}{\mu(\mu - \lambda)}\)</span></p>
-<h2 id="mmcfcfs排队模型">M/M/C/∞/∞/FCFS排队模型</h2>
-<p>顾客到达过程服从泊松流，每个服务台的服务时间均服从负指数分布，<span
-class="math inline">\(C\)</span> 个服务台，系统容量和顾客
-来源无限，先到先服务。设单位时间内顾客平均到达率为 <span
-class="math inline">\(\lambda\)</span>，单位时间内每个服务台平均服务率为
-<span class="math inline">\(\mu\)</span>。</p>
-<p>系统的平均服务率：<span class="math inline">\(\mu_n = \begin{cases}
-n\mu  &amp;0\leq n\leq C \\ C\mu &amp; C\leq n \end{cases}\)</span></p>
-<p>服务台的繁忙度：<span class="math inline">\(\rho =
-\frac{\lambda}{C\mu}\)</span></p>
-<p>系统中没有顾客的概率：<span class="math inline">\(P_0 =
-[\Sigma_{i-0}^{C-1} \dfrac{1}{i!}(\dfrac{\lambda}{\mu})^i +
-\dfrac{1}{1-\rho}
-\dfrac{1}{C!}(\dfrac{\lambda}{\mu})^C]^{-1}\)</span></p>
-<p>排队长：<span class="math inline">\(L_q =\dfrac{1}{C!}
-(\dfrac{\lambda}{\mu})^C\dfrac{\rho}{(1-\rho)^2} P_0\)</span></p>
-<p>顾客平均停留时间：<span class="math inline">\(W =
-\dfrac{L}{\lambda}\)</span></p>
+状态 0: & P_1\mu = P_0\lambda   & P_1=\frac{\lambda}{\mu} P_0 = \rho P_0\\
+状态 1: & P_0\lambda + P_2\mu = P_1\mu + P_1\lambda   & P_2=\rho^2 P_0 \\
+状态 2: & P_1\lambda + P_3\mu = P_2\mu + P_2\lambda   & P_3 = \rho^3 P_0 \\
+&\vdots \\
+状态 n: & P_{n-1}\lambda + P_{n+1}\mu = P_{n}\mu + P_{n}\lambda   & P_n = \rho^n  P_0 \\
+\end{align*}</script><p>通过 $P_0 + P_1 + P_2 \cdots + P_n = 1$ 可以算出 $P_0 = 1 - \rho$，$P_n = \rho^n(1-\rho)$ </p>
+<p>队长：$L = \Sigma_{n=0}^{\infty} nP_n = \frac{\rho}{1-\rho}$</p>
+<p>排队长：$L_q = \frac{\rho^2}{1-\rho}$</p>
+<p>顾客平均停留时间：$W = \frac{1}{\mu - \lambda}$</p>
+<p>顾客平均等待时间：$W_q = \frac{\lambda}{\mu(\mu - \lambda)}$</p>
+<h2 id="M-M-C-∞-∞-FCFS排队模型"><a href="#M-M-C-∞-∞-FCFS排队模型" class="headerlink" title="M/M/C/∞/∞/FCFS排队模型"></a>M/M/C/∞/∞/FCFS排队模型</h2><p>顾客到达过程服从泊松流，每个服务台的服务时间均服从负指数分布，$C$ 个服务台，系统容量和顾客<br>来源无限，先到先服务。设单位时间内顾客平均到达率为 $\lambda$，单位时间内每个服务台平均服务率为 $\mu$。</p>
+<p>系统的平均服务率：$\mu_n = \begin{cases} n\mu  &amp;0\leq n\leq C \ C\mu &amp; C\leq n \end{cases}$</p>
+<p>服务台的繁忙度：$\rho = \frac{\lambda}{C\mu}$</p>
+<p>系统中没有顾客的概率：$P<em>0 = [\Sigma</em>{i-0}^{C-1} \dfrac{1}{i!}(\dfrac{\lambda}{\mu})^i + \dfrac{1}{1-\rho} \dfrac{1}{C!}(\dfrac{\lambda}{\mu})^C]^{-1}$</p>
+<p>排队长：$L_q =\dfrac{1}{C!} (\dfrac{\lambda}{\mu})^C\dfrac{\rho}{(1-\rho)^2} P_0$</p>
+<p>顾客平均停留时间：$W = \dfrac{L}{\lambda}$</p>
 
             </div>
             <hr>

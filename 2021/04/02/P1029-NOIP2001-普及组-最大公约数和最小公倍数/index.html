@@ -16,12 +16,12 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="题目 题目描述 输入两个正整数\(x_0, y_0\)，求出满足下列条件的\(P, Q\)的个数: 1. \(P,Q\) 是正整数。 2. 要求 \(P, Q\) 以 \(x_0\)为最大公约数，以\(y_0\)为最小公倍数。 试求：满足条件的所有可能的\(P, Q\)的个数。 ## 输入格式 一行两个正整数\(x_0, y_0\)。 ## 输出格式 一行一个数，表示求出满足条件的">
+  <meta name="description" content="题目题目描述输入两个正整数$x_0, y_0$，求出满足下列条件的$P, Q$的个数:    $P,Q$ 是正整数。 要求 $P, Q$ 以 $x_0$为最大公约数，以$y_0$为最小公倍数。  试求：满足条件的所有可能的$P, Q$的个数。 输入格式一行两个正整数$x_0, y_0$。 输出格式一行一个数，表示求出满足条件的$P, Q$个数。     知识讲解这一题是关于最大公约数（gcd）和最">
 <meta property="og:type" content="article">
 <meta property="og:title" content="P1029 [NOIP2001 普及组] 最大公约数和最小公倍数">
 <meta property="og:url" content="https://skys0.github.io/2021/04/02/P1029-NOIP2001-%E6%99%AE%E5%8F%8A%E7%BB%84-%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E5%92%8C%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="题目 题目描述 输入两个正整数\(x_0, y_0\)，求出满足下列条件的\(P, Q\)的个数: 1. \(P,Q\) 是正整数。 2. 要求 \(P, Q\) 以 \(x_0\)为最大公约数，以\(y_0\)为最小公倍数。 试求：满足条件的所有可能的\(P, Q\)的个数。 ## 输入格式 一行两个正整数\(x_0, y_0\)。 ## 输出格式 一行一个数，表示求出满足条件的">
+<meta property="og:description" content="题目题目描述输入两个正整数$x_0, y_0$，求出满足下列条件的$P, Q$的个数:    $P,Q$ 是正整数。 要求 $P, Q$ 以 $x_0$为最大公约数，以$y_0$为最小公倍数。  试求：满足条件的所有可能的$P, Q$的个数。 输入格式一行两个正整数$x_0, y_0$。 输出格式一行一个数，表示求出满足条件的$P, Q$个数。     知识讲解这一题是关于最大公约数（gcd）和最">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-02T13:08:23.000Z">
 <meta property="article:modified_time" content="2021-10-27T09:36:40.000Z">
@@ -240,70 +240,36 @@
             <h1 style="display: none">P1029 [NOIP2001 普及组] 最大公约数和最小公倍数</h1>
             
             <div class="markdown-body">
-              <h1 id="题目">题目</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>输入两个正整数<span class="math inline">\(x_0,
-y_0\)</span>，求出满足下列条件的<span class="math inline">\(P,
-Q\)</span>的个数:<br />
-1. <span class="math inline">\(P,Q\)</span> 是正整数。 2. 要求 <span
-class="math inline">\(P, Q\)</span> 以 <span
-class="math inline">\(x_0\)</span>为最大公约数，以<span
-class="math inline">\(y_0\)</span>为最小公倍数。</p>
-<p>试求：满足条件的所有可能的<span class="math inline">\(P,
-Q\)</span>的个数。 ## 输入格式 一行两个正整数<span
-class="math inline">\(x_0, y_0\)</span>。 ## 输出格式
-一行一个数，表示求出满足条件的<span class="math inline">\(P,
-Q\)</span>个数。</p>
-<h1 id="知识讲解">知识讲解</h1>
-<p>这一题是关于最大公约数（gcd）和最小公倍数（lcm）的，首先要算最大公约数，最好的算法是<a
-target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/1647675?fromtitle=%E8%BE%97%E8%BD%AC%E7%9B%B8%E9%99%A4%E6%B3%95&amp;fromid=4625352">欧几里得算法</a>（辗转相除法）然而本人是个蒟蒻，所以还是要来证明一下的：
-### 最大公约数 设 <span class="math inline">\(a=bk+c\)</span> 则有 <span
-class="math inline">\(c= a\bmod b\)</span> ,设有一个数 <span
-class="math inline">\(d \mid a~,d \mid
-b\)</span>（这个符号表示前者是后者的因数，能整除）, 则存在 <span
-class="math inline">\(c=a-bk\)</span> ， <span
-class="math inline">\(\dfrac{c}{d} = \dfrac{a-b}{d}k\)</span>。<br />
-显而易见，<span class="math inline">\(\dfrac{c}{d}\)</span>
-为整数，所以对于 <span class="math inline">\(a\)</span> 与 <span
-class="math inline">\(b\)</span> 的最大公约数为 <span
-class="math inline">\(a\bmod b\)</span> 的最大公约数（因为c为<span
-class="math inline">\(c= a\bmod b\)</span>），<br />
-所以 $ (a,b) = (a,ab)$
-,而这，就是欧几里得算法的核心内容。(终于结束了)下面给出欧几里得算法的代码：</p>
+              <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入两个正整数$x_0, y_0$，求出满足下列条件的$P, Q$的个数:  </p>
+<ol>
+<li>$P,Q$ 是正整数。</li>
+<li>要求 $P, Q$ 以 $x_0$为最大公约数，以$y_0$为最小公倍数。</li>
+</ol>
+<p>试求：满足条件的所有可能的$P, Q$的个数。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>一行两个正整数$x_0, y_0$。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一行一个数，表示求出满足条件的$P, Q$个数。    </p>
+<h1 id="知识讲解"><a href="#知识讲解" class="headerlink" title="知识讲解"></a>知识讲解</h1><p>这一题是关于最大公约数（gcd）和最小公倍数（lcm）的，首先要算最大公约数，最好的算法是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/1647675?fromtitle=%E8%BE%97%E8%BD%AC%E7%9B%B8%E9%99%A4%E6%B3%95&amp;fromid=4625352">欧几里得算法</a>（辗转相除法）然而本人是个蒟蒻，所以还是要来证明一下的：</p>
+<h3 id="最大公约数"><a href="#最大公约数" class="headerlink" title="最大公约数"></a>最大公约数</h3><p>设 $a=bk+c$ 则有 $c= a\bmod b$ ,设有一个数 $d \mid a~,d \mid b$（这个符号表示前者是后者的因数，能整除）,<br>则存在 $c=a-bk$ ， $\dfrac{c}{d} = \dfrac{a-b}{d}k$。<br>显而易见，$\dfrac{c}{d}$ 为整数，所以对于 $a$ 与 $b$ 的最大公约数为 $a\bmod b$ 的最大公约数（因为c为$c= a\bmod b$），<br>所以 $ \gcd(a,b) = \gcd(a,a\bmod b)$ ,而这，就是欧几里得算法的核心内容。(终于结束了)下面给出欧几里得算法的代码：    </p>
 <figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b)</span></span>&#123;<br>	<span class="hljs-keyword">return</span> b==<span class="hljs-number">0</span> ? a : <span class="hljs-built_in">gcd</span>(b,a%b);<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<p><br>
-下面我们来讲最小公倍数的算法，最小公倍数可以通过最大公约数来求.</p>
-<h3 id="最小公倍数">最小公倍数</h3>
-<p>首先我们介绍这样一个定理——算术基本定理：</p>
+<p><br><br>下面我们来讲最小公倍数的算法，最小公倍数可以通过最大公约数来求.</p>
+<h3 id="最小公倍数"><a href="#最小公倍数" class="headerlink" title="最小公倍数"></a>最小公倍数</h3><p>首先我们介绍这样一个定理——算术基本定理： </p>
 <blockquote>
 <p>每一个正整数都可以表示成若干整数的乘积，这种分解方式在忽略排列次序的条件下是唯一的。</p>
 </blockquote>
-<p>这个有一个通式 <span class="math inline">\(\large
-x=p_1^{k_1}p_2^{k_2}p_3^{k_3}\dots b p_s^{k_s}\)</span></p>
-<p>设 <span class="math display">\[\large
-a=p_1^{k_{a_1}}p_2^{k_{a_2}}p_3^{k_{a_3}} \dots p_s^{k_{a_s}} ,\large
-b=p_1^{k_{b_1}}p_2^{k_{b_2}}p_3^{k_{b_3}}\dotsb
-p_s^{k_{b_s}}\]</span></p>
-<p>可以得到，最大公约数为：<br />
-<span class="math display">\[\large
-p_1^{\min(k_{a_1},k_{b_1})}p_2^{\min(k_{a_2},k_{b_2})}\dotsb
-p_s^{\min(k_{a_s},k_{b_s})}\]</span></p>
-<p>最小公倍数为：<br />
-<span class="math display">\[\large
-p_1^{\max(k_{a_1},k_{b_1})}p_2^{\max(k_{a_2},k_{b_2})}\dotsb
-p_s^{\max(k_{a_s},k_{b_s})}\]</span></p>
-<p>将以上两个式子相乘，可以得到: &gt; $ (a,b)(a,b)=ab$</p>
-<p>将上面的式子进行移项，就终于得到了这个重要的计算方法（呼，累死我了）：</p>
+<p>这个有一个通式 $\large x=p_1^{k_1}p_2^{k_2}p_3^{k_3}\dots b p_s^{k_s}$  </p>
+<p>设  <script type="math/tex">\large a=p_1^{k_{a_1}}p_2^{k_{a_2}}p_3^{k_{a_3}} \dots p_s^{k_{a_s}} ,\large b=p_1^{k_{b_1}}p_2^{k_{b_2}}p_3^{k_{b_3}}\dotsb p_s^{k_{b_s}}</script>    </p>
+<p> 可以得到，最大公约数为：  </p>
+<script type="math/tex; mode=display">\large p_1^{\min(k_{a_1},k_{b_1})}p_2^{\min(k_{a_2},k_{b_2})}\dotsb p_s^{\min(k_{a_s},k_{b_s})}</script><p>最小公倍数为：  </p>
+<script type="math/tex; mode=display">\large p_1^{\max(k_{a_1},k_{b_1})}p_2^{\max(k_{a_2},k_{b_2})}\dotsb p_s^{\max(k_{a_s},k_{b_s})}</script><p>将以上两个式子相乘，可以得到:</p>
 <blockquote>
-<p><span class="math inline">\(\large \operatorname{lcm}(a,b) = a\times
-b \div \gcd(a,b)\)</span></p>
+<p>$ \large \gcd(a,b)\times \operatorname{lcm}(a,b)=a\times b$ </p>
 </blockquote>
-<h2 id="题解思路">题解思路</h2>
-<p>那么，这道题基本的知识都讲完了，总结一下思路： 首先我们可以枚举<span
-class="math inline">\(P\)</span>，那么<span
-class="math inline">\(Q\)</span>可通过已经给的最小公倍数和最大公约数来求，然后再算出本身这两个数的最小公倍数和最大公约数，判断它们是否相等。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cmath&gt;</span></span><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> LL;<br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function">LL <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b)</span></span>&#123; <span class="hljs-comment">//最大公约数的算法</span><br>	<span class="hljs-keyword">return</span>  b==<span class="hljs-number">0</span> ? a : <span class="hljs-built_in">gcd</span>(b,a%b);<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	LL n,m,ans = <span class="hljs-number">0</span>;<br>	cin&gt;&gt;n&gt;&gt;m;<br>	<br>	<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-built_in">sqrt</span>(m*n);i++)&#123;  <span class="hljs-comment">//枚举到sqrt个即可</span><br>		<span class="hljs-keyword">if</span>(n==m)&#123;<br>			ans = <span class="hljs-number">1</span>;<br>			<span class="hljs-keyword">break</span>;<br>		&#125;<br>		<span class="hljs-keyword">int</span> j = m*n/i;  <br>		LL x = <span class="hljs-number">0</span>,y = <span class="hljs-number">0</span>;<br>		LL cnt = <span class="hljs-built_in">gcd</span>(i,j);<br>		<span class="hljs-keyword">if</span>(cnt == n &amp;&amp; i*j/cnt == m)   <span class="hljs-comment">//i*j/cnt 是算最大公约数的算法</span><br>			ans += <span class="hljs-number">2</span>;<br>	&#125;<br>		<br>	cout&lt;&lt;ans&lt;&lt;endl;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>将上面的式子进行移项，就终于得到了这个重要的计算方法（呼，累死我了）： </p>
+<blockquote>
+<p>$\large \operatorname{lcm}(a,b) = a\times b \div \gcd(a,b)$</p>
+</blockquote>
+<h2 id="题解思路"><a href="#题解思路" class="headerlink" title="题解思路"></a>题解思路</h2><p>那么，这道题基本的知识都讲完了，总结一下思路：<br>首先我们可以枚举$P$，那么$Q$可通过已经给的最小公倍数和最大公约数来求，然后再算出本身这两个数的最小公倍数和最大公约数，判断它们是否相等。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cmath&gt;</span></span><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> LL;<br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function">LL <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b)</span></span>&#123; <span class="hljs-comment">//最大公约数的算法</span><br>	<span class="hljs-keyword">return</span>  b==<span class="hljs-number">0</span> ? a : <span class="hljs-built_in">gcd</span>(b,a%b);<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	LL n,m,ans = <span class="hljs-number">0</span>;<br>	cin&gt;&gt;n&gt;&gt;m;<br>	<br>	<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-built_in">sqrt</span>(m*n);i++)&#123;  <span class="hljs-comment">//枚举到sqrt个即可</span><br>		<span class="hljs-keyword">if</span>(n==m)&#123;<br>			ans = <span class="hljs-number">1</span>;<br>			<span class="hljs-keyword">break</span>;<br>		&#125;<br>		<span class="hljs-keyword">int</span> j = m*n/i;  <br>		LL x = <span class="hljs-number">0</span>,y = <span class="hljs-number">0</span>;<br>		LL cnt = <span class="hljs-built_in">gcd</span>(i,j);<br>		<span class="hljs-keyword">if</span>(cnt == n &amp;&amp; i*j/cnt == m)   <span class="hljs-comment">//i*j/cnt 是算最大公约数的算法</span><br>			ans += <span class="hljs-number">2</span>;<br>	&#125;<br>		<br>	cout&lt;&lt;ans&lt;&lt;endl;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
             </div>
             <hr>
