@@ -16,12 +16,12 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="集合的复习以及数学标记 集合 集合可以包含任何东西，包括集合，任何元素。如过元素 \(x\) 在集合 \(A\) 中，那么记作 \(x \in A\)。如果 \(y\) 不属于 \(A\) 中，那么记作 \(y \notin A\)。 集合的基本属性：  集合中不存在顺序 如果\(A,B\)两个集合相等，那么记作 \(A &#x3D; B\)   基数(Cardinality) 集合中">
+  <meta name="description" content="集合的复习以及数学标记集合集合可以包含任何东西，包括集合，任何元素。如过元素 $x$ 在集合 $A$ 中，那么记作 $x \in A$。如果 $y$ 不属于 $A$ 中，那么记作 $y \notin A$。 集合的基本属性：  集合中不存在顺序 如果$A,B$两个集合相等，那么记作 $A &#x3D; B$\  基数(Cardinality)集合中的元素的个数，记作基数，比如 $A &#x3D; {1,2,2,4}$">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UCB CS70: discrete Math and probability theory">
 <meta property="og:url" content="https://skys0.github.io/2024/08/17/UCB-CS70-discrete-Math-and-probability-theory/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="集合的复习以及数学标记 集合 集合可以包含任何东西，包括集合，任何元素。如过元素 \(x\) 在集合 \(A\) 中，那么记作 \(x \in A\)。如果 \(y\) 不属于 \(A\) 中，那么记作 \(y \notin A\)。 集合的基本属性：  集合中不存在顺序 如果\(A,B\)两个集合相等，那么记作 \(A &#x3D; B\)   基数(Cardinality) 集合中">
+<meta property="og:description" content="集合的复习以及数学标记集合集合可以包含任何东西，包括集合，任何元素。如过元素 $x$ 在集合 $A$ 中，那么记作 $x \in A$。如果 $y$ 不属于 $A$ 中，那么记作 $y \notin A$。 集合的基本属性：  集合中不存在顺序 如果$A,B$两个集合相等，那么记作 $A &#x3D; B$\  基数(Cardinality)集合中的元素的个数，记作基数，比如 $A &#x3D; {1,2,2,4}$">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-08-17T06:46:22.000Z">
 <meta property="article:modified_time" content="2024-08-21T14:24:31.113Z">
@@ -198,7 +198,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.3k 字
+      2.1k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7 分钟
+      6 分钟
     </span>
   
 
@@ -239,118 +239,70 @@
             <h1 style="display: none">UCB CS70: discrete Math and probability theory</h1>
             
             <div class="markdown-body">
-              <h2 id="集合的复习以及数学标记">集合的复习以及数学标记</h2>
-<h3 id="集合">集合</h3>
-<p>集合可以包含任何东西，包括集合，任何元素。如过元素 <span
-class="math inline">\(x\)</span> 在集合 <span
-class="math inline">\(A\)</span> 中，那么记作 <span
-class="math inline">\(x \in A\)</span>。如果 <span
-class="math inline">\(y\)</span> 不属于 <span
-class="math inline">\(A\)</span> 中，那么记作 <span
-class="math inline">\(y \notin A\)</span>。</p>
+              <h2 id="集合的复习以及数学标记"><a href="#集合的复习以及数学标记" class="headerlink" title="集合的复习以及数学标记"></a>集合的复习以及数学标记</h2><h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><p>集合可以包含任何东西，包括集合，任何元素。如过元素 $x$ 在集合 $A$ 中，那么记作 $x \in A$。如果 $y$ 不属于 $A$ 中，那么记作 $y \notin A$。</p>
 <p>集合的基本属性：</p>
 <ul>
 <li>集合中不存在顺序</li>
-<li>如果<span class="math inline">\(A,B\)</span>两个集合相等，那么记作
-<span class="math inline">\(A = B\)</span><br />
-</li>
+<li>如果$A,B$两个集合相等，那么记作 $A = B$\</li>
 </ul>
-<h3 id="基数cardinality">基数(Cardinality)</h3>
-<p>集合中的元素的个数，记作基数，比如 <span class="math inline">\(A =
-\{1,2,2,4\}\)</span>，基数为 4，记作 <span class="math inline">\(\mid
-A\mid=4\)</span>.</p>
-<p>如果基数为0，那么被称为空集，记作 <span
-class="math inline">\(\emptyset\)</span>。</p>
-<h3 id="集合的基本运算">集合的基本运算</h3>
-<h4 id="并运算">并运算</h4>
-<p>设 <span class="math inline">\(A,B\)</span> 为两个集合，则由集合
-<span class="math inline">\(A\)</span> 和集合 <span
-class="math inline">\(B\)</span> 中的所有元素汇集而成的集合称为集合
-<span class="math inline">\(A\)</span> 和集合 <span
-class="math inline">\(B\)</span> 的 并。记作 <span
-class="math inline">\(A \cup B\)</span>。即：</p>
-<p><span class="math inline">\(A \cup B = \{x \mid x\in A \vee x \in
-B\}\)</span></p>
+<h3 id="基数-Cardinality"><a href="#基数-Cardinality" class="headerlink" title="基数(Cardinality)"></a>基数(Cardinality)</h3><p>集合中的元素的个数，记作基数，比如 $A = {1,2,2,4}$，基数为 4，记作 $\mid A\mid=4$.</p>
+<p>如果基数为0，那么被称为空集，记作 $\emptyset$。</p>
+<h3 id="集合的基本运算"><a href="#集合的基本运算" class="headerlink" title="集合的基本运算"></a>集合的基本运算</h3><h4 id="并运算"><a href="#并运算" class="headerlink" title="并运算"></a>并运算</h4><p>设 $A,B$ 为两个集合，则由集合 $A$ 和集合 $B$ 中的所有元素汇集而成的集合称为集合 $A$ 和集合 $B$ 的 并。记作 $A \cup B$。即：</p>
+<p>$A \cup B = {x \mid x\in A \vee x \in B}$</p>
 <p>基本推理：</p>
 <ul>
-<li><span class="math inline">\(A \cup B = B \cup A\)</span></li>
-<li><span class="math inline">\(A \cup \emptyset = A\)</span></li>
+<li>$A \cup B = B \cup A$</li>
+<li>$A \cup \emptyset = A$</li>
 </ul>
-<h4 id="交运算">交运算</h4>
-<p>设 <span class="math inline">\(A,B\)</span> 为两个集合，则由集合
-<span class="math inline">\(A\)</span> 和集合 <span
-class="math inline">\(B\)</span> 中的公共元素汇集而成的集合称为集合
-<span class="math inline">\(A\)</span> 和集合 <span
-class="math inline">\(B\)</span> 的 并。记作 <span
-class="math inline">\(A \cap B\)</span>。即：</p>
-<p><span class="math inline">\(A \cap B=\{x \mid x\in A \wedge x \in
-B\}\)</span></p>
-<p>基本推论： * <span class="math inline">\(A \cap B = B \cap A\)</span>
-* <span class="math inline">\(A \cap \emptyset = \emptyset\)</span></p>
-<h4 id="差运算">差运算</h4>
-<p>设 <span class="math inline">\(A,B\)</span> 为两个集合，则由属于集合
-<span class="math inline">\(A\)</span> 但不属于集合 <span
-class="math inline">\(B\)</span> 的所有元素汇集的集合称为集合 <span
-class="math inline">\(A\)</span> 与集合 <span
-class="math inline">\(B\)</span> 的差。记作 <span
-class="math inline">\(A\backslash B\)</span> 或 <span
-class="math inline">\(A − B\)</span>。即：</p>
-<p><span class="math inline">\(A\backslash B= \{x \in A \mid x \notin
-B\}\)</span></p>
-<p>基本推论： * <span class="math inline">\(A \backslash B =
-\emptyset\)</span> * <span class="math inline">\(A \backslash \emptyset
-= A\)</span> * <span class="math inline">\(\emptyset \backslash A =
-\emptyset\)</span></p>
-<h3 id="基本集合标记">基本集合标记</h3>
+<h4 id="交运算"><a href="#交运算" class="headerlink" title="交运算"></a>交运算</h4><p>设 $A,B$ 为两个集合，则由集合 $A$ 和集合 $B$ 中的公共元素汇集而成的集合称为集合 $A$ 和集合 $B$ 的 并。记作 $A \cap B$。即：</p>
+<p>$A \cap B={x \mid x\in A \wedge x \in B}$</p>
+<p>基本推论：</p>
 <ul>
-<li><span class="math inline">\(\mathbb{N}\)</span>
-表示所有自然数的数集</li>
-<li><span class="math inline">\(\mathbb{Z}\)</span>
-表示所有整数的数集</li>
-<li><span class="math inline">\(\mathbb{Q}\)</span>
-表示所有有理数：<span class="math inline">\(\{\frac{a}{b} \mid  a,b \in
-\mathbb{Z},b \neq 0\}\)</span></li>
-<li><span class="math inline">\(\mathbb{R}\)</span> 表示所有实数集</li>
-<li><span class="math inline">\(\mathbb{C}\)</span> 表示所有复数集</li>
+<li>$A \cap B = B \cap A$</li>
+<li>$A \cap \emptyset = \emptyset$</li>
 </ul>
-<h3 id="笛卡尔积cartesian-product">笛卡尔积（Cartesian product）</h3>
-<p>笛卡尔积，记作 <span class="math inline">\(A \times
-B\)</span>，表示两个集合中的 元素的有序对，即：</p>
-<p><span class="math inline">\(A \times B = \{(a,b) \mid a \in A,b \in
-B\}\)</span></p>
-<h3 id="幂集">幂集</h3>
-<p>幂集，就是原集合中所有的子集（包括全集和空集）构成的集。</p>
-<p><span class="math inline">\(S: \{T | T \subseteq S\}\)</span></p>
-<p>举个栗子，如果 <span class="math inline">\(S = \{1,2,3\}\)</span>,
-<span class="math inline">\(S\)</span>的幂集: <span
-class="math inline">\(P(S) =
-\{\emptyset,\{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},\{1,2,3\}\}\)</span>。</p>
-<p>如果 <span class="math inline">\(\mid S \mid = k\)</span>，那么 <span
-class="math inline">\(\mid P(S) \mid = 2^k\)</span>。</p>
-<h2 id="命题逻辑">命题逻辑</h2>
-<h3 id="命题">命题</h3>
-<p>能判断对错指代清楚的叫命题。例如： * 今天会下雨 * 根号三是无理数</p>
-<h3 id="逻辑符号">逻辑符号</h3>
-<ol type="1">
-<li>合取：记作 <span class="math inline">\(q \land
-p\)</span>，只有两个都为真，结果才为真。</li>
-<li>析取：记作 <span class="math inline">\(q \lor
-p\)</span>，两个只要有一个真，结果就为真。</li>
-<li>否定：记作 <span class="math inline">\(\lnot p\)</span>，p
-的否定，非 p。</li>
+<h4 id="差运算"><a href="#差运算" class="headerlink" title="差运算"></a>差运算</h4><p>设 $A,B$ 为两个集合，则由属于集合 $A$ 但不属于集合 $B$ 的所有元素汇集的集合称为集合 $A$ 与集合 $B$ 的差。记作 $A\backslash B$ 或 $A − B$。即：</p>
+<p>$A\backslash B= {x \in A \mid x \notin B}$</p>
+<p>基本推论：</p>
+<ul>
+<li>$A \backslash B = \emptyset$</li>
+<li>$A \backslash \emptyset = A$</li>
+<li>$\emptyset \backslash A = \emptyset$</li>
+</ul>
+<h3 id="基本集合标记"><a href="#基本集合标记" class="headerlink" title="基本集合标记"></a>基本集合标记</h3><ul>
+<li>$\mathbb{N}$ 表示所有自然数的数集</li>
+<li>$\mathbb{Z}$ 表示所有整数的数集</li>
+<li>$\mathbb{Q}$ 表示所有有理数：${\frac{a}{b} \mid  a,b \in \mathbb{Z},b \neq 0}$</li>
+<li>$\mathbb{R}$ 表示所有实数集</li>
+<li>$\mathbb{C}$ 表示所有复数集</li>
+</ul>
+<h3 id="笛卡尔积（Cartesian-product）"><a href="#笛卡尔积（Cartesian-product）" class="headerlink" title="笛卡尔积（Cartesian product）"></a>笛卡尔积（Cartesian product）</h3><p>笛卡尔积，记作 $A \times B$，表示两个集合中的 元素的有序对，即：</p>
+<p>$A \times B = {(a,b) \mid a \in A,b \in B}$</p>
+<h3 id="幂集"><a href="#幂集" class="headerlink" title="幂集"></a>幂集</h3><p>幂集，就是原集合中所有的子集（包括全集和空集）构成的集。</p>
+<p>$S: {T | T \subseteq S}$</p>
+<p>举个栗子，如果 $S = {1,2,3}$, $S$的幂集: $P(S) = {\emptyset,{1},{2},{3},{1,2},{1,3},{2,3},{1,2,3}}$。</p>
+<p>如果 $\mid S \mid = k$，那么 $\mid P(S) \mid = 2^k$。</p>
+<h2 id="命题逻辑"><a href="#命题逻辑" class="headerlink" title="命题逻辑"></a>命题逻辑</h2><h3 id="命题"><a href="#命题" class="headerlink" title="命题"></a>命题</h3><p>能判断对错指代清楚的叫命题。例如：</p>
+<ul>
+<li>今天会下雨</li>
+<li>根号三是无理数</li>
+</ul>
+<h3 id="逻辑符号"><a href="#逻辑符号" class="headerlink" title="逻辑符号"></a>逻辑符号</h3><ol>
+<li>合取：记作 $q \land p$，只有两个都为真，结果才为真。</li>
+<li>析取：记作 $q \lor p$，两个只要有一个真，结果就为真。</li>
+<li>否定：记作 $\lnot p$，p 的否定，非 p。</li>
 </ol>
-<p>永真式：表示无论变量如何，永远为真的式子。例如：<span
-class="math inline">\(P \lor \lnot Q\)</span></p>
-<p>矛盾式：表示无论变量如何，永远为假的式子。例如：<span
-class="math inline">\(P \land \lnot Q\)</span></p>
+<p>永真式：表示无论变量如何，永远为真的式子。例如：$P \lor \lnot Q$</p>
+<p>矛盾式：表示无论变量如何，永远为假的式子。例如：$P \land \lnot Q$</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th><span class="math inline">\(P\)</span></th>
-<th><span class="math inline">\(Q\)</span></th>
-<th><span class="math inline">\(P \land Q\)</span></th>
-<th><span class="math inline">\(P \lor Q\)</span></th>
-<th><span class="math inline">\(\lnot P\)</span></th>
+<th>$P$</th>
+<th>$Q$</th>
+<th>$P \land Q$</th>
+<th>$P \lor Q$</th>
+<th>$\lnot P$</th>
 </tr>
 </thead>
 <tbody>
@@ -384,43 +336,32 @@ class="math inline">\(P \land \lnot Q\)</span></p>
 </tr>
 </tbody>
 </table>
-<ol start="4" type="1">
-<li><p>蕴含式：<span class="math inline">\(P \implies Q\)</span>（P 蕴含
-Q），若 <span class="math inline">\(P\)</span> 为真，则 <span
-class="math inline">\(Q\)</span> 为真。</p>
+</div>
+<ol>
+<li><p>蕴含式：$P \implies Q$（P 蕴含 Q），若 $P$ 为真，则 $Q$ 为真。</p>
 <ul>
-<li>简单关系：<span class="math inline">\((P \implies Q) \equiv (\lnot P
-\lor Q)\)</span>。</li>
-<li>如果 <span class="math inline">\(P \implies Q\)</span> 和 <span
-class="math inline">\(Q \implies P\)</span> 都为真，记作 <span
-class="math inline">\(P \iff Q\)</span>，等价号。</li>
-</ul></li>
+<li>简单关系：$(P \implies Q) \equiv (\lnot P \lor Q)$。</li>
+<li>如果 $P \implies Q$ 和 $Q \implies P$ 都为真，记作 $P \iff Q$，等价号。</li>
+</ul>
+</li>
 </ol>
-<p>已知 <span class="math inline">\(P \implies
-Q\)</span>，我们可以定义： * 逆否命题为真：<span
-class="math inline">\(\lnot Q \implies \lnot P\)</span> * 逆命题：<span
-class="math inline">\(Q \implies P\)</span></p>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 15%" />
-<col style="width: 15%" />
-<col style="width: 29%" />
-<col style="width: 12%" />
-</colgroup>
+<p>已知 $P \implies Q$，我们可以定义：</p>
+<ul>
+<li>逆否命题为真：$\lnot Q \implies \lnot P$</li>
+<li>逆命题：$Q \implies P$</li>
+</ul>
+<div class="table-container">
+<table>
 <thead>
 <tr>
-<th><span class="math inline">\(P\)</span></th>
-<th><span class="math inline">\(Q\)</span></th>
-<th><span class="math inline">\(\lnot P\)</span></th>
-<th><span class="math inline">\(\lnot Q\)</span></th>
-<th><span class="math inline">\(P \implies Q\)</span></th>
-<th><span class="math inline">\(Q \implies P\)</span></th>
-<th><span class="math inline">\(\lnot Q \implies \lnot P\)</span></th>
-<th><span class="math inline">\(P \iff Q\)</span></th>
+<th>$P$</th>
+<th>$Q$</th>
+<th>$\lnot P$</th>
+<th>$\lnot Q$</th>
+<th>$P \implies Q$</th>
+<th>$Q \implies P$</th>
+<th>$\lnot Q \implies \lnot P$</th>
+<th>$P \iff Q$</th>
 </tr>
 </thead>
 <tbody>
@@ -466,27 +407,16 @@ class="math inline">\(Q \implies P\)</span></p>
 </tr>
 </tbody>
 </table>
-<h3 id="量词">量词</h3>
-<p>全称量词：全称量词表示命题对所有元素都成立，通常用符号 <span
-class="math inline">\(\forall\)</span> 表示。</p>
-<p>存在量词：存在量词表示命题对至少一个元素成立，通常用符号 <span
-class="math inline">\(\exists\)</span> 表示。</p>
+</div>
+<h3 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h3><p>全称量词：全称量词表示命题对所有元素都成立，通常用符号 $\forall$ 表示。</p>
+<p>存在量词：存在量词表示命题对至少一个元素成立，通常用符号 $\exists$ 表示。</p>
 <p>我们从高中用到大学，不再赘述了。</p>
-<h3 id="处理否定的一些定律">处理否定的一些定律</h3>
-<h4 id="德摩根定律">德摩根定律</h4>
-<p><span class="math display">\[\lnot (P \land Q) \equiv (\lnot P \lor
-\lnot Q)\]</span> <span class="math display">\[\lnot (P \lor Q) \equiv
-(\lnot P \land \lnot Q)\]</span></p>
-<h4 id="有关量词的一些定律">有关量词的一些定律</h4>
-<p><span class="math inline">\(\lnot (\forall x P(x))\equiv \exists x
-\lnot P(x)\)</span></p>
-<p><span class="math inline">\(\lnot (\exists x P(x))\equiv \forall x
-\lnot P(x)\)</span></p>
+<h3 id="处理否定的一些定律"><a href="#处理否定的一些定律" class="headerlink" title="处理否定的一些定律"></a>处理否定的一些定律</h3><h4 id="德摩根定律"><a href="#德摩根定律" class="headerlink" title="德摩根定律"></a>德摩根定律</h4><script type="math/tex; mode=display">\lnot (P \land Q) \equiv (\lnot P \lor \lnot Q)</script><script type="math/tex; mode=display">\lnot (P \lor Q) \equiv (\lnot P \land \lnot Q)</script><h4 id="有关量词的一些定律"><a href="#有关量词的一些定律" class="headerlink" title="有关量词的一些定律"></a>有关量词的一些定律</h4><p>$\lnot (\forall x P(x))\equiv \exists x \lnot P(x)$</p>
+<p>$\lnot (\exists x P(x))\equiv \forall x \lnot P(x)$</p>
 <p>下面还有更复杂一些的：</p>
-<p><span class="math display">\[\lnot (\forall x \exists y P(x,y))
-\equiv \exists x \lnot(\exists y P(x,y))
-\equiv \exists x \forall y \lnot P(x,y)\]</span></p>
-
+<script type="math/tex; mode=display">\lnot (\forall x \exists y P(x,y)) 
+\equiv \exists x \lnot(\exists y P(x,y)) 
+\equiv \exists x \forall y \lnot P(x,y)</script>
             </div>
             <hr>
             <div>

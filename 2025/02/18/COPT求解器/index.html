@@ -16,15 +16,15 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="COPT 简介 杉数求解器COPT（Cardinal Optimizer）是杉数自主研发的针对大规模优化问题的高效数学规划求解器套件，也是支撑杉数端到端供应链平台的核心组件，是目前同时具备大规模混合整数规划、线性规划（单纯形法和内点法）、半定规划、（混合整数）二阶锥规划以及（混合整数）凸二次规划和（混合整数）凸二次约束规划问题求解能力的综合性能数学规划求解器。 其实现在感觉这个 COPT">
+  <meta name="description" content="COPT简介杉数求解器COPT（Cardinal Optimizer）是杉数自主研发的针对大规模优化问题的高效数学规划求解器套件，也是支撑杉数端到端供应链平台的核心组件，是目前同时具备大规模混合整数规划、线性规划（单纯形法和内点法）、半定规划、（混合整数）二阶锥规划以及（混合整数）凸二次规划和（混合整数）凸二次约束规划问题求解能力的综合性能数学规划求解器。 其实现在感觉这个 COPT 在国内挺冷门">
 <meta property="og:type" content="article">
 <meta property="og:title" content="COPT求解器">
 <meta property="og:url" content="https://skys0.github.io/2025/02/18/COPT%E6%B1%82%E8%A7%A3%E5%99%A8/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="COPT 简介 杉数求解器COPT（Cardinal Optimizer）是杉数自主研发的针对大规模优化问题的高效数学规划求解器套件，也是支撑杉数端到端供应链平台的核心组件，是目前同时具备大规模混合整数规划、线性规划（单纯形法和内点法）、半定规划、（混合整数）二阶锥规划以及（混合整数）凸二次规划和（混合整数）凸二次约束规划问题求解能力的综合性能数学规划求解器。 其实现在感觉这个 COPT">
+<meta property="og:description" content="COPT简介杉数求解器COPT（Cardinal Optimizer）是杉数自主研发的针对大规模优化问题的高效数学规划求解器套件，也是支撑杉数端到端供应链平台的核心组件，是目前同时具备大规模混合整数规划、线性规划（单纯形法和内点法）、半定规划、（混合整数）二阶锥规划以及（混合整数）凸二次规划和（混合整数）凸二次约束规划问题求解能力的综合性能数学规划求解器。 其实现在感觉这个 COPT 在国内挺冷门">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-02-18T09:01:34.000Z">
-<meta property="article:modified_time" content="2025-02-18T15:10:39.582Z">
+<meta property="article:modified_time" content="2025-02-19T15:07:51.871Z">
 <meta property="article:author" content="Skys">
 <meta property="article:tag" content="Math">
 <meta property="article:tag" content="线性规划">
@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.5k 字
+      4.8k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      11 分钟
+      15 分钟
     </span>
   
 
@@ -240,20 +240,14 @@
             <h1 style="display: none">COPT求解器</h1>
             
             <div class="markdown-body">
-              <h2 id="copt">COPT</h2>
-<h3 id="简介">简介</h3>
-<p>杉数求解器COPT（Cardinal
-Optimizer）是杉数自主研发的针对大规模优化问题的高效数学规划求解器套件，也是支撑杉数端到端供应链平台的核心组件，是目前同时具备大规模混合整数规划、线性规划（单纯形法和内点法）、半定规划、（混合整数）二阶锥规划以及（混合整数）凸二次规划和（混合整数）凸二次约束规划问题求解能力的综合性能数学规划求解器。</p>
-<p>其实现在感觉这个 COPT
-在国内挺冷门的，自己就来看看官方文档以及一些课程，同步写在这篇文档下吧。</p>
-<h3 id="注意事项">注意事项</h3>
-<p>在写代码找到了一些很难被发现的东西，就写在这里吧。</p>
+              <h2 id="COPT"><a href="#COPT" class="headerlink" title="COPT"></a>COPT</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>杉数求解器COPT（Cardinal Optimizer）是杉数自主研发的针对大规模优化问题的高效数学规划求解器套件，也是支撑杉数端到端供应链平台的核心组件，是目前同时具备大规模混合整数规划、线性规划（单纯形法和内点法）、半定规划、（混合整数）二阶锥规划以及（混合整数）凸二次规划和（混合整数）凸二次约束规划问题求解能力的综合性能数学规划求解器。</p>
+<p>其实现在感觉这个 COPT 在国内挺冷门的，自己就来看看官方文档以及一些课程，同步写在这篇文档下吧。</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>在写代码找到了一些很难被发现的东西，就写在这里吧。</p>
 <ul>
-<li>对于COPT的变量，在<code>addVar()</code>中默认<code>lb=0,rb=COPT.INFINITY</code>，也就是
-<span class="math inline">\([0,+\infty)\)</span></li>
+<li>对于COPT的变量，在<code>addVar()</code>中默认<code>lb=0,rb=COPT.INFINITY</code>，也就是 $[0,+\infty)$</li>
 </ul>
-<h3 id="模型的求解状态">模型的求解状态</h3>
-<p>可以通过访问<code>Model.status</code>查看模型求解状态，<code>COPT.UNSTARTED</code>表示当前模型未开始求解。下面列出4个常见的求解状态。</p>
+<h3 id="模型的求解状态"><a href="#模型的求解状态" class="headerlink" title="模型的求解状态"></a>模型的求解状态</h3><p>可以通过访问<code>Model.status</code>查看模型求解状态，<code>COPT.UNSTARTED</code>表示当前模型未开始求解。下面列出4个常见的求解状态。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -280,29 +274,25 @@ Optimizer）是杉数自主研发的针对大规模优化问题的高效数学�
 </tr>
 </tbody>
 </table>
-<h3 id="求解器的优化参数">求解器的优化参数</h3>
-<p>通过 <code>Model.setParam()</code>设置求解器的优化参数</p>
+</div>
+<h3 id="求解器的优化参数"><a href="#求解器的优化参数" class="headerlink" title="求解器的优化参数"></a>求解器的优化参数</h3><p>通过 <code>Model.setParam()</code>设置求解器的优化参数</p>
 <p><code>setParam(paramname, newval)</code></p>
-<p><code>paramname</code> 为指定的优化参数，<code>newval</code>
-为指定的优化参数新值。</p>
-<p>下面有一些可能会用到的优化参数，<a
-target="_blank" rel="noopener" href="https://guide.coap.online/copt/zh-doc/parameter.html#chapparam">可以随时查看全部</a>：</p>
+<p><code>paramname</code> 为指定的优化参数，<code>newval</code> 为指定的优化参数新值。</p>
+<p>下面有一些可能会用到的优化参数，<a target="_blank" rel="noopener" href="https://guide.coap.online/copt/zh-doc/parameter.html#chapparam">可以随时查看全部</a>：</p>
 <ul>
 <li><p><code>TimeLimit</code></p>
 <ul>
 <li>浮点数参数，优化求解的时间限制（秒）。</li>
-<li><strong>默认值</strong> <span
-class="math inline">\(10^{20}\)</span></li>
-<li><strong>最小值</strong> <span class="math inline">\(0\)</span></li>
-<li><strong>最大值</strong> <span
-class="math inline">\(10^{20}\)</span></li>
-</ul></li>
+<li><strong>默认值</strong> $10^{20}$</li>
+<li><strong>最小值</strong> $0$</li>
+<li><strong>最大值</strong> $10^{20}$</li>
+</ul>
+</li>
 <li><p><code>LpMethod</code></p>
 <ul>
 <li>整数参数，求解线性规划问题的算法。</li>
 <li><strong>默认值</strong> -1</li>
-<li><strong>可选值</strong>
-<ul>
+<li><strong>可选值</strong><ul>
 <li>-1：自动选择：对于线性规划问题，选择对偶单纯形法，对于混合整数线性规划问题，选择对偶单纯形法或内点法之一。</li>
 <li>1：对偶单纯形法。</li>
 <li>2：内点法</li>
@@ -310,14 +300,15 @@ class="math inline">\(10^{20}\)</span></li>
 <li>4：并发求解（同时启动单纯形法与内点法求解）。</li>
 <li>5：基于稀疏和数值范围等特征自动选择单纯形法或者内点法。</li>
 <li>6：使用一阶算法（PDLP)求解。</li>
-</ul></li>
-</ul></li>
 </ul>
-<h2 id="结果获取及分析">结果获取及分析</h2>
-<p>求解完成后，若模型有最优解，则可以获取模型求解状态、决策变量最优解、目标函数最优值等信息，通过访问<code>Model</code>,
-<code>Val</code>类的成员属性获取。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="结果获取及分析"><a href="#结果获取及分析" class="headerlink" title="结果获取及分析"></a>结果获取及分析</h3><p>求解完成后，若模型有最优解，则可以获取模型求解状态、决策变量最优解、目标函数最优值等信息，通过访问<code>Model</code>, <code>Val</code>类的成员属性获取。</p>
 <p><code>Model.getVars()</code>获取模型中所有的决策变量，<code>Model.getConstrs()</code>获取模型中所有的约束条件。</p>
 <p><strong>获取模型结果的主要成员属性和方法</strong>如下表所示：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -352,8 +343,9 @@ class="math inline">\(10^{20}\)</span></li>
 </tr>
 </tbody>
 </table>
-<p><code>Model.status == COPT.OPTIMAL</code>
-表示模型成功求得最优解，更多模型可能状态如下表所示：</p>
+</div>
+<p><code>Model.status == COPT.OPTIMAL</code> 表示模型成功求得最优解，更多模型可能状态如下表所示：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -400,97 +392,96 @@ class="math inline">\(10^{20}\)</span></li>
 </tr>
 </tbody>
 </table>
-<h3 id="model.addgenconstrand">Model.addGenConstrAnd()</h3>
-<h4 id="摘要">摘要</h4>
-<p><code>addGenConstrAnd(resvar, vars, name="")</code></p>
-<h4 id="描述">描述</h4>
-<p>添加一条逻辑 <code>and</code> 约束，<span class="math inline">\(y=x_1
-\ \text{and} \ x_2 \dots\text{and} \ x_n\)</span> 至模型中。</p>
-<h4 id="参量">参量</h4>
-<p><code>resvar</code> ：等式左端项 <code>y</code>，二进制型</p>
+</div>
+<h3 id="multidict"><a href="#multidict" class="headerlink" title="multidict()"></a><strong>multidict</strong>()</h3><h4 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h4><p><code>multidict(data)</code></p>
+<h4 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h4><p>将输入的字典对象拆分为键与多个字典对象并返回。</p>
+<p>可以将输入的字典对象<code>data</code>拆分为键和多个字典对象。参数<code>data</code>是待拆分的字典对象，每个<code>key</code>映射 <strong>n</strong> 个值，拆分后会形成 <strong>n</strong> 个新的字典对象。</p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">nutrition, minNutrition, maxNutrition = multidict(&#123;<br>    <span class="hljs-string">&#x27;Vitamin A&#x27;</span>:  [<span class="hljs-number">700</span>, <span class="hljs-number">10000</span>],<br>    <span class="hljs-string">&#x27;Vitamin C&#x27;</span>:  [<span class="hljs-number">700</span>, <span class="hljs-number">10000</span>],<br>    <span class="hljs-string">&#x27;Vitamin B1&#x27;</span>: [<span class="hljs-number">700</span>, <span class="hljs-number">10000</span>],<br>    <span class="hljs-string">&#x27;Vitamin B2&#x27;</span>: [<span class="hljs-number">700</span>, <span class="hljs-number">10000</span>]&#125;)<br><span class="hljs-comment"># nutrition = [&#x27;Vitamin A&#x27;, &#x27;Vitamin C&#x27;, &#x27;Vitamin B1&#x27;, &#x27;Vitamin B2&#x27;]</span><br><span class="hljs-comment"># minNutrition = &#123;&#x27;Vitamin A&#x27;: 700, &#x27;Vitamin C&#x27;: 700, &#x27;Vitamin B1&#x27;: 700, &#x27;Vitamin B2&#x27;: 700&#125;</span><br><span class="hljs-comment"># maxNutrition = &#123;&#x27;Vitamin A&#x27;: 10000, &#x27;Vitamin C&#x27;: 10000, &#x27;Vitamin B1&#x27;: 10000, &#x27;Vitamin B2&#x27;: 10000&#125;</span><br></code></pre></div></td></tr></table></figure>
+<h3 id="Model-addGenConstrAnd"><a href="#Model-addGenConstrAnd" class="headerlink" title="Model.addGenConstrAnd()"></a>Model.addGenConstrAnd()</h3><h4 id="摘要-1"><a href="#摘要-1" class="headerlink" title="摘要"></a>摘要</h4><p><code>addGenConstrAnd(resvar, vars, name=&quot;&quot;)</code></p>
+<h4 id="描述-1"><a href="#描述-1" class="headerlink" title="描述"></a>描述</h4><p>添加一条逻辑 <code>and</code> 约束，$y=x_1 \ \text{and} \ x_2 \dots\text{and} \ x_n$ 至模型中。</p>
+<h4 id="参量"><a href="#参量" class="headerlink" title="参量"></a>参量</h4><p><code>resvar</code> ：等式左端项  <code>y</code>，二进制型</p>
 <p><code>vars</code>：用 <code>and</code> 连接的变量，一般为列表类型</p>
 <p><code>name</code>：约束名称，可选参数</p>
-<h4 id="例子">例子</h4>
-<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># Add logical constraint: y = x1 &amp; x2</span><br>model.addGenConstrAnd(y, [x1, x2], name=<span class="hljs-string">&quot;and_constr&quot;</span>)<br></code></pre></div></td></tr></table></figure>
-<p>同理，添加一条逻辑 <code>or</code>
-约束，为<code>Model.addGenConstrOr()</code>，这里不再赘述。</p>
-<h3 id="model.addgenconstrabs">Model.addGenConstrAbs()</h3>
-<h4 id="摘要-1">摘要</h4>
-<p><code>addGenConstrAbs(resvar, argvar, name="")</code></p>
-<h4 id="描述-1">描述</h4>
-<p>添加⼀条形如 <span class="math inline">\(cy+d=|ax+b|\)</span>
-的约束到模型中。</p>
-<h4 id="参量-1">参量</h4>
-<p><code>resvar</code>：<span class="math inline">\(cy+d\)</span>
-，可取值为 <code>Var</code> 类、 <code>MVar</code> 类、
-<code>LinExpr</code> 类 或 <code>MLinExpr</code> 对象。</p>
-<p><code>argvar</code>：<span class="math inline">\(ax+b\)</span>
-，可取值为 <code>Var</code> 类、 <code>MVar</code> 类、
-<code>LinExpr</code> 类 或 <code>MLinExpr</code> 对象。</p>
+<h4 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h4><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># Add logical constraint: y = x1 &amp; x2</span><br>model.addGenConstrAnd(y, [x1, x2], name=<span class="hljs-string">&quot;and_constr&quot;</span>)<br></code></pre></div></td></tr></table></figure>
+<p>同理，添加一条逻辑 <code>or</code> 约束，为<code>Model.addGenConstrOr()</code>，这里不再赘述。</p>
+<h3 id="Model-addGenConstrAbs"><a href="#Model-addGenConstrAbs" class="headerlink" title="Model.addGenConstrAbs()"></a>Model.addGenConstrAbs()</h3><h4 id="摘要-2"><a href="#摘要-2" class="headerlink" title="摘要"></a>摘要</h4><p><code>addGenConstrAbs(resvar, argvar, name=&quot;&quot;)</code></p>
+<h4 id="描述-2"><a href="#描述-2" class="headerlink" title="描述"></a>描述</h4><p>添加⼀条形如 $cy+d=|ax+b|$ 的约束到模型中。</p>
+<h4 id="参量-1"><a href="#参量-1" class="headerlink" title="参量"></a>参量</h4><p><code>resvar</code>：$cy+d$ ，可取值为 <code>Var</code> 类、 <code>MVar</code> 类、 <code>LinExpr</code> 类 或 <code>MLinExpr</code> 对象。</p>
+<p><code>argvar</code>：$ax+b$ ，可取值为 <code>Var</code> 类、 <code>MVar</code> 类、 <code>LinExpr</code> 类 或 <code>MLinExpr</code> 对象。</p>
 <p><code>name</code>：约束名称，可选参数</p>
-<h3 id="model.addgenconstrmin">Model.addGenConstrMin()</h3>
-<h4 id="摘要-2">摘要</h4>
-<p><code>addGenConstrMin(resvar, vars, constant=None, name="")</code></p>
-<h4 id="描述-2">描述</h4>
-<p>添加⼀条形如 <span
-class="math inline">\(y=\min\{x_1,x_2,\dots,x_n,c\}\)</span>
-的约束到模型中。</p>
-<h4 id="参量-2">参量</h4>
-<p><code>resvar</code>：等式左端项 <code>y</code></p>
-<p><code>vars</code>：等式右端 <span
-class="math inline">\(\min\{\}\)</span> 函数的变量</p>
-<p><code>constant</code>：等式右端 <span
-class="math inline">\(\min\{\}\)</span> 函数中的常数项，可选参数</p>
+<h3 id="Model-addGenConstrMin"><a href="#Model-addGenConstrMin" class="headerlink" title="Model.addGenConstrMin()"></a>Model.addGenConstrMin()</h3><h4 id="摘要-3"><a href="#摘要-3" class="headerlink" title="摘要"></a>摘要</h4><p><code>addGenConstrMin(resvar, vars, constant=None, name=&quot;&quot;)</code></p>
+<h4 id="描述-3"><a href="#描述-3" class="headerlink" title="描述"></a>描述</h4><p>添加⼀条形如 $y=\min{x_1,x_2,\dots,x_n,c}$ 的约束到模型中。</p>
+<h4 id="参量-2"><a href="#参量-2" class="headerlink" title="参量"></a>参量</h4><p><code>resvar</code>：等式左端项 <code>y</code> </p>
+<p><code>vars</code>：等式右端 $\min{}$ 函数的变量</p>
+<p><code>constant</code>：等式右端 $\min{}$ 函数中的常数项，可选参数</p>
 <p><code>name</code>：约束名称，可选参数</p>
 <p>添加最大值同理：<code>Model.addGenConstrMax()</code></p>
-<h3 id="model.addgenconstrpwl">Model.addGenConstrPWL()</h3>
-<h4 id="摘要-3">摘要</h4>
-<p><code>addGenConstrPWL(xvar, yvar, xpts, ypts, name="")</code></p>
-<h4 id="描述-3">描述</h4>
-<p>添加形如 <span class="math inline">\(y=f(x)\)</span> 的约束。</p>
-<h4 id="参量-3">参量</h4>
-<p><code>xvar</code>：<code>x</code> ，可取值为 <code>Var</code>
-类对象或 <code>MVar</code> 类对象。</p>
-<p><code>yvar</code>：等式左端项 <code>y</code></p>
-<p><code>xpts</code>： <span
-class="math inline">\(\hat{x}\)</span>，分段点的横坐标，需按照取值从小到大的顺序排列，可取值为
-<code>List</code> 类。</p>
-<p><code>ypts</code>：<span
-class="math inline">\(\hat{y}\)</span>，分段点的纵坐标，可取值为
-<code>List</code> 类。</p>
-<p><code>name</code>：约束名称，可选参数</p>
-<h4 id="例子-1">例子</h4>
-<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># Set non-linear functions f(x) and g(z) (converting to PWL constraints)</span><br>npts = <span class="hljs-number">101</span>	<span class="hljs-comment"># 分成 100 份</span><br>ptu = []<br>ptf = []<br>ptg = []<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(npts):<br>    ptu.append(lb + (ub - lb) * i / (npts - <span class="hljs-number">1</span>))		<span class="hljs-comment"># ptu 是间断的 100 个点</span><br>    ptf.append(f(ptu[i]))		<span class="hljs-comment"># ptf 是对应 f(x) 的 100 个点的函数值</span><br>    ptg.append(g(ptu[i]))		<span class="hljs-comment"># ptg 是对应 g(x) 的 100 个点的函数值</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Ptu:&quot;</span>, ptu)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Ptf:&quot;</span>, ptf)<br>m.addGenConstrPWL(x, s, ptu, ptf, name=<span class="hljs-string">&#x27;f_exp&#x27;</span>)<br>m.addGenConstrPWL(z, t, ptu, ptg, name=<span class="hljs-string">&#x27;g_sqrt&#x27;</span>)<br></code></pre></div></td></tr></table></figure>
-<h3 id="quicksum">quicksum()</h3>
-<h4 id="摘要-4">摘要</h4>
-<p><code>quicksum(data)</code></p>
-<h4 id="描述-4">描述</h4>
-<p>快速构建表达式，求和</p>
-<h4 id="参量-4">参量</h4>
-<p><code>data</code>：生成表达式待加项</p>
-<h4 id="例子-2">例子</h4>
-<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">cp.quicksum(fixed_costs[i] * y[i] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> lines)<br><span class="hljs-comment"># 可以这种写法：列表推导式</span><br></code></pre></div></td></tr></table></figure>
+<h3 id="Model-addGenConstrPWL"><a href="#Model-addGenConstrPWL" class="headerlink" title="Model.addGenConstrPWL()"></a>Model.addGenConstrPWL()</h3><h4 id="摘要-4"><a href="#摘要-4" class="headerlink" title="摘要"></a>摘要</h4><p><code>addGenConstrPWL(xvar, yvar, xpts, ypts, name=&quot;&quot;)</code></p>
+<h4 id="描述-4"><a href="#描述-4" class="headerlink" title="描述"></a>描述</h4><p>添加形如 $y=f(x)$ 的约束。</p>
+<h4 id="参量-3"><a href="#参量-3" class="headerlink" title="参量"></a>参量</h4><p><code>xvar</code>：<code>x</code> ，可取值为 <code>Var</code> 类对象或 <code>MVar</code> 类对象。</p>
+<p><code>yvar</code>：等式左端项 <code>y</code> </p>
+<p><code>xpts</code>： $\hat{x}$，分段点的横坐标，需按照取值从小到大的顺序排列，可取值为 <code>List</code> 类。</p>
+<p><code>ypts</code>：$\hat{y}$，分段点的纵坐标，可取值为 <code>List</code> 类。</p>
+<p><code>name</code>：约束名称，可选参数 </p>
+<h4 id="例子-2"><a href="#例子-2" class="headerlink" title="例子"></a>例子</h4><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># Set non-linear functions f(x) and g(z) (converting to PWL constraints)</span><br>npts = <span class="hljs-number">101</span>	<span class="hljs-comment"># 分成 100 份</span><br>ptu = []<br>ptf = []<br>ptg = []<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(npts):<br>    ptu.append(lb + (ub - lb) * i / (npts - <span class="hljs-number">1</span>))		<span class="hljs-comment"># ptu 是间断的 100 个点</span><br>    ptf.append(f(ptu[i]))		<span class="hljs-comment"># ptf 是对应 f(x) 的 100 个点的函数值</span><br>    ptg.append(g(ptu[i]))		<span class="hljs-comment"># ptg 是对应 g(x) 的 100 个点的函数值</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Ptu:&quot;</span>, ptu)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Ptf:&quot;</span>, ptf)<br>m.addGenConstrPWL(x, s, ptu, ptf, name=<span class="hljs-string">&#x27;f_exp&#x27;</span>)<br>m.addGenConstrPWL(z, t, ptu, ptg, name=<span class="hljs-string">&#x27;g_sqrt&#x27;</span>)<br></code></pre></div></td></tr></table></figure>
+<h3 id="quicksum"><a href="#quicksum" class="headerlink" title="quicksum()"></a>quicksum()</h3><h4 id="摘要-5"><a href="#摘要-5" class="headerlink" title="摘要"></a>摘要</h4><p><code>quicksum(data)</code></p>
+<h4 id="描述-5"><a href="#描述-5" class="headerlink" title="描述"></a>描述</h4><p>快速构建表达式，求和</p>
+<h4 id="参量-4"><a href="#参量-4" class="headerlink" title="参量"></a>参量</h4><p><code>data</code>：生成表达式待加项</p>
+<h4 id="例子-3"><a href="#例子-3" class="headerlink" title="例子"></a>例子</h4><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">cp.quicksum(fixed_costs[i] * y[i] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> lines)<br><span class="hljs-comment"># 可以这种写法：列表推导式</span><br></code></pre></div></td></tr></table></figure>
 <p>这里提一下这里的写法有点奇怪：<strong>列表推导式</strong>的基本语法如下：<code>[表达式 for 元素 in 可迭代对象 if 条件]</code>，这种可以比较优美的写出一个列表，感觉还挺符合阅读习惯的。</p>
-<h3 id="model.addgenconstrindicator">Model.addGenConstrIndicator()</h3>
-<h4 id="摘要-5">摘要</h4>
-<p><code>addGenConstrIndicator(binvar, binval, lhs, sense=None, rhs=None, type=COPT.INDICATOR_IF, name="")</code></p>
-<h4 id="描述-5">描述</h4>
-<p>添加一个指定类型的指示约束(Indicator)到模型中</p>
-<h4 id="参量-5">参量</h4>
-<p><code>binvar</code>：Indicator变量。</p>
-<p><code>binval</code>：Indicator变量的取值，可取值为 <code>True</code>
-或 <code>False</code> 。</p>
+<h3 id="Model-addGenConstrIndicator"><a href="#Model-addGenConstrIndicator" class="headerlink" title="Model.addGenConstrIndicator()"></a>Model.addGenConstrIndicator()</h3><h4 id="摘要-6"><a href="#摘要-6" class="headerlink" title="摘要"></a>摘要</h4><p><code>addGenConstrIndicator(binvar, binval, lhs, sense=None, rhs=None, type=COPT.INDICATOR_IF, name=&quot;&quot;)</code></p>
+<h4 id="描述-6"><a href="#描述-6" class="headerlink" title="描述"></a>描述</h4><p>添加一个指定类型的指示约束(Indicator)到模型中</p>
+<h4 id="参量-5"><a href="#参量-5" class="headerlink" title="参量"></a>参量</h4><p><code>binvar</code>：Indicator变量。</p>
+<p><code>binval</code>：Indicator变量的取值，可取值为 <code>True</code> 或 <code>False</code> 。</p>
 <p><code>lhs</code>：Indicator约束中线性约束的左端项或线性约束构建器。</p>
-<p><code>sense</code>：Indicator约束中线性约束的<strong>类型</strong>。可选参量（其实可以省略，直接放到
-<code>lhs</code> 上一起写））</p>
-<p><code>rhs</code>：Indicator约束中线性约束的左端项或线性约束构建器。（其实可以省略，直接放到
-<code>lhs</code> 上一起写）</p>
+<p><code>sense</code>：Indicator约束中线性约束的<strong>类型</strong>。可选参量（其实可以省略，直接放到 <code>lhs</code> 上一起写））</p>
+<p><code>rhs</code>：Indicator约束中线性约束的左端项或线性约束构建器。（其实可以省略，直接放到 <code>lhs</code> 上一起写）</p>
 <p><code>type</code>：Indicator约束的类型。可选参量。有以下参数可以选：</p>
 <ul>
-<li><code>COPT.INDICATOR_IF</code>（If-Then约束）</li>
-<li><code>COPT.INDICATOR_ONLYIF</code> （Only-If约束）</li>
-<li><code>COPT.INDICATOR_ONLYIF</code>（If-and-Only-If约束）</li>
+<li><p><code>COPT.INDICATOR_IF</code>（If-Then约束）</p>
+</li>
+<li><p><code>COPT.INDICATOR_ONLYIF</code> （Only-If约束）</p>
+</li>
+<li><p><code>COPT.INDICATOR_ONLYIF</code>（If-and-Only-If约束）</p>
+</li>
 </ul>
+<h3 id="model-addVars"><a href="#model-addVars" class="headerlink" title="model.addVars()"></a>model.addVars()</h3><h4 id="摘要-7"><a href="#摘要-7" class="headerlink" title="摘要"></a>摘要</h4><p><code>addVars(*indices, lb=0.0, ub=COPT.INFINITY, obj=0.0, vtype=COPT.CONTINUOUS, nameprefix=&quot;C&quot;)</code></p>
+<h4 id="描述-7"><a href="#描述-7" class="headerlink" title="描述"></a>描述</h4><p>添加一组变量到模型中，并返回一个 tupledict 类对象， 其键为变量的下标，值为相应的 Var 类对象。</p>
+<p>这里的 <code>lb,ub,vtype</code> 与 <code>addVar()</code> 中一致，但是其中 <code>*indices</code>和<code>nameprefix</code>两个参数的设置有所区别，如下表所示：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*indices</code></td>
+<td>变量下标</td>
+<td>2种指定方式</td>
+</tr>
+<tr>
+<td><code>nameprefix</code></td>
+<td>变量名称前缀</td>
+<td>默认C，实际名称：前缀+下标</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>参数 <code>*indices</code> 指定决策变量的下标，方式有如下两种：</p>
+<ol>
+<li><p>指定决策变量的维度规模（dense的形式）</p>
+<p><code>model.addVars(2)</code>创建2个决策变量，存储在一维数组中，形如$x[0],x[1],x[2]$</p>
+<p><code>model.addVars(2,3)</code>创建6个决策变量，存储在二维数组中，形如$x[0,0],x[0,1],…,x[1,2]$</p>
+<p><code>model.addVars(2,3,4)</code>创建24个决策变量，存储在三维数组中，形如$x[0,0,0],x[0,0,1],…,x[1,1,2]$</p>
+</li>
+<li><p>通过提供具体的下标列表(tuplelist)(sparse的形式)，tuplelist是list的子类，其中的每个元素是tuple类型：</p>
+</li>
+</ol>
+<p>可以看<a target="_blank" rel="noopener" href="https://coridm.d2d.ai/courses/32/supplement/782">这个例子</a>，</p>
 
             </div>
             <hr>

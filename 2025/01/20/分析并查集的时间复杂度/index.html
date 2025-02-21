@@ -16,12 +16,12 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="并查集的时间复杂度 其实自从高二开始学习并查集就发现这个数据结构真的奇妙，能解决许多问题，但是对时间复杂度就不太理解，大二退役之后我开始想去知道为什么是这个奇妙的时间复杂度，遂有此文。 本文参考了：OI-Wiki，coursera上的算法课程 这里证明并没有引入势能分析，但是相关东西异曲同工。 引入 并查集是一种用于管理元素所属集合的数据结构，实现为一个森林，其中每棵树表示一个集合，树中">
+  <meta name="description" content="并查集的时间复杂度其实自从高二开始学习并查集就发现这个数据结构真的奇妙，能解决许多问题，但是对时间复杂度就不太理解，大二退役之后我开始想去知道为什么是这个奇妙的时间复杂度，遂有此文。 本文参考了：OI-Wiki，coursera上的算法课程 这里证明并没有引入势能分析，但是相关东西异曲同工。 引入并查集是一种用于管理元素所属集合的数据结构，实现为一个森林，其中每棵树表示一个集合，树中的节点表示对应">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分析并查集的时间复杂度">
 <meta property="og:url" content="https://skys0.github.io/2025/01/20/%E5%88%86%E6%9E%90%E5%B9%B6%E6%9F%A5%E9%9B%86%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="并查集的时间复杂度 其实自从高二开始学习并查集就发现这个数据结构真的奇妙，能解决许多问题，但是对时间复杂度就不太理解，大二退役之后我开始想去知道为什么是这个奇妙的时间复杂度，遂有此文。 本文参考了：OI-Wiki，coursera上的算法课程 这里证明并没有引入势能分析，但是相关东西异曲同工。 引入 并查集是一种用于管理元素所属集合的数据结构，实现为一个森林，其中每棵树表示一个集合，树中">
+<meta property="og:description" content="并查集的时间复杂度其实自从高二开始学习并查集就发现这个数据结构真的奇妙，能解决许多问题，但是对时间复杂度就不太理解，大二退役之后我开始想去知道为什么是这个奇妙的时间复杂度，遂有此文。 本文参考了：OI-Wiki，coursera上的算法课程 这里证明并没有引入势能分析，但是相关东西异曲同工。 引入并查集是一种用于管理元素所属集合的数据结构，实现为一个森林，其中每棵树表示一个集合，树中的节点表示对应">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2025/01/23/rWEjnAXFbfmUO8w.png">
 <meta property="article:published_time" content="2025-01-20T07:20:56.000Z">
@@ -201,7 +201,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5.6k 字
+      5.2k 字
     </span>
   
 
@@ -210,7 +210,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      18 分钟
+      16 分钟
     </span>
   
 
@@ -242,116 +242,61 @@
             <h1 style="display: none">分析并查集的时间复杂度</h1>
             
             <div class="markdown-body">
-              <h1 id="并查集的时间复杂度">并查集的时间复杂度</h1>
-<p>其实自从高二开始学习并查集就发现这个数据结构真的奇妙，能解决许多问题，但是对时间复杂度就不太理解，大二退役之后我开始想去知道为什么是这个奇妙的时间复杂度，遂有此文。</p>
-<p>本文参考了：<a target="_blank" rel="noopener" href="https://oiwiki.org/ds/dsu/">OI-Wiki</a>，<a
-target="_blank" rel="noopener" href="https://www.coursera.org/lecture/algorithms-greedy/path-compression-the-hopcroft-ullman-analysis-i-advanced-optional-KdbbU">coursera上的算法课程</a></p>
+              <h1 id="并查集的时间复杂度"><a href="#并查集的时间复杂度" class="headerlink" title="并查集的时间复杂度"></a>并查集的时间复杂度</h1><p>其实自从高二开始学习并查集就发现这个数据结构真的奇妙，能解决许多问题，但是对时间复杂度就不太理解，大二退役之后我开始想去知道为什么是这个奇妙的时间复杂度，遂有此文。</p>
+<p>本文参考了：<a target="_blank" rel="noopener" href="https://oiwiki.org/ds/dsu/">OI-Wiki</a>，<a target="_blank" rel="noopener" href="https://www.coursera.org/lecture/algorithms-greedy/path-compression-the-hopcroft-ullman-analysis-i-advanced-optional-KdbbU">coursera上的算法课程</a></p>
 <p>这里证明并没有引入势能分析，但是相关东西异曲同工。</p>
-<h2 id="引入">引入</h2>
-<p>并查集是一种用于管理元素所属集合的数据结构，实现为一个森林，其中每棵树表示一个集合，树中的节点表示对应集合中的元素。</p>
+<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>并查集是一种用于管理元素所属集合的数据结构，实现为一个森林，其中每棵树表示一个集合，树中的节点表示对应集合中的元素。</p>
 <p>并查集支持两种操作：</p>
 <ul>
 <li>合并（Union）：合并两个元素所属集合（合并对应的树）</li>
 <li>查询（Find）：查询某个元素所属集合（查询对应的树的根节点），这可以用于判断两个元素是否属于同一集合</li>
 </ul>
-<h2 id="朴素算法">朴素算法</h2>
-<p>查询：我们需要沿着树向上移动，直至找到根节点。</p>
+<h2 id="朴素算法"><a href="#朴素算法" class="headerlink" title="朴素算法"></a>朴素算法</h2><p>查询：我们需要沿着树向上移动，直至找到根节点。</p>
 <p>合并：要合并两棵树，我们只需要将一棵树的根节点连到另一棵树的根节点。</p>
 <p>那么这样的时间复杂度有多少呢？</p>
-<h3 id="排名rank">排名（Rank）</h3>
-<p>对于并查集的中的每个树，其中 <span class="math inline">\(V\)</span>
-是节点集合，<span class="math inline">\(E\)</span> 是边集合，<span
-class="math inline">\(r\)</span> 为树的叶节点，对于任意节点 <span
-class="math inline">\(v \in V\)</span>，定义节点 <span
-class="math inline">\(v\)</span> 的排名 <span
-class="math inline">\(\text{rank}\)</span> 为：</p>
+<h3 id="排名（Rank）"><a href="#排名（Rank）" class="headerlink" title="排名（Rank）"></a>排名（Rank）</h3><p>对于并查集的中的每个树，其中 $V$ 是节点集合，$E$ 是边集合，$r$ 为树的叶节点，对于任意节点 $v \in V$，定义节点 $v$ 的排名 $\text{rank}$ 为：</p>
 <ul>
-<li>如果 <span class="math inline">\(v\)</span> 没有叶节点 ，则 <span
-class="math inline">\(\text{rank}(v) = 0\)</span></li>
-<li>如果 <span class="math inline">\(v\)</span> 有叶节点 ，则 <span
-class="math inline">\(\text{rank}(v) = \max\{\text{rank}(\text{son})\} +
-1\)</span></li>
+<li>如果 $v$ 没有叶节点 ，则 $\text{rank}(v) = 0$</li>
+<li>如果 $v$ 有叶节点 ，则 $\text{rank}(v) = \max{\text{rank}(\text{son})} + 1$</li>
 </ul>
 <p>某个节点到<strong>根结点</strong>的路径上的边数的<strong>最大值</strong>为排名（Rank）</p>
-<p>注意：下面所有秩都和 <span class="math inline">\(\text{rank}\)</span>
-一个意思</p>
+<p>注意：下面所有秩都和 $\text{rank}$ 一个意思</p>
 <p>那么就有以下性质：</p>
-<ol type="1">
-<li>对于任意节点 <span class="math inline">\(x\)</span>，<span
-class="math inline">\(\text{rank}(x)\)</span> 只会增加</li>
-<li>在合并时，只有根节点的 <span
-class="math inline">\(\text{rank}(x)\)</span> 才有可能增加</li>
-<li>在一条路径（从下至上）中 <span
-class="math inline">\(\text{rank}(x)\)</span> 严格递增</li>
+<ol>
+<li>对于任意节点 $x$，$\text{rank}(x)$ 只会增加</li>
+<li>在合并时，只有根节点的 $\text{rank}(x)$ 才有可能增加</li>
+<li>在一条路径（从下至上）中 $\text{rank}(x)$ 严格递增</li>
 </ol>
-<h4 id="rank-的引理-1">rank 的引理 1</h4>
-<p>对于任意的查询Find操作，该操作中生成的图 <span
-class="math inline">\(G\)</span>，<span class="math inline">\(|G| =
-n\)</span>，对于所有的 <span class="math inline">\(r \in \{1,2,3 \dots
-n\}\)</span>，<span class="math inline">\(\text{rank} = r\)</span>
-的元素个数 <span class="math inline">\(\leq \frac{n}{2^r}\)</span></p>
-<h5 id="证明引理-1">证明引理 1</h5>
-<ol type="1">
-<li>假设一：如果两个的不相同的点的 <span
-class="math inline">\(\text{rank}\)</span>
-相同，那么他们的子树不可能有重合部分。
+<h4 id="rank-的引理-1"><a href="#rank-的引理-1" class="headerlink" title="rank 的引理 1"></a>rank 的引理 1</h4><p>对于任意的查询Find操作，该操作中生成的图 $G$，$|G| = n$，对于所有的 $r \in {1,2,3 \dots n}$，$\text{rank} = r$ 的元素个数  $\leq \frac{n}{2^r}$</p>
+<h5 id="证明引理-1"><a href="#证明引理-1" class="headerlink" title="证明引理 1"></a>证明引理 1</h5><ol>
+<li><p>假设一：如果两个的不相同的点的 $\text{rank}$ 相同，那么他们的子树不可能有重合部分。</p>
 <ul>
-<li>反证：如果有重合部分，那么一定有一个路径 <span
-class="math inline">\(x\to z \to y\)</span>，<span
-class="math inline">\(z\)</span> 为重合部分，<span
-class="math inline">\(x,y\)</span> 为两个 rank 相同的点，那么可以得出
-<span class="math inline">\(x\)</span> 和 <span
-class="math inline">\(y\)</span> 之间有更大的祖先，那么就有更大的 <span
-class="math inline">\(\text{rank}\)</span>，与假设不符。</li>
-</ul></li>
-<li>假设二：<span class="math inline">\(\text{rank}=x\)</span>
-的子树的元素 <span class="math inline">\(\ge
-2^n\)</span>（数学归纳法）</li>
+<li>反证：如果有重合部分，那么一定有一个路径 $x\to z \to y$，$z$ 为重合部分，$x,y$ 为两个 rank 相同的点，那么可以得出 $x$ 和 $y$ 之间有更大的祖先，那么就有更大的 $\text{rank}$，与假设不符。</li>
+</ul>
+</li>
+<li><p>假设二：$\text{rank}=x$ 的子树的元素 $\ge 2^n$（数学归纳法）</p>
+</li>
 </ol>
-<p>证明：<strong>Base</strong>：<span class="math inline">\(\text{rank}
-= 0,size =0\)</span></p>
+<p>证明：<strong>Base</strong>：$\text{rank} = 0,size =0$</p>
 <p><strong>inductive step</strong>：</p>
-<ol type="1">
-<li><p>不一样的子树大小，<span
-class="math inline">\(\text{rank}\)</span> 不变</p></li>
-<li><p>一样的子树大小， <span class="math inline">\(\text{rank} +
-1\)</span></p></li>
+<ol>
+<li><p>不一样的子树大小，$\text{rank}$ 不变</p>
+</li>
+<li><p>一样的子树大小， $\text{rank} + 1$</p>
+</li>
 </ol>
-<p><span class="math inline">\(X_s = 合并前一个子树的大小 \geq 2^r,Y_s =
-合并前另一个子树的大小 \geq 2^r\)</span></p>
-<p>合并后，Union(x,y)得到了新祖先 <span
-class="math inline">\(Z\)</span>，<span
-class="math inline">\(\text{rank}(z) = r+1\)</span></p>
-<p><span class="math inline">\(Z_s \geq 2^r + 2^r \geq
-2^{r+1}\)</span>，假设二证明完毕</p>
-<p>现在我们来证明引理 1：n 个元素，我们设<strong>每个</strong> <span
-class="math inline">\(\text{rank}=x\)</span> 的子树的大小为 <span
-class="math inline">\(x\)</span>，假设二可知，<span
-class="math inline">\(x \geq 2^r\)</span></p>
-<p>我们两边取倒数，并且同时乘一个 n，那么可以得出 <span
-class="math inline">\(\dfrac{n}{x} \leq
-\dfrac{n}{2^r}\)</span>，那么可以看出左边就是 <span
-class="math inline">\(\text{rank} = r\)</span> 的元素个数，引理 1
-也证明完毕了。</p>
-<h3 id="时间复杂度">时间复杂度</h3>
-<p>证明了这么多，我们也能看出来 <span
-class="math inline">\(\text{rank}\)</span>
-其实就是一个子树的深度，也是我们最多要查询的次数。</p>
-<p>首先，<span
-class="math inline">\(最大\text{rank}的个数=祖先的个数=1\)</span>，显然，那么根据引理1，得出：
-<span class="math display">\[
-1 \leq \frac{n}{2^r} \ \Rightarrow 2^r \leq n \Rightarrow r \leq
-\log_{2}n
-\]</span> 那么我们可以得到查询和合并的时间复杂度为 <span
-class="math inline">\(O(\log_{2} n)\)</span></p>
-<h2 id="路径压缩启发式合并按秩合并">路径压缩+启发式合并（按秩合并）</h2>
-<p>上面的朴素算法已经很快了，但是考虑一种可能，如果这个不是一个正常的树，而是一条链，而我们正常的去查询最底下的节点，那么复杂度将会退化成
-<span
-class="math inline">\(O(n)\)</span>，这并不是我们想要的，想到我们查询时有许多地方时冗余的，我们就想到了路径压缩。</p>
+<p>$X_s = 合并前一个子树的大小 \geq 2^r,Y_s = 合并前另一个子树的大小 \geq 2^r$</p>
+<p>合并后，Union(x,y)得到了新祖先 $Z$，$\text{rank}(z) = r+1$</p>
+<p>$Z_s \geq 2^r + 2^r \geq 2^{r+1}$，假设二证明完毕</p>
+<p>现在我们来证明引理 1：n 个元素，我们设<strong>每个</strong> $\text{rank}=x$ 的子树的大小为 $x$，假设二可知，$x \geq 2^r$</p>
+<p>我们两边取倒数，并且同时乘一个 n，那么可以得出 $\dfrac{n}{x} \leq \dfrac{n}{2^r}$，那么可以看出左边就是 $\text{rank} = r$ 的元素个数，引理 1 也证明完毕了。</p>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>证明了这么多，我们也能看出来 $\text{rank}$ 其实就是一个子树的深度，也是我们最多要查询的次数。</p>
+<p>首先，$最大\text{rank}的个数=祖先的个数=1$，显然，那么根据引理1，得出：</p>
+<script type="math/tex; mode=display">
+1 \leq \frac{n}{2^r} \ \Rightarrow 2^r \leq n \Rightarrow r \leq \log_{2}n</script><p>那么我们可以得到查询和合并的时间复杂度为 $O(\log_{2} n)$</p>
+<h2 id="路径压缩-启发式合并（按秩合并）"><a href="#路径压缩-启发式合并（按秩合并）" class="headerlink" title="路径压缩+启发式合并（按秩合并）"></a>路径压缩+启发式合并（按秩合并）</h2><p>上面的朴素算法已经很快了，但是考虑一种可能，如果这个不是一个正常的树，而是一条链，而我们正常的去查询最底下的节点，那么复杂度将会退化成 $O(n)$，这并不是我们想要的，想到我们查询时有许多地方时冗余的，我们就想到了路径压缩。</p>
 <p><strong>路径压缩</strong>：查询过程中经过的每个元素都属于该集合，我们可以将其直接连到根节点以加快后续查询。</p>
-<p>在合并时我们又想到了这两个的 <span
-class="math inline">\(\text{rank}\)</span>
-不同也会导致路径压缩的时候会多了一些不该有的操作。</p>
+<p>在合并时我们又想到了这两个的 $\text{rank}$ 不同也会导致路径压缩的时候会多了一些不该有的操作。</p>
 <p><strong>启发式合并（按秩合并）</strong>：合并时，选择哪棵树的根节点作为新树的根节点会影响未来操作的复杂度。我们可以将节点较少或深度较小的树连到另一棵，以免发生退化。</p>
 <p>另一种做法则是使用“秩”来比较树的大小。”秩“的定义如下：</p>
 <ul>
@@ -360,223 +305,121 @@ class="math inline">\(\text{rank}\)</span>
 <li>当两棵秩相同的树合并后，新的树的秩为原来的树的秩加一。</li>
 </ul>
 <p>容易发现，在没有路径压缩优化时，树的秩等于树的深度减一。在有路径压缩优化时，树的秩仍然能反映出树的深度和大小。在合并时根据两棵树的秩的大小，决定新的根节点，这被称作<strong>按秩合并</strong>。</p>
-<h3 id="theorem">Theorem</h3>
-<p><strong>注意：经过路径压缩过时，<span
-class="math inline">\(\text{rank}\)</span>
-不变，相当于被冻结了，不管压缩到哪都不会改变</strong></p>
-<p><strong>内容：</strong>通过“按秩合并”和“路径压缩”优化后，进行 <span
-class="math inline">\(m\)</span> 次合并+查询的操作的时间复杂度为 <span
-class="math inline">\(O(m \log^* n)\)</span>，其中 <span
-class="math inline">\(\log^* n\)</span> 表示对 <span
-class="math inline">\(n\)</span> 反复应用对数运算，直到结果小于等于 1
-所需要的次数，一般叫迭代对数。</p>
+<h3 id="Theorem"><a href="#Theorem" class="headerlink" title="Theorem"></a>Theorem</h3><p><strong>注意：经过路径压缩过时，$\text{rank}$ 不变，相当于被冻结了，不管压缩到哪都不会改变</strong></p>
+<p><strong>内容：</strong>通过“按秩合并”和“路径压缩”优化后，进行 $m$ 次合并+查询的操作的时间复杂度为 $O(m \log^<em> n)$，其中 $\log^</em> n$ 表示对 $n$ 反复应用对数运算，直到结果小于等于 1 所需要的次数，一般叫迭代对数。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th><span class="math inline">\(x\)</span></th>
-<th><span class="math inline">\(\lg^* x\)</span></th>
+<th>$x$</th>
+<th>$\lg^* x$</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><span class="math inline">\((−\infty, 1]\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
+<td>$(−\infty, 1]$</td>
+<td>$0$</td>
 </tr>
 <tr>
-<td><span class="math inline">\((1, 2]\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
+<td>$(1, 2]$</td>
+<td>$1$</td>
 </tr>
 <tr>
-<td><span class="math inline">\((2, 4]\)</span></td>
-<td><span class="math inline">\(2\)</span></td>
+<td>$(2, 4]$</td>
+<td>$2$</td>
 </tr>
 <tr>
-<td><span class="math inline">\((4, 16]\)</span></td>
-<td><span class="math inline">\(3\)</span></td>
+<td>$(4, 16]$</td>
+<td>$3$</td>
 </tr>
 <tr>
-<td><span class="math inline">\((16, 65536]\)</span></td>
-<td><span class="math inline">\(4\)</span></td>
+<td>$(16, 65536]$</td>
+<td>$4$</td>
 </tr>
 <tr>
-<td><span class="math inline">\((65536, 2^{65536}]\)</span></td>
-<td><span class="math inline">\(5\)</span></td>
+<td>$(65536, 2^{65536}]$</td>
+<td>$5$</td>
 </tr>
 </tbody>
 </table>
-<h4 id="证明">证明</h4>
-<p>首先我们来定义一个 <span class="math inline">\(\text{rank\,
-blocks}\)</span>（秩块）；<span
-class="math inline">\(\{0\},\{1\},\{2,3,4\},\{5,\dots, 2 4
-\},\{17,18,\dots,2^{16}\},
-\{65537,\dots,2^{65536}\},\dots,\{\dots,n\}\)</span></p>
-<p>很显然这些块只会有 <span class="math inline">\(O(\log^* n)\)</span>
-个。</p>
-<p>我们给每个节点分类，我们现在称一个节点 <span
-class="math inline">\(x\)</span>（可变）是好的当：</p>
-<ol type="1">
-<li><span class="math inline">\(x\)</span> 或者 <span
-class="math inline">\(x\)</span> 的父节点为根节点</li>
-<li>父亲的 <span class="math inline">\(\text{rank}\)</span> 比自己的
-<span class="math inline">\(\text{rank}\)</span> 大。
-<strong>注意：<span class="math inline">\(\text{rank}
-不变\)</span></strong></li>
+</div>
+<h4 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h4><p>首先我们来定义一个 $\text{rank\, blocks}$（秩块）；${0},{1},{2,3,4},{5,\dots, 2 4 },{17,18,\dots,2^{16}},<br>{65537,\dots,2^{65536}},\dots,{\dots,n}$</p>
+<p>很显然这些块只会有 $O(\log^* n)$ 个。</p>
+<p>我们给每个节点分类，我们现在称一个节点 $x$（可变）是好的当：</p>
+<ol>
+<li>$x$ 或者 $x$ 的父节点为根节点</li>
+<li>父亲的 $\text{rank}$ 比自己的 $\text{rank}$ 大。 <strong>注意：$\text{rank} 不变$</strong></li>
 </ol>
 <p>如果两个条件都不符合，那么就是坏节点。</p>
 <p><strong>我们会尽量将一个节点变成好节点。</strong></p>
-<p>第一个要点：要点：每次查找操作只会访问 <span
-class="math inline">\(O(\log^* n)\)</span> 个好节点 （计算方式为 <span
-class="math inline">\(2 + 秩块的数量 = O(\log^* n)\)</span>）</p>
-<p>结论：在 <span class="math inline">\(m\)</span>
-次操作中完成的总工作量可以表示为两种：</p>
+<p>第一个要点：要点：每次查找操作只会访问 $O(\log^<em> n)$ 个好节点 （计算方式为 $2 + 秩块的数量 = O(\log^</em> n)$）</p>
+<p>结论：在 $m$ 次操作中完成的总工作量可以表示为两种：</p>
 <ul>
-<li><span class="math inline">\(O(m \log^*
-n)\)</span>（访问好节点的次数）</li>
+<li>$O(m \log^* n)$（访问好节点的次数）</li>
 <li>访问坏节点的总次数，下面就来论证。</li>
 </ul>
-<p>首先我们思考，在路径压缩中，其父节点被更改为具有严格更大 <span
-class="math inline">\(\text{rank}\)</span> 的节点，这种情况最多只会发生
-<span class="math inline">\(2^k\)</span> 次，之后 <span
-class="math inline">\(x\)</span>
-将永久成为“好节点”。（很显然，在路径压缩中，那个节点相当于在往上跳，最多跳到这个
-block 的第一个）</p>
-<p>总时间复杂度：<span class="math inline">\(O(m \log^* n) +
-O(访问坏节点的次数)\)</span>。</p>
-<p>我们对一个秩块 <span class="math inline">\(\{k+1, k+2, \dots,
-2^k\}\)</span> 分析：</p>
-<p>对于每个最终秩处于此块的 <span class="math inline">\(x\)</span>，当
-<span class="math inline">\(x\)</span> 是“坏节点”时的访问次数最多为
-<span class="math inline">\(2^k\)</span>。</p>
-<p>具有最终 <span class="math inline">\(\text{rank}\)</span>
-处于此块的对象总数为： <span class="math display">\[
-\sum_{i=k+1}^{2^k} \frac{n}{2^i} \leq \frac{n}{2^k}
-\]</span> 因此，此秩块中对“坏节点”的访问总次数最多为 <span
-class="math inline">\(n\)</span>。</p>
-<p>因为只有 <span class="math inline">\(O(\log^* n)\)</span>
-个秩块。</p>
+<p>首先我们思考，在路径压缩中，其父节点被更改为具有严格更大 $\text{rank}$ 的节点，这种情况最多只会发生 $2^k$ 次，之后 $x$ 将永久成为“好节点”。（很显然，在路径压缩中，那个节点相当于在往上跳，最多跳到这个 block 的第一个）</p>
+<p>总时间复杂度：$O(m \log^* n) + O(访问坏节点的次数)$。</p>
+<p>我们对一个秩块 ${k+1, k+2, \dots, 2^k}$ 分析：</p>
+<p>对于每个最终秩处于此块的 $x$，当 $x$ 是“坏节点”时的访问次数最多为 $2^k$。</p>
+<p>具有最终 $\text{rank}$ 处于此块的对象总数为：</p>
+<script type="math/tex; mode=display">
+\sum_{i=k+1}^{2^k} \frac{n}{2^i} \leq \frac{n}{2^k}</script><p>因此，此秩块中对“坏节点”的访问总次数最多为 $n$。</p>
+<p>因为只有 $O(\log^* n)$ 个秩块。</p>
 <p><strong>总时间复杂度</strong>：</p>
-<p><span class="math inline">\(O((m + n) \log^*
-n)\)</span>，在正常操作中 <span class="math inline">\(m\)</span> 与
-<span class="math inline">\(n\)</span> 同阶，就可以是 <span
-class="math inline">\(O(m \log^* n)\)</span>，证明完毕。</p>
-<h3 id="tarjans-bound">Tarjan’s Bound</h3>
-<p>该证明在1975年由Tarjan完成，后在1989年，由Fredman证明该结构下无法找到更好的时间复杂度</p>
-<p><strong>内容</strong>：通过“按秩合并”和“路径压缩”优化后，进行 <span
-class="math inline">\(m\)</span> 次合并和查找操作的时间复杂度为 <span
-class="math inline">\(O(m \alpha(n))\)</span>，其中 <span
-class="math inline">\(\alpha(n)\)</span> 是反阿克曼函数。</p>
-<h4 id="阿克曼函数">阿克曼函数</h4>
-<p>需要两个自然数作为输入值，输出一个自然数，它的输出值增长速度非常高。</p>
-<p>定义： <span class="math display">\[
-A(m,n) = \begin{cases}n + 1 &amp; \text{如果 m=0} \\ A(m-1,1) &amp;
-\text{如果 m&gt;0 且 n=0} \\ A(m-1,A(m,n-1)) &amp; \text{如果 m&gt;0 且
-n&gt;0 }\end{cases}
-\]</span>
-由于这个函数的增加速率非常快，那么它的反函数就相应的增长的非常慢。</p>
-<p><strong>反函数的定义</strong>：对于每个 <span class="math inline">\(n
-\geq 4\)</span>，<span class="math inline">\(\alpha(n)\)</span> 是满足
-<span class="math inline">\(A_k(2) \geq n\)</span> 的最小 <span
-class="math inline">\(k\)</span> 值，其中 <span
-class="math inline">\(A_k(2)\)</span> 是阿克曼函数。</p>
+<p>$O((m + n) \log^<em> n)$，在正常操作中 $m$ 与 $n$ 同阶，就可以是 $O(m \log^</em> n)$，证明完毕。 </p>
+<h3 id="Tarjan’s-Bound"><a href="#Tarjan’s-Bound" class="headerlink" title="Tarjan’s Bound"></a>Tarjan’s Bound</h3><p>该证明在1975年由Tarjan完成，后在1989年，由Fredman证明该结构下无法找到更好的时间复杂度</p>
+<p><strong>内容</strong>：通过“按秩合并”和“路径压缩”优化后，进行 $m$ 次合并和查找操作的时间复杂度为 $O(m \alpha(n))$，其中 $\alpha(n)$ 是反阿克曼函数。</p>
+<h4 id="阿克曼函数"><a href="#阿克曼函数" class="headerlink" title="阿克曼函数"></a>阿克曼函数</h4><p>需要两个自然数作为输入值，输出一个自然数，它的输出值增长速度非常高。</p>
+<p>定义：</p>
+<script type="math/tex; mode=display">
+A(m,n) = \begin{cases}n + 1 & \text{如果 m=0} \\ A(m-1,1) & \text{如果 m>0 且 n=0} \\ A(m-1,A(m,n-1)) & \text{如果 m>0 且 n>0 }\end{cases}</script><p>由于这个函数的增加速率非常快，那么它的反函数就相应的增长的非常慢。</p>
+<p><strong>反函数的定义</strong>：对于每个 $n \geq 4$，$\alpha(n)$ 是满足 $A_k(2) \geq n$ 的最小 $k$ 值，其中 $A_k(2)$ 是阿克曼函数。</p>
 <blockquote>
-<p><span class="math inline">\(\alpha(n) = 1 \Rightarrow
-n=4\)</span></p>
-<p><span class="math inline">\(\alpha(n) = 2 \Rightarrow n=5 \dots
-8\)</span></p>
-<p><span class="math inline">\(\alpha(n) = 3 \Rightarrow n=9 ,10\dots
-2048\)</span></p>
-<p><span class="math inline">\(\alpha(n) = 4 \Rightarrow n=4\dots n(n
-满足 \log^*n= 2048)\)</span></p>
-<p><span class="math inline">\(\cdots\)</span></p>
+<p>$\alpha(n) = 1 \Rightarrow n=4$</p>
+<p>$\alpha(n) = 2 \Rightarrow n=5 \dots 8$</p>
+<p>$\alpha(n) = 3 \Rightarrow n=9 ,10\dots 2048$</p>
+<p>$\alpha(n) = 4 \Rightarrow n=4\dots n(n 满足 \log^*n= 2048)$</p>
+<p>$\cdots$</p>
 </blockquote>
-<h4 id="证明-1">证明</h4>
-<p>我们定义 <span class="math inline">\(x\)</span> 为不是根节点 <span
-class="math inline">\(\delta(x)\)</span> 是最大的 <span
-class="math inline">\(k\)</span> 使得 <span
-class="math inline">\(\text{rank}(\text{parent}[x]) \geq
-A_k(\text{rank}(x))\)</span></p>
-<p>显然， <span class="math inline">\(\delta(x)\)</span> 是递增的。</p>
-<p>这里有一个性质：只要 <span class="math inline">\(\text{rank} \geq
-2\)</span> 的点，那么一定会有 <span class="math inline">\(\delta(x) \leq
-\alpha(n)\)</span></p>
-<p>证明： <span class="math display">\[
-A_{\alpha(n)}(2) \geq n \geq \text{rank}(parent[x]) \geq
-A_k(\text{rank}(x))
-\]</span> 其中 <span class="math inline">\(n \geq
-\text{rank}(parent[x])\)</span>
-很显然一定成立，左边其实就是上面反函数的定义，右边就是 <span
-class="math inline">\(\delta(x)\)</span>
-的定义，最左边与最右边分别进行反函数，即证成立。</p>
+<h4 id="证明-1"><a href="#证明-1" class="headerlink" title="证明"></a>证明</h4><p>我们定义 $x$ 为不是根节点 $\delta(x)$ 是最大的 $k$ 使得 $\text{rank}(\text{parent}[x]) \geq A_k(\text{rank}(x))$</p>
+<p>显然， $\delta(x)$ 是递增的。</p>
+<p>这里有一个性质：只要 $\text{rank} \geq 2$ 的点，那么一定会有 $\delta(x) \leq \alpha(n)$</p>
+<p>证明：</p>
+<script type="math/tex; mode=display">
+A_{\alpha(n)}(2) \geq n \geq \text{rank}(parent[x]) \geq A_k(\text{rank}(x))</script><p>其中 $n \geq \text{rank}(parent[x])$ 很显然一定成立，左边其实就是上面反函数的定义，右边就是 $\delta(x)$ 的定义，最左边与最右边分别进行反函数，即证成立。</p>
 <p>这里我们继续定义好节点与坏节点：</p>
 <p>一个点为好的节点当且仅当符合下面几个条件，我们称这个节点为坏节点：</p>
-<ol type="1">
-<li><span class="math inline">\(x\)</span> 不是根节点</li>
+<ol>
+<li>$x$ 不是根节点</li>
 <li>它的父亲不是根节点</li>
-<li><span class="math inline">\(\text{rank}(x) \geq 2\)</span></li>
-<li><span class="math inline">\(x\)</span> 存在祖先 <span
-class="math inline">\(y\)</span> 使得 <span
-class="math inline">\(\delta(y) = \delta(x)\)</span></li>
+<li>$\text{rank}(x) \geq 2$</li>
+<li>$x$ 存在祖先 $y$ 使得 $\delta(y) = \delta(x)$</li>
 </ol>
-<p>否则，<span class="math inline">\(x\)</span> 是好的节点。</p>
-<p>同 Hopcroft-Ullman 类似，在一次路径中最多有 <span
-class="math inline">\(\Theta(\alpha(n)) \leq 2 +2 +\alpha(n)\)</span>
-个好节点。</p>
-<p>那么最终 <span class="math inline">\(m\)</span>
-次操作（合并与查询）的总时间复杂度：<span
-class="math inline">\(O(m\alpha(n))(访问好节点的次数)+访问坏节点的次数\)</span></p>
+<p>否则，$x$ 是好的节点。</p>
+<p>同 Hopcroft-Ullman 类似，在一次路径中最多有 $\Theta(\alpha(n)) \leq 2 +2 +\alpha(n)$ 个好节点。</p>
+<p>那么最终 $m$ 次操作（合并与查询）的总时间复杂度：$O(m\alpha(n))(访问好节点的次数)+访问坏节点的次数$</p>
 <p>下面我们来计算一下这个坏节点的个数，我们同样只先看一次路径的：</p>
-<figure>
-<img src="https://s2.loli.net/2025/01/23/rWEjnAXFbfmUO8w.png" srcset="/img/loading.gif" lazyload
-alt="A path" />
-<figcaption aria-hidden="true">A path</figcaption>
-</figure>
-<p>路径压缩：<span class="math inline">\(p&#39;\)</span> 是 <span
-class="math inline">\(x\)</span> 的新父亲或者更向上，则有： <span
-class="math display">\[
-\text{rank}(x的新父亲) \geq \text{rank}(p&#39;) \geq A_k(\text{rank}(y))
-\geq A_k(\text{rank}(p))
-\]</span> 中间这个过渡我们用到了上面 <span
-class="math inline">\(\delta(x)\)</span> 的定义，其他的都很显然。</p>
-<p>假设 <span class="math inline">\(r =
-\text{rank}(x)\)</span>，然后我们对 <span
-class="math inline">\(x\)</span> 做 <span
-class="math inline">\(r\)</span>
-次查找（<strong>路径压缩</strong>），假设每次都是有用的，那么我的 <span
-class="math inline">\(\delta(x)\)</span> <strong>至少</strong> <span
-class="math inline">\(+1\)</span></p>
-<p>为什么？我们不从理性的（数学的）角度去分析，而是去从感性的角度，首先想
-<span class="math inline">\(\text{rank}(x) =
-0，1\)</span>，显然根据定义，本身就是好节点，成立。</p>
-<p>那么 <span class="math inline">\(\text{rank}(x) \geq 2\)</span>
-呢？压缩一次会压缩到好节点的同地方，下一次必然会压缩到下一个 <span
-class="math inline">\(\delta(x) + 1\)</span>
-中，所以的证，而且是<strong>至少</strong>。</p>
-<p>那最多可以加多少次 1 呢？<span
-class="math inline">\(\alpha(n)\)</span> 次</p>
-<p>那么 <span class="math inline">\(x\)</span> 是坏的 <span
-class="math inline">\(\leq r \alpha(n)\)</span></p>
-<p>那么我们开始算总共访问坏节点的次数： <span class="math display">\[
+<p><img src="https://s2.loli.net/2025/01/23/rWEjnAXFbfmUO8w.png" srcset="/img/loading.gif" lazyload alt="A path"></p>
+<p>路径压缩：$p’$ 是 $x$ 的新父亲或者更向上，则有：</p>
+<script type="math/tex; mode=display">
+\text{rank}(x的新父亲) \geq \text{rank}(p') \geq A_k(\text{rank}(y)) \geq A_k(\text{rank}(p))</script><p>中间这个过渡我们用到了上面 $\delta(x)$ 的定义，其他的都很显然。</p>
+<p>假设 $r = \text{rank}(x)$，然后我们对 $x$ 做 $r$ 次查找（<strong>路径压缩</strong>），假设每次都是有用的，那么我的 $\delta(x)$ <strong>至少</strong> $+1$</p>
+<p>为什么？我们不从理性的（数学的）角度去分析，而是去从感性的角度，首先想 $\text{rank}(x) = 0，1$，显然根据定义，本身就是好节点，成立。</p>
+<p>那么 $\text{rank}(x) \geq 2$ 呢？压缩一次会压缩到好节点的同地方，下一次必然会压缩到下一个 $\delta(x) + 1$ 中，所以的证，而且是<strong>至少</strong>。</p>
+<p>那最多可以加多少次 1 呢？$\alpha(n)$ 次</p>
+<p>那么 $x$ 是坏的 $\leq r \alpha(n)$</p>
+<p>那么我们开始算总共访问坏节点的次数：</p>
+<script type="math/tex; mode=display">
 \begin{align*}
-&amp;总共访问坏节点的次数  \\
-&amp;\leq \Sigma_{所有节点}\text{rank}(x) \cdot \alpha(n) \tag 1\\
-&amp;= \alpha(n) \cdot \Sigma_{r \geq 0} \,r \,(\text{rank}=r
-节点的个数) \tag2\\
-&amp;\leq n \alpha(n) \Sigma_{r \geq 0} \frac{r}{2^r} \tag 3\\
-&amp;= O(n \alpha(n))
-\end{align*}
-\]</span> 我们来解释一下这个东西怎么来的，在 <span
-class="math inline">\((2) \to (3)\)</span> 中的推导中我们用到了 rank
-的引理 1，不理解的可以倒回去看看，这里我们对每个 <span
-class="math inline">\(r\)</span> 都用了一个引理 1 并相加，<span
-class="math inline">\((3)\)</span> 中的 <span
-class="math inline">\(\Sigma_{r \geq 0}
-\frac{r}{2^r}\)</span>，其实是个几何级数，最后是个常数，可以省略，就得到了坏节点的次数。</p>
+&总共访问坏节点的次数  \\ 
+&\leq \Sigma_{所有节点}\text{rank}(x) \cdot \alpha(n) \tag 1\\
+&= \alpha(n) \cdot \Sigma_{r \geq 0} \,r \,(\text{rank}=r 节点的个数) \tag2\\
+&\leq n \alpha(n) \Sigma_{r \geq 0} \frac{r}{2^r} \tag 3\\
+&= O(n \alpha(n))
+\end{align*}</script><p>我们来解释一下这个东西怎么来的，在 $(2) \to (3)$ 中的推导中我们用到了 rank 的引理 1，不理解的可以倒回去看看，这里我们对每个 $r$ 都用了一个引理 1 并相加，$(3)$ 中的 $\Sigma_{r \geq 0} \frac{r}{2^r}$，其实是个几何级数，最后是个常数，可以省略，就得到了坏节点的次数。</p>
 <p>那么我们能得出总共的时间复杂度为：</p>
-<p><span class="math inline">\(O((n+m)
-\alpha(n))\)</span>，同样在正常操作中 <span
-class="math inline">\(m\)</span> 与 <span
-class="math inline">\(n\)</span> 同阶，就可以是 <span
-class="math inline">\(O(m \alpha(n))\)</span>，证明完毕。</p>
+<p>$O((n+m) \alpha(n))$，同样在正常操作中 $m$ 与 $n$ 同阶，就可以是 $O(m \alpha(n))$，证明完毕。</p>
 
             </div>
             <hr>

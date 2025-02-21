@@ -16,12 +16,12 @@
   <meta name="description" content="">
   <meta name="author" content="Skys">
   <meta name="keywords" content="">
-  <meta name="description" content="存储论 基本概念 存储问题的费用：  生产费：  订购费：与订货次数有关，一般固定 货物成本费：与订货数量有关，一般变动  生产费  装配费：与生产次数有关，一般固定 生产成本费：与生产数量有关，一般变动  存储费 缺货费  储存模型：  需求是否确定：确定型存储模型，随机型存储模型 订货还是生产：批量订货（备货时间短），批量生产（生产需时间） 允不允许缺">
+  <meta name="description" content="存储论基本概念存储问题的费用：  生产费： 订购费：与订货次数有关，一般固定 货物成本费：与订货数量有关，一般变动   生产费 装配费：与生产次数有关，一般固定 生产成本费：与生产数量有关，一般变动   存储费 缺货费  储存模型：  需求是否确定：确定型存储模型，随机型存储模型 订货还是生产：批量订货（备货时间短），批量生产（生产需时间） 允不允许缺货：允许缺货，不允许缺货  不允许缺货、瞬时到">
 <meta property="og:type" content="article">
 <meta property="og:title" content="存储论">
 <meta property="og:url" content="https://skys0.github.io/2025/01/21/%E5%AD%98%E5%82%A8%E8%AE%BA/index.html">
 <meta property="og:site_name" content="Skys">
-<meta property="og:description" content="存储论 基本概念 存储问题的费用：  生产费：  订购费：与订货次数有关，一般固定 货物成本费：与订货数量有关，一般变动  生产费  装配费：与生产次数有关，一般固定 生产成本费：与生产数量有关，一般变动  存储费 缺货费  储存模型：  需求是否确定：确定型存储模型，随机型存储模型 订货还是生产：批量订货（备货时间短），批量生产（生产需时间） 允不允许缺">
+<meta property="og:description" content="存储论基本概念存储问题的费用：  生产费： 订购费：与订货次数有关，一般固定 货物成本费：与订货数量有关，一般变动   生产费 装配费：与生产次数有关，一般固定 生产成本费：与生产数量有关，一般变动   存储费 缺货费  储存模型：  需求是否确定：确定型存储模型，随机型存储模型 订货还是生产：批量订货（备货时间短），批量生产（生产需时间） 允不允许缺货：允许缺货，不允许缺货  不允许缺货、瞬时到">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-21T08:45:13.000Z">
 <meta property="article:modified_time" content="2025-01-25T01:58:03.366Z">
@@ -198,7 +198,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.5k 字
+      2.4k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8 分钟
+      7 分钟
     </span>
   
 
@@ -239,20 +239,18 @@
             <h1 style="display: none">存储论</h1>
             
             <div class="markdown-body">
-              <h2 id="存储论">存储论</h2>
-<h3 id="基本概念">基本概念</h3>
-<p>存储问题的费用：</p>
+              <h2 id="存储论"><a href="#存储论" class="headerlink" title="存储论"></a>存储论</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>存储问题的费用：</p>
 <ul>
-<li>生产费：
-<ul>
+<li>生产费：<ul>
 <li>订购费：与订货次数有关，一般固定</li>
 <li>货物成本费：与订货数量有关，一般变动</li>
-</ul></li>
-<li>生产费
-<ul>
+</ul>
+</li>
+<li>生产费<ul>
 <li>装配费：与生产次数有关，一般固定</li>
 <li>生产成本费：与生产数量有关，一般变动</li>
-</ul></li>
+</ul>
+</li>
 <li>存储费</li>
 <li>缺货费</li>
 </ul>
@@ -262,144 +260,73 @@
 <li>订货还是生产：批量订货（备货时间短），批量生产（生产需时间）</li>
 <li>允不允许缺货：允许缺货，不允许缺货</li>
 </ul>
-<h3
-id="不允许缺货瞬时到货模型经济订货批量模型">不允许缺货、瞬时到货模型（经济订货批量模型）</h3>
-<h4 id="模型基本假设">模型基本假设</h4>
-<ol type="1">
+<h3 id="不允许缺货、瞬时到货模型（经济订货批量模型）"><a href="#不允许缺货、瞬时到货模型（经济订货批量模型）" class="headerlink" title="不允许缺货、瞬时到货模型（经济订货批量模型）"></a>不允许缺货、瞬时到货模型（经济订货批量模型）</h3><h4 id="模型基本假设"><a href="#模型基本假设" class="headerlink" title="模型基本假设"></a>模型基本假设</h4><ol>
 <li>不允许缺货，缺货费正无穷</li>
 <li>存储量为零时，可<strong>立即</strong>得到补充</li>
-<li>需求是连续均匀的，需求速度为常数 <span
-class="math inline">\(R\)</span></li>
+<li>需求是连续均匀的，需求速度为常数 $R$</li>
 <li>每次订货量不变，订购费不变</li>
 <li>单位时间的存储</li>
 </ol>
-<h4 id="模型计算">模型计算</h4>
-<p>假设每次订货的订购费用为 <span class="math inline">\(c_3\)</span></p>
-<p>假设 <span class="math inline">\(货物成本费 = 成本费单价 \times
-订货量=KQ=KRt\)</span></p>
-<p>其中 <span class="math inline">\(K\)</span> 为货物成本费单价，<span
-class="math inline">\(Q\)</span> 为订货量，<span
-class="math inline">\(R\)</span> 为需求速度，<span
-class="math inline">\(t\)</span> 为每间隔时间 <span
-class="math inline">\(t\)</span> 补充一次存储</p>
-<p>存储费：<span class="math inline">\(t\)</span>
-时间内的平均存储量：<span class="math inline">\(\frac{1}{2}Q =
-\frac{1}{2}Rt\)</span>，我们在这里假设单位时间内单位货物存储费为 <span
-class="math inline">\(c_1\)</span></p>
-<p>怎么来的呢？求积分得到上面的式子的：<span
-class="math inline">\(\dfrac{存储量之和}{t} =
-\dfrac{\int_{0}^{t}RT\,dT}{t} = \dfrac{1}{2}Rt\)</span></p>
-<p>那么我们的 <span class="math inline">\(t\)</span>
-时间内的总平均费用（一般省略 <span class="math inline">\(KR\)</span>）：
-<span class="math display">\[
-C(t)=\frac{c_3}{t} + KR + \frac{1}{2}Rtc_1
-\]</span> 我们用这个式子对 <span class="math inline">\(t\)</span>
-求一次导数，求极值点</p>
-<p>得到最优订货周期为：<span class="math inline">\(t_0 =
-\sqrt{\dfrac{2c_3}{c_1R}}\)</span></p>
-<p>最优订货量：<span class="math inline">\(Q_0 = Rt_0 =
-\sqrt{\dfrac{2c_3R}{c_1}}\)</span></p>
-<h3 id="不允许缺货逐步均匀到货模型">不允许缺货，逐步均匀到货模型</h3>
-<h4 id="模型基本假设-1">模型基本假设</h4>
-<ol type="1">
+<h4 id="模型计算"><a href="#模型计算" class="headerlink" title="模型计算"></a>模型计算</h4><p>假设每次订货的订购费用为 $c_3$</p>
+<p>假设 $货物成本费 = 成本费单价 \times 订货量=KQ=KRt$</p>
+<p>其中 $K$ 为货物成本费单价，$Q$ 为订货量，$R$ 为需求速度，$t$ 为每间隔时间 $t$ 补充一次存储</p>
+<p>存储费：$t$ 时间内的平均存储量：$\frac{1}{2}Q = \frac{1}{2}Rt$，我们在这里假设单位时间内单位货物存储费为 $c_1$</p>
+<p>怎么来的呢？求积分得到上面的式子的：$\dfrac{存储量之和}{t} = \dfrac{\int_{0}^{t}RT\,dT}{t} = \dfrac{1}{2}Rt$</p>
+<p>那么我们的 $t$ 时间内的总平均费用（一般省略 $KR$）：</p>
+<script type="math/tex; mode=display">
+C(t)=\frac{c_3}{t} + KR + \frac{1}{2}Rtc_1</script><p>我们用这个式子对 $t$ 求一次导数，求极值点</p>
+<p>得到最优订货周期为：$t_0 = \sqrt{\dfrac{2c_3}{c_1R}}$</p>
+<p>最优订货量：$Q_0 = Rt_0 = \sqrt{\dfrac{2c_3R}{c_1}}$</p>
+<h3 id="不允许缺货，逐步均匀到货模型"><a href="#不允许缺货，逐步均匀到货模型" class="headerlink" title="不允许缺货，逐步均匀到货模型"></a>不允许缺货，逐步均匀到货模型</h3><h4 id="模型基本假设-1"><a href="#模型基本假设-1" class="headerlink" title="模型基本假设"></a>模型基本假设</h4><ol>
 <li>不允许缺货，缺货费正无穷</li>
-<li>存储量为零时开始生产，生产速度为常数 <span
-class="math inline">\(P\)</span></li>
-<li>需求是连续均匀的，需求速度为常数 <span
-class="math inline">\(R\)</span></li>
+<li>存储量为零时开始生产，生产速度为常数 $P$</li>
+<li>需求是连续均匀的，需求速度为常数 $R$</li>
 <li>每次订货量不变，装配费不变</li>
 <li>单位时间的存储费不变</li>
 </ol>
-<h4 id="模型计算-1">模型计算</h4>
-<p>首先假设每次生产的装配费用为 <span
-class="math inline">\(c_3\)</span>，那么 <span
-class="math inline">\(t\)</span> 时间内平均装配费为 <span
-class="math inline">\(\frac{c_3}{t}\)</span></p>
-<p><span class="math inline">\(t\)</span>
-时间内的平均<strong>存储量</strong>为：<span
-class="math inline">\(\frac{1}{2}(P-R)t_1\)</span>，其中 <span
-class="math inline">\(t_1\)</span> 是所需生产时间</p>
-<p>我们用 <span class="math inline">\(t \to
-t_0\)</span>，那么平均<strong>储存费</strong>就等于 <span
-class="math inline">\(\dfrac{c_1R(P-R)}{2P}t\)</span></p>
-<p>那么将两个加在一起就是总平均费用： <span class="math display">\[
-C(t) = \frac{c_3}{t} + \frac{c_1 R(P-R)}{2P} t
-\]</span> 求极值点，那么可得最优周期为：<span class="math inline">\(t_0
-= \sqrt{\dfrac{2c_3P}{c_1 R (P - R)}}\)</span></p>
-<p>最优生产量为：<span class="math inline">\(Q_0 =
-\sqrt{\dfrac{2c_3PR}{c_1(P-R)}}\)</span></p>
-<p>最小总平均费用为：<span class="math inline">\(C_0 =
-\sqrt{2c_1c_3R\dfrac{P-R}{P}}\)</span></p>
-<h3 id="允许缺货瞬时到货模型">允许缺货，瞬时到货模型</h3>
-<h4 id="模型基本假设-2">模型基本假设</h4>
-<ol type="1">
+<h4 id="模型计算-1"><a href="#模型计算-1" class="headerlink" title="模型计算"></a>模型计算</h4><p>首先假设每次生产的装配费用为 $c_3$，那么 $t$ 时间内平均装配费为 $\frac{c_3}{t}$</p>
+<p>$t$ 时间内的平均<strong>存储量</strong>为：$\frac{1}{2}(P-R)t_1$，其中 $t_1$ 是所需生产时间</p>
+<p>我们用 $t \to t_0$，那么平均<strong>储存费</strong>就等于 $\dfrac{c_1R(P-R)}{2P}t$</p>
+<p>那么将两个加在一起就是总平均费用：</p>
+<script type="math/tex; mode=display">
+C(t) = \frac{c_3}{t} + \frac{c_1 R(P-R)}{2P} t</script><p>求极值点，那么可得最优周期为：$t_0 = \sqrt{\dfrac{2c_3P}{c_1 R (P - R)}}$</p>
+<p>最优生产量为：$Q_0 = \sqrt{\dfrac{2c_3PR}{c_1(P-R)}}$</p>
+<p>最小总平均费用为：$C_0 = \sqrt{2c_1c_3R\dfrac{P-R}{P}}$</p>
+<h3 id="允许缺货，瞬时到货模型"><a href="#允许缺货，瞬时到货模型" class="headerlink" title="允许缺货，瞬时到货模型"></a>允许缺货，瞬时到货模型</h3><h4 id="模型基本假设-2"><a href="#模型基本假设-2" class="headerlink" title="模型基本假设"></a>模型基本假设</h4><ol>
 <li>允许缺货</li>
 <li>备货时间很短，可立即得到补充</li>
-<li>需求是连续均匀的，需求速度为常数 <span
-class="math inline">\(R\)</span></li>
+<li>需求是连续均匀的，需求速度为常数 $R$</li>
 <li>每次订货量不变，订购费不变</li>
 <li>单位时间内的存储费不变</li>
 </ol>
-<h4 id="模型计算-2">模型计算</h4>
-<p>我们只算一个周期 <span class="math inline">\(t\)</span>
-的一个费用。</p>
-<p>假设每次订货的订购费用为 <span class="math inline">\(c_3\)</span>，
-单位存储费为 <span class="math inline">\(c_1\)</span></p>
-<p>那么储存费为 <span
-class="math inline">\(\frac{1}{2}c_1\frac{S^2}{R}\)</span>，其中 <span
-class="math inline">\(S = Rt_1\)</span>，<span
-class="math inline">\(t_1\)</span> 表示有货的那段时间</p>
-<p>假设单位时间内单位物品缺货费为 <span
-class="math inline">\(c_2\)</span></p>
-<p>那么总缺货费为 <span class="math inline">\(\frac{1}{2} c_2 \frac{(Rt-
-S)^2}{R}\)</span></p>
-<p>那么我们总的费用就是三项加起来： <span class="math display">\[
-C(t) = \frac{1}{2}c_1\frac{S^2}{R}+\frac{1}{2}c_2\frac{(Rt-S)^2}{R}+c_3
-\]</span> 多元函数求极值，得到最优周期为：<span
-class="math inline">\(t_0 =
-\sqrt{\dfrac{2c_3(c_1+c_2)}{c_1c_2R}}\)</span></p>
-<p>最大存储量：<span class="math inline">\(S_0 =
-\sqrt{\dfrac{2c_2c_3R}{c_1(c_1+c_2)}}\)</span></p>
-<p>最优进货量：<span class="math inline">\(Q_0 =
-\sqrt{\dfrac{2Rc_3(c_1+c_2)}{c_1c_2}}\)</span></p>
-<p>最小总平均费用：<span class="math inline">\(C_0 =
-\sqrt{\dfrac{2c_1c_2c_3R}{c_1 + c_2}}\)</span></p>
-<p>观察第一个模型与这个的区别，其实可以发现其实第一个的式子就是这个的特殊情况，将<span
-class="math inline">\(c_2\to +\infty,\dfrac{c_2}{c_1+c_3} \to 1\)</span>
-加上。</p>
-<h3 id="允许缺货逐步均匀到货模型">允许缺货，逐步均匀到货模型</h3>
-<h4 id="模型基本假设-3">模型基本假设</h4>
-<ol type="1">
+<h4 id="模型计算-2"><a href="#模型计算-2" class="headerlink" title="模型计算"></a>模型计算</h4><p>我们只算一个周期 $t$ 的一个费用。</p>
+<p>假设每次订货的订购费用为 $c_3$， 单位存储费为 $c_1$</p>
+<p>那么储存费为 $\frac{1}{2}c_1\frac{S^2}{R}$，其中 $S = Rt_1$，$t_1$ 表示有货的那段时间</p>
+<p>假设单位时间内单位物品缺货费为 $c_2$</p>
+<p>那么总缺货费为 $\frac{1}{2} c_2 \frac{(Rt- S)^2}{R}$</p>
+<p>那么我们总的费用就是三项加起来：</p>
+<script type="math/tex; mode=display">
+C(t) = \frac{1}{2}c_1\frac{S^2}{R}+\frac{1}{2}c_2\frac{(Rt-S)^2}{R}+c_3</script><p>多元函数求极值，得到最优周期为：$t_0 = \sqrt{\dfrac{2c_3(c_1+c_2)}{c_1c_2R}}$</p>
+<p>最大存储量：$S_0 = \sqrt{\dfrac{2c_2c_3R}{c_1(c_1+c_2)}}$</p>
+<p>最优进货量：$Q_0 = \sqrt{\dfrac{2Rc_3(c_1+c_2)}{c_1c_2}}$</p>
+<p>最小总平均费用：$C_0 = \sqrt{\dfrac{2c_1c_2c_3R}{c_1 + c_2}}$</p>
+<p>观察第一个模型与这个的区别，其实可以发现其实第一个的式子就是这个的特殊情况，将$c_2\to +\infty,\dfrac{c_2}{c_1+c_3} \to 1$ 加上。</p>
+<h3 id="允许缺货，逐步均匀到货模型"><a href="#允许缺货，逐步均匀到货模型" class="headerlink" title="允许缺货，逐步均匀到货模型"></a>允许缺货，逐步均匀到货模型</h3><h4 id="模型基本假设-3"><a href="#模型基本假设-3" class="headerlink" title="模型基本假设"></a>模型基本假设</h4><ol>
 <li>允许缺货</li>
-<li>生产需一定时间，生产速度为常数 <span
-class="math inline">\(P\)</span></li>
-<li>需求是连续均匀的，需求速度为常数 <span
-class="math inline">\(R\)</span></li>
+<li>生产需一定时间，生产速度为常数 $P$</li>
+<li>需求是连续均匀的，需求速度为常数 $R$</li>
 <li>每次订货量不变，装配费不变</li>
 <li>单位时间的存储费不变</li>
 </ol>
-<p>首先假设每次生产的装配费用为 <span
-class="math inline">\(c_3\)</span>，单位时间内单位物品缺货费为 <span
-class="math inline">\(c_2\)</span>，那么 <span
-class="math inline">\(t\)</span> 时间内平均装配费为 <span
-class="math inline">\(\frac{c_3}{t}\)</span>，其中 <span
-class="math inline">\(t_2\)</span> 表示从开始到库存里有货这一段时间</p>
-<p><span class="math inline">\(t\)</span> 时间内的总存储费为：<span
-class="math inline">\(\dfrac{1}{2}c_1\dfrac{R(P-R)}{P}(t-t_2)^2\)</span></p>
-<p><span class="math inline">\(t\)</span> 时间内的总缺货费：<span
-class="math inline">\(\dfrac{1}{2}c_2\dfrac{R(P-R)}{P}t_2^2\)</span></p>
-<p>那么我们总的费用就是三项加起来： <span class="math display">\[
-C(t) =
-\frac{1}{2}c_1\frac{R(P-R)}{P}(t-t_2)^2+\frac{1}{2}c_2\frac{R(P-R)}{P}t_2^2+c_3
-\]</span> 多元函数求极值，可得最优生产量为：<span
-class="math inline">\(Q_0 =
-\sqrt{\dfrac{2c_3(c_1+c_2)PR}{c_1c_2(P-R)}}\)</span></p>
-<p>最大储存量为：<span class="math inline">\(S_0 =
-\sqrt{\dfrac{2c_2c_3R(P-R)}{c_1(c_1+c_2)P}}\)</span></p>
-<p>最小总平均费用：<span class="math inline">\(C_0 =
-\sqrt{\dfrac{2c_1c_2c_3R(P-R)}{c_1(c_1+c_2)P}}\)</span></p>
-<p>最大缺货量：<span class="math inline">\(B_0 =
-\sqrt{\dfrac{2c_1c_3R(P-R)}{c_2(c_1+c_2)P}}\)</span></p>
+<p>首先假设每次生产的装配费用为 $c_3$，单位时间内单位物品缺货费为 $c_2$，那么 $t$ 时间内平均装配费为 $\frac{c_3}{t}$，其中 $t_2$ 表示从开始到库存里有货这一段时间</p>
+<p> $t$ 时间内的总存储费为：$\dfrac{1}{2}c_1\dfrac{R(P-R)}{P}(t-t_2)^2$</p>
+<p> $t$ 时间内的总缺货费：$\dfrac{1}{2}c_2\dfrac{R(P-R)}{P}t_2^2$</p>
+<p>那么我们总的费用就是三项加起来：</p>
+<script type="math/tex; mode=display">
+C(t) = \frac{1}{2}c_1\frac{R(P-R)}{P}(t-t_2)^2+\frac{1}{2}c_2\frac{R(P-R)}{P}t_2^2+c_3</script><p>多元函数求极值，可得最优生产量为：$Q_0 = \sqrt{\dfrac{2c_3(c_1+c_2)PR}{c_1c_2(P-R)}}$</p>
+<p>最大储存量为：$S_0 = \sqrt{\dfrac{2c_2c_3R(P-R)}{c_1(c_1+c_2)P}}$</p>
+<p>最小总平均费用：$C_0 = \sqrt{\dfrac{2c_1c_2c_3R(P-R)}{c_1(c_1+c_2)P}}$</p>
+<p>最大缺货量：$B_0 = \sqrt{\dfrac{2c_1c_3R(P-R)}{c_2(c_1+c_2)P}}$</p>
 
             </div>
             <hr>
